@@ -9,16 +9,16 @@ export default defineUserConfig({
 
     "/": {
       lang: "zh-CN",
-      title: "博客演示",
-      description: "vuepress-theme-hope 的博客演示",
+      title: "LIANG",
+      description: "LiangBlog",
     },
   },
 
   theme,
     plugins: [
         searchProPlugin({
-            // 索引全部内容
-            indexContent: true,
+            // // 索引全部内容
+            // indexContent: true,
             // 为分类和标签添加索引
             customFields: [
                 {
@@ -33,5 +33,6 @@ export default defineUserConfig({
                 },
             ],
         }),
+
     ]
 });

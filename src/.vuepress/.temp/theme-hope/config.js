@@ -4,8 +4,6 @@ import { HopeIcon, Layout, NotFound, useScrollPromise, injectDarkmode, setupDark
 
 import { BlogCategory, BlogHome, BlogType, BloggerInfo, Timeline, setupBlog } from "C:/Users/zyl/Desktop/vuepress-theme-hope-main/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/blog/export.js";
 import "C:/Users/zyl/Desktop/vuepress-theme-hope-main/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/blog/styles/all.scss";
-import { GlobalEncrypt, LocalEncrypt } from "C:/Users/zyl/Desktop/vuepress-theme-hope-main/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/export.js";
-import "C:/Users/zyl/Desktop/vuepress-theme-hope-main/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/styles/all.scss"
 import Slide from "C:/Users/zyl/Desktop/vuepress-theme-hope-main/my-docs/node_modules/vuepress-plugin-md-enhance/lib/client/SlidePage.js";
 
 import "C:/Users/zyl/Desktop/vuepress-theme-hope-main/my-docs/node_modules/vuepress-theme-hope/lib/bundle/styles/all.scss";
@@ -27,8 +25,6 @@ export default defineClientConfig({
     app.component("HopeIcon", HopeIcon);
 
     app.component("BloggerInfo", BloggerInfo);
-    app.component("GlobalEncrypt", GlobalEncrypt);
-    app.component("LocalEncrypt", LocalEncrypt);
   },
   setup: () => {
     setupDarkmode();
