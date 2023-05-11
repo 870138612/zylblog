@@ -19,7 +19,7 @@ export default hopeTheme({
     iconAssets: "iconfont",
     // repo: "vuepress-theme-hope/vuepress-theme-hope",
     docsDir: "docs",
-
+    repo: "https://github.com/870138612/zylblog",
     // blog: {
     //     medias: {
     //         Baidu: "https://example.com",
