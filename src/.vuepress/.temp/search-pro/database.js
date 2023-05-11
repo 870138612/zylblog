@@ -1,0 +1,15 @@
+export const database = "eJzll1tT2kAUx78Kk2daxMuLb+1D3/oJOj5ESYUpEifEcToOM1gFvCDqSIoXFKRKrcqt1SFEKB+m2Uue+hW6IRECS9o69iV1YDJ7NnvOnP9vd8+ZLDEeZpI8AiFR4J/7xbmgbooBMcgxkwyIfVOVFFzbZdzMDB8SuZAYZibfLDF+jvVxAllBXoSDC7PGyLKEgcclUD+BuR2UvlXlPVw+ReUMzCpkrMqHKJ9WlSQoFVE6Rxxh5hzIMtrMwHodlHZ+NpNwV9ZqTZTaxNEYMUH5RLskzzOYjYKGjIrb6HBVVRRmKjIVcTMePz/HdYTcZw6vC7idgsfnYK1K8ier0RdFy9z0Z9nxnefDYtgz4+cE4T1FAF7U4OmKrXyYT2iFfddoD4Mx80yfseLA7QMtkYT7FRCPgXLjR/QDSd1NRxqjIukzf4w0RdYshEV+7lWAC/rIuiVmpLMLRvrktVc3kVIg0UB1W39m48SxB8AnsLN86K2wEBApCmj5Svt+AE+yjgVhVQCrN/pgAMrZ5z4cVvmqfIeLy2Ajh1daqpzSYluoVYbNNDpTbIGgozJoST0RXdsq4TUrvPPxiyEXqElGMO30VjsudE1UXEbpi64JNvKgEjdNe7Fqq028YDIBtjJ9osKiwC5ODz3oeGsdp/Ycu7/mnrrvddAn3sqB+LMiXe6QdImTq45lgNPXeJs61wPXnJ2fD3IeL73/mw0C0OV1rvqOgCG32o7BqB2DAUF/0+1UOarKl7hwBfdzRIyqxEnHMcLBjwl0lbel8P/wHLPjOZCG8xj8pmXYwRi3gzHxpGBMsyHyG1JutOIBltYdXG4MATQN7U5vIKBZgUdfSQ3QW7rUHsaELj8mk0eVH6kKShmXd8RlLURGYKcWokeTpguTSdq5hclk8mAUdFkyUYw/ORQT9NeutGH8H34BScYkXVj6RC7Zv8zVaCbWJF/oM7ZfsaY2q8PLztSgRyTyC3Ad+A0=";
+
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updateSearchProDatabase)
+    __VUE_HMR_RUNTIME__.updateSearchProDatabase(database)
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ database }) => {
+    __VUE_HMR_RUNTIME__.updateSearchProDatabase(database);
+  })
+}
+
