@@ -1,5 +1,5 @@
 export const pagesRoutes = [
-  ["v-184f4da6","/intro.html",{"v":"/assets/images/cover1.png","e":"<h1> 关于我</h1>\n<p>杭州某电专计算机专业研二学生</p>\n<p>日常狗混子，摸鱼王者，实验室最幸福的人</p>\n","y":"a","t":"关于我","i":"info"},["/intro","/intro.md"]],
+  ["v-184f4da6","/intro.html",{"y":"a","t":"关于我","i":"info"},["/intro","/intro.md"]],
   ["v-8daa1a0e","/",{"y":"h","t":"主页","i":"home"},["/index.html","/README.md"]],
   ["v-14b0a7d7","/home/",{"e":"<figure><img src=\"/homebg.png\" alt=\"\" tabindex=\"0\" loading=\"lazy\"><figcaption></figcaption></figure>\n","y":"a","t":"欢迎来到我的空间","i":"discover"},["/home/index.html","/home/README.md"]],
   ["v-2bc6566a","/posts/cherry.html",{"d":1641686400000,"l":"2022年1月9日","c":["樱桃"],"g":["红","小","圆"],"e":"<h1> 樱桃</h1>\n<h2> 标题 2</h2>\n<p>这里是内容。</p>\n<h3> 标题 3</h3>\n<p>这里是内容。</p>\n","y":"a","t":"樱桃","i":"edit"},["/posts/cherry","/posts/cherry.md"]],

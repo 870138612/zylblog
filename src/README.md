@@ -2,7 +2,7 @@
 home: true
 title: 主页
 icon: home
-heroImage: /avator.png
+heroImage: 
 heroText: Liang Blog
 tagline: ✨
 actions:
