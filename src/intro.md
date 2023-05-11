@@ -1,6 +1,6 @@
 ---
 icon: info
-cover: /cover1.png
+cover: /assets/images/cover1.png
 editLink: false 
 ---
 
