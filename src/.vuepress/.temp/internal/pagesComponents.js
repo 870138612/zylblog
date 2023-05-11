@@ -5,6 +5,8 @@ export const pagesComponents = {
   "v-184f4da6": defineAsyncComponent(() => import(/* webpackChunkName: "v-184f4da6" */"C:/Users/zyl/Desktop/vuepress-theme-hope-main/my-docs/src/.vuepress/.temp/pages/intro.html.vue")),
   // path: /
   "v-8daa1a0e": defineAsyncComponent(() => import(/* webpackChunkName: "v-8daa1a0e" */"C:/Users/zyl/Desktop/vuepress-theme-hope-main/my-docs/src/.vuepress/.temp/pages/index.html.vue")),
+  // path: /home/
+  "v-14b0a7d7": defineAsyncComponent(() => import(/* webpackChunkName: "v-14b0a7d7" */"C:/Users/zyl/Desktop/vuepress-theme-hope-main/my-docs/src/.vuepress/.temp/pages/home/index.html.vue")),
   // path: /posts/cherry.html
   "v-2bc6566a": defineAsyncComponent(() => import(/* webpackChunkName: "v-2bc6566a" */"C:/Users/zyl/Desktop/vuepress-theme-hope-main/my-docs/src/.vuepress/.temp/pages/posts/cherry.html.vue")),
   // path: /posts/dragonfruit.html

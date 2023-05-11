@@ -18,7 +18,7 @@ export default defineUserConfig({
     plugins: [
         searchProPlugin({
             // // 索引全部内容
-            // indexContent: true,
+            indexContent: true,
             // 为分类和标签添加索引
             customFields: [
                 {

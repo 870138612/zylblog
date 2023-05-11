@@ -1,6 +1,7 @@
 export const pagesRoutes = [
-  ["v-184f4da6","/intro.html",{"v":"/assets/images/cover3.jpg","e":"<h1> 关于我</h1>\n<p>将你的个人介绍和档案放置在此处。</p>\n","y":"a","t":"关于我","i":"info"},["/intro","/intro.md"]],
-  ["v-8daa1a0e","/",{"y":"h","t":"博客主页","i":"home"},["/index.html","/README.md"]],
+  ["v-184f4da6","/intro.html",{"v":"/assets/images/cover1.png","e":"<h1> 关于我</h1>\n<p>杭州某电专计算机专业研二学生</p>\n<p>日常狗混子，摸鱼王者，实验室最幸福的人</p>\n","y":"a","t":"关于我","i":"info"},["/intro","/intro.md"]],
+  ["v-8daa1a0e","/",{"y":"h","t":"主页","i":"home"},["/index.html","/README.md"]],
+  ["v-14b0a7d7","/home/",{"e":"<figure><img src=\"/homebg.png\" alt=\"\" tabindex=\"0\" loading=\"lazy\"><figcaption></figcaption></figure>\n","y":"a","t":"欢迎来到我的空间","i":"discover"},["/home/index.html","/home/README.md"]],
   ["v-2bc6566a","/posts/cherry.html",{"d":1641686400000,"l":"2022年1月9日","c":["樱桃"],"g":["红","小","圆"],"e":"<h1> 樱桃</h1>\n<h2> 标题 2</h2>\n<p>这里是内容。</p>\n<h3> 标题 3</h3>\n<p>这里是内容。</p>\n","y":"a","t":"樱桃","i":"edit"},["/posts/cherry","/posts/cherry.md"]],
   ["v-24b7c48d","/posts/dragonfruit.html",{"d":1641772800000,"l":"2022年1月10日","c":["火龙果","水果"],"g":["红","大"],"e":"<h1> 火龙果</h1>\n<h2> 标题 2</h2>\n<p>这里是内容。</p>\n<h3> 标题 3</h3>\n<p>这里是内容。</p>\n","y":"a","t":"火龙果","i":"edit"},["/posts/dragonfruit","/posts/dragonfruit.md"]],
   ["v-e1e3da16","/posts/",{"c":["使用指南"],"e":"<h2> 目录</h2>\n<ul>\n<li>\n<p><a href=\"/posts/markdown.html\" target=\"blank\">Markdown 展示</a></p>\n</li>\n<li>\n<p><a href=\"/posts/page.html\" target=\"blank\">页面展示</a></p>\n</li>\n<li>\n<p><a href=\"/posts/disable.html\" target=\"blank\">禁用展示</a></p>\n</li>\n<li>\n<p><a href=\"/posts/encrypt.html\" target=\"blank\">加密展示</a></p>\n</li>\n</ul>","y":"a","t":"主要功能与配置演示","i":"discover"},["/posts/index.html","/posts/README.md"]],
