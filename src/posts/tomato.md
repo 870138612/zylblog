@@ -1,5 +1,5 @@
 ---
-cover: /assets/images/cover2.jpg
+cover: https://blog-1312634242.cos.ap-shanghai.myqcloud.com/2023/05/11/ede9040eff3a48cbabd47aa03fe04e28.png
 icon: edit
 date: 2022-01-12
 category:

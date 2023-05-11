@@ -1,6 +1,6 @@
 ---
 icon: info
-cover: /assets/images/cover1.png
+cover: /zylblog/cover1.png
 editLink: false 
 ---
 
