@@ -2,7 +2,7 @@
 home: true
 title: 主页
 icon: home
-heroImage: 
+heroImage: /aboutme.png
 heroText: Liang Blog
 tagline: ✨
 actions:
