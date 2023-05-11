@@ -37,7 +37,6 @@ projects:
     desc: 自定义详细介绍
     link: https://你的自定义链接
 
-footer: Copyright © 2023-present Liang
-copyright: false
+footer: 星之海
 ---
 
