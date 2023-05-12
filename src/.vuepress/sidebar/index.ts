@@ -31,18 +31,19 @@ export const zhSidebar = sidebar({
       prefix: "framework/",
       children: "structure",
     },
-    {
-      collapsible: true,
-      text: "面经",
-      icon: "ask",
-      prefix: "interview/",
-      children: "structure",
-    },
+
     {
       collapsible: true,
       text: "笔记",
       icon: "note",
       prefix: "note/",
+      children: "structure",
+    },
+    {
+      collapsible: true,
+      text: "面经",
+      icon: "ask",
+      prefix: "interview/",
       children: "structure",
     },
 

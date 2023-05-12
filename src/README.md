@@ -27,9 +27,9 @@ features:
     details: 秋招面经记录
     link: /interview
     
-  - title: 摄影
+  - title: 拍拍
     icon: photo
-    details: 拍拍日常
+    details: 快门爱好者日常
     link: /photo
 
 ---
