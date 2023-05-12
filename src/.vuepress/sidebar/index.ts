@@ -40,7 +40,7 @@ export const zhSidebar = sidebar({
     },
     {
       collapsible: true,
-      text: "学习笔记",
+      text: "笔记",
       icon: "note",
       prefix: "note/",
       children: "structure",

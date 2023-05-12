@@ -11,9 +11,9 @@ actions:
     type: primary
 
 features:
-  - title: 学习
+  - title: 笔记
     icon: java
-    details: java学习笔记
+    details: Java笔记
     link: /java
     
   - title: 面经
