@@ -11,5 +11,5 @@ pageInfo: false
 - [框架](/framework)
 - [学习笔记](/note)
 - [面经](/interview)
-- [随处拍拍](/interview)
+- [拍拍](/interview)
 - [关于我](/intro.md)
