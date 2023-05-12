@@ -13,15 +13,15 @@ export const zhSidebar = sidebar({
     {
       collapsible: true,
       text: "数据库",
-      icon: "mysql",
+      icon: "database",
       prefix: "database/",
       children: "structure",
     },
     {
       collapsible: true,
       text: "中间件",
-      icon: "rabbitmq",
-      prefix: "miditem/",
+      icon: "middleware",
+      prefix: "middleware/",
       children: "structure",
     },
     {

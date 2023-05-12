@@ -8,7 +8,7 @@ pageInfo: false
 ### 快速导航
 - [Java](/java)
 - [数据库](/database)
-- [中间件](/miditem)
+- [中间件](/middleware)
 - [框架](/framework)
 - [笔记](/note)
 - [面经](/interview)

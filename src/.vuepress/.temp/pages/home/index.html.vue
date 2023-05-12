@@ -2,7 +2,7 @@
 <ul>
 <li><a href="/java">Java</a></li>
 <li><a href="/database">数据库</a></li>
-<li><a href="/miditem">中间件</a></li>
+<li><a href="/middleware">中间件</a></li>
 <li><a href="/framework">框架</a></li>
 <li><a href="/note">笔记</a></li>
 <li><a href="/interview">面经</a></li>
