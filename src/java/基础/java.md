@@ -1,7 +1,8 @@
 ---
 title: Java基础
-icon: page
-pageInfo: false
+icon: jibiji
 category:
+  - Java
+tags:
   - Java
 ---
