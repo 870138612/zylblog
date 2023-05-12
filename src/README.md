@@ -11,10 +11,16 @@ actions:
     type: primary
 
 features:
-  - title: 笔记
+
+  - title: Java
     icon: java
     details: Java笔记
     link: /java
+    
+  - title: 笔记
+    icon: note
+    details: 日常笔记
+    link: /note
     
   - title: 面经
     icon: ask
