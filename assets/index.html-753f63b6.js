@@ -1,0 +1,1 @@
+import{_ as l,X as n,Y as a,Z as e}from"./framework-00d631a5.js";const t={},c=e("ul",null,[e("li",null,[e("a",{href:"/1java"},"Java")]),e("li",null,[e("a",{href:"/2jvm"},"数据库")]),e("li",null,[e("a",{href:"/3juc"},"框架")])],-1),_=[c];function o(r,s){return n(),a("div",null,_)}const u=l(t,[["render",o],["__file","index.html.vue"]]);export{u as default};
