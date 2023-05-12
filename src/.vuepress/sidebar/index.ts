@@ -20,17 +20,31 @@ export const zhSidebar = sidebar({
         {
             collapsible:true,
             text: "框架",
-            icon: "categoryselected",
+            icon: "framework",
             prefix: "framework/",
             children:"structure",
         },
         {
             collapsible:true,
             text: "学习笔记",
-            icon: "repo",
+            icon: "note",
             prefix: "note/",
             children:"structure",
         },
+        {
+          collapsible:true,
+          text: "面经",
+          icon: "ask",
+          prefix: "interview/",
+          children:"structure",
+        },
+       {
+        collapsible:true,
+        text: "随处拍拍",
+        icon: "photo",
+        prefix: "photo/",
+        children:"structure",
+       },
         "intro"
 
     ],

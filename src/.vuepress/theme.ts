@@ -8,7 +8,6 @@ const MR_HOPE_AVATAR =
 export default hopeTheme({
     //个人主页的地址
     hostname: "https://mister-hope.github.io",
-    editLink: false,
     author: {
         name: "Liang",
         url: "https://localhost",
@@ -16,7 +15,7 @@ export default hopeTheme({
 
     contributors: true,
     lastUpdated: true,
-    iconAssets: "iconfont",
+    iconAssets: "//at.alicdn.com/t/c/font_4062992_mw38s67ntji.css",
     // repo: "vuepress-theme-hope/vuepress-theme-hope",
     docsDir: "docs",
     repo: "https://github.com/870138612/zylblog",
@@ -65,23 +64,20 @@ export default hopeTheme({
 
             // navbar
             navbar: zhNavbar,
-
             // sidebar
             sidebar: zhSidebar,
-
             footer: "Copyright © 2023-present Liang",
             copyright:false,
             displayFooter: true,
-
             blog: {
                 description: "Java菜鸟开发者",
                 intro: "/intro.html",
             },
 
             // page meta
-            // metaLocales: {
-            //   editLink: "在 GitHub 上编辑此页",
-            // },
+            metaLocales: {
+              editLink: "在 GitHub 上编辑此页",
+            },
         },
     },
     //加密的文章在这里配置

@@ -12,19 +12,19 @@ actions:
 
 features:
   - title: 学习
-    icon: alias
+    icon: java
     details: java学习笔记
-    link: /home
+    link: /java
     
   - title: 面经
-    icon: community
+    icon: ask
     details: 秋招面经记录
-    link: /home
+    link: /interview
     
   - title: 摄影
-    icon: pic
-    details: 摄影日常
-    link: /home
+    icon: photo
+    details: 拍拍日常
+    link: /photo
 
 ---
 
