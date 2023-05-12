@@ -1,0 +1,1 @@
+import{_ as t,X as n,Y as o,Z as e,a0 as l,a1 as c,E as r,$ as s}from"./framework-00d631a5.js";const _={};function i(u,d){const a=r("RouterLink");return n(),o("div",null,[e("ul",null,[e("li",null,[l(a,{to:"/java/1java/java.html"},{default:c(()=>[s("Java基础")]),_:1})])])])}const f=t(_,[["render",i],["__file","index.html.vue"]]);export{f as default};
