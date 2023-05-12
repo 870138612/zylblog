@@ -18,7 +18,7 @@ export default hopeTheme({
     iconAssets: "//at.alicdn.com/t/c/font_4062992_mjjlnhm8t3.css",
     // repo: "vuepress-theme-hope/vuepress-theme-hope",
     docsDir: "docs",
-    repo: "https://github.com/870138612/zylblog",
+    repo: "https://github.com/870138612/870138612.github.io.git",
     // blog: {
     //     medias: {
     //         Baidu: "https://example.com",
