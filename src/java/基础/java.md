@@ -1,6 +1,6 @@
 ---
 title: Java基础
-icon: jibiji
+icon: biji
 category:
   - Java
 tags:
