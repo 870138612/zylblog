@@ -10,3 +10,5 @@ editLink: false
 
 科研狗混子，摸鱼王者，摄影爱好者
 
+项目基于vuepress-theme-hope开发
+使用腾讯CDN和对象存储加快加载速度
