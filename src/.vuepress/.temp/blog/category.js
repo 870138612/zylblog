@@ -1,2 +1,2 @@
-export const categoryMap = {"category":{"/":{"path":"/category/","map":{"数据库":{"path":"/category/%E6%95%B0%E6%8D%AE%E5%BA%93/","keys":["v-2e25198a"]},"框架":{"path":"/category/%E6%A1%86%E6%9E%B6/","keys":["v-7d72c4ac"]},"面经":{"path":"/category/%E9%9D%A2%E7%BB%8F/","keys":["v-71b3ae87"]},"Java":{"path":"/category/java/","keys":["v-14c69af4"]},"学习笔记":{"path":"/category/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/","keys":["v-15054f24"]},"摄影":{"path":"/category/%E6%91%84%E5%BD%B1/","keys":["v-e2acc714"]}}}},"tag":{"/":{"path":"/tag/","map":{}}}};
+export const categoryMap = {"category":{"/":{"path":"/category/","map":{"Java":{"path":"/category/java/","keys":["v-4b0d24f4"]}}}},"tag":{"/":{"path":"/tag/","map":{}}}};
 

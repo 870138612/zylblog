@@ -564,7 +564,7 @@ var rect = (parent, node) => {
   const rect2 = shapeSvg.insert("rect", ":first-child");
   const totalWidth = bbox.width + node.padding;
   const totalHeight = bbox.height + node.padding;
-  rect2.attr("class", "basic label-container").attr("style", node.style).attr("rx", node.rx).attr("ry", node.ry).attr("x", -bbox.width / 2 - halfPadding).attr("y", -bbox.height / 2 - halfPadding).attr("width", totalWidth).attr("height", totalHeight);
+  rect2.attr("class", "基础 label-container").attr("style", node.style).attr("rx", node.rx).attr("ry", node.ry).attr("x", -bbox.width / 2 - halfPadding).attr("y", -bbox.height / 2 - halfPadding).attr("width", totalWidth).attr("height", totalHeight);
   if (node.props) {
     const propKeys = new Set(Object.keys(node.props));
     if (node.props.borders) {

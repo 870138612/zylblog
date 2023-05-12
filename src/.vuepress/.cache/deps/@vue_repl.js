@@ -25657,7 +25657,7 @@ var regexNonASCII = /[^\x20-\x7E]/;
 var regexSeparators = /[\x2E\u3002\uFF0E\uFF61]/g;
 var errors = {
   "overflow": "Overflow: input needs wider integers to process",
-  "not-basic": "Illegal input >= 0x80 (not a basic code point)",
+  "not-basic": "Illegal input >= 0x80 (not a 基础 code point)",
   "invalid-input": "Invalid input"
 };
 var baseMinusTMin = base - tMin;
@@ -76716,7 +76716,7 @@ var FlowTransformer = class extends Transformer {
    *   not a complex expression and not referencing other elements. That means
    *   we can simply copy a single token.
    *
-   * Enums can be broken up into three basic cases:
+   * Enums can be broken up into three 基础 cases:
    *
    * Mirrored enums:
    * enum E {A, B}

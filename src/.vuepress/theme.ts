@@ -15,7 +15,7 @@ export default hopeTheme({
 
     contributors: true,
     lastUpdated: true,
-    iconAssets: "//at.alicdn.com/t/c/font_4062992_mw38s67ntji.css",
+    iconAssets: "//at.alicdn.com/t/c/font_4062992_v0oipc2qzw.css",
     // repo: "vuepress-theme-hope/vuepress-theme-hope",
     docsDir: "docs",
     repo: "https://github.com/870138612/zylblog",
@@ -132,6 +132,7 @@ export default hopeTheme({
             vPre: true,
             vuePlayground: true,
         },
+        autoCatalog: true,
 
         // uncomment these if you want a PWA
         // pwa: {
