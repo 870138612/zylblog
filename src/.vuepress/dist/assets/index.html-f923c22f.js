@@ -1,0 +1,1 @@
+import{_ as o,X as n,Y as a,Z as e,a0 as l,a1 as c,E as r,$ as s}from"./framework-00d631a5.js";const _={};function i(u,d){const t=r("RouterLink");return n(),a("div",null,[e("ul",null,[e("li",null,[l(t,{to:"/photo/%E5%B9%B3%E6%BD%AD.html"},{default:c(()=>[s("平潭")]),_:1})])])])}const f=o(_,[["render",i],["__file","index.html.vue"]]);export{f as default};
