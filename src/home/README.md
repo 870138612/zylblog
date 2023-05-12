@@ -10,7 +10,7 @@ pageInfo: false
 - [数据库](/database)
 - [中间件](/miditem)
 - [框架](/framework)
-- [学习笔记](/note)
+- [笔记](/note)
 - [面经](/interview)
 - [拍拍](/interview)
 - [关于我](/intro.md)
