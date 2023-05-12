@@ -1,6 +1,6 @@
 ---
 icon: info
-cover: /cover1.png
+cover: https://blog-1312634242.cos.ap-shanghai.myqcloud.com/2023/aboutme.jpg
 editLink: false 
 ---
 

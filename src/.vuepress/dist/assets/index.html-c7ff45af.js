@@ -1,0 +1,1 @@
+import{_ as t,X as n,Y as o,Z as e}from"./framework-4f91def0.js";const c={},a=e("figure",null,[e("img",{src:"https://blog-1312634242.cos.ap-shanghai.myqcloud.com/2023/indexbg.jpg",alt:"",tabindex:"0",loading:"lazy"}),e("figcaption")],-1),s=[a];function i(l,_){return n(),o("div",null,s)}const d=t(c,[["render",i],["__file","index.html.vue"]]);export{d as default};
