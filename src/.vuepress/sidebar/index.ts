@@ -40,7 +40,7 @@ export const zhSidebar = sidebar({
         },
        {
         collapsible:true,
-        text: "随处拍拍",
+        text: "拍拍",
         icon: "photo",
         prefix: "photo/",
         children:"structure",
