@@ -1,1 +1,1 @@
-export const sidebarData = {"/java/":[{"text":"基础","prefix":"基础/","collapsible":true,"children":["java"]}],"/database/":[],"/framework/":[],"/note/":[],"/interview/":[],"/photo/":[]};
+export const sidebarData = {"/java/":[{"text":"Java基础","prefix":"1java/","collapsible":true,"icon":"jichu","children":["java"]},{"text":"JUC","prefix":"3juc/","collapsible":true,"icon":"juc","children":[]},{"text":"JVM","prefix":"2jvm/","collapsible":true,"icon":"jvm","children":[]}],"/database/":[],"/miditem/":[],"/framework/":[],"/note/":[],"/interview/":[],"/photo/":["平潭"]};

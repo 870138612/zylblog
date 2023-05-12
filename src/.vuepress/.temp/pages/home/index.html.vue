@@ -5,7 +5,7 @@
 <li><a href="/framework">框架</a></li>
 <li><a href="/note">学习笔记</a></li>
 <li><a href="/interview">面经</a></li>
-<li><a href="/interview">随处拍拍</a></li>
+<li><a href="/interview">拍拍</a></li>
 <li><RouterLink to="/intro.html">关于我</RouterLink></li>
 </ul>
 </div></template>

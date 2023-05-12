@@ -15,7 +15,7 @@ export default hopeTheme({
 
     contributors: true,
     lastUpdated: true,
-    iconAssets: "//at.alicdn.com/t/c/font_4062992_isq1rvwhowr.css",
+    iconAssets: "//at.alicdn.com/t/c/font_4062992_mjjlnhm8t3.css",
     // repo: "vuepress-theme-hope/vuepress-theme-hope",
     docsDir: "docs",
     repo: "https://github.com/870138612/zylblog",

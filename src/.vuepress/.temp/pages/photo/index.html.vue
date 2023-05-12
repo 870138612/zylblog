@@ -1,4 +1,6 @@
-<template><div><h2 id="目录" tabindex="-1"><a class="header-anchor" href="#目录" aria-hidden="true">#</a> 目录</h2>
+<template><div><ul>
+<li><RouterLink to="/photo/%E5%B9%B3%E6%BD%AD.html">平潭</RouterLink></li>
+</ul>
 </div></template>
 
 

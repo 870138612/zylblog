@@ -18,6 +18,13 @@ export const zhSidebar = sidebar({
             children:"structure",
         },
         {
+          collapsible:true,
+          text: "中间件",
+          icon: "rabbitmq",
+          prefix: "miditem/",
+          children:"structure",
+        },
+        {
             collapsible:true,
             text: "框架",
             icon: "framework",
