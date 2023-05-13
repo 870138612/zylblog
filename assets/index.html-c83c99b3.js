@@ -1,1 +1,0 @@
-import{_ as n,X as t,Y as l,Z as e}from"./framework-00d631a5.js";const _={},a=e("ul",null,[e("li",null,[e("a",{href:"1nginx"},"Nginx")]),e("li",null,[e("a",{href:"2rabbitmq"},"RabbitMq")])],-1),c=[a];function i(o,r){return t(),l("div",null,c)}const d=n(_,[["render",i],["__file","index.html.vue"]]);export{d as default};
