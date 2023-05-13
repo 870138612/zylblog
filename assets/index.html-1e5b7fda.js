@@ -1,0 +1,1 @@
+import{_ as n,X as t,Y as s,Z as e}from"./framework-00d631a5.js";const _={},c=e("ul",null,[e("li",null,[e("a",{href:"1spring"},"Spring")])],-1),l=[c];function o(r,a){return t(),s("div",null,l)}const d=n(_,[["render",o],["__file","index.html.vue"]]);export{d as default};
