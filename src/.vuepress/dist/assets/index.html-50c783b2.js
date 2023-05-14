@@ -1,0 +1,1 @@
+import{_ as o,X as t,Y as c,Z as e,a0 as s,$ as r,E as a}from"./framework-3588fe51.js";const l={},_=e("a",{href:"1spring"},"Spring",-1);function i(p,d){const n=a("HopeIcon");return t(),c("div",null,[e("ul",null,[e("li",null,[s(n,{icon:"spring"}),r(),_])])])}const m=o(l,[["render",i],["__file","index.html.vue"]]);export{m as default};

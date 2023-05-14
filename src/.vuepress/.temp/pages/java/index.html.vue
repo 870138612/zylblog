@@ -1,7 +1,10 @@
 <template><div><ul>
-<li><a href="1java">Java基础</a></li>
-<li><a href="2jvm">JVM</a></li>
-<li><a href="3juc">JUC</a></li>
+<li>
+<HopeIcon icon="javabasic"/> <a href="1java">Java基础</a></li>
+<li>
+<HopeIcon icon="jvm"/> <a href="2jvm">JVM</a></li>
+<li>
+<HopeIcon icon="juc"/> <a href="3juc">JUC</a></li>
 </ul>
 </div></template>
 

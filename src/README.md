@@ -7,30 +7,30 @@ heroText: 终将美好
 tagline: 我们的春夏秋冬
 actions:
   - text: 逛逛
-    link: /home
+    link: /home/
     type: primary
 
 features:
 
   - title: Java
     icon: java
-    details: Java笔记
-    link: /java
-    
+    details: Java知识点
+    link: /java/
+  
   - title: 笔记
     icon: note
-    details: 日常笔记
-    link: /note
+    details: 日常记录
+    link: /note/
     
   - title: 面经
-    icon: ask
-    details: 秋招面经记录
-    link: /interview
+    icon: interview
+    details: 秋招面经
+    link: /interview/
     
   - title: 拍拍
     icon: photo
     details: 快门爱好者日常
-    link: /photo
+    link: /photo/
 
 ---
 

@@ -1,13 +1,21 @@
-<template><div><h3 id="快速导航" tabindex="-1"><a class="header-anchor" href="#快速导航" aria-hidden="true">#</a> 快速导航</h3>
+<template><div><h3 id="导航" tabindex="-1"><a class="header-anchor" href="#导航" aria-hidden="true">#</a> 导航</h3>
 <ul>
-<li><a href="/java">Java</a></li>
-<li><a href="/database">数据库</a></li>
-<li><a href="/middleware">中间件</a></li>
-<li><a href="/framework">框架</a></li>
-<li><a href="/note">笔记</a></li>
-<li><a href="/interview">面经</a></li>
-<li><a href="/interview">拍拍</a></li>
-<li><RouterLink to="/intro.html">关于我</RouterLink></li>
+<li>
+<HopeIcon icon="java"/> <RouterLink to="/java/">Java</RouterLink></li>
+<li>
+<HopeIcon icon="database"/> <RouterLink to="/database/">数据库</RouterLink></li>
+<li>
+<HopeIcon icon="middleware"/> <RouterLink to="/middleware/">中间件</RouterLink></li>
+<li>
+<HopeIcon icon="framework"/> <RouterLink to="/framework/">框架</RouterLink></li>
+<li>
+<HopeIcon icon="note"/> <RouterLink to="/note/">笔记</RouterLink></li>
+<li>
+<HopeIcon icon="interview"/> <RouterLink to="/interview/">面经</RouterLink></li>
+<li>
+<HopeIcon icon="photo"/> <RouterLink to="/photo/">拍拍</RouterLink></li>
+<li>
+<HopeIcon icon="aboutme"/> <RouterLink to="/intro.md/">关于我</RouterLink></li>
 </ul>
 </div></template>
 

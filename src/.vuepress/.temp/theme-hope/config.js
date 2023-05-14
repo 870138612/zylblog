@@ -1,12 +1,11 @@
 import { defineClientConfig } from "@vuepress/client";
 
-import { HopeIcon, Layout, NotFound, useScrollPromise, injectDarkmode, setupDarkmode, setupSidebarItems } from "C:/Users/zyl/Desktop/vuepress-theme-hope-main/my-docs/node_modules/vuepress-theme-hope/lib/bundle/export.js";
+import { HopeIcon, Layout, NotFound, useScrollPromise, injectDarkmode, setupDarkmode, setupSidebarItems } from "C:/Users/zyl/Desktop/my-docs/node_modules/vuepress-theme-hope/lib/bundle/export.js";
 
-import { BlogCategory, BlogHome, BlogType, BloggerInfo, Timeline, setupBlog } from "C:/Users/zyl/Desktop/vuepress-theme-hope-main/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/blog/export.js";
-import "C:/Users/zyl/Desktop/vuepress-theme-hope-main/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/blog/styles/all.scss";
-import Slide from "C:/Users/zyl/Desktop/vuepress-theme-hope-main/my-docs/node_modules/vuepress-plugin-md-enhance/lib/client/SlidePage.js";
+import { BlogCategory, BlogHome, BlogType, BloggerInfo, Timeline, setupBlog } from "C:/Users/zyl/Desktop/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/blog/export.js";
+import "C:/Users/zyl/Desktop/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/blog/styles/all.scss";
 
-import "C:/Users/zyl/Desktop/vuepress-theme-hope-main/my-docs/node_modules/vuepress-theme-hope/lib/bundle/styles/all.scss";
+import "C:/Users/zyl/Desktop/my-docs/node_modules/vuepress-theme-hope/lib/bundle/styles/all.scss";
 
 export default defineClientConfig({
   enhance: ({ app, router }) => {
@@ -38,6 +37,5 @@ export default defineClientConfig({
     BlogHome,
     BlogType,
     Timeline,
-    Slide,
   }
 });

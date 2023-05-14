@@ -42,7 +42,7 @@ export const zhSidebar = sidebar({
     {
       collapsible: true,
       text: "面经",
-      icon: "ask",
+      icon: "interview",
       prefix: "interview/",
       children: "structure",
     },

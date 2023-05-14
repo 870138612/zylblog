@@ -6,7 +6,7 @@ export default defineUserConfig({
   head: [
     // 设置 favor.ico，.vuepress/public 下
     [
-      'link', { rel: 'icon', href: '/favicon.ico' }
+      'link', { rel: 'icon', href: 'https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230513213019295.png' }
     ]
   ],
   locales: {
