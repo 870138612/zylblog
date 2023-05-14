@@ -9,11 +9,11 @@ export default defineUserConfig({
       'link', { rel: 'icon', href: '/favicon.ico' }
     ]
   ],
-    "/": {
+    
       lang: "zh-CN",
       title: "LIANG",
       description: "LiangBlog",
-    },
+  
   theme,
   plugins: [
     searchProPlugin({
