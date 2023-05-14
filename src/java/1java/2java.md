@@ -33,8 +33,6 @@ System.out.println(str1.equals(str2));//true
 System.out.println(str1.equals(str3));//true
 ```
 
-`System.out.println(str1 == str2);//false`详见后半部分[String](#String)。
-
 ### 如果没有声明构造方法，程序能正确执行吗？
 
 如果类没有声明构造方法则会默认生成一个不带参数的构造方法。
