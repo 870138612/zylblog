@@ -13,6 +13,10 @@ export default hopeTheme({
     url: "https://localhost",
 
   },
+  backToTop:{
+    threshold:100,
+    progress:true
+  },
   contributors: true,
   lastUpdated: true,
   iconAssets: "//at.alicdn.com/t/c/font_4062992_ubg9d8e3ge.css",
@@ -23,6 +27,7 @@ export default hopeTheme({
   locales: {
     "/": {
       // navbar
+
       navbar: zhNavbar,
       // sidebar
       sidebar: zhSidebar,
