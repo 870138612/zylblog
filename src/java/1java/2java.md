@@ -93,7 +93,7 @@ public class Hero2 extends Hero{
 
 表示一个对象具有多种状态，上述代码中创建对象：
 
-:::tags
+:::tabs
 
 @tab:active HeroTemplate
 
