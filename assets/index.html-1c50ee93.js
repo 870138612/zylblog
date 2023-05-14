@@ -1,1 +1,0 @@
-import{_ as t,X as n,Y as a,Z as e}from"./framework-00d631a5.js";const _={},c=e("ul",null,[e("li",null,[e("a",{href:"1java"},"Java")])],-1),l=[c];function o(s,r){return n(),a("div",null,l)}const d=t(_,[["render",o],["__file","index.html.vue"]]);export{d as default};
