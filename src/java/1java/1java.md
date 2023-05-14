@@ -9,7 +9,7 @@ tags:
 ---
 
 ::: tip
-知识点来自网络，不保证完全正确
+Java笔记整理从这一页开始，梦开始的地方。
 :::
 
 ---
@@ -21,7 +21,7 @@ JVM是java虚拟机，针对不同系统有不同的实现，常用的为HotSpot
 JDK是功能齐全的SDK，包含JRE和一些其他的工具，例如javac，java等。
 
 JRE是Java运行时环境，仅包含Java应用程序运行时的必要环境。
-
+<!-- more -->
 ![image-20230514210704461](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230514210704461.png)
 
 ## 什么是字节码？采用字节码的好处？
