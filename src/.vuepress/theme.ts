@@ -87,14 +87,6 @@ export default hopeTheme({
       // vPre: true,
       // vuePlayground: true,
     },
-    autoCatalog: {
-      frontmatter: (path) => {
-        return {
-          "index": false,
-          "pageInfo": false,
-          "cover": "https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/202305122sdf05406.jpg"
-        };
-      }
-    }
+    autoCatalog: true
   },
 });
