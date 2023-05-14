@@ -13,7 +13,7 @@ export default hopeTheme({
     url: "https://localhost",
 
   },
-  pure: true,
+  
   contributors: false,
   lastUpdated: true,
   iconAssets: "//at.alicdn.com/t/c/font_4062992_ubg9d8e3ge.css",
