@@ -12,4 +12,5 @@ article: false
 科研狗混子，摸鱼王者，摄影爱好者
 
 网站基于开源项目vuepress-theme-hope
-使用腾讯CDN和对象存储加快加载速度
+图片采用腾讯对象存储
+
