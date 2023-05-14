@@ -53,7 +53,7 @@ System.out.println(str1.equals(str3));//true
 
 不同类型的对象可能会具有相似特点，例如游戏中的每一个英雄都有血量，移速等基础属性，但是每一个英雄的技能各有不同，则可以通过继承复用减少开发难度。
 
-:::tags
+:::tabs
 
 @tab:active HeroTemplate
 
