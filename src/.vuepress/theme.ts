@@ -31,7 +31,7 @@ export default hopeTheme({
       displayFooter: true,
       logo:"/logo.jpg",
       blog: {
-        description: "Java菜鸟开发者",
+        description: "Java菜鸟",
         intro: "/intro.html",
       },
       // page meta
