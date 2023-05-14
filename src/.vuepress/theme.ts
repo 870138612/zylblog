@@ -21,10 +21,8 @@ export default hopeTheme({
   repo: "https://github.com/870138612/870138612.github.io",
   //根据文件的名称进行排序
   sidebarSorter: ["readme", "order","filename"],
-  locales: {
-    "/": {
+   
       // navbar
-
       navbar: zhNavbar,
       // sidebar
       sidebar: zhSidebar,
@@ -40,8 +38,8 @@ export default hopeTheme({
       metaLocales: {
         editLink: "在 GitHub 上编辑此页",
       },
-    },
-  },
+   
+ 
   //加密的文章在这里配置
 
 
