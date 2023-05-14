@@ -1,5 +1,5 @@
 ---
-title: Java基础(上)
+title: Java基础一
 icon: page
 category:
   - Java
@@ -64,7 +64,7 @@ Java有8种基本数据类型
 
 `Byte`,`Short`,`Integer`,`Long` 这 4 种包装类默认创建了数值 **[-128，127]** 的相应类型的缓存数据，8位补码的表示范围。
 
-`Character`创建了**[0，127] **范围的缓存数据，7位无符号数的表示范围，`Boolean`直接返回`True`或者是`False`。
+`Character`创建了 **[0，127]** 范围的缓存数据，7位无符号数的表示范围，`Boolean`直接返回`True`或者是`False`。
 
 ### 自动拆装箱
 
@@ -175,7 +175,34 @@ public class S extends F{
 ::: tabs
 @tab:active 父类
 
+```java
+public class F {
+    public static void method() {
+        System.out.println("父类方法");
+    }
+}
+```
+
 @tab 子类
+
+```java
+public class S extends F{
+    //次方法不能添加@Override，但是可以再次声明
+    public static void method() {
+        System.out.println("子类方法");
+    }
+}
+```
+
+:::
+
+**方法的重写要遵循“两同两小一大”**
+
+“两同”即方法名相同、形参列表相同；
+
+“两小”指的是子类方法返回值类型应比父类方法返回值类型更小或相等，子类方法声明抛出的异常类应比父类方法声明抛出的异常类更小或相等；
+
+“一大”指的是子类方法的访问权限应比父类方法的访问权限更大或相等。
 
 
 
