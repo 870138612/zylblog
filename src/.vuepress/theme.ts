@@ -9,7 +9,7 @@ export default hopeTheme({
   //个人主页的地址
   hostname: "https://mister-hope.github.io",
   author: {
-    name: "Liang",
+    name: "ZYL1210",
     url: "https://localhost",
   },
   contributors: true,
