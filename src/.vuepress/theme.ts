@@ -89,6 +89,5 @@ export default hopeTheme({
       // vPre: true,
       // vuePlayground: true,
     },
-    autoCatalog: true
   },
 });
