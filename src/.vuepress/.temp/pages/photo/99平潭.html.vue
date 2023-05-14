@@ -2,6 +2,7 @@
 <p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/2023/05/08/19982315297a4559bc67e8b0c6e0a979.png" alt="image.png">
 去年八月去平潭看海，大太阳晒的掉皮，不过风景是真滴好看
 对于特别喜欢看海的人不会放过每一次机会，于是今年四月我又来平潭了。</p>
+<!-- more -->
 <p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/2023/05/06/81cca10883ad49cf9ffab44f793a2c95.png" alt="image.png">
 ⭐猴研岛，68海里景区，大风下的猴研岛</p>
 <p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/2023/05/06/9b73d0d63a874ab7a973e913d166363e.png" alt="image.png">

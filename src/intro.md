@@ -1,7 +1,8 @@
 ---
 icon: aboutme
 cover: https://blog-1312634242.cos.ap-shanghai.myqcloud.com/2023/aboutme.jpg
-editLink: false 
+editLink: false
+article: false
 ---
 
 # 关于我
