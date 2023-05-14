@@ -19,6 +19,7 @@ export default defineUserConfig({
       description: "LiangBlog",
   
   theme,
+shouldPrefetch: false,
   plugins: [
     searchProPlugin({
       // // 索引全部内容
