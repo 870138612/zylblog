@@ -17,16 +17,17 @@ features:
     details: Java知识点
     link: /java/
   
-  - title: 笔记
-    icon: note
-    details: 日常记录
-    link: /note/
-    
+  
   - title: 面经
     icon: interview
     details: 秋招面经
     link: /interview/
     
+  - title: 笔记
+    icon: note
+    details: 日常记录
+    link: /note/
+
   - title: 拍拍
     icon: photo
     details: 快门爱好者日常

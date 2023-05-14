@@ -9,9 +9,9 @@
 <li>
 <HopeIcon icon="framework"/> <RouterLink to="/framework/">框架</RouterLink></li>
 <li>
-<HopeIcon icon="note"/> <RouterLink to="/note/">笔记</RouterLink></li>
-<li>
 <HopeIcon icon="interview"/> <RouterLink to="/interview/">面经</RouterLink></li>
+<li>
+<HopeIcon icon="note"/> <RouterLink to="/note/">笔记</RouterLink></li>
 <li>
 <HopeIcon icon="photo"/> <RouterLink to="/photo/">拍拍</RouterLink></li>
 <li>

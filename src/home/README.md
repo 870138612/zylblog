@@ -10,7 +10,7 @@ pageInfo: false
 - <HopeIcon icon="database"/> [数据库](/database/)
 - <HopeIcon icon="middleware"/> [中间件](/middleware/)
 - <HopeIcon icon="framework"/> [框架](/framework/)
-- <HopeIcon icon="note"/> [笔记](/note/)
 - <HopeIcon icon="interview"/> [面经](/interview/)
+- <HopeIcon icon="note"/> [笔记](/note/)
 - <HopeIcon icon="photo"/> [拍拍](/photo/)
 - <HopeIcon icon="aboutme"/> [关于我](/intro.md/)
