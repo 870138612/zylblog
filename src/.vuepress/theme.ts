@@ -35,9 +35,9 @@ export default hopeTheme({
         intro: "/intro.html",
       },
       // page meta
-      metaLocales: {
+      
         editLink: "在 GitHub 上编辑此页",
-      },
+      
    
  
   //加密的文章在这里配置
