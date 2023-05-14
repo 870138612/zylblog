@@ -12,8 +12,6 @@ tags:
 一切就从这里开始吧
 :::
 
----
-
 ## JVM  JRE  JDK
 
 JVM是java虚拟机，针对不同系统有不同的实现，常用的为HotSpot VM。
