@@ -11,6 +11,7 @@ export default hopeTheme({
   author: {
     name: "ZYL1210",
     url: "https://localhost",
+
   },
   contributors: true,
   lastUpdated: true,
@@ -28,6 +29,7 @@ export default hopeTheme({
       footer: "Copyright © 2023-present Liang",
       copyright: false,
       displayFooter: true,
+      logo:"/logo.jpg",
       blog: {
         description: "Java菜鸟开发者",
         intro: "/intro.html",
