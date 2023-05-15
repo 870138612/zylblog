@@ -10,5 +10,6 @@ timeline: false
 - <HopeIcon icon="page"/> [Java基础一](1java.md) 
 - <HopeIcon icon="page"/> [Java基础二](2java.md) 
 - <HopeIcon icon="page"/> [Java反射](3reflex.md)
-- <HopeIcon icon="page"/> [Java代理](3javaProxy.md)
+- <HopeIcon icon="page"/> [Java代理](4javaProxy.md)
+- <HopeIcon icon="page"/> [Java单例模式](5singleton.md)
 
