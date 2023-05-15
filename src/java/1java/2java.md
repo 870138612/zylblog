@@ -136,8 +136,8 @@ hero.skill();//打印技能1，编译是否能通过看左边，执行结果看�
 
 - 对象类型和引用类型之间具有继承/实现关系；
 - 引用类型变量发出的方法调用到底是哪个类中的方法，在程序运行的时候才能确定；
-- 多态不能调用只在子类中存在，但是父类中不存在的方法，也就是`hero`能调用的方法是看父类`Hero`的，执行的结果看子类`Hero1`
-- 如果子类重写了父类方法，则执行的是子类中的方法，如果没有重写则执行的是父类中的方法
+- 多态不能调用只在子类中存在，但是父类中不存在的方法，也就是`hero`能调用的方法是看父类`Hero`的，执行的结果看子类`Hero1`；
+- 如果子类重写了父类方法，则执行的是子类中的方法，如果没有重写则执行的是父类中的方法。
 
 ### 接口和抽象类的共同点
 
@@ -150,7 +150,7 @@ hero.skill();//打印技能1，编译是否能通过看左边，执行结果看�
 **不同点**
 
 - 接口强调行为的约束，实现某个接口就相当于有某个责任，必须实现对应的方法，继承则是强调复用，子类继承父类并不一定要重写父类方法；
-- 一个类只能`extends`一个类，但是能`implements`多个接口。
+- 一个类只能`extends`一个类，但是能`implements`多个接口；
 - 接口中的成员变量只能是`public static final`类型，不能被修改而且必须有初始值，抽象类中的成员变量默认default，可以在子类中被重新定义，重新赋值。
 
 ### 浅拷贝，深拷贝，引用拷贝
@@ -169,33 +169,140 @@ hero.skill();//打印技能1，编译是否能通过看左边，执行结果看�
 
 **引用拷贝**
 
-两个不同对象的引用指向同一个对象
+两个不同对象的引用指向同一个对象。
 
+## Object
 
+### ==和equals区别
 
+- 对于基本类型来说==是比较值；
+- 对于引用类型来说==是比较地址。
 
+`equals`存在两种情况：
 
+- 类没有重写`equals`方法：则通过`equals`比较两个对象的时候等价于`==`；
+- 重写了`equals`方法：则是比较两个对象内部的属性是否相等。
 
+创建`String`类型的对象，虚拟机会在字符串常量池中查找有没有相同值的对象，如果有则直接返回这个对象的引用，如果没有就创建一个`String`对象。
 
+### hashCode()作用
 
+`hashCode()`方法用来获哈希码，作用是确定在哈希表中的位置。
 
+`hashCode()`定义在`Object`类中，所以所有的对象都有这个方法。`hashCode()`是本地方法，也就是通过C或者是C++实现的。
 
+`HashMap`通过计算`Hash`值使得查找元素的时间复杂度为1，数据结构散列表。
 
+### 为什么重写 equals() 时必须重写 hashCode() 方法？
 
+- Java中如果两个对象相同则`HashCode`，必须相等；
 
+- 如果`HashCode`相同，则对象不一定相等；
 
+- 如果两个对象的`HashCode`不同则对象一定不同。
 
-
-
-
-
-
-
-
-
-
+重写`equals()`代表这个方法是用来比较两个对象是否相等，如果不重写`HashCode()`方法可能会导致判断是相等的两个对象但是`HashCode`不等。
 
 ## String
 
+### String、StringBuffer、StringBuilder 的区别？
 
+- `String`是不可变的，可以看成常量，线程安全。对内部方法加了同步锁，是线程安全的。`StringBuilder`没有添加同步锁，所以是线程不安全的。
+- 每次对`String`类型进行修改的时候，都会新生成一个`String`类型，然后将引用指向新的`String`对象。`StringBuffer`和`StringBuilder`是对对象本身进行操作，不会生成新的对象，相同情况下使用`StringBuilder`会带来一点性能提升，但是线程不安全。
+- 少量数据使用`String`，单线程下大量数据使用`StringBuilder`，多线程下使用`StringBuffer`。
 
+### String为何不可变？
+
+JDK8中的源码：
+
+```java
+public final class String implements java.io.Serializable, Comparable<String>, CharSequence {
+    private final char value[];
+    //...
+}
+```
+
+- 保存字符串的数组是`final`修饰的，并且内部没有暴露能修改这个数组的方法；
+
+- `String`类本身也被`final`修饰导致不能被继承，从而避免子类破坏`String`的不变性。
+
+### 字符串拼接用“+” 还是 StringBuilder?
+
++和+=是Java中唯二为`String`重载过的运算符。
+
+`String`对象使用+进行拼接，实际就是通过`StringBuilder`调用`append()`方法，拼完之后调用`toString()`方法返回`String`对象。
+
+::: info
+
+如果在循环内使用+进行拼接多个字符串，编译器不会复用`StringBuilder`，而是每次循环都创建一个`StringBuilder`。
+
+直接使用`StringBuilder`进行拼接就能解决这个问题。
+
+:::
+
+### String s1 = new String("abc");这句话创建了几个字符串对象？
+
+会创建1个或者2个字符串对象。、
+
+String str = new String("abc");
+
+```java
+String str = new String("abc");
+```
+
+如果字符串常量池中不存在"abc"的引用，则会在堆中创建2个字符串对象"abc"。一个是在字符串常量池中创建的"abc"，另外是new在堆中创建的对象。
+
+如果字符串常量池中存在"abc"的引用，则会在堆中创建1个字符串对象"abc"。也就是new在堆中创建的对象。
+
+示意图：
+
+![image-20230515171640642](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230515171640642.png)
+
+### String#intern 方法有什么作用?
+
+`String.intern()`是一个本地方法，作用是将指定的字符串对象保存到字符串常量池中。
+
+- 如果字符串常量池中保存了对应的字符串对象的引用，则返回引用。
+- 如果字符串常量池中没有保存了对应的字符串对象的引用，那就在常量池中创建一个指向该字符串对象的引用并返回。
+
+```java
+// 在堆中创建字符串对象”Java“
+// 将字符串对象”Java“的引用保存在字符串常量池中
+String s1 = "Java";
+// 直接返回字符串常量池中字符串对象”Java“对应的引用
+String s2 = s1.intern();
+// 会在堆中在单独创建一个字符串对象
+String s3 = new String("Java");
+// 直接返回字符串常量池中字符串对象”Java“对应的引用
+String s4 = s3.intern();
+// s1 和 s2 指向的是堆中的同一个对象
+System.out.println(s1 == s2); // true
+// s3 和 s4 指向的是堆中不同的对象
+System.out.println(s3 == s4); // false
+// s1 和 s4 指向的是堆中的同一个对象
+System.out.println(s1 == s4); //true
+```
+
+### 编译器对字符串拼接的优化
+
+```java
+String str1 = "a";
+String str2 = "b";
+String str3 = "a" + "b";//常量池中创建的对象
+String str4 = str1 + str2;//堆中创建的对象
+```
+
+对于`String str3 = "a" + "b"`等价于`String str3 = "ab"`；对于在编译期间就能确定的字符串，编译器会在编译期间直接放入字符串常量池中。
+
+`String str4 = str1 + str2;`则不会在编译期间确定结果，不会产生优化。
+
+```java
+final String str1 = "str";
+final String str2 = "ing";
+// 下面两个表达式其实是等价的
+String c = "str" + "ing";// 常量池中的对象
+String d = str1 + str2; // 常量池中的对象
+System.out.println(c == d);// true
+```
+
+使用`final`修饰则看成常量，在编译期间就会优化放入字符串常量池中。
