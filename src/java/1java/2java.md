@@ -306,3 +306,60 @@ System.out.println(c == d);// true
 ```
 
 使用`final`修饰则看成常量，在编译期间就会优化放入字符串常量池中。
+## Java值传递
+
+### 形参和实参
+
+```java
+String s = "abc";
+//s 为实参
+method(s);
+//str 为形参
+void method(String str){
+	System.out.println(str);
+}
+```
+
+### 值传递&引用传递
+
+- 值传递：方法接收的是实参的拷贝，会创建副本；
+- 引用传递：方法接收的直接是实参所引用对象在堆中的地址，不会创建副本，对形参的修改将会影响到实参。
+
+### Java只有值传递
+
+```java
+public static void main(String[] args) {
+  int[] arr = { 1, 2, 3, 4, 5 };
+  System.out.println(arr[0]);
+  change(arr);
+  System.out.println(arr[0]);//输出为 0
+}
+
+public static void change(int[] array) {
+  // 将数组的第一个元素变为0
+  array[0] = 0;
+}
+```
+
+array为引用类型，但是不称为引用传递，案例中仍然是值传递，值是实参的地址。
+
+引用传递值得是：对形参本身修改会导致实参变化。
+
+## Java序列化
+
+- **序列化**：将数据结构或对象转换成二进制字节流的过程
+- **反序列化**：将在序列化过程中所生成的二进制字节流转换成数据结构或者对象的过程
+
+序列化协议属于TCP/IP中的应用层。
+
+Java中通过实现`Serializable`接口实现序列化功能。
+
+### serialVersionUID 有什么作用？
+
+`serialVersionUID`的作用是版本控制，反序列化的时候会检查`serialVersionUID`是否和当前类的`serialVersionUID`相同，如果不同则会抛出`InvalidClassException`异常。如果不指定`serialVersionUID`，编译器会自动生成。
+
+```java
+private static final long serialVersionUID = 1905122041950251207L;
+```
+
+`serialVersionUID`用来给JVM识别的，并不会被序列化。
