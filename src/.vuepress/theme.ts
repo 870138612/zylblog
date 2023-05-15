@@ -49,7 +49,6 @@ export default hopeTheme({
     blog: true,
     mdEnhance: {
       container: true,
-      tasklist: true,
       tabs: true,
     },
   },
