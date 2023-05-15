@@ -7,7 +7,7 @@ tags:
   - Java基础
   - 八股 
 ---
- 
+
 ## 面向对象
 
 ### 面向对象和面向过程的区别
@@ -15,7 +15,9 @@ tags:
 - 面向过程把解决问题的过程拆成一个个方法，通过一个个方法的执行解决问题。
 - 面向对象会先抽象出对象，然后用对象执行方法的方式解决问题。
 
-一个注重过程，一个注重对象的内部属性。
+一个注重过程，一个注重内部属性。
+
+<!-- more -->
 
 ### 对象的相等和引用的相等
 
@@ -32,6 +34,8 @@ System.out.println(str1 == str3);//true
 System.out.println(str1.equals(str2));//true	
 System.out.println(str1.equals(str3));//true
 ```
+
+`System.out.println(str1 == str2);//false`详见后半部分[String](##String)。
 
 ### 如果没有声明构造方法，程序能正确执行吗？
 
@@ -51,7 +55,7 @@ System.out.println(str1.equals(str3));//true
 
 不同类型的对象可能会具有相似特点，例如游戏中的每一个英雄都有血量，移速等基础属性，但是每一个英雄的技能各有不同，则可以通过继承复用减少开发难度。
 
-:::tabs
+:::tags
 
 @tab:active HeroTemplate
 
@@ -91,7 +95,7 @@ public class Hero2 extends Hero{
 
 表示一个对象具有多种状态，上述代码中创建对象：
 
-:::tabs
+:::tags
 
 @tab:active HeroTemplate
 
