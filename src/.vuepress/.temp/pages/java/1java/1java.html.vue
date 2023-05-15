@@ -1,8 +1,7 @@
 <template><div><div class="hint-container tip">
-<p class="hint-container-title">提示</p>
-<p>Java笔记整理从这一页开始，梦开始的地方。</p>
+<p class="hint-container-title">梦开始的地方</p>
+<p>一切就从这里开始吧</p>
 </div>
-<hr>
 <h2 id="jvm-jre-jdk" tabindex="-1"><a class="header-anchor" href="#jvm-jre-jdk" aria-hidden="true">#</a> JVM  JRE  JDK</h2>
 <p>JVM是java虚拟机，针对不同系统有不同的实现，常用的为HotSpot VM。</p>
 <p>JDK是功能齐全的SDK，包含JRE和一些其他的工具，例如javac，java等。</p>
@@ -88,7 +87,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>重写</strong></p>
-<Tabs id="194" :data='[{"title":"父类"},{"title":"子类"}]' :active="0">
+<Tabs id="193" :data='[{"title":"父类"},{"title":"子类"}]' :active="0">
 <template #tab0="{ title, value, isActive }">
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">F</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -111,7 +110,7 @@
 <li>如果父类方法访问修饰符是<code v-pre>private/final/static</code>则子类不能重写方法，被<code v-pre>static</code>修饰的方法能被再次声明。</li>
 <li>构造方法无法被重写</li>
 </ol>
-<Tabs id="222" :data='[{"title":"父类"},{"title":"子类"}]' :active="0">
+<Tabs id="221" :data='[{"title":"父类"},{"title":"子类"}]' :active="0">
 <template #tab0="{ title, value, isActive }">
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">F</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
