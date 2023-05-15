@@ -12,7 +12,7 @@ export default hopeTheme({
     name: "ZYL1210",
     url: "https://localhost",
   },
-  pure: true,
+  // pure: true,
   contributors: false,
   iconAssets: "//at.alicdn.com/t/c/font_4062992_ubg9d8e3ge.css",
   docsDir: "src",
