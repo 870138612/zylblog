@@ -42,7 +42,7 @@ export default hopeTheme({
     intro: "/intro.html",
   },
 
-  //加密的文章在这里配置
+
 
 
   plugins: {
@@ -50,6 +50,14 @@ export default hopeTheme({
     mdEnhance: {
       container: true,
       tabs: true,
+    },
+    comment: {
+      provider: "Giscus",
+      repo: "870138612/zyl",
+      repoId: "MDEwOlJlcG9zaXRvcnkyNDAwOTMxMzE=",
+      category:"Announcements",
+      categoryId:"DIC_kwDODk-Hy84CWgpw",
+
     },
   },
 });
