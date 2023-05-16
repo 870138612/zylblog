@@ -1,10 +1,10 @@
 ---
-title: Java代理
+title: 代理模式
 icon: page
 category:
   - Java
 tags:
-  - Java代理
+  - 代理模式
   - 八股
 ---
 

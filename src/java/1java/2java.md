@@ -1,5 +1,5 @@
 ---
-title: Java基础面试题二
+title: Java基础二
 icon: page
 category:
   - Java

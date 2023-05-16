@@ -1,5 +1,5 @@
 ---
-title: Java单例模式
+title: 单例模式
 icon: page
 category:
   - Java
