@@ -17,7 +17,7 @@
 <p>Java的类是单继承的，C++支持多继承。</p>
 <p>Java有自动的垃圾回收机制，不需要手动释放内存。</p>
 <h2 id="基本数据类型" tabindex="-1"><a class="header-anchor" href="#基本数据类型" aria-hidden="true">#</a> 基本数据类型</h2>
-<p>Java有8种基本数据类型</p>
+<p>Java有8种基本数据类型：</p>
 <ul>
 <li>6种数字类型
 <ul>
@@ -33,8 +33,8 @@
 <li>包装类型能用于泛型，而基本类型不可以。</li>
 <li>基本数据类型的局部变量存放在Java虚拟机栈中的局部变量表中（线程私有），基本数据类型的成员变量没有被<code v-pre>static</code>修饰的话放在堆中。而包装类型属于对象类型。</li>
 <li>包装类型占用的空间比基本类型要大。</li>
-<li>成员包装类型不赋值就是<code v-pre>null</code>，而基本类型有默认值并且不是<code v-pre>null</code></li>
-<li>基本数据类型使用<code v-pre>==</code>进行比较，而包装类型通过<code v-pre>equals()</code>进行比较</li>
+<li>成员包装类型不赋值就是<code v-pre>null</code>，而基本类型有默认值并且不是<code v-pre>null</code>。</li>
+<li>基本数据类型使用<code v-pre>==</code>进行比较，而包装类型通过<code v-pre>equals()</code>进行比较。</li>
 </ul>
 <p>在HotSpot虚拟机中引入JIT优化之后，会对对象进行逃逸分析，如果对象的作用范围没有超过当前方法，则可能通过标量替换来实现栈（线程私有）上分配，避免堆上分配对象。</p>
 <h3 id="包装类的缓存机制" tabindex="-1"><a class="header-anchor" href="#包装类的缓存机制" aria-hidden="true">#</a> 包装类的缓存机制</h3>
@@ -45,9 +45,9 @@
 <p><code v-pre>Integer i=10</code>等价于<code v-pre>Integer i = Integer.valueOf(10)</code></p>
 <p><code v-pre>int n = i </code>等价于<code v-pre>int  n = i.intValue()</code></p>
 <h3 id="浮点数运算的时候会有精度丢失的风险" tabindex="-1"><a class="header-anchor" href="#浮点数运算的时候会有精度丢失的风险" aria-hidden="true">#</a> 浮点数运算的时候会有精度丢失的风险？</h3>
-<p>计算机组成原理第二章浮点加减法</p>
+<p>计算机组成原理第二章浮点加减法。</p>
 <h3 id="如何解决浮点数运算的时候精度丢失问题" tabindex="-1"><a class="header-anchor" href="#如何解决浮点数运算的时候精度丢失问题" aria-hidden="true">#</a> 如何解决浮点数运算的时候精度丢失问题？</h3>
-<p>使用<code v-pre>BigDecimal</code>类进行浮点数运算，不会造成精度丢失问题</p>
+<p>使用<code v-pre>BigDecimal</code>类进行浮点数运算，不会造成精度丢失问题。</p>
 <h3 id="超过long-64位补码的范围数字应该如何表示" tabindex="-1"><a class="header-anchor" href="#超过long-64位补码的范围数字应该如何表示" aria-hidden="true">#</a> 超过long 64位补码的范围数字应该如何表示？</h3>
 <p>通过<code v-pre>BigInteger</code>存储，<code v-pre>BigInteger</code>内部使用<code v-pre>int[]</code>存储任意大小的整型数据。</p>
 <h2 id="变量" tabindex="-1"><a class="header-anchor" href="#变量" aria-hidden="true">#</a> 变量</h2>
