@@ -4,7 +4,7 @@
 <li><strong>线程是否安全</strong>：<code v-pre>HashMap</code>是非线程安全的，<code v-pre>Hashtable</code>是线程安全的，内部方法使用<code v-pre>synchronized</code>修饰。</li>
 <li><strong>效率</strong>：因为锁的问题，<code v-pre>HashMap</code>的效率要稍微好点。</li>
 <li><strong>是否能存储Null Key和Value</strong>：<code v-pre>HashMap</code>能存储<code v-pre>null</code>的key和value，但是作为<code v-pre>null</code>的key只能有一个，<code v-pre>Hashtable</code>不能有<code v-pre>null</code>key和value。</li>
-<li><strong>扩容</strong>：<code v-pre>Hashtable</code>默认初始大小是11，扩容之后变为2n+1。<code v-pre>HashMap</code>默认大小是16，每次扩容变为原来的两倍。</li>
+<li><strong>扩容</strong>：<code v-pre>Hashtable</code>默认初始大小是11，扩容之后变为2n+1。<code v-pre>HashMap</code>默认大小是16，当元素个数超过负载因子*表长时扩容，每次扩容变为原来的两倍。</li>
 <li><strong>底层</strong>：JDK1.8之后<code v-pre>HashMap</code>底层使用数组+链表/红黑树，特定条件链表转化为红黑树，<code v-pre>Hashtable</code>则没有转化为红黑树的机制。</li>
 </ul>
 <!-- more -->

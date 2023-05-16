@@ -35,21 +35,14 @@
 <h2 id="list" tabindex="-1"><a class="header-anchor" href="#list" aria-hidden="true">#</a> List</h2>
 <h3 id="说说arraylist" tabindex="-1"><a class="header-anchor" href="#说说arraylist" aria-hidden="true">#</a> 说说ArrayList</h3>
 <ul>
-<li>
-<p><code v-pre>ArrayList</code>存储元素的特点是顺序，可重复；</p>
-</li>
-<li>
-<p><code v-pre>ArrayList</code>会根据实际存储的元素动态扩容或者缩容；</p>
-</li>
-<li>
-<p><code v-pre>ArrayList</code>只能存储对象，不能存储基本类型，需要使用包装类；</p>
-</li>
-<li>
-<p><code v-pre>ArrayList</code>支持插入、删除、遍历等操作；</p>
-</li>
-<li>
-<p><code v-pre>ArrayList</code>能插入<code v-pre>null</code>。</p>
-</li>
+<li><code v-pre>ArrayList</code>存储元素的特点是顺序，可重复；</li>
+<li><code v-pre>ArrayList</code>会根据实际存储的元素动态扩容或者缩容；</li>
+<li><code v-pre>ArrayList</code>只能存储对象，不能存储基本类型，需要使用包装类；</li>
+<li><code v-pre>ArrayList</code>支持插入、删除、遍历等操作；</li>
+<li><code v-pre>ArrayList</code>能插入<code v-pre>null</code>；</li>
+<li>超过容量之后触发扩容；</li>
+<li>扩容后大小为<code v-pre>int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);</code>;</li>
+<li>JDK1.8以无参数构造方法创建<code v-pre>ArrayList</code>时，实际上初始化赋值的是一个空数组。当真正对数组进行添加元素操作时，才真正分配容量。即向数组中添加第一个元素时，数组容量扩为 10。</li>
 </ul>
 <h3 id="arrylist和vector区别" tabindex="-1"><a class="header-anchor" href="#arrylist和vector区别" aria-hidden="true">#</a> ArryList和Vector区别？</h3>
 <ul>
