@@ -14,7 +14,7 @@ tags:
 - **线程是否安全**：`HashMap`是非线程安全的，`Hashtable`是线程安全的，内部方法使用`synchronized`修饰。
 - **效率**：因为锁的问题，`HashMap`的效率要稍微好点。
 - **是否能存储Null Key和Value**：`HashMap`能存储`null`的key和value，但是作为`null`的key只能有一个，`Hashtable`不能有`null`key和value。
-- **扩容**：`Hashtable`默认初始大小是11，扩容之后变为2n+1。`HashMap`默认大小是16，每次扩容变为原来的两倍。
+- **扩容**：`Hashtable`默认初始大小是11，扩容之后变为2n+1。`HashMap`默认大小是16，当元素个数超过负载因子*表长时扩容，每次扩容变为原来的两倍。
 - **底层**：JDK1.8之后`HashMap`底层使用数组+链表/红黑树，特定条件链表转化为红黑树，`Hashtable`则没有转化为红黑树的机制。
 
 <!-- more -->

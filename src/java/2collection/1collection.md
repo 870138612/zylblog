@@ -51,11 +51,13 @@ Java集合由两大接口派生而来，分别是用来存放单一元素的`Col
 ### 说说ArrayList
 
 - `ArrayList`存储元素的特点是顺序，可重复；
-
 - `ArrayList`会根据实际存储的元素动态扩容或者缩容；
 - `ArrayList`只能存储对象，不能存储基本类型，需要使用包装类；
 - `ArrayList`支持插入、删除、遍历等操作；
-- `ArrayList`能插入`null`。
+- `ArrayList`能插入`null`；
+- 超过容量之后触发扩容；
+- 扩容后大小为`int newCapacity = oldCapacity + (oldCapacity >> 1);`;
+- JDK1.8以无参数构造方法创建`ArrayList`时，实际上初始化赋值的是一个空数组。当真正对数组进行添加元素操作时，才真正分配容量。即向数组中添加第一个元素时，数组容量扩为 10。
 
 ### ArryList和Vector区别？
 
