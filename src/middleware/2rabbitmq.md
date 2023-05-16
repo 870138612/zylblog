@@ -4,6 +4,6 @@ icon: rabbitmq
 category:
   - 中间件
 tags:
-  - Nginx
+  - RabbitMq
   - 中间件
 ---
