@@ -56,8 +56,7 @@ export default hopeTheme({
       repo: "870138612/zyl",
       repoId: "MDEwOlJlcG9zaXRvcnkyNDAwOTMxMzE=",
       category:"Announcements",
-      categoryId:"DIC_kwDODk-Hy84CWgpw",
-
+      categoryId:"DIC_kwDODk-Hy84CWgpw"
     },
   },
 });
