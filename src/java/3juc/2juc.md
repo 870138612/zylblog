@@ -16,7 +16,7 @@ tags:
 - 指令并行重排：如果不存在数据依赖性，处理器可以改变语句对应机器指令的执行顺序。
 
 指令重排序可以保证串行语义的一致，但是没义务保证多线程之间语义的一致，在多线程下，指令重排可能会导致问题。
-
+<!-- more -->
 ### 什么是Java内存模型？为什么需要Java内存模型？
 
 JMM是Java定义的并发编程相关的一组规范，除了抽象了线程和内存之间的关系之外，还规定了Java源代码到CPU可执行指令这个转化过程要遵循哪些和并发相关的原则和规范，主要目的是为了简化编程，增强代码的可移植性。
@@ -162,7 +162,7 @@ CAS 只对单个共享变量有效，当操作涉及跨多个共享变量时 CAS
 
 早期版本中`synchronized` 属于重量级锁，Java 6 之后对`synchronized` 做了优化。
 
-详见[synchronized锁优化](http://localhost/java/3juc/4synchronizedLock.html)。
+详见[synchronized锁优化](http://ylzhong.top/java/3juc/4synchronizedlock.html)。
 
 ### sychronized修饰方法
 
@@ -237,7 +237,7 @@ synchronized(类.class) {
 
 `ReentrantLock` 里面有一个内部类 `Sync`，`Sync` 继承 AQS（`AbstractQueuedSynchronizer`），添加锁和释放锁的大部分操作实际上都是在 `Sync` 中实现的。`Sync` 有公平锁 `FairSync` 和非公平锁 `NonfairSync` 两个子类。
 
-详见[AQS抽象队列同步器](http://localhost/java/3juc/5aqs.html)。
+详见[AQS抽象队列同步器](http://ylzhong.top/java/3juc/5aqs.html)。
 
 ### 公平锁和非公平锁有什么区别？
 
