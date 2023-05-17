@@ -1,10 +1,9 @@
-<template><div><h2 id="代理模式" tabindex="-1"><a class="header-anchor" href="#代理模式" aria-hidden="true">#</a> 代理模式</h2>
-<p>使用代理对象来代替真实对象的访问，这样能在不改变目标对象的前提下，提供额外的功能，扩展目标对象。</p>
+<template><div><p>使用代理对象来代替真实对象的访问，这样能在不改变目标对象的前提下，提供额外的功能，扩展目标对象。</p>
 <p>代理模式有静态代理和动态代理两种实现方式。</p>
 <!-- more -->
 <h2 id="静态代理" tabindex="-1"><a class="header-anchor" href="#静态代理" aria-hidden="true">#</a> 静态代理</h2>
 <p>静态代理中，对方法的增强是手动完成的，非常不灵活，从JVM层面来说，静态代理在编译的时候就将接口、实现类、代理类变成一个个class文件。编译从<code v-pre>.java</code>变成<code v-pre>.class</code>。</p>
-<Tabs id="16" :data='[{"title":"目标对象"},{"title":"代理对象"},{"title":"测试"}]' :active="0">
+<Tabs id="13" :data='[{"title":"目标对象"},{"title":"代理对象"},{"title":"测试"}]' :active="0">
 <template #tab0="{ title, value, isActive }">
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">TInterface</span><span class="token punctuation">{</span>
 	<span class="token class-name">String</span> <span class="token function">method</span><span class="token punctuation">(</span><span class="token class-name">String</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -80,7 +79,7 @@
 </ul>
 <p>流程：通过<code v-pre>proxy</code>类的<code v-pre>newInstance()</code>创建代理对象调用方法，会实际调用实现<code v-pre>InvocationHandler</code>接口类的<code v-pre>invoke()</code>方法。</p>
 <p><strong>实现：</strong></p>
-<Tabs id="99" :data='[{"title":"目标对象"},{"title":"JDK动态代理对象"},{"title":"获取代理对象的工厂类"},{"title":"测试"}]' :active="0">
+<Tabs id="96" :data='[{"title":"目标对象"},{"title":"JDK动态代理对象"},{"title":"获取代理对象的工厂类"},{"title":"测试"}]' :active="0">
 <template #tab0="{ title, value, isActive }">
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">TInterface</span><span class="token punctuation">{</span>
 	<span class="token class-name">String</span> <span class="token function">targetMethod</span><span class="token punctuation">(</span><span class="token class-name">String</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -150,7 +149,7 @@
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>cglib<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.3.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><Tabs id="158" :data='[{"title":"目标对象"},{"title":"方法拦截器"},{"title":"获取代理对象的工厂"},{"title":"测试"}]' :active="0">
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><Tabs id="155" :data='[{"title":"目标对象"},{"title":"方法拦截器"},{"title":"获取代理对象的工厂"},{"title":"测试"}]' :active="0">
 <template #tab0="{ title, value, isActive }">
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">T</span> <span class="token punctuation">{</span>
 	<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">targetMethod</span><span class="token punctuation">(</span><span class="token class-name">String</span> str<span class="token punctuation">)</span><span class="token punctuation">{</span>

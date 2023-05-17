@@ -1,5 +1,4 @@
-<template><div><h2 id="单例模式" tabindex="-1"><a class="header-anchor" href="#单例模式" aria-hidden="true">#</a> 单例模式</h2>
-<p>保证在整个系统中，对某一个类只会存在一个对象实例，并且类只提供一个取得对象实例的方法。</p>
+<template><div><p>保证在整个系统中，对某一个类只会存在一个对象实例，并且类只提供一个取得对象实例的方法。</p>
 <!-- more -->
 <h2 id="单例模式实现方式" tabindex="-1"><a class="header-anchor" href="#单例模式实现方式" aria-hidden="true">#</a> 单例模式实现方式</h2>
 <ul>

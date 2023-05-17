@@ -1,5 +1,4 @@
-<template><div><h2 id="反射" tabindex="-1"><a class="header-anchor" href="#反射" aria-hidden="true">#</a> 反射</h2>
-<p>反射可以获取任意一个类的所有属性和方法，还能调用这些方法和属性。</p>
+<template><div><p>反射可以获取任意一个类的所有属性和方法，还能调用这些方法和属性。</p>
 <!-- more -->
 <h3 id="反射的应用场景" tabindex="-1"><a class="header-anchor" href="#反射的应用场景" aria-hidden="true">#</a> 反射的应用场景</h3>
 <p>Spring/SpringBoot/Mybatis等框架中都大量使用了反射机制。</p>
