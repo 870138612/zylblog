@@ -162,6 +162,8 @@ CAS 只对单个共享变量有效，当操作涉及跨多个共享变量时 CAS
 
 早期版本中`synchronized` 属于重量级锁，Java 6 之后对`synchronized` 做了优化。
 
+详见[synchronized锁优化](http://localhost/java/3juc/4synchronizedLock.html)。
+
 ### sychronized修饰方法
 
 `synchronized` 关键字的使用方式主要有下面 3 种：
@@ -235,9 +237,27 @@ synchronized(类.class) {
 
 `ReentrantLock` 里面有一个内部类 `Sync`，`Sync` 继承 AQS（`AbstractQueuedSynchronizer`），添加锁和释放锁的大部分操作实际上都是在 `Sync` 中实现的。`Sync` 有公平锁 `FairSync` 和非公平锁 `NonfairSync` 两个子类。
 
+详见[AQS抽象队列同步器](http://localhost/java/3juc/5aqs.html)。
 
+### 公平锁和非公平锁有什么区别？
 
+- **公平锁** : 锁被释放之后，先申请的线程先得到锁。性能较差一些，因为公平锁为了保证时间上的绝对顺序，上下文切换更频繁。
 
+- **非公平锁**：锁被释放之后，后申请的线程可能会先获取到锁，是随机或者按照其他优先级排序的。性能更好，但可能会导致某些线程永远无法获取到锁。
+
+### synchronized 和 ReentrantLock 有什么区别？
+
+- 两者都是可重入锁，也就是线程可以再次获取自己的内部锁。
+- `synchronized` 依赖于 JVM 而 `ReentrantLock` 依赖于 API。
+- `ReentrantLock` 比`synchronized` 增加了一些高级功能：
+  - 等待可中断：`ReentrantLock`提供了一种能够中断等待锁的线程的机制，通过 `lock.lockInterruptibly()` 来实现这个机制。也就是说正在等待的线程可以选择放弃等待，改为处理其他事情。
+  - 可实现公平锁: `ReentrantLock`可以指定是公平锁还是非公平锁，而`synchronized`只能是非公平锁。
+  - 可实现选择性通知（锁可以绑定多个条件）: `synchronized`关键字与`wait()`和`notify()`/`notifyAll()`方法相结合可以实现等待/通知机制。`ReentrantLock`也可以实现，但是需要借助于`Condition`接口与`newCondition()`方法。
+
+### 可中断锁和不可中断锁有什么区别？
+
+- **可中断锁**：获取锁的过程中可以被中断，不需要一直等到获取锁之后 才能进行其他逻辑处理。`ReentrantLock` 就属于是可中断锁。
+- **不可中断锁**：一旦线程申请了锁，就只能等到拿到锁以后才能进行其他的逻辑处理。 `synchronized` 就属于是不可中断锁。
 
 
 
