@@ -7,3 +7,245 @@ tags:
   - 并发编程
   - 八股
 ---
+
+## Java内存模型
+
+### 指令重排序
+
+- 编译器优化重排：编译器在不改变单线程程序语义的前提下，重新安排语句执行顺序。
+- 指令并行重排：如果不存在数据依赖性，处理器可以改变语句对应机器指令的执行顺序。
+
+指令重排序可以保证串行语义的一致，但是没义务保证多线程之间语义的一致，在多线程下，指令重排可能会导致问题。
+
+### 什么是Java内存模型？为什么需要Java内存模型？
+
+JMM是Java定义的并发编程相关的一组规范，除了抽象了线程和内存之间的关系之外，还规定了Java源代码到CPU可执行指令这个转化过程要遵循哪些和并发相关的原则和规范，主要目的是为了简化编程，增强代码的可移植性。
+
+### 什么是主内存？什么是本地内存？
+
+- 主内存：所有线程创建的对象实例都放在主内存中；
+- 本地内存：每个线程都有私有的本地内存来存储共享变量的副本，并且每一个线程只能访问自己的本地内存，无法访问其他线程的本地内存。本地内存是JMM抽象出的概念，存储了主内存中的变量副本。![jmm](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/jmm.jpg)
+
+### Java内存结构和Java内存模型的区别
+
+- Java内存结构和运行时区域有关，定义了JVM在运行时如何分区存储数据，例如堆主要用来存放对象实例。
+- JMM和Java的并发编程有关，抽象了线程和内存之间的关系，规定了Java源代码到CPU可执行指令这个转化过程要遵循哪些并发相关的原则和规范，目的主要是简化多线程编程，增强程序的可移植性
+
+### happens-before
+
+前一个操作的结果应该对后一个操作是可见的，无论这两个操作是不是在同一个线程里。
+
+```java
+int userNum = getUserNum(); 	// 1
+int teacherNum = getTeacherNum();	 // 2
+int totalNum = userNum + teacherNum;	// 3
+```
+
+在线程并发执行的时候，可能1 2 操作的结果还没有存入变量中，3操作已经开始执行，这时得到的结果就不是正确结果。（指令流水线数据相关）
+
+### happens-before 常见规则
+
+1. 程序顺序规则：一个线程内，书写在前的操作happens-before于书写在后面的操作；
+2. 解锁规则：解锁happens-before加锁；
+3. volatile变量规则：对于一个volatile变量的写操作happens-before后面对这个变量的读操作，也就是对这个变量的修改对其后的所有操作都可见；
+4. 传递规则：如果A happens-before B，B happens-before C，则A happens-before C；
+5. 线程启动规则：Thread对象的`start()`方法happens-before这个线程的每一个操作。
+
+如果两个操作不满足上述条件的任意一个，则这两个操作就没有顺序保障，JVM可以对这两个操作进行重排序。
+
+## 并发编程的三个特性
+
+**原子性：**
+
+一次操作或者多次操作，要么所有的操作都能全部执行不会收到任何外界因素干扰而中断，要么都不执行。
+
+`synchronized`和各种`Lock`来实现原子性。
+
+**可见性：**
+
+当一个线程对共享变量进行修改，那么另外的线程都是能立即看到的。
+
+`synchronized`、`volatile`、各种`Lock`实现可见性。
+
+**有序性：**
+
+由于指令重排序问题，代码的执行顺序未必就是编写代码的顺序。
+
+使用`volatile`关键字可以禁止指令进行重排序优化。
+
+## volatile关键字
+
+在 Java 中，`volatile` 关键字可以保证变量的可见性，如果我们将变量声明为 **`volatile`** ，这就指示 JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。
+
+**`volatile` 关键字能保证数据的可见性，但不能保证数据的原子性。`synchronized` 关键字两者都能保证。**
+
+### volatile如何禁止指令重排序？
+
+如果将变量通过`volatile`修饰，则对这个变量读写的时候会添加上特定的读写屏障保证可见性。
+
+在CPU的物理世界里，内存屏障通常有三种：
+
+lfence: 读屏障（load fence)，即立刻让CPU Cache失效，从内存中读取数据，并装载入Cache中。
+
+sfence: 写屏障（write fence）, 即立刻进行flush，把缓存中的数据刷入内存中。
+
+mfence: 全屏障 (memory fence)，即读写屏障，保证读写都串行化，确保数据都写入内存并清除缓存。
+
+双检查单例模式：
+
+```java
+public class Singleton{
+	private Singleton{}//构造方法私有
+    
+    private volatile Singleton singleton;//volatile修饰的singleton 保证可见性
+    
+    public static Singleton getInstance(){
+        if(singleton==null){
+            synchronized(Singleton.class){//对类对象加锁
+                if(singleton==null){
+                    singleton=new Singleton();
+                }
+            }
+        }
+        return singleton;
+    }
+}
+```
+
+`volatile`是“轻量级”`synchronized`，保证了共享变量的“可见性”（JMM确保所有线程看到这个变量的值是一致的），当CPU写数据时，如果发现操作的变量是共享变量，即在其他CPU中也存在该变量的副本，**会发出信号通知其他CPU将该变量的缓存行置为无效状态，并且锁住缓存行**，因此当其他CPU需要读取这个变量时，要等锁释放，并发现自己缓存行是无效的，那么它就会从内存重新读取。
+
+## 乐观锁和悲观锁
+
+### 什么是乐观锁？
+
+乐观锁总是假设最好的情况，即认为将要修改的数据并没有被其他线程修改，修改失败采用重复尝试的办法。
+
+验证数据是否被其他线程修改可通过版本号机制或者CAS算法。
+
+在 Java 中`java.util.concurrent.atomic`包下面的原子变量类（比如`AtomicInteger`、`LongAdder`）就是使用了乐观锁的一种实现方式 **CAS** 实现的。
+
+### 什么是悲观锁？
+
+悲观锁总是假设最坏的情况，认为共享资源总是会被其他线程修改了，所以在访问资源的时候采取加锁的方案，防止其他线程修改，像 Java 中`synchronized`和`ReentrantLock`等独占锁就是悲观锁思想的实现。
+
+高并发的场景下，激烈的锁竞争会造成线程阻塞，大量阻塞线程会导致系统的上下文切换，增加系统的性能开销。并且，悲观锁还可能会存在死锁问题，影响代码的正常运行。
+
+### CAS 算法
+
+CAS 的全称是 **Compare And Swap（比较与交换）** ，用于实现乐观锁，被广泛应用于各大框架中。CAS 的思想很简单，就是用一个预期值和要更新的变量值进行比较，两值相等才会进行更新。
+
+CAS 是一个原子操作，底层依赖于一条 CPU 的原子指令。
+
+CAS 涉及到三个操作数：
+
+- **V**：要更新的变量值(Var)
+- **E**：预期值(Expected)
+- **N**：拟写入的新值(New)
+
+### ABA问题
+
+如果有一个线程将变量值A改为B，之后又有一个线程将B改为A，则第三个线程采用CAS进行修改的时候发现预期值A正确，则认为变量没有被修改，其实已经修改了两次。
+
+解决ABA问题就是添加版本号或者是时间戳。
+
+### CAS问题
+
+CAS 经常会用到自旋操作来进行重试，也就是不成功就一直循环执行直到成功。如果长时间不成功，会给 CPU 带来非常大的执行开销。
+
+CAS 只对单个共享变量有效，当操作涉及跨多个共享变量时 CAS 无效。但是从 JDK 1.5 开始，提供了`AtomicReference`类来保证引用对象之间的原子性，可以把多个变量放在一个对象里来进行 CAS 操作。
+
+## synchronized
+
+### synchronized 是什么？有什么用？
+
+`synchronized` 是 Java 中的一个关键字，翻译成中文是同步的意思，主要解决的是多个线程之间访问资源的同步性，可以保证被它修饰的方法或者代码块在任意时刻只能有一个线程执行。
+
+早期版本中`synchronized` 属于重量级锁，Java 6 之后对`synchronized` 做了优化。
+
+### sychronized修饰方法
+
+`synchronized` 关键字的使用方式主要有下面 3 种：
+
+:::tabs
+
+@tab:active 修饰实例方法
+
+```java
+synchronized void method() {
+    //锁对象
+}
+```
+
+@tab 修饰静态方法
+
+```java
+synchronized static void method() {
+    //锁类
+}
+```
+
+@tab 修饰代码块
+
+```java
+synchronized(this) {
+    //锁对象
+}
+synchronized(类.class) {
+    //锁类
+}
+```
+
+:::
+
+`synchronized` 关键字加到 `static` 静态方法和 `synchronized(class)` 代码块上都是是给 Class 类上锁；
+
+`synchronized` 关键字加到实例方法上是给对象实例上锁；
+
+### synchronized底层原理
+
+**修饰同步代码块**
+
+`synchronized` 同步语句块的实现使用的是 `monitorenter` 和 `monitorexit` 指令，其中 `monitorenter` 指令指向同步代码块的开始位置，`monitorexit` 指令则指明同步代码块的结束位置。
+
+在执行`monitorenter`时，会尝试获取对象的锁，如果锁的计数器为 0 则表示锁可以被获取，获取后将锁计数器设为 1 也就是加 1。
+
+对象锁的的拥有者线程才可以执行 `monitorexit` 指令来释放锁。在执行 `monitorexit` 指令后，将锁计数器设为 0，表明锁被释放，其他线程可以尝试获取锁。
+
+**修饰方法**
+
+`synchronized` 修饰的方法并没有 `monitorenter` 指令和 `monitorexit` 指令，取得代之的是 `ACC_SYNCHRONIZED` 标识，该标识指明了该方法是一个同步方法。JVM 通过该 `ACC_SYNCHRONIZED` 访问标志来辨别一个方法是否声明为同步方法，从而执行相应的同步调用。
+
+`synchronized` 同步语句块的实现使用的是 `monitorenter` 和 `monitorexit` 指令，其中 `monitorenter` 指令指向同步代码块的开始位置，`monitorexit` 指令则指明同步代码块的结束位置。
+
+两者本质都是对对象监视器**monitor**的获取。
+
+### synchronized 和 volatile 有什么区别？
+
+- `volatile` 关键字是线程同步的轻量级实现，所以 `volatile`性能肯定比`synchronized`关键字要好 。但是 `volatile` 关键字只能用于变量而 `synchronized` 关键字可以修饰方法以及代码块 。
+
+- `volatile` 关键字能保证数据的可见性，但不能保证数据的原子性。`synchronized` 关键字两者都能保证。
+
+- `volatile`关键字主要用于解决变量在多个线程之间的可见性，而 `synchronized` 关键字解决的是多个线程之间访问资源的同步性。
+
+## ReentrantLock
+
+### ReentrantLock 是什么？
+
+`ReentrantLock` 实现了 `Lock` 接口，是一个可重入且独占式的锁，和 `synchronized` 关键字类似。不过，`ReentrantLock` 更灵活、更强大，增加了轮询、超时、中断、公平锁和非公平锁等高级功能。
+
+`ReentrantLock` 里面有一个内部类 `Sync`，`Sync` 继承 AQS（`AbstractQueuedSynchronizer`），添加锁和释放锁的大部分操作实际上都是在 `Sync` 中实现的。`Sync` 有公平锁 `FairSync` 和非公平锁 `NonfairSync` 两个子类。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
