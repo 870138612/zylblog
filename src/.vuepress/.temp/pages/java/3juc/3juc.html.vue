@@ -152,15 +152,9 @@
 <p>新任务到来的时候，如果核心线程已经满了，就会放入到阻塞队列中。</p>
 <p>常见的阻塞队列：</p>
 <ul>
-<li>
-<p>容量为 <code v-pre>Integer.MAX_VALUE</code> 的 <code v-pre>LinkedBlockingQueue</code>（无界队列）：<code v-pre>FixedThreadPool</code> 和 <code v-pre>SingleThreadExector</code> 。由于队列永远不会被放满，因此**<code v-pre>FixedThreadPool</code>最多只能创建核心线程数的线程**。</p>
-</li>
-<li>
-<p><code v-pre>SynchronousQueue</code>（同步队列）：<code v-pre>CachedThreadPool</code> 。<code v-pre>SynchronousQueue</code> 没有容量，不存储元素，目的是保证对于提交的任务，如果有空闲线程，则使用空闲线程来处理；否则新建一个线程来处理任务。也就是说，<strong><code v-pre>CachedThreadPool</code> 的最大线程数是 <code v-pre>Integer.MAX_VALUE</code></strong> ，可以理解为线程数是可以无限扩展的，可能会创建大量线程，从而导致 OOM。</p>
-</li>
-<li>
-<p><code v-pre>DelayedWorkQueue</code>（延迟阻塞队列）：<code v-pre>ScheduledThreadPool</code> 和 <code v-pre>SingleThreadScheduledExecutor</code> 。<code v-pre>DelayedWorkQueue</code> 的内部元素并不是按照放入的时间排序，而是会按照延迟的时间长短对任务进行排序，内部采用的是“堆”的数据结构，可以保证每次出队的任务都是当前队列中执行时间最靠前的。<code v-pre>DelayedWorkQueue</code> 添加元素满了之后会自动扩容原来容量的 1/2，即永远不会阻塞，最大扩容可达 <code v-pre>Integer.MAX_VALUE</code>，所以最多只能创建核心线程数的线程。</p>
-</li>
+<li>容量为 <code v-pre>Integer.MAX_VALUE</code> 的 <code v-pre>LinkedBlockingQueue</code>（无界队列）：<code v-pre>FixedThreadPool</code> 和 <code v-pre>SingleThreadExector</code> 。由于队列永远不会被放满，因此**<code v-pre>FixedThreadPool</code><strong>最多只能创建核心线程数的线程</strong>**。</li>
+<li><code v-pre>SynchronousQueue</code>（同步队列）：<code v-pre>CachedThreadPool</code> 。<code v-pre>SynchronousQueue</code> 没有容量，不存储元素，目的是保证对于提交的任务，如果有空闲线程，则使用空闲线程来处理；否则新建一个线程来处理任务。也就是说，<strong><code v-pre>CachedThreadPool</code> 的最大线程数是 <code v-pre>Integer.MAX_VALUE</code></strong> ，可以理解为线程数是可以无限扩展的，可能会创建大量线程，从而导致 OOM。</li>
+<li><code v-pre>DelayedWorkQueue</code>（延迟阻塞队列）：<code v-pre>ScheduledThreadPool</code> 和 <code v-pre>SingleThreadScheduledExecutor</code> 。<code v-pre>DelayedWorkQueue</code> 的内部元素并不是按照放入的时间排序，而是会按照延迟的时间长短对任务进行排序，内部采用的是“堆”的数据结构，可以保证每次出队的任务都是当前队列中执行时间最靠前的。<code v-pre>DelayedWorkQueue</code> 添加元素满了之后会自动扩容原来容量的 1/2，即永远不会阻塞，最大扩容可达 <code v-pre>Integer.MAX_VALUE</code>，所以<strong>最多只能创建核心线程数的线程</strong>。</li>
 </ul>
 <h3 id="线程池处理任务的流程了解吗" tabindex="-1"><a class="header-anchor" href="#线程池处理任务的流程了解吗" aria-hidden="true">#</a> 线程池处理任务的流程了解吗？</h3>
 <ul>
