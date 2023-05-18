@@ -18,6 +18,22 @@ JDK 提供的这些容器大部分在 `java.util.concurrent` 包中。
 
 <!-- more -->
 
+## CopyOnWriteArrayList
+
+为了将读取的性能发挥到极致，`CopyOnWriteArrayList` 读取是完全不用加锁的，并且更厉害的是：写入也不会阻塞读取操作。**只有写入和写入之间需要进行同步等待**。
+
+### CopyOnWriteArrayList 原理
+
+`CopyOnWriteArrayList` 类的所有可变操作（add，set 等等）都是通过创建底层数组的新副本来实现的。当 List 需要被修改的时候，我并不修改原有内容，而是对原有数据进行一次复制，将修改的内容写入副本。写完之后，再将修改完的副本替换原来的数据，这样就可以保证写操作不会影响读操作。
+
+## ConcurrentLinkedQueue
+
+Java 提供的线程安全的 `Queue` 可以分为**阻塞队列**和**非阻塞队列**，其中阻塞队列的典型例子是 `BlockingQueue`，非阻塞队列的典型例子是 `ConcurrentLinkedQueue`，使用链表作为其数据结构。在实际应用中要根据实际需要选用阻塞队列或者非阻塞队列。 **阻塞队列可以通过加锁来实现，非阻塞队列可以通过 CAS 操作实现**。
+
+`ConcurrentLinkedQueue` 主要使用 CAS 非阻塞算法来实现线程安全。
+
+`ConcurrentLinkedQueue` 适合在对性能要求相对较高，同时对队列的读写存在多个线程同时进行的场景，即如果对队列加锁的成本较高则适合使用无锁的 `ConcurrentLinkedQueue` 来替代。
+
 ## BlockingQueue
 
 `BlockingQueue` （阻塞队列）是一个接口，继承自 `Queue`。`BlockingQueue`阻塞的原因是其支持当队列没有元素时一直阻塞，直到有有元素；还支持如果队列已满，一直等到队列可以放入新元素时再放入。
