@@ -3,6 +3,8 @@
 <li>
 <HopeIcon icon="java"/> <RouterLink to="/java/">Java</RouterLink></li>
 <li>
+<HopeIcon icon="computer"/> <RouterLink to="/computer/">计算机基础</RouterLink></li>
+<li>
 <HopeIcon icon="database"/> <RouterLink to="/database/">数据库</RouterLink></li>
 <li>
 <HopeIcon icon="middleware"/> <RouterLink to="/middleware/">中间件</RouterLink></li>

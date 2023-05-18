@@ -10,7 +10,9 @@
 <li>
 <HopeIcon icon="page"/> <RouterLink to="/java/3juc/5aqs.html">AQS抽象队列同步器</RouterLink></li>
 <li>
-<HopeIcon icon="page"/> <RouterLink to="/java/3juc/6juccollections.html">JUC常见并发容器</RouterLink></li>
+<HopeIcon icon="page"/> <RouterLink to="/java/3juc/6atomic.html">Amotic原子类</RouterLink></li>
+<li>
+<HopeIcon icon="page"/> <RouterLink to="/java/3juc/7juccollections.html">JUC常见并发容器</RouterLink></li>
 </ul>
 </div></template>
 
