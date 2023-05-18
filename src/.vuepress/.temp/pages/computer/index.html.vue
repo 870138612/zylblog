@@ -1,6 +1,6 @@
 <template><div><ul>
 <li>
-<HopeIcon icon="mysql"/> <RouterLink to="/computer/1net.html">Mysql</RouterLink></li>
+<HopeIcon icon="net"/> <a href="1net">计算机网络</a></li>
 </ul>
 </div></template>
 

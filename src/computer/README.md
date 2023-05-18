@@ -7,5 +7,5 @@ pageInfo: false
 article: false
 timeline: false
 ---
-- <HopeIcon icon="mysql"/> [Mysql](1net.md)
+- <HopeIcon icon="net"/> [计算机网络](1net)
 
