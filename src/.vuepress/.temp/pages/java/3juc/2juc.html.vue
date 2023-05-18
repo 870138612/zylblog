@@ -74,7 +74,7 @@
 <h3 id="什么是乐观锁" tabindex="-1"><a class="header-anchor" href="#什么是乐观锁" aria-hidden="true">#</a> 什么是乐观锁？</h3>
 <p>乐观锁总是假设最好的情况，即认为将要修改的数据并没有被其他线程修改，修改失败采用重复尝试的办法。</p>
 <p>验证数据是否被其他线程修改可通过版本号机制或者CAS算法。</p>
-<p>在 Java 中<code v-pre>java.util.concurrent.atomic</code>包下面的原子变量类（比如<code v-pre>AtomicInteger</code>、<code v-pre>LongAdder</code>）就是使用了乐观锁的一种实现方式 <strong>CAS</strong> 实现的。</p>
+<p>在 Java 中<code v-pre>java.util.concurrent.atomic</code>包下面的原子变量类（比如<code v-pre>AtomicInteger</code>、<code v-pre>LongAdder</code>）就是使用了乐观锁的一种实现方式 <strong>CAS</strong> 实现的。<code v-pre>AtomicInteger</code>类主要利用CAS(compare and swap)+<code v-pre>volatile</code>和<code v-pre>native</code>方法来保证原子操作，从而避免<code v-pre>synchronized</code>的高开销，执行效率大为提升。</p>
 <h3 id="什么是悲观锁" tabindex="-1"><a class="header-anchor" href="#什么是悲观锁" aria-hidden="true">#</a> 什么是悲观锁？</h3>
 <p>悲观锁总是假设最坏的情况，认为共享资源总是会被其他线程修改了，所以在访问资源的时候采取加锁的方案，防止其他线程修改，像 Java 中<code v-pre>synchronized</code>和<code v-pre>ReentrantLock</code>等独占锁就是悲观锁思想的实现。</p>
 <p>高并发的场景下，激烈的锁竞争会造成线程阻塞，大量阻塞线程会导致系统的上下文切换，增加系统的性能开销。并且，悲观锁还可能会存在死锁问题，影响代码的正常运行。</p>

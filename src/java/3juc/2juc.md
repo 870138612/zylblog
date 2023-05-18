@@ -122,7 +122,7 @@ public class Singleton{
 
 验证数据是否被其他线程修改可通过版本号机制或者CAS算法。
 
-在 Java 中`java.util.concurrent.atomic`包下面的原子变量类（比如`AtomicInteger`、`LongAdder`）就是使用了乐观锁的一种实现方式 **CAS** 实现的。
+在 Java 中`java.util.concurrent.atomic`包下面的原子变量类（比如`AtomicInteger`、`LongAdder`）就是使用了乐观锁的一种实现方式 **CAS** 实现的。`AtomicInteger`类主要利用CAS(compare and swap)+`volatile`和`native`方法来保证原子操作，从而避免`synchronized`的高开销，执行效率大为提升。
 
 ### 什么是悲观锁？
 
