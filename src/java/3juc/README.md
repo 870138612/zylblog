@@ -13,3 +13,4 @@ timeline: false
 - <HopeIcon icon="page"/> [synchronized锁优化](4synchronizedlock.md)
 - <HopeIcon icon="page"/> [AQS抽象队列同步器](5aqs.md)
 - <HopeIcon icon="page"/> [Amotic原子类](6atomic.md)
+- <HopeIcon icon="page"/> [JUC常见并发容器](7juccollections.md)

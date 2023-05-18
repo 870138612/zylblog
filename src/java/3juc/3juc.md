@@ -230,8 +230,8 @@ CompletableFuture<SkuInfoEntity> future1 = CompletableFuture.supplyAsync(() -> {
       skuItemVo.setInfo(info);
       return info;
 }, executor);
-CompletableFuture<SkuInfoEntity> future2 = CompletableFuture.supplyAsync(() -> {
-   //业务代码
+CompletableFuture<SkuInfoEntity> future2 = future1.thenAcceptAsync(() -> {
+   //业务代码2，需要future1完成之后才能执行
 }, executor);
 CompletableFuture<SkuInfoEntity> future3 = CompletableFuture.supplyAsync(() -> {
    //业务代码
