@@ -230,7 +230,16 @@ CompletableFuture<SkuInfoEntity> future1 = CompletableFuture.supplyAsync(() -> {
       skuItemVo.setInfo(info);
       return info;
 }, executor);
+CompletableFuture<SkuInfoEntity> future2 = CompletableFuture.supplyAsync(() -> {
+   //业务代码
+}, executor);
+CompletableFuture<SkuInfoEntity> future3 = CompletableFuture.supplyAsync(() -> {
+   //业务代码
+}, executor);
+CompletableFuture<SkuInfoEntity> future4 = CompletableFuture.supplyAsync(() -> {
+   //业务代码
+}, executor);
 //多个任务等待异步完成
-CompletableFuture.allOf(future1,future2,future3,future4,future5).get();
+CompletableFuture.allOf(future1,future2,future3,future4).get();
 ```
 
