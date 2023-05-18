@@ -19,6 +19,13 @@ export const zhSidebar = sidebar({
     },
     {
       collapsible: true,
+      text: "计算机基础",
+      icon: "computer",
+      prefix: "computer/",
+      children: "structure",
+    },
+    {
+      collapsible: true,
       text: "中间件",
       icon: "middleware",
       prefix: "middleware/",
