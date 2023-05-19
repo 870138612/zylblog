@@ -1,6 +1,4 @@
-<template><div><p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/519132906.jpg" alt="519132906"></p>
-<!-- more -->
-<h2 id="运行时数据区域" tabindex="-1"><a class="header-anchor" href="#运行时数据区域" aria-hidden="true">#</a> 运行时数据区域</h2>
+<template><div><h2 id="运行时数据区域" tabindex="-1"><a class="header-anchor" href="#运行时数据区域" aria-hidden="true">#</a> 运行时数据区域</h2>
 <h4 id="线程私有的" tabindex="-1"><a class="header-anchor" href="#线程私有的" aria-hidden="true">#</a> <strong>线程私有的：</strong></h4>
 <ul>
 <li>
@@ -10,6 +8,9 @@
 <li>程序计数器是唯一一个不会出现OOM的内存区域，随着线程的创建而创建，线程的消亡而消亡。</li>
 </ul>
 </li>
+</ul>
+<!-- more -->
+<ul>
 <li>
 <h5 id="虚拟机栈" tabindex="-1"><a class="header-anchor" href="#虚拟机栈" aria-hidden="true">#</a> 虚拟机栈</h5>
 <ul>
@@ -58,7 +59,8 @@
 <h5 id="方法区" tabindex="-1"><a class="header-anchor" href="#方法区" aria-hidden="true">#</a> 方法区</h5>
 <ul>
 <li>方法区属于是 JVM 运行时数据区域的一块逻辑区域，是各个线程共享的内存区域。从内存分布图中可以看出<strong>永久代是 JDK 1.8 之前的方法区实现（运行时数据区），JDK 1.8 及以后方法区的实现变成了元空间（本地内存）</strong>。</li>
-<li>转到本地内存的原因：元空间使用本地内存，可能会受到本机内存的限制，但是出现溢出的概率比原来的永久代小很多。</li>
+<li>转到本地内存的原因：元空间使用本地内存，可能会受到本机内存的限制，但是出现溢出的概率比原来的永久代小很多。
+<img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/519132906.jpg" alt="519132906"></li>
 </ul>
 </li>
 </ul>
