@@ -137,4 +137,4 @@ HotSpot 虚拟机中字符串常量池的实现是 `stringTable.cpp` ，`StringT
 
 如果使用句柄的话，那么 Java 堆中将会划分出一块内存来作为句柄池，reference 中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与对象类型数据各自的具体地址信息。
 
-![51448](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/51448.jpg)
+![19151947](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/19151947.jpg)

@@ -8,3 +8,4 @@ article: false
 timeline: false
 ---
 - <HopeIcon icon="page"/> [JVM内存结构](1memory.md)
+- <HopeIcon icon="page"/> [JVM垃圾回收](2gc.md)
