@@ -103,6 +103,91 @@
 <h3 id="分代收集算法-hotspot为什么要分代" tabindex="-1"><a class="header-anchor" href="#分代收集算法-hotspot为什么要分代" aria-hidden="true">#</a> 分代收集算法/HotSpot为什么要分代</h3>
 <p>当前虚拟机的垃圾收集都采用分代收集算法，这种算法没有什么新的思想，只是根据对象存活周期的不同将内存分为几块。一般将 Java 堆分为新生代和老年代，这样就可以根据各个年代的特点选择合适的垃圾收集算法。</p>
 <p>在新生代中，每次收集都有大量对象死去，所以可以采用“标记-复制算法”，只需要付出少量对象的复制成本就能完成垃圾收集，而老年代中对象存活的久，并且没有额外的空间对它进行分配担保，所以选择“标记-清除”或“标记-整理”算法进行垃圾收集。</p>
+<h2 id="垃圾回收器" tabindex="-1"><a class="header-anchor" href="#垃圾回收器" aria-hidden="true">#</a> 垃圾回收器</h2>
+<h3 id="serial-收集器" tabindex="-1"><a class="header-anchor" href="#serial-收集器" aria-hidden="true">#</a> Serial 收集器</h3>
+<p>Serial（串行）收集器是最基本、历史最悠久的垃圾收集器了。只会使用一条垃圾收集线程去完成垃圾收集工作，在进行垃圾收集工作的时候必须暂停其他所有的工作线程（ <strong>&quot;Stop The World&quot;</strong> ），直到它收集结束。简单高效。</p>
+<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520203719818.png" alt="image-20230520203719818"></p>
+<p><strong>新生代采用标记-复制算法，老年代采用标记-整理算法。</strong></p>
+<h3 id="parnew-收集器" tabindex="-1"><a class="header-anchor" href="#parnew-收集器" aria-hidden="true">#</a> ParNew 收集器</h3>
+<p>ParNew 收集器其实就是 Serial 收集器的多线程版本，除了使用多线程进行垃圾收集外，其余行为（控制参数、收集算法、回收策略等等）和 Serial 收集器完全一样。</p>
+<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520203818307.png" alt="image-20230520203818307"></p>
+<p><strong>新生代采用标记-复制算法，老年代采用标记-整理算法</strong>。</p>
+<p>除了 Serial 收集器外，只有它能与 CMS 收集器配合工作。</p>
+<p>并发：一个时间段内同时执行，操作系统基本特征。</p>
+<p>并行：一个时刻同时执行。</p>
+<h3 id="parallel-scavenge-收集器" tabindex="-1"><a class="header-anchor" href="#parallel-scavenge-收集器" aria-hidden="true">#</a> Parallel Scavenge 收集器</h3>
+<p>采用标记-复制算法的多线程收集器，<strong>重点关注吞吐量（高效利用CPU）</strong>，CMS垃圾收集器关注的是<strong>停顿时间</strong>。</p>
+<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520203801684.png" alt="image-20230520203801684"></p>
+<p><strong>新生代采用标记-复制算法，老年代采用标记-整理算法。</strong></p>
+<p>JDK1.8的默认收集器。</p>
+<h3 id="serial-old收集器" tabindex="-1"><a class="header-anchor" href="#serial-old收集器" aria-hidden="true">#</a> Serial Old收集器</h3>
+<p><strong>Serial 收集器的老年代版本</strong>，它同样是一个单线程收集器。它主要有两大用途：一种用途是在 JDK1.5 以及以前的版本中与 Parallel Scavenge 收集器搭配使用，另一种用途是作为 CMS 收集器的后备方案。</p>
+<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520203855193.png" alt="image-20230520203855193"></p>
+<h3 id="parallel-old-收集器" tabindex="-1"><a class="header-anchor" href="#parallel-old-收集器" aria-hidden="true">#</a> Parallel Old 收集器</h3>
+<p><strong>Parallel Scavenge 收集器的老年代版本</strong>。使用多线程和“标记-整理”算法。在<strong>注重吞吐量</strong>以及 CPU 资源的场合，都可以优先考虑 Parallel Scavenge 收集器和 Parallel Old 收集器。</p>
+<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520204013889.png" alt="image-20230520204013889"></p>
+<h3 id="cms收集器" tabindex="-1"><a class="header-anchor" href="#cms收集器" aria-hidden="true">#</a> CMS收集器</h3>
+<p>CMS（Concurrent Mark Sweep）收集器是一种以获取<strong>最短回收停顿时间</strong>为目标的收集器。它非常符合在注重用户体验的应用上使用。</p>
+<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520204024801.png" alt="image-20230520204024801"></p>
+<p><strong>CMS（Concurrent Mark Sweep）收集器是 HotSpot 虚拟机第一款真正意义上的并发收集器，它第一次实现了让垃圾收集线程与用户线程（基本上）同时工作。</strong></p>
+<p>CMS 收集器是一种“<strong>标记-清除</strong>”算法实现的，运行步骤：</p>
+<ul>
+<li>
+<p><strong>初始标记：</strong> 暂停所有的其他线程，并记录下直接与 root 相连的对象，速度很快 ；</p>
+</li>
+<li>
+<p><strong>并发标记：</strong> 同时开启 GC 和用户线程，用一个闭包结构去记录可达对象。但在这个阶段结束，这个闭包结构并不能保证包含当前所有的可达对象。因为用户线程可能会不断的更新引用域，所以 GC 线程无法保证可达性分析的实时性。所以这个算法里会跟踪记录这些发生引用更新的地方。</p>
+</li>
+<li>
+<p><strong>重新标记：</strong> 重新标记阶段就是为了修正并发标记期间因为用户程序继续运行而导致标记产生变动的那一部分对象的标记记录，这个阶段的停顿时间一般会比初始标记阶段的时间稍长，远远比并发标记阶段时间短</p>
+</li>
+<li>
+<p><strong>并发清除：</strong> 开启用户线程，同时 GC 线程开始对未标记的区域做清扫。</p>
+</li>
+</ul>
+<p>优点：</p>
+<p><strong>并发收集、低停顿</strong>。</p>
+<p>缺点：</p>
+<ul>
+<li><strong>对 CPU 资源敏感；</strong></li>
+<li><strong>无法处理浮动垃圾；</strong>（在并发标记阶段用户新产生的垃圾，在重新标记阶段不会标记浮动的新垃圾）</li>
+<li><strong>它使用的回收算法-“标记-清除”算法会导致收集结束时会有大量空间碎片产生。</strong></li>
+</ul>
+<h3 id="g1-收集器" tabindex="-1"><a class="header-anchor" href="#g1-收集器" aria-hidden="true">#</a> G1 收集器</h3>
+<p>G1 (Garbage-First) 是一款面向服务器的垃圾收集器,主要针对配备多颗处理器及大容量内存的机器. <strong>以极高概率满足 GC 停顿时间要求的同时,还具备高吞吐量性能特征</strong>.</p>
+<p>G1也是遵循分代收集理论设计的，它不再坚持以固定大小以及固定数量的分代区域划分，而是把连续的Java堆划分为多个大小相等的独立区域，每一个<strong>Region</strong>都可以根据需要扮演Eden空间、Survivor空间或者老年代空间。收集器根据不同的角色采用不同的策略处理这些Region。Region中还有一类特殊的Humongous区域，专门用来存储大对象。这些Humongous被当作老年代处理。有以下特点：</p>
+<ul>
+<li><strong>并行与并发</strong>：G1 能充分利用 CPU、多核环境下的硬件优势，使用多个 CPU（CPU 或者 CPU 核心）来缩短 Stop-The-World 停顿时间。部分其他收集器原本需要停顿 Java 线程执行的 GC 动作，G1 收集器仍然可以通过并发的方式让 java 程序继续执行。</li>
+<li><strong>分代收集</strong>：虽然 G1 可以不需要其他收集器配合就能独立管理整个 GC 堆，但是还是保留了分代的概念。</li>
+<li><strong>空间整合</strong>：与 CMS 的“标记-清除”算法不同，<strong>G1 从整体来看是基于“标记-整理”算法实现的收集器；从局部上来看是基于“标记-复制”算法实现的。（一个Region复制到另外一个Region）</strong></li>
+<li><strong>可预测的停顿</strong>：这是 G1 相对于 CMS 的另一个大优势，降低停顿时间是 G1 和 CMS 共同的关注点，但 G1 除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为 M 毫秒的时间片段内，消耗在垃圾收集上的时间不得超过 N 毫秒。</li>
+</ul>
+<p><strong>G1 收集器的运作大致分为以下几个步骤：</strong></p>
+<ul>
+<li><strong>初始标记</strong>：标记一下GC Roots能直接关联到的对象，再修改TAMS指针。借用Minor GC的时候同步完成。</li>
+<li><strong>并发标记</strong>：遍历对象图，找出需要回收的对象，与用户线程并发执行。处理原始快照在并发时变动的对象。</li>
+<li><strong>最终标记</strong>：处理并发阶段结束后仍遗留下来的少量SATB记录。</li>
+<li><strong>筛选回收</strong>：更新Region的统计数据，对各个Region的回收价值和成本进行排序，然后根据用户的期望停顿时间制定回收计划，最后把需要回收的Region里的存活对象复制到新region中，再清空旧region。需要STW，多条收集线程并发执行。</li>
+</ul>
+<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520204132639.png" alt="image-20230520204132639"></p>
+<p><strong>G1 收集器在后台维护了一个优先列表，每次根据允许的收集时间，优先选择回收价值最大的 Region(这也就是它的名字 Garbage-First 的由来)</strong> 。这种使用 Region 划分内存空间以及有优先级的区域回收方式，保证了 G1 收集器在有限时间内可以尽可能高的收集效率（把内存化整为零）。</p>
+<p><strong>G1存在着很多问题：</strong></p>
+<ol>
+<li>还是跨代引用的问题，这么多Region，在判断对象是否可达的时候，就需要每个Region都维护一个Remember Set，内存占用是非常高的。</li>
+<li>浮动垃圾。为每个Region设置两个TAMS指针，新对象都分配在这个两个指针之间，默认认为这些新对象不是垃圾。如果回收速度赶不上分配速度，也会导致冻结用户线程，进行FullGC。</li>
+</ol>
+<h2 id="cms和g1的异同" tabindex="-1"><a class="header-anchor" href="#cms和g1的异同" aria-hidden="true">#</a> CMS和G1的异同</h2>
+<p>首先CMS是老年代的收集器，一般配合ParNew使用，但是这个组合在G1出现后已经被废弃了。G1 面向整堆进行收集。</p>
+<p>CMS采用标记清除算法，因此会产生内存碎片，导致Concurrent mode failure进而Full GC。</p>
+<p><strong>G1宏观上采用标记清除，但是微观上是在各个region之间标记复制，所以降低了内存碎片的产生数量。</strong></p>
+<p>再就是二者的回收过程不同，CMS大致可以分为初始标记、并发标记、重新标记和并发清理；G1 大致可以分为初始标记、并发标记、重新标记和清除。这二者在针对并发标记过程中用户线程对可达性分析的影响的处理方式不同，<strong>一个是增量更新（CMS），一个是原始快照（G1）。</strong></p>
+<p>CMS和G1都是响应时间优先的收集器，但是CMS是追求最小的停顿时间为目标，而G1通过衰减均值来建立可预测的停顿模型，也就是分析每个Region的回收收益，根据均值、标准差、置信度等指标来决定到底要收集哪些region，并且收集这些region所需的停顿时间要大概率不超过期望的停顿时间。</p>
+<h2 id="到底多大的对象会被直接扔到老年代" tabindex="-1"><a class="header-anchor" href="#到底多大的对象会被直接扔到老年代" aria-hidden="true">#</a> 到底多大的对象会被直接扔到老年代</h2>
+<p>用-XX: PretunureSizeThreshold指定对象大小的阈值，超过这个数就直接放入老年代，减少内存复制开销。但是这个参数只支持Serial和ParNew。像G1的话，只要对象大小超过Region的一半，那就会直接放到Humongous里，这个Humongous也被认为是老年代。</p>
+<h2 id="cms和g1的stw的区别" tabindex="-1"><a class="header-anchor" href="#cms和g1的stw的区别" aria-hidden="true">#</a> CMS和G1的STW的区别</h2>
+<p>首先，根节点枚举都是需要STW的，CMS和G1在根节点枚举上的区别就在于处理跨代引用上，跨代引用一般是使用记忆集解决，G1的记忆集和CMS的不一样，因为G1的分区是按Region分的，因此G1的记忆集是一个哈希表，Key是别的Region的起始地址，value是一个集合，里面存储的是卡表的索引号。这个哈希表表示我指向谁，谁又指向我的，是一种双向卡表。而CMS的卡表比较简单，只标识着某个内存区域是否为脏。</p>
+<p>然后CMS在可达性分析的时候有两个步骤需要STW，一个是初始标记，一个是重新标记；G1 有三个步骤需要STW，一个是初始标记，一个是最终标记，还有一个是筛选回收。初始标记很好理解，就是将GC roots直接引用的对象标记一遍，速度很快；关键点在于这二者都存在一个并发标记的步骤，此时与用户线程并发执行，难免用户线程会修改对象图的引用关系。这两个收集器的处理策略是不同的，CMS采用的是增量更新，G1 则采用的是原始快照。</p>
+<p>增量更新就是将那些新加入引用的位置记录，在重新标记阶段进行处理。原始快照就是将那些被删除的引用记录保存下来，也就是保存个快照，在并发标记的最后以及最终标记中进行处理。</p>
 </div></template>
 
 
