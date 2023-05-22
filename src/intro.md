@@ -13,5 +13,5 @@ article: false
 
 希望本站的资源能对学Java的大家提供一点帮助。
 
-本网站基于开源项目vuepress-theme-hope搭建，图片采用腾讯对象存储。
+终将美好，我们的春夏秋冬。
 
