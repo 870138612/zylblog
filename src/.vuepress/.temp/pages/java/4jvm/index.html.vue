@@ -9,6 +9,8 @@
 <HopeIcon icon="page"/> <RouterLink to="/java/4jvm/4classloadprocess.html">类加载过程</RouterLink></li>
 <li>
 <HopeIcon icon="page"/> <RouterLink to="/java/4jvm/5classloader.html">类加载器</RouterLink></li>
+<li>
+<HopeIcon icon="page"/> <RouterLink to="/java/4jvm/6jvmparameters.html">JVM重要参数</RouterLink></li>
 </ul>
 </div></template>
 
