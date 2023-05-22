@@ -1,1 +1,0 @@
-import{_ as e,X as r,Y as t,a2 as a}from"./framework-a3ecc17a.js";const c={};function m(o,_){return r(),t("div",null,[a(" more ")])}const s=e(c,[["render",m],["__file","6jvmparameters.html.vue"]]);export{s as default};
