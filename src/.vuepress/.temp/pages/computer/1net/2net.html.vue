@@ -104,7 +104,61 @@
 <p>因为服务器收到客户端断开连接的请求时，可能还有一些数据没有发完，这时先回复 ACK，表示接收到了断开连接的请求。等到数据发完之后再发 FIN，断开服务器到客户端的数据传送。</p>
 <h3 id="为什么第四次挥手客户端需要等待-2-msl-报文段最长寿命-时间后才进入-closed-状态" tabindex="-1"><a class="header-anchor" href="#为什么第四次挥手客户端需要等待-2-msl-报文段最长寿命-时间后才进入-closed-状态" aria-hidden="true">#</a> 为什么第四次挥手客户端需要等待 2*MSL（报文段最长寿命）时间后才进入 CLOSED 状态？</h3>
 <p>第四次挥手时，客户端发送给服务器的 ACK 有可能丢失，如果服务端因为某些原因而没有收到 ACK 的话，服务端就会重发 FIN，如果客户端在 2*MSL 的时间内收到了 FIN，就会重新发送 ACK 并再次等待 2MSL，防止 Server 没有收到 ACK 而不断重发 FIN。</p>
-<h1 id="tcp-传输可靠性保障-传输层" tabindex="-1"><a class="header-anchor" href="#tcp-传输可靠性保障-传输层" aria-hidden="true">#</a> TCP 传输可靠性保障（传输层）</h1>
+<h2 id="tcp-传输可靠性保障-传输层" tabindex="-1"><a class="header-anchor" href="#tcp-传输可靠性保障-传输层" aria-hidden="true">#</a> TCP 传输可靠性保障（传输层）</h2>
+<h3 id="tcp-如何保证传输的可靠性" tabindex="-1"><a class="header-anchor" href="#tcp-如何保证传输的可靠性" aria-hidden="true">#</a> TCP 如何保证传输的可靠性？</h3>
+<ul>
+<li>
+<p><strong>基于数据块传输</strong>：应用数据被分割成 TCP 认为最适合发送的数据块，再传输给网络层，数据块被称为报文段或段。</p>
+</li>
+<li>
+<p><strong>对失序数据包重新排序以及去重</strong>：TCP 为了保证不发生丢包，就给每个包一个序列号，有了序列号能够将接收到的数据根据序列号排序，并且去掉重复序列号的数据就可以实现数据包去重。</p>
+</li>
+<li>
+<p><strong>校验和</strong> : TCP 将保持它首部和数据的检验和。这是一个端到端的检验和，目的是检测数据在传输过程中的任何变化。如果收到段的检验和有差错，TCP 将丢弃这个报文段和不确认收到此报文段。</p>
+</li>
+<li>
+<p><strong>超时重传</strong> : 当发送方发送数据之后，它启动一个定时器，等待目的端确认收到这个报文段。接收端实体对已成功收到的包发回一个相应的确认信息（ACK）。如果发送端实体在合理的往返时延（RTT）内未收到确认消息，那么对应的数据包就被假设为<a href="https://zh.wikipedia.org/wiki/%E4%B8%A2%E5%8C%85" target="_blank" rel="noopener noreferrer">已丢失open in new window<ExternalLinkIcon/></a>并进行重传。</p>
+</li>
+<li>
+<p><strong>流量控制</strong> : TCP 连接的每一方都有固定大小的缓冲空间，TCP 的接收端只允许发送端发送接收端缓冲区能接纳的数据。当接收方来不及处理发送方的数据，能提示发送方降低发送的速率，防止包丢失。TCP 使用的流量控制协议是可变大小的滑动窗口协议（TCP 利用滑动窗口实现流量控制）。</p>
+</li>
+<li>
+<p><strong>拥塞控制</strong> : 当网络拥塞时，减少数据的发送。</p>
+</li>
+</ul>
+<h3 id="tcp-如何实现流量控制" tabindex="-1"><a class="header-anchor" href="#tcp-如何实现流量控制" aria-hidden="true">#</a> TCP 如何实现流量控制？</h3>
+<p><strong>TCP 利用滑动窗口实现流量控制。流量控制是为了控制发送方发送速率，保证接收方来得及接收。</strong></p>
+<h3 id="tcp-的拥塞控制是怎么实现的" tabindex="-1"><a class="header-anchor" href="#tcp-的拥塞控制是怎么实现的" aria-hidden="true">#</a> TCP 的拥塞控制是怎么实现的？</h3>
+<p>通过拥塞控制算法实现。</p>
+<ul>
+<li>
+<p><strong>慢开始：</strong> 慢开始算法的思路是当主机开始发送数据时，如果立即把大量数据字节注入到网络，那么可能会引起网络阻塞，因为现在还不知道网络的符合情况。经验表明，较好的方法是先探测一下，即由小到大逐渐增大发送窗口，也就是由小到大逐渐增大拥塞窗口数值。cwnd 初始值为 1，每经过一个传播轮次，cwnd 加倍。</p>
+</li>
+<li>
+<p><strong>拥塞避免：</strong> 拥塞避免算法的思路是让拥塞窗口 cwnd 缓慢增大，即每经过一个往返时间 RTT 就把发送方的 cwnd 加 1.</p>
+</li>
+<li>
+<p><strong>快重传与快恢复：</strong> 快重传：**如果发送机接收到三个重复确认，它会假定确认件指出的数据段丢失了，并立即重传这些丢失的数据段。**快恢复：在网络发生拥塞之后，不会将拥塞窗口设置为1，而是直接设置为ssthresh阈值的一半。</p>
+</li>
+</ul>
+<h2 id="arq协议" tabindex="-1"><a class="header-anchor" href="#arq协议" aria-hidden="true">#</a> ARQ协议</h2>
+<p>ARQ称为<strong>自动重传请求</strong>（Automatic Repeat-reQuest，ARQ）；</p>
+<h3 id="停止等待协议" tabindex="-1"><a class="header-anchor" href="#停止等待协议" aria-hidden="true">#</a> 停止等待协议</h3>
+<p><strong>发送窗口=接收窗口=1；</strong></p>
+<p>停止等待协议中超时重传是指只要超过一段时间仍然没有收到确认，就重传前面发送过的分组（认为刚才发送过的分组丢失了）。因此每发送完一个分组需要设置一个超时计时器，其重传时间应比数据在分组传输的平均往返时间更长一些。这种自动重传方式常称为 <strong>自动重传请求 ARQ</strong> 。另外在停止等待协议中若收到重复分组，就丢弃该分组，但同时还要发送确认。</p>
+<p>详见《计算机网络》（谢希仁）。</p>
+<h3 id="后退n帧协议-gbn" tabindex="-1"><a class="header-anchor" href="#后退n帧协议-gbn" aria-hidden="true">#</a> 后退N帧协议（GBN）</h3>
+<p><strong>发送窗口&gt;1 ,接收窗口=1；</strong></p>
+<p>连续 ARQ 协议可提高信道利用率。发送方维持一个发送窗口，凡位于发送窗口内的分组可以连续发送出去，而不需要等待对方确认。接收方一般采用累计确认，对按序到达的最后一个分组发送确认，表明到这个分组为止的所有分组都已经正确收到了。</p>
+<p>发送方能将发送窗口内的所有序号发送，接收窗口每收到一个序号就会发送一个确认帧，并将接收窗口向前移动。如果发送方超时没有收到确认帧，则将此确认帧还有之后已经发送的序号全部重发。</p>
+<p>如果收到了序号n的确认，则认为前面需要的数据在接收端都受到了，这种确认叫做<strong>累计确认机制</strong>。</p>
+<h3 id="选择重传协议-sr" tabindex="-1"><a class="header-anchor" href="#选择重传协议-sr" aria-hidden="true">#</a> 选择重传协议（SR）</h3>
+<p>发送窗口&gt;1 ,接收窗口&gt;1；</p>
+<p>选择重传协议不再具有累计确认机制，凡是接收窗口中的序号都接收并返回确认帧，如果发生超时，就重传超时的帧，而不是GBN中的当前帧和后续的所有帧。</p>
+<div class="hint-container info">
+<p class="hint-container-title">相关信息</p>
+<p>本章的所有知识都属于计算机统考408计算机学科专业基础中的知识点</p>
+</div>
 </div></template>
 
 

@@ -1,8 +1,8 @@
 <template><div><ul>
 <li>
-<HopeIcon icon="net"/> <RouterLink to="/computer/1net.html">计算机网络</RouterLink></li>
+<HopeIcon icon="net"/> <a href="1net">计算机网络</a></li>
 <li>
-<HopeIcon icon="net"/> <RouterLink to="/computer/1io.html">I/O</RouterLink></li>
+<HopeIcon icon="io"/> <RouterLink to="/computer/2io.html">I/O</RouterLink></li>
 </ul>
 </div></template>
 
