@@ -1,9 +1,9 @@
 ---
 title: I/O
-icon: io
+icon: page
 category:
   - 计算机基础
 tags:
-  - I/O
+  - 操作系统
   - 八股
 ---

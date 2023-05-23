@@ -3,18 +3,16 @@ export const pagesData = {
   "v-184f4da6": () => import(/* webpackChunkName: "v-184f4da6" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/intro.html.js").then(({ data }) => data),
   // path: /
   "v-8daa1a0e": () => import(/* webpackChunkName: "v-8daa1a0e" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/index.html.js").then(({ data }) => data),
-  // path: /computer/4io.html
-  "v-774f875a": () => import(/* webpackChunkName: "v-774f875a" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/4io.html.js").then(({ data }) => data),
   // path: /computer/
   "v-a94a8cca": () => import(/* webpackChunkName: "v-a94a8cca" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/index.html.js").then(({ data }) => data),
-  // path: /database/
-  "v-2e25198a": () => import(/* webpackChunkName: "v-2e25198a" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/index.html.js").then(({ data }) => data),
-  // path: /home/
-  "v-14b0a7d7": () => import(/* webpackChunkName: "v-14b0a7d7" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/home/index.html.js").then(({ data }) => data),
-  // path: /interview/
-  "v-71b3ae87": () => import(/* webpackChunkName: "v-71b3ae87" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/interview/index.html.js").then(({ data }) => data),
   // path: /framework/
   "v-7d72c4ac": () => import(/* webpackChunkName: "v-7d72c4ac" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/framework/index.html.js").then(({ data }) => data),
+  // path: /database/
+  "v-2e25198a": () => import(/* webpackChunkName: "v-2e25198a" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/index.html.js").then(({ data }) => data),
+  // path: /interview/
+  "v-71b3ae87": () => import(/* webpackChunkName: "v-71b3ae87" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/interview/index.html.js").then(({ data }) => data),
+  // path: /home/
+  "v-14b0a7d7": () => import(/* webpackChunkName: "v-14b0a7d7" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/home/index.html.js").then(({ data }) => data),
   // path: /java/
   "v-14c69af4": () => import(/* webpackChunkName: "v-14c69af4" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/index.html.js").then(({ data }) => data),
   // path: /middleware/1nginx.html
@@ -37,16 +35,18 @@ export const pagesData = {
   "v-b9583b32": () => import(/* webpackChunkName: "v-b9583b32" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/1net/3net.html.js").then(({ data }) => data),
   // path: /computer/1net/
   "v-18d61928": () => import(/* webpackChunkName: "v-18d61928" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/1net/index.html.js").then(({ data }) => data),
+  // path: /computer/2os/4io.html
+  "v-1f1ac233": () => import(/* webpackChunkName: "v-1f1ac233" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/2os/4io.html.js").then(({ data }) => data),
   // path: /computer/2os/
   "v-b4124518": () => import(/* webpackChunkName: "v-b4124518" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/2os/index.html.js").then(({ data }) => data),
   // path: /computer/3linux/
   "v-bb64249a": () => import(/* webpackChunkName: "v-bb64249a" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/3linux/index.html.js").then(({ data }) => data),
+  // path: /framework/1spring/
+  "v-182fabca": () => import(/* webpackChunkName: "v-182fabca" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/framework/1spring/index.html.js").then(({ data }) => data),
   // path: /database/1mysql/
   "v-c91da0ba": () => import(/* webpackChunkName: "v-c91da0ba" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/1mysql/index.html.js").then(({ data }) => data),
   // path: /database/2redis/
   "v-50823daa": () => import(/* webpackChunkName: "v-50823daa" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/2redis/index.html.js").then(({ data }) => data),
-  // path: /framework/1spring/
-  "v-182fabca": () => import(/* webpackChunkName: "v-182fabca" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/framework/1spring/index.html.js").then(({ data }) => data),
   // path: /java/1java/1java.html
   "v-e26068d4": () => import(/* webpackChunkName: "v-e26068d4" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/1java/1java.html.js").then(({ data }) => data),
   // path: /java/1java/2java.html
@@ -107,28 +107,28 @@ export const pagesData = {
   "v-154dc4c4": () => import(/* webpackChunkName: "v-154dc4c4" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/star/index.html.js").then(({ data }) => data),
   // path: /timeline/
   "v-01560935": () => import(/* webpackChunkName: "v-01560935" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/timeline/index.html.js").then(({ data }) => data),
-  // path: /category/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/
-  "v-79574331": () => import(/* webpackChunkName: "v-79574331" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/category/计算机基础/index.html.js").then(({ data }) => data),
-  // path: /tag/io/
-  "v-0da0cabb": () => import(/* webpackChunkName: "v-0da0cabb" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/io/index.html.js").then(({ data }) => data),
   // path: /category/%E4%B8%AD%E9%97%B4%E4%BB%B6/
   "v-9d681cea": () => import(/* webpackChunkName: "v-9d681cea" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/category/中间件/index.html.js").then(({ data }) => data),
-  // path: /tag/%E5%85%AB%E8%82%A1/
-  "v-beb4d5e8": () => import(/* webpackChunkName: "v-beb4d5e8" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/八股/index.html.js").then(({ data }) => data),
-  // path: /category/%E6%91%84%E5%BD%B1/
-  "v-0a768c4f": () => import(/* webpackChunkName: "v-0a768c4f" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/category/摄影/index.html.js").then(({ data }) => data),
   // path: /tag/nginx/
   "v-1a8900ba": () => import(/* webpackChunkName: "v-1a8900ba" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/nginx/index.html.js").then(({ data }) => data),
-  // path: /category/java/
-  "v-5831b135": () => import(/* webpackChunkName: "v-5831b135" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/category/java/index.html.js").then(({ data }) => data),
+  // path: /category/%E6%91%84%E5%BD%B1/
+  "v-0a768c4f": () => import(/* webpackChunkName: "v-0a768c4f" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/category/摄影/index.html.js").then(({ data }) => data),
+  // path: /tag/%E5%85%AB%E8%82%A1/
+  "v-beb4d5e8": () => import(/* webpackChunkName: "v-beb4d5e8" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/八股/index.html.js").then(({ data }) => data),
+  // path: /category/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/
+  "v-79574331": () => import(/* webpackChunkName: "v-79574331" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/category/计算机基础/index.html.js").then(({ data }) => data),
   // path: /tag/rabbitmq/
   "v-63bcc623": () => import(/* webpackChunkName: "v-63bcc623" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/rabbitmq/index.html.js").then(({ data }) => data),
+  // path: /category/java/
+  "v-5831b135": () => import(/* webpackChunkName: "v-5831b135" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/category/java/index.html.js").then(({ data }) => data),
   // path: /tag/%E5%B9%B3%E6%BD%AD/
   "v-3b45d3f9": () => import(/* webpackChunkName: "v-3b45d3f9" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/平潭/index.html.js").then(({ data }) => data),
   // path: /tag/%E6%97%85%E6%8B%8D/
   "v-6b298b3e": () => import(/* webpackChunkName: "v-6b298b3e" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/旅拍/index.html.js").then(({ data }) => data),
   // path: /tag/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/
   "v-7812146a": () => import(/* webpackChunkName: "v-7812146a" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/计算机网络/index.html.js").then(({ data }) => data),
+  // path: /tag/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/
+  "v-10a04a2f": () => import(/* webpackChunkName: "v-10a04a2f" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/操作系统/index.html.js").then(({ data }) => data),
   // path: /tag/java%E5%9F%BA%E7%A1%80/
   "v-68cf5b32": () => import(/* webpackChunkName: "v-68cf5b32" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/java基础/index.html.js").then(({ data }) => data),
   // path: /tag/java%E5%8F%8D%E5%B0%84/
