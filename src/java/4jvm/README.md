@@ -13,3 +13,4 @@ timeline: false
 - <HopeIcon icon="page"/> [类加载过程](4classloadprocess.md)
 - <HopeIcon icon="page"/> [类加载器](5classloader.md)
 - <HopeIcon icon="page"/> [JVM重要参数](6jvmparameters.md)
+- <HopeIcon icon="page"/> [JVM调优](7gcoptimize.md)

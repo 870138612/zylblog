@@ -14,7 +14,7 @@
 <p>为新生代分配256MB内存：</p>
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token operator">-</span><span class="token class-name">Xmn256m</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>还可以通过 <strong><code v-pre>-XX:NewRatio=&lt;int&gt;</code></strong> 来设置老年代与新生代内存的比值：</p>
-<p>老年代与新生代壁纸为1:1，说明新生代占整个内存的1/2；</p>
+<p>老年代与新生代比值为1:1，说明新生代占整个内存的1/2；</p>
 <div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>-XX:NewRatio=1
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="指定永久代-元空间大小" tabindex="-1"><a class="header-anchor" href="#指定永久代-元空间大小" aria-hidden="true">#</a> 指定永久代/元空间大小</h3>
 <p>从 Java 8 开始，如果我们没有指定 Metaspace 的大小，随着更多类的创建，虚拟机会耗尽所有可用的<strong>系统内存</strong>（永久代并不会出现这种情况）。</p>
