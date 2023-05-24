@@ -8,6 +8,6 @@ article: false
 timeline: false
 ---
 - <HopeIcon icon="net"/> [计算机网络](1net)
-- <HopeIcon icon="os"/> [操作系统](2os)
-- <HopeIcon icon="linux"/> [Linux](3linux)
+- <HopeIcon icon="os"/> [操作系统](2os.md)
+- <HopeIcon icon="io"/> [I/O](3io.md)
 

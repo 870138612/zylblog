@@ -137,7 +137,7 @@
 <h2 id="dns" tabindex="-1"><a class="header-anchor" href="#dns" aria-hidden="true">#</a> DNS</h2>
 <h3 id="dns-的作用是什么" tabindex="-1"><a class="header-anchor" href="#dns-的作用是什么" aria-hidden="true">#</a> DNS 的作用是什么？</h3>
 <p>DNS（Domain Name System）域名管理系统，是当用户使用浏览器访问网址之后，使用的第一个重要协议。DNS 要解决的是<strong>域名和 IP 地址的映射问题</strong>。</p>
-<p>如果访问的网址在<code v-pre>hosts</code>文件中有对应的映射表目，则直接进行解析，否则需要使用DNS系统，DNS是应用层协议，基于UDP协议之上，端口为53.</p>
+<p>如果访问的网址在<code v-pre>hosts</code>文件中有对应的映射表目，则直接进行解析，否则需要使用DNS系统，DNS是应用层协议，基于UDP协议之上，端口为53。</p>
 <h3 id="dns-服务器有哪些" tabindex="-1"><a class="header-anchor" href="#dns-服务器有哪些" aria-hidden="true">#</a> DNS 服务器有哪些？</h3>
 <ul>
 <li>

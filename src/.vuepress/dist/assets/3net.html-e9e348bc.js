@@ -1,1 +1,0 @@
-import{_ as e,X as t,Y as n,a2 as c}from"./framework-a3ecc17a.js";const o={};function r(_,a){return t(),n("div",null,[c(" more ")])}const l=e(o,[["render",r],["__file","3net.html.vue"]]);export{l as default};

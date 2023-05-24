@@ -7,7 +7,7 @@ const MR_HOPE_AVATAR =
 
 export default hopeTheme({
   logo: "/logo.jpg",
-  hostname: "https://mister-hope.github.io",
+
   author: {
     name: "ZYL1210",
     url: "https://localhost",
