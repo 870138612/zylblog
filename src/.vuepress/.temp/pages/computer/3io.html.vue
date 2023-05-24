@@ -18,14 +18,15 @@
 <p>Java中的NIO于Java 1.4中引入，对应<code v-pre>Java.nio</code>包，提供了<code v-pre>Channel</code>,<code v-pre>Selector</code>,<code v-pre>Buffer</code>等抽象。NIO中的N可以理解为Non-blocking，不单纯是New。支持面向缓冲，基于通道的I/O操作方法。对于高负载、高并发的应用，应使用NIO。</p>
 <p><strong>Java中的NIO可以看做是I/O多路复用模型。</strong></p>
 <blockquote>
-<p>同步非阻塞IO模型中，应用程序会一直发起read调用，等待数据从内核空间拷贝到用户空间的这段时间，线程依然是阻塞的，直到在内核把数据拷贝到用户空间。（<strong>程序查询法</strong>）相比于同步阻塞IO模型，同步非阻塞IO模型确实有很大的改进，通过轮训操作避免了一直阻塞。</p>
+<p>在同步非阻塞IO模型中，应用程序会一直发起read调用，等待数据从内核空间拷贝到用户空间的这段时间，线程依然是阻塞的，直到在内核把数据拷贝到用户空间。相比于同步阻塞IO模型，同步非阻塞IO模型确实有很大的改进，通过轮训操作避免了一直阻塞。但是这种IO模型仍然存在问题：应用程序不断进行I/O系统调用论文数据是否已经准备好的过程是很消耗CPU资源的。</p>
 </blockquote>
-<p>但是这种IO模型仍然存在问题：应用程序不断进行I/O系统调用论文数据是否已经准备好的过程是很消耗CPU资源的。</p>
-<p>IO多路复用模型中，线程首先发起select调用，查询内核数据是否准备就绪，等内核把数据准备好了，用户再发起read调用。read调用的过程（数据从内核空间-&gt;用户空间）还是阻塞的。<strong>（程序中断法）</strong></p>
+<p>IO多路复用模型中，线程首先发起select调用，查询内核数据是否准备就绪，等内核把数据准备好了，用户再发起read调用。read调用的过程（数据从内核空间-&gt;用户空间）还是阻塞的。</p>
 <p><strong>IO多路复用模型，通过减少无效的系统调用，减少了对CPU资源的消耗。</strong></p>
 <p>Java中的NIO有一个非常重要的<strong>选择器（Selector）<strong>概念，称为</strong>多路复用器</strong>。通过它只需要一个线程便可以管理多个客户端连接，当客户端数据到了之后才会为其服务。<img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/03600.jpg" alt="03600"></p>
 <h3 id="aio-asynchronous-i-o" tabindex="-1"><a class="header-anchor" href="#aio-asynchronous-i-o" aria-hidden="true">#</a> AIO (Asynchronous I/O)</h3>
-<p>AIO 也就是 NIO 2。Java 7 中引入了 NIO 的改进版 NIO 2,它是异步 IO 模型。</p>
+<p>AIO 也就是 NIO 2。Java 7 中引入了 NIO 的改进版 NIO 2，它是<strong>异步 IO 模型</strong>。</p>
+<p>异步IO是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会阻塞，当后台处理完成，操作系统会通知相应的线程进行后续的操作。</p>
+<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/24215217.jpg" alt="24215217"></p>
 </div></template>
 
 
