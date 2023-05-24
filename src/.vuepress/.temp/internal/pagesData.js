@@ -13,10 +13,10 @@ export const pagesData = {
   "v-2e25198a": () => import(/* webpackChunkName: "v-2e25198a" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/index.html.js").then(({ data }) => data),
   // path: /framework/
   "v-7d72c4ac": () => import(/* webpackChunkName: "v-7d72c4ac" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/framework/index.html.js").then(({ data }) => data),
-  // path: /interview/
-  "v-71b3ae87": () => import(/* webpackChunkName: "v-71b3ae87" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/interview/index.html.js").then(({ data }) => data),
   // path: /home/
   "v-14b0a7d7": () => import(/* webpackChunkName: "v-14b0a7d7" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/home/index.html.js").then(({ data }) => data),
+  // path: /interview/
+  "v-71b3ae87": () => import(/* webpackChunkName: "v-71b3ae87" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/interview/index.html.js").then(({ data }) => data),
   // path: /java/
   "v-14c69af4": () => import(/* webpackChunkName: "v-14c69af4" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/index.html.js").then(({ data }) => data),
   // path: /middleware/1nginx.html
@@ -39,10 +39,6 @@ export const pagesData = {
   "v-b9583b32": () => import(/* webpackChunkName: "v-b9583b32" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/1net/3net.html.js").then(({ data }) => data),
   // path: /computer/1net/
   "v-18d61928": () => import(/* webpackChunkName: "v-18d61928" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/1net/index.html.js").then(({ data }) => data),
-  // path: /computer/2os/4io.html
-  "v-1f1ac233": () => import(/* webpackChunkName: "v-1f1ac233" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/2os/4io.html.js").then(({ data }) => data),
-  // path: /computer/2os/
-  "v-b4124518": () => import(/* webpackChunkName: "v-b4124518" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/2os/index.html.js").then(({ data }) => data),
   // path: /computer/3linux/
   "v-bb64249a": () => import(/* webpackChunkName: "v-bb64249a" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/3linux/index.html.js").then(({ data }) => data),
   // path: /database/1mysql/
