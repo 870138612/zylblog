@@ -1,5 +1,4 @@
-<template><div><h2 id="mysql基础" tabindex="-1"><a class="header-anchor" href="#mysql基础" aria-hidden="true">#</a> MySQL基础</h2>
-<h3 id="什么是关系型数据库" tabindex="-1"><a class="header-anchor" href="#什么是关系型数据库" aria-hidden="true">#</a> 什么是关系型数据库？</h3>
+<template><div><h3 id="什么是关系型数据库" tabindex="-1"><a class="header-anchor" href="#什么是关系型数据库" aria-hidden="true">#</a> 什么是关系型数据库？</h3>
 <p>一种建立在关系模型基础上的数据库，关系模型表明了数据库中所存储的数据之间的联系（一对一，一对多，多对多）。</p>
 <h3 id="mysql有什么优点" tabindex="-1"><a class="header-anchor" href="#mysql有什么优点" aria-hidden="true">#</a> MySQL有什么优点？</h3>
 <ol>

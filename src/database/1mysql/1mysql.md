@@ -1,5 +1,5 @@
 ---
-title: MySQL一
+title: MySQL基础
 icon: page
 category:
   - 数据库
@@ -7,8 +7,6 @@ tags:
   - MySQL
   - 八股
 ---
-
-## MySQL基础
 
 ### 什么是关系型数据库？
 

@@ -4,7 +4,11 @@
 <li>
 <HopeIcon icon="page"/> <RouterLink to="/database/1mysql/1mysql.html">MySQL基础</RouterLink></li>
 <li>
-<HopeIcon icon="page"/> <RouterLink to="/database/1mysql/1mysql.html">索引详解</RouterLink></li>
+<HopeIcon icon="page"/> <RouterLink to="/database/1mysql/2mysqlindex.html">MySQL索引</RouterLink></li>
+<li>
+<HopeIcon icon="page"/> <RouterLink to="/database/1mysql/3mysqllog.html">MySQL日志</RouterLink></li>
+<li>
+<HopeIcon icon="page"/> <RouterLink to="/database/1mysql/4mysqlmvcc.html">MVCC</RouterLink></li>
 </ul>
 </div></template>
 

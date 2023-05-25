@@ -1,4 +1,4 @@
-<template><div><h2 id="mysql索引" tabindex="-1"><a class="header-anchor" href="#mysql索引" aria-hidden="true">#</a> MySQL索引</h2>
+<template><div><h2 id="索引" tabindex="-1"><a class="header-anchor" href="#索引" aria-hidden="true">#</a> 索引</h2>
 <p>索引是一种用于快速查询和检索数据的数据结构，其本质可以看成是一种排序好的数据结构。</p>
 <!-- more -->
 <p><strong>优点</strong>：</p>
@@ -11,16 +11,56 @@
 <li>创建索引和维护索引需要耗费许多时间，当堆表中的数据进行增删改的时候，如果数据有索引，那么索引也需要改动，降低SQL执行效率。</li>
 <li>索引需要占用一定的物理空间。</li>
 </ul>
-<h3 id="索引底层数据结构" tabindex="-1"><a class="header-anchor" href="#索引底层数据结构" aria-hidden="true">#</a> 索引底层数据结构</h3>
-<ul>
-<li><strong>Hash表</strong></li>
-</ul>
+<h2 id="索引底层数据结构" tabindex="-1"><a class="header-anchor" href="#索引底层数据结构" aria-hidden="true">#</a> 索引底层数据结构</h2>
+<h3 id="hash表" tabindex="-1"><a class="header-anchor" href="#hash表" aria-hidden="true">#</a> Hash表</h3>
 <p>哈希表示键值对的集合，通过键可以快速取出对应的值，因此哈希表可以快速检索数据。</p>
 <p>但是哈希算法有Hash冲突问题，不同的key最后会得到相同的index。</p>
 <p>因为Hash索引不支持顺序和范围查询，所以MySQL没有使用其作为索引的数据结构。</p>
+<h3 id="二叉查找树-bst" tabindex="-1"><a class="header-anchor" href="#二叉查找树-bst" aria-hidden="true">#</a> 二叉查找树（BST）</h3>
+<p>二叉查找树是一种基于二叉树的数据结构，具有以下特点：</p>
+<ol>
+<li>左子树的所有节点值均小于根节点。</li>
+<li>右子树所有节点的值均大于根节点的值。</li>
+<li>左右子树也符合上述规则。</li>
+</ol>
+<p>当二叉查找树是平衡的时候，任何节点的左右子树高度差的绝对值不超过1即为平衡，查询的时间复杂度是O(log2(N))。当二叉查找树不平衡时，最坏情况下退化为线性链表，查找的时间复杂度是O(N)。</p>
+<p>因为不会自动平衡，不适合作为MySQL底层索引的数据结构。</p>
+<h3 id="avl树" tabindex="-1"><a class="header-anchor" href="#avl树" aria-hidden="true">#</a> AVL树</h3>
+<p>AVL树是自平衡的二叉查找树。保证任何节点的左右子树高度差的绝对值不超过1，因此被称为平衡二叉树，它的查找、插入和删除在平均和最坏情况下的时间复杂度都是 O(logn)。</p>
+<p>AVL树需要频繁的进行旋转来保持平衡，因此会有较大的计算开销。并且使用AVL树，每个树节点仅存储一个数据，每次磁盘IO只能读取一个节点的数据。</p>
+<h3 id="红黑树" tabindex="-1"><a class="header-anchor" href="#红黑树" aria-hidden="true">#</a> 红黑树</h3>
+<p>红黑树是一种自平衡的二叉查找树，通过在插入和删除节点时金星颜色变换和旋转操作，使得树始终平衡，具有以下特点：</p>
+<ol>
+<li>每个节点不是红色就是黑色。</li>
+<li>根节点总是黑色。</li>
+<li>每个叶子节点都是黑色的空节点。</li>
+<li>如果节点是红色的，则它的子节点必须是黑色（反之不一定）。</li>
+<li>从根节点到叶节点或空子节点的每一条路径，必须包含相同数目的黑色节点（即相同的黑色高度）。</li>
+</ol>
+<blockquote>
+<p>和 AVL 树不同的是，红黑树并不追求严格的平衡，而是大致的平衡。正因如此，红黑树的查询效率稍有下降，因为红黑树的平衡性相对较弱，可能会导致树的高度较高，这可能会导致一些数据需要进行多次磁盘 IO 操作才能查询到，这也是 MySQL 没有选择红黑树的主要原因。也正因如此，红黑树的插入和删除操作效率大大提高了，因为红黑树在插入和删除节点时只需进行 O(1) 次数的旋转和变色操作，即可保持基本平衡状态，而不需要像 AVL 树一样进行 O(logn) 次数的旋转操作。</p>
+</blockquote>
+<h3 id="b-树-b-树" tabindex="-1"><a class="header-anchor" href="#b-树-b-树" aria-hidden="true">#</a> B 树&amp; B+树</h3>
+<p>B树也称为B-树，全称<strong>多路平衡查找树</strong>，B+树是B树的编题，B树和B+树中的B是<code v-pre>Balanced</code>的意思。</p>
+<p><strong>有何不同？</strong></p>
 <ul>
-<li><strong>二叉查找树（BST）</strong></li>
+<li>B树的所有节点既存放键（key）也存放数据（data），而B+树只有叶子节点存放key和data，其他节点只存放key，起到索引作用。</li>
+<li>B树的叶子节点都是独立的，<strong>B+树的叶子节点有一条引用链指向与他相邻的叶子节点。</strong></li>
+<li>B树的检索过程相当于对范围内的每个结点的关键字做二分查找，可能还没有到达叶子节点，索引就结束了。而B+树任何查找都是根节点到叶子节点的过程，只有叶子节点存储data。</li>
+<li>在B树中进行范围查询时，首先要找到查找的下限，然后对B树进行中序遍历，直到找到查找的上限；而B+树的范围查询，只需要拍对链表进行遍历即可。</li>
 </ul>
+<div class="hint-container info">
+<p class="hint-container-title">相关信息</p>
+<p>MyISAM引擎和InnoDB引擎都是使用B+树作为索引结构，但是两者实现方式有所不同：</p>
+<p>MyISAM引擎中，B+树叶节点的data域存放的是数据记录的地址，搜索的时候如果找道对应的节点，则会将节点的data值拿出，再通过data值作为地址读取相应的数据，这被称为<strong>非聚簇索引（非聚集索引）</strong>。</p>
+<p>InnoDB中，数据文件本身就是索引文件，树的叶节点data域保存了完整的数据记录。这个索引的key是数据表的主键，因此InnoDB表数据文件本身就是索引，这被称为<strong>聚簇索引（聚集索引）</strong>，而其余的索引都成为<strong>辅助索引</strong>，辅助索引的data域存储响应记录主键的值而不是地址。根据主索引搜索时，直接找到key所在的节点即可取出数据；在根据辅助索引查找时，则需要先取出主键的值，再走一遍主索引。</p>
+</div>
+<h2 id="主键索引-primary-key" tabindex="-1"><a class="header-anchor" href="#主键索引-primary-key" aria-hidden="true">#</a> 主键索引（Primary Key）</h2>
+<p>数据表的主键列使用的就是主键索引。</p>
+<p>一张表只能有一个主键，并且不能为null，不能重复。</p>
+<p>在 MySQL 的 InnoDB 的表中，当没有显示的指定表的主键时，InnoDB 会自动先检查表中是否有唯一索引且不允许存在 null 值的字段，如果有，则选择该字段为默认的主键，否则 InnoDB 将会自动创建一个 6Byte 的自增主键。</p>
+<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230525201956470.png" alt="image-20230525201956470"></p>
+<h2 id="二级索引" tabindex="-1"><a class="header-anchor" href="#二级索引" aria-hidden="true">#</a> 二级索引</h2>
 </div></template>
 
 
