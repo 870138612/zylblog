@@ -1,11 +1,12 @@
 ---
-title: Mysql二
+title: MVCC
 icon: page
 category:
   - 数据库
 tags:
-  - Mysql
+  - MySQL
   - 八股
 ---
 
 <!-- more -->
+
