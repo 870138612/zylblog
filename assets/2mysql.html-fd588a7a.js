@@ -1,1 +1,0 @@
-import{_ as e,X as t,Y as c,a0 as o}from"./framework-13f105cd.js";const r={};function _(n,s){return t(),c("div",null,[o(" more ")])}const l=e(r,[["render",_],["__file","2mysql.html.vue"]]);export{l as default};
