@@ -46,7 +46,9 @@ IO多路复用模型中，线程首先发起select调用，查询内核数据是
 
 **IO多路复用模型，通过减少无效的系统调用，减少了对CPU资源的消耗。**
 
-Java中的NIO有一个非常重要的**选择器（Selector）**概念，称为**多路复用器**。通过它只需要一个线程便可以管理多个客户端连接，当客户端数据到了之后才会为其服务。![03600](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/03600.jpg)
+Java中的NIO有一个非常重要的**选择器（Selector）**概念，称为**多路复用器**。通过它只需要一个线程便可以管理多个客户端连接，当客户端数据到了之后才会为其服务。
+
+![03600](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f483f2437ce4ecdb180134270a00144~tplv-k3u1fbpfcp-watermark.image)
 
 ### AIO (Asynchronous I/O)
 
@@ -54,4 +56,5 @@ AIO 也就是 NIO 2。Java 7 中引入了 NIO 的改进版 NIO 2，它是**异�
 
 异步IO是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会阻塞，当后台处理完成，操作系统会通知相应的线程进行后续的操作。
 
+### 比较
 ![24215217](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/24215217.jpg)

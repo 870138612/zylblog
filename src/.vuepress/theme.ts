@@ -50,6 +50,8 @@ export default hopeTheme({
     mdEnhance: {
       container: true,
       tabs: true,
+      align: true,
+    
     },
     comment: {
       provider: "Giscus",

@@ -22,10 +22,12 @@
 </blockquote>
 <p>IO多路复用模型中，线程首先发起select调用，查询内核数据是否准备就绪，等内核把数据准备好了，用户再发起read调用。read调用的过程（数据从内核空间-&gt;用户空间）还是阻塞的。</p>
 <p><strong>IO多路复用模型，通过减少无效的系统调用，减少了对CPU资源的消耗。</strong></p>
-<p>Java中的NIO有一个非常重要的<strong>选择器（Selector）<strong>概念，称为</strong>多路复用器</strong>。通过它只需要一个线程便可以管理多个客户端连接，当客户端数据到了之后才会为其服务。<img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/03600.jpg" alt="03600"></p>
+<p>Java中的NIO有一个非常重要的<strong>选择器（Selector）<strong>概念，称为</strong>多路复用器</strong>。通过它只需要一个线程便可以管理多个客户端连接，当客户端数据到了之后才会为其服务。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f483f2437ce4ecdb180134270a00144~tplv-k3u1fbpfcp-watermark.image" alt="03600"></p>
 <h3 id="aio-asynchronous-i-o" tabindex="-1"><a class="header-anchor" href="#aio-asynchronous-i-o" aria-hidden="true">#</a> AIO (Asynchronous I/O)</h3>
 <p>AIO 也就是 NIO 2。Java 7 中引入了 NIO 的改进版 NIO 2，它是<strong>异步 IO 模型</strong>。</p>
 <p>异步IO是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会阻塞，当后台处理完成，操作系统会通知相应的线程进行后续的操作。</p>
+<h3 id="比较" tabindex="-1"><a class="header-anchor" href="#比较" aria-hidden="true">#</a> 比较</h3>
 <p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/24215217.jpg" alt="24215217"></p>
 </div></template>
 
