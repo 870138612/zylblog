@@ -3,6 +3,7 @@ import theme from "./theme.js";
 import {searchProPlugin} from "vuepress-plugin-search-pro";
 
 export default defineUserConfig({
+
   base: "/",
   head: [
       // ["meta", {name: "robots", content: "all"}],
