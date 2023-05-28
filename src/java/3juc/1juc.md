@@ -22,7 +22,7 @@ tags:
 
 一个进程能有很多个线程，多个线程共享本进程的堆和方法区（1.8之后的元空间），每一个线程拥有自己的虚拟机栈，本地方法栈，程序计数器。
 
-![image-20230517134427874](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230517134427874.png)
+![image-20230517134427874](/markdown/image-20230517134427874.png)
 
 [**五分钟记住JVM内存结构**](https://www.bilibili.com/video/BV1Q64y1h7PT/?spm_id_from=333.337.search-card.all.click&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
 
@@ -53,7 +53,7 @@ tags:
 - TIME_WAITING：超时等待状态，可以在等待一段时间之后自行返回，而不是像WAITING一样一直等待。
 - TERMINATED：终止状态，表示线程运行完毕。
 
-![image-20230517140544893](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230517140544893.png)
+![image-20230517140544893](/markdown/image-20230517140544893.png)
 
 
 

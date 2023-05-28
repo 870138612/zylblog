@@ -172,7 +172,7 @@ hero<span class="token punctuation">.</span><span class="token function">skill</
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>如果字符串常量池中不存在&quot;abc&quot;的引用，则会在堆中创建2个字符串对象&quot;abc&quot;。一个是在字符串常量池中创建的&quot;abc&quot;，另外是new在堆中创建的对象。</p>
 <p>如果字符串常量池中存在&quot;abc&quot;的引用，则会在堆中创建1个字符串对象&quot;abc&quot;。也就是new在堆中创建的对象。</p>
 <p>示意图：</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230515171640642.png" alt="image-20230515171640642"></p>
+<p><img src="/markdown/image-20230515171640642.png" alt="image-20230515171640642"></p>
 <h3 id="string-intern-方法有什么作用" tabindex="-1"><a class="header-anchor" href="#string-intern-方法有什么作用" aria-hidden="true">#</a> String#intern 方法有什么作用?</h3>
 <p><code v-pre>String.intern()</code>是一个本地方法，作用是将指定的字符串对象保存到字符串常量池中。</p>
 <ul>

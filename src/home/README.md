@@ -2,7 +2,7 @@
 title: 欢迎
 index: false
 icon: daohang
-cover: https://blog-1312634242.cos.ap-shanghai.myqcloud.com/2023/indexbg.jpg
+cover: /2023/indexbg.jpg
 pageInfo: false
 article: false
 timeline: false

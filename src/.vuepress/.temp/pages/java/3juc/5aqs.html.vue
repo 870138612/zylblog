@@ -7,8 +7,8 @@
 <p>AQS的核心思想是如果被请求的共享资源空闲，则将当前请求资源的线程设置为有效的工作线程，并将共享资源的状态设置为锁定状态。如果资源被占用，则需要一套线程阻塞等待以及被唤醒分配的机制，这个机制AQS是基于<strong>CLH</strong>锁实现的。</p>
 <p>CLH 锁是对自旋锁的一种改进，是一个虚拟的双向队列（虚拟的双向队列即不存在队列实例，仅存在结点之间的关联关系），暂时获取不到锁的线程将被加入到该队列中。AQS 将每条请求共享资源的线程封装成一个 CLH 队列锁的一个结点（Node）来实现锁的分配。在 CLH 队列锁中，一个节点表示一个线程，它保存着线程的引用（thread）、 当前节点在队列中的状态（waitStatus）、前驱节点（prev）、后继节点（next）。</p>
 <p>CLH锁的结构如下：</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/0518153127.jpg" alt="0518153127"></p>
-<p>AQS的核心原理图如下：<img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/518153216.jpg" alt="518153216"></p>
+<p><img src="/markdown/0518153127.jpg" alt="0518153127"></p>
+<p>AQS的核心原理图如下：<img src="/markdown/518153216.jpg" alt="518153216"></p>
 <p>AQS 使用 <strong>int 成员变量 <code v-pre>state</code> 表示同步状态</strong>，通过内置的 <strong>线程等待队列</strong> 来完成获取资源线程的排队工作。</p>
 <p><code v-pre>state</code> 变量由 <code v-pre>volatile</code> 修饰，用于展示当前临界资源的获锁情况。</p>
 <h3 id="aqs资源共享方式" tabindex="-1"><a class="header-anchor" href="#aqs资源共享方式" aria-hidden="true">#</a> AQS资源共享方式</h3>

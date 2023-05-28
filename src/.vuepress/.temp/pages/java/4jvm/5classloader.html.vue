@@ -41,7 +41,7 @@
 </li>
 </ul>
 <p>下图展示的各种类加载器之间的层次关系被称为类加载器的“<strong>双亲委派模型(Parents Delegation Model)</strong>”。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/230522202439.jpg" alt="230522202439"></p>
+<p><img src="/markdown/230522202439.jpg" alt="230522202439"></p>
 <p>info::: warning</p>
 <p>双亲委派模型并不是一种强制性的约束，只是 JDK 官方推荐的一种方式。</p>
 <p>:::</p>

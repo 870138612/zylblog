@@ -58,7 +58,7 @@ ThreadLocalMap getMap(Thread t) {
 
 `ThreadLocalMap`是`ThreadLocal`的静态内部类。
 
-![17195626](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/17195626.jpg)
+![17195626](/markdown/17195626.jpg)
 
 ### ThreadLocal内存泄露
 

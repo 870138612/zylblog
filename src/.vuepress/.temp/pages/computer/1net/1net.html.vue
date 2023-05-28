@@ -154,7 +154,7 @@
 </li>
 </ul>
 <p>解析方式分为迭代查询和递归查询。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/3192518.jpg" alt="3192518"></p>
+<p><img src="/markdown/3192518.jpg" alt="3192518"></p>
 </div></template>
 
 

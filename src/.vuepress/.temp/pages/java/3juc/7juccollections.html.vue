@@ -27,10 +27,10 @@
 <p>简单地说，它就是 <code v-pre>PriorityQueue</code> 的线程安全版本。不可以插入 null 值，同时，插入队列的对象必须是可比较大小的（comparable），否则报 <code v-pre>ClassCastException</code> 异常。它的插入操作 put 方法不会 block，因为它是无界队列（take 方法在队列为空的时候会阻塞）。</p>
 <h2 id="concurrentskiplistmap" tabindex="-1"><a class="header-anchor" href="#concurrentskiplistmap" aria-hidden="true">#</a> ConcurrentSkipListMap</h2>
 <p>跳表的本质是同时维护了多个链表，并且链表是分层的，最低层的链表维护了跳表内所有的元素，每上面一层链表都是下面一层的子集。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/202517.jpg" alt="202517"></p>
+<p><img src="/markdown/202517.jpg" alt="202517"></p>
 <p>跳表内的所有链表的元素都是<strong>排序</strong>的。</p>
 <p>查找时，可以从顶级链表开始找。一旦发现被查找的元素处于<strong>两个元素值的区间</strong>，就会转入下一层链表继续找。这也就是说在查找过程中，搜索是跳跃式的。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/202517.jpg" alt="202517"></p>
+<p><img src="/markdown/202517.jpg" alt="202517"></p>
 <p>查找18原本要遍历18次，现在只需要7次。</p>
 </div></template>
 

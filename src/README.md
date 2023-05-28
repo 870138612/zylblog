@@ -2,7 +2,7 @@
 home: true
 title: 主页
 icon: discovery
-heroImage: https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/0514172706.jpg
+heroImage: /home/0514172706.jpg
 heroText: 终将美好
 tagline: 我们的春夏秋冬
 actions:

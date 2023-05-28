@@ -26,9 +26,9 @@ CLH 锁是对自旋锁的一种改进，是一个虚拟的双向队列（虚拟�
 
 CLH锁的结构如下：
 
-![0518153127](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/0518153127.jpg)
+![0518153127](/markdown/0518153127.jpg)
 
-AQS的核心原理图如下：![518153216](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/518153216.jpg)
+AQS的核心原理图如下：![518153216](/markdown/518153216.jpg)
 
 AQS 使用 **int 成员变量 `state` 表示同步状态**，通过内置的 **线程等待队列** 来完成获取资源线程的排队工作。
 

@@ -7,7 +7,7 @@
 <p>JDK是功能齐全的SDK，包含JRE和一些其他的工具，例如javac，java等。</p>
 <p>JRE是Java运行时环境，仅包含Java应用程序运行时的必要环境。</p>
 <!-- more -->
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230514210704461.png" alt="image-20230514210704461"></p>
+<p><img src="/markdown/image-20230514210704461.png" alt="image-20230514210704461"></p>
 <h2 id="什么是字节码-采用字节码的好处" tabindex="-1"><a class="header-anchor" href="#什么是字节码-采用字节码的好处" aria-hidden="true">#</a> 什么是字节码？采用字节码的好处？</h2>
 <p>JVM能理解的代码就是字节码，字节码解决了传统解释语言运行效率低的问题，还具有很好的可移植性，一次编译，任何地方运行。</p>
 <p><code v-pre>.java</code>文件经过javac编译之后变成<code v-pre>.class</code>文件，<code v-pre>.class</code>通过解释器和JIT（运行时编译器）编译成机器可以理解的代码，JIT完成一次编译之后，就会将对应的机器码保存下来，之后复用，其中编译的是热点代码。所以Java也是编译与解释共存的语言。</p>

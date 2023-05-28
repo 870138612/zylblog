@@ -1,4 +1,4 @@
-<template><div><p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/130.jpg" alt="130"></p>
+<template><div><p><img src="/markdown/130.jpg" alt="130"></p>
 <!-- more -->
 <h2 id="内存分配和回收原则" tabindex="-1"><a class="header-anchor" href="#内存分配和回收原则" aria-hidden="true">#</a> 内存分配和回收原则</h2>
 <h3 id="对象优先在eden中分配" tabindex="-1"><a class="header-anchor" href="#对象优先在eden中分配" aria-hidden="true">#</a> 对象优先在Eden中分配</h3>
@@ -106,29 +106,29 @@
 <h2 id="垃圾回收器" tabindex="-1"><a class="header-anchor" href="#垃圾回收器" aria-hidden="true">#</a> 垃圾回收器</h2>
 <h3 id="serial-收集器" tabindex="-1"><a class="header-anchor" href="#serial-收集器" aria-hidden="true">#</a> Serial 收集器</h3>
 <p>Serial（串行）收集器是最基本、历史最悠久的垃圾收集器了。只会使用一条垃圾收集线程去完成垃圾收集工作，在进行垃圾收集工作的时候必须暂停其他所有的工作线程（ <strong>&quot;Stop The World&quot;</strong> ），直到它收集结束。简单高效。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520203719818.png" alt="image-20230520203719818"></p>
+<p><img src="/markdown/image-20230520203719818.png" alt="image-20230520203719818"></p>
 <p><strong>新生代采用标记-复制算法，老年代采用标记-整理算法。</strong></p>
 <h3 id="parnew-收集器" tabindex="-1"><a class="header-anchor" href="#parnew-收集器" aria-hidden="true">#</a> ParNew 收集器</h3>
 <p>ParNew 收集器其实就是 Serial 收集器的多线程版本，除了使用多线程进行垃圾收集外，其余行为（控制参数、收集算法、回收策略等等）和 Serial 收集器完全一样。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520203818307.png" alt="image-20230520203818307"></p>
+<p><img src="/markdown/image-20230520203818307.png" alt="image-20230520203818307"></p>
 <p><strong>新生代采用标记-复制算法，老年代采用标记-整理算法</strong>。</p>
 <p>除了 Serial 收集器外，只有它能与 CMS 收集器配合工作。</p>
 <p>并发：一个时间段内同时执行，操作系统基本特征。</p>
 <p>并行：一个时刻同时执行。</p>
 <h3 id="parallel-scavenge-收集器" tabindex="-1"><a class="header-anchor" href="#parallel-scavenge-收集器" aria-hidden="true">#</a> Parallel Scavenge 收集器</h3>
 <p>采用标记-复制算法的多线程收集器，<strong>重点关注吞吐量（高效利用CPU）</strong>，CMS垃圾收集器关注的是<strong>停顿时间</strong>。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520203801684.png" alt="image-20230520203801684"></p>
+<p><img src="/markdown/image-20230520203801684.png" alt="image-20230520203801684"></p>
 <p><strong>新生代采用标记-复制算法，老年代采用标记-整理算法。</strong></p>
 <p>JDK1.8的默认收集器。</p>
 <h3 id="serial-old收集器" tabindex="-1"><a class="header-anchor" href="#serial-old收集器" aria-hidden="true">#</a> Serial Old收集器</h3>
 <p><strong>Serial 收集器的老年代版本</strong>，它同样是一个单线程收集器。它主要有两大用途：一种用途是在 JDK1.5 以及以前的版本中与 Parallel Scavenge 收集器搭配使用，另一种用途是作为 CMS 收集器的后备方案。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520203855193.png" alt="image-20230520203855193"></p>
+<p><img src="/markdown/image-20230520203855193.png" alt="image-20230520203855193"></p>
 <h3 id="parallel-old-收集器" tabindex="-1"><a class="header-anchor" href="#parallel-old-收集器" aria-hidden="true">#</a> Parallel Old 收集器</h3>
 <p><strong>Parallel Scavenge 收集器的老年代版本</strong>。使用多线程和“标记-整理”算法。在<strong>注重吞吐量</strong>以及 CPU 资源的场合，都可以优先考虑 Parallel Scavenge 收集器和 Parallel Old 收集器。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520204013889.png" alt="image-20230520204013889"></p>
+<p><img src="/markdown/image-20230520204013889.png" alt="image-20230520204013889"></p>
 <h3 id="cms收集器" tabindex="-1"><a class="header-anchor" href="#cms收集器" aria-hidden="true">#</a> CMS收集器</h3>
 <p>CMS（Concurrent Mark Sweep）收集器是一种以获取<strong>最短回收停顿时间</strong>为目标的收集器。它非常符合在注重用户体验的应用上使用。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520204024801.png" alt="image-20230520204024801"></p>
+<p><img src="/markdown/image-20230520204024801.png" alt="image-20230520204024801"></p>
 <p><strong>CMS（Concurrent Mark Sweep）收集器是 HotSpot 虚拟机第一款真正意义上的并发收集器，它第一次实现了让垃圾收集线程与用户线程（基本上）同时工作。</strong></p>
 <p>CMS 收集器是一种“<strong>标记-清除</strong>”算法实现的，运行步骤：</p>
 <ul>
@@ -169,7 +169,7 @@
 <li><strong>最终标记</strong>：处理并发阶段结束后仍遗留下来的少量SATB记录。</li>
 <li><strong>筛选回收</strong>：更新Region的统计数据，对各个Region的回收价值和成本进行排序，然后根据用户的期望停顿时间制定回收计划，最后把需要回收的Region里的存活对象复制到新region中，再清空旧region。需要STW，多条收集线程并发执行。</li>
 </ul>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520204132639.png" alt="image-20230520204132639"></p>
+<p><img src="/markdown/image-20230520204132639.png" alt="image-20230520204132639"></p>
 <p><strong>G1 收集器在后台维护了一个优先列表，每次根据允许的收集时间，优先选择回收价值最大的 Region(这也就是它的名字 Garbage-First 的由来)</strong> 。这种使用 Region 划分内存空间以及有优先级的区域回收方式，保证了 G1 收集器在有限时间内可以尽可能高的收集效率（把内存化整为零）。</p>
 <p><strong>G1存在着很多问题：</strong></p>
 <ol>

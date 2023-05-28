@@ -8,7 +8,7 @@ tags:
   - 八股
 ---
 
-![130](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/130.jpg)
+![130](/markdown/130.jpg)
 
 <!-- more -->
 
@@ -161,7 +161,7 @@ JDK1.8 hotspot 移除了永久代用元空间(Metaspace)取而代之, 这时候*
 
 Serial（串行）收集器是最基本、历史最悠久的垃圾收集器了。只会使用一条垃圾收集线程去完成垃圾收集工作，在进行垃圾收集工作的时候必须暂停其他所有的工作线程（ **"Stop The World"** ），直到它收集结束。简单高效。
 
-![image-20230520203719818](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520203719818.png)
+![image-20230520203719818](/markdown/image-20230520203719818.png)
 
 **新生代采用标记-复制算法，老年代采用标记-整理算法。**
 
@@ -169,7 +169,7 @@ Serial（串行）收集器是最基本、历史最悠久的垃圾收集器了�
 
 ParNew 收集器其实就是 Serial 收集器的多线程版本，除了使用多线程进行垃圾收集外，其余行为（控制参数、收集算法、回收策略等等）和 Serial 收集器完全一样。
 
-![image-20230520203818307](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520203818307.png)
+![image-20230520203818307](/markdown/image-20230520203818307.png)
 
 **新生代采用标记-复制算法，老年代采用标记-整理算法**。
 
@@ -183,7 +183,7 @@ ParNew 收集器其实就是 Serial 收集器的多线程版本，除了使用�
 
 采用标记-复制算法的多线程收集器，**重点关注吞吐量（高效利用CPU）**，CMS垃圾收集器关注的是**停顿时间**。
 
-![image-20230520203801684](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520203801684.png)
+![image-20230520203801684](/markdown/image-20230520203801684.png)
 
 **新生代采用标记-复制算法，老年代采用标记-整理算法。**
 
@@ -193,19 +193,19 @@ JDK1.8的默认收集器。
 
 **Serial 收集器的老年代版本**，它同样是一个单线程收集器。它主要有两大用途：一种用途是在 JDK1.5 以及以前的版本中与 Parallel Scavenge 收集器搭配使用，另一种用途是作为 CMS 收集器的后备方案。
 
-![image-20230520203855193](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520203855193.png)
+![image-20230520203855193](/markdown/image-20230520203855193.png)
 
 ### Parallel Old 收集器
 
 **Parallel Scavenge 收集器的老年代版本**。使用多线程和“标记-整理”算法。在**注重吞吐量**以及 CPU 资源的场合，都可以优先考虑 Parallel Scavenge 收集器和 Parallel Old 收集器。
 
-![image-20230520204013889](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520204013889.png)
+![image-20230520204013889](/markdown/image-20230520204013889.png)
 
 ### CMS收集器
 
 CMS（Concurrent Mark Sweep）收集器是一种以获取**最短回收停顿时间**为目标的收集器。它非常符合在注重用户体验的应用上使用。
 
-![image-20230520204024801](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520204024801.png)
+![image-20230520204024801](/markdown/image-20230520204024801.png)
 
 **CMS（Concurrent Mark Sweep）收集器是 HotSpot 虚拟机第一款真正意义上的并发收集器，它第一次实现了让垃圾收集线程与用户线程（基本上）同时工作。**
 
@@ -247,7 +247,7 @@ G1也是遵循分代收集理论设计的，它不再坚持以固定大小以及
 - **最终标记**：处理并发阶段结束后仍遗留下来的少量SATB记录。
 - **筛选回收**：更新Region的统计数据，对各个Region的回收价值和成本进行排序，然后根据用户的期望停顿时间制定回收计划，最后把需要回收的Region里的存活对象复制到新region中，再清空旧region。需要STW，多条收集线程并发执行。
 
-![image-20230520204132639](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230520204132639.png)
+![image-20230520204132639](/markdown/image-20230520204132639.png)
 
 **G1 收集器在后台维护了一个优先列表，每次根据允许的收集时间，优先选择回收价值最大的 Region(这也就是它的名字 Garbage-First 的由来)** 。这种使用 Region 划分内存空间以及有优先级的区域回收方式，保证了 G1 收集器在有限时间内可以尽可能高的收集效率（把内存化整为零）。
 

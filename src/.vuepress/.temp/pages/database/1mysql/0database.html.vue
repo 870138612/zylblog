@@ -4,7 +4,7 @@
 <!-- more -->
 <h3 id="_2nf" tabindex="-1"><a class="header-anchor" href="#_2nf" aria-hidden="true">#</a> 2NF</h3>
 <p>2NF在1NF的基础上，<strong>消除了非主属性对于码的部分函数依赖</strong>。如下图所示，展示了第一范式到第二范式的过渡。第二范式在第一范式的基础上增加了一个列，这个列称为主键，<strong>非主属性都依赖于主键</strong>。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230525141922244.png" alt="image-20230525141922244"></p>
+<p><img src="/markdown/image-20230525141922244.png" alt="image-20230525141922244"></p>
 <p>一些概念：</p>
 <ul>
 <li>函数依赖：若在一张表中，在属性X（或属性组）的值确定的情况下，必定能确定属性Y的值，那么可以说Y函数依赖于X，写作X-&gt;Y。</li>

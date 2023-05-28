@@ -75,7 +75,7 @@ SQL1,SQL2...
 COMMIT;
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="acid特性" tabindex="-1"><a class="header-anchor" href="#acid特性" aria-hidden="true">#</a> ACID特性</h3>
 <p>关系型数据库都有<strong>ACID</strong>特性。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230525171149797.png" alt="image-20230525171149797"></p>
+<p><img src="/markdown/image-20230525171149797.png" alt="image-20230525171149797"></p>
 <ol>
 <li>原子性<code v-pre>Atomicity</code>：事务是最小的执行单位，不允许分割。事务的原子性确保动作要么都完成，要么都不完成。</li>
 <li>一致性<code v-pre>Consistency</code>：执行事物的前后，数据保持一致，例如转账业务中，无论事务是否成功，转账者和收款人的总额应该是不变的。</li>
@@ -83,7 +83,7 @@ COMMIT;
 <li>持久性<code v-pre>Durability</code>：一个事务被提交之后。它对数据库中的数据改变是持久的，即使数据库发生故障也不应该对其有任何影响。</li>
 </ol>
 <div class="hint-container info">
-<p class="hint-container-title">相关信息</p>
+<p class="hint-container-title">ACID</p>
 <p>只有保证了事务的持久性、原子性、隔离性之后，一致性才能得到保障。也就是AID是手段，C是目的。</p>
 </div>
 <h3 id="并发事务带来了哪些问题" tabindex="-1"><a class="header-anchor" href="#并发事务带来了哪些问题" aria-hidden="true">#</a> 并发事务带来了哪些问题?</h3>
@@ -270,7 +270,7 @@ DELETE...
 <h3 id="什么是分库" tabindex="-1"><a class="header-anchor" href="#什么是分库" aria-hidden="true">#</a> 什么是分库</h3>
 <p>分库就是将数据库中的数据分散到不同的数据库上，可以垂直分库，也可以水平分库。</p>
 <p><strong>垂直分库</strong>就是把单一数据库按照业务进行划分，不同的业务使用不同的数据库，进而将一个数据库的压力分担到多个数据库。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230526202917798.png" alt="image-20230526202917798"></p>
+<p><img src="/markdown/image-20230526202917798.png" alt="image-20230526202917798"></p>
 <p><strong>水平分库</strong>是把同一个表按一定规则拆分到不同的数据库中，每个库可以位于不同的数据库上，实现了水平扩展，解决了单表的存储和性能瓶颈的问题。例如将10万条数据分成两个5万条数据。</p>
 <h3 id="什么是分表" tabindex="-1"><a class="header-anchor" href="#什么是分表" aria-hidden="true">#</a> 什么是分表</h3>
 <p><strong>分表</strong>：就是对单表的数据进行拆分，可以是垂直拆分，也可以是水平拆分。</p>

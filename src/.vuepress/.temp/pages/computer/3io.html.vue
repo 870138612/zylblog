@@ -28,7 +28,7 @@
 <p>AIO 也就是 NIO 2。Java 7 中引入了 NIO 的改进版 NIO 2，它是<strong>异步 IO 模型</strong>。</p>
 <p>异步IO是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会阻塞，当后台处理完成，操作系统会通知相应的线程进行后续的操作。</p>
 <h3 id="比较" tabindex="-1"><a class="header-anchor" href="#比较" aria-hidden="true">#</a> 比较</h3>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/24215217.jpg" alt="24215217"></p>
+<p><img src="/markdown/24215217.jpg" alt="24215217"></p>
 </div></template>
 
 

@@ -50,7 +50,7 @@
 <li>在B树中进行范围查询时，首先要找到查找的下限，然后对B树进行中序遍历，直到找到查找的上限；而B+树的范围查询，只需要拍对链表进行遍历即可。</li>
 </ul>
 <div class="hint-container info">
-<p class="hint-container-title">相关信息</p>
+<p class="hint-container-title">实现方式</p>
 <p>MyISAM引擎和InnoDB引擎都是使用B+树作为索引结构，但是两者实现方式有所不同：</p>
 <p>MyISAM引擎中，B+树叶节点的data域存放的是数据记录的地址，搜索的时候如果找道对应的节点，则会将节点的data值拿出，再通过data值作为地址读取相应的数据，这被称为<strong>非聚簇索引（非聚集索引）</strong>。</p>
 <p>InnoDB中，数据文件本身就是索引文件，树的叶节点data域保存了完整的数据记录。这个索引的key是数据表的主键，因此InnoDB表数据文件本身就是索引，这被称为<strong>聚簇索引（聚集索引）</strong>，而其余的索引都成为<strong>辅助索引</strong>，辅助索引的data域存储响应记录主键的值而不是地址。根据主索引搜索时，直接找到key所在的节点即可取出数据；在根据辅助索引查找时，则需要先取出主键的值，再走一遍主索引。</p>
@@ -59,7 +59,7 @@
 <p>数据表的主键列使用的就是主键索引。</p>
 <p>一张表只能有一个主键，并且不能为null，不能重复。</p>
 <p>在 MySQL 的 InnoDB 的表中，当没有显示的指定表的主键时，InnoDB 会自动先检查表中是否有唯一索引且不允许存在 null 值的字段，如果有，则选择该字段为默认的主键，否则 InnoDB 将会自动创建一个 6Byte 的自增主键。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230525201956470.png" alt="image-20230525201956470"></p>
+<p><img src="/markdown/image-20230525201956470.png" alt="image-20230525201956470"></p>
 <h2 id="二级索引" tabindex="-1"><a class="header-anchor" href="#二级索引" aria-hidden="true">#</a> 二级索引</h2>
 <p>二级索引又称为辅助索引，是因为二级索引的叶子节点存储的数据是主键，也就是通过辅助索引能定位主键的位置。</p>
 <ol>

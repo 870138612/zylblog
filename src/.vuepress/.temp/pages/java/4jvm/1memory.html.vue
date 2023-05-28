@@ -28,7 +28,7 @@
 </li>
 <li>
 <p><strong>动态链接</strong> ：主要服务一个方法需要调用其他方法的场景。Class 文件的常量池里保存有大量的符号引用比如方法引用的符号引用。当一个方法要调用其他方法，需要<strong>将常量池中指向方法的符号引用转化为其 <strong>。动态链接的作用就是为了</strong>将符号引用转换为调用方法的直接引用</strong>，这个过程也被称为 <strong>动态链接</strong> 。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/9133727.jpg" alt="9133727"></p>
+<p><img src="/markdown/9133727.jpg" alt="9133727"></p>
 </li>
 </ul>
 </li>
@@ -60,7 +60,7 @@
 <ul>
 <li>方法区属于是 JVM 运行时数据区域的一块逻辑区域，是各个线程共享的内存区域。从内存分布图中可以看出<strong>永久代是 JDK 1.8 之前的方法区实现（运行时数据区），JDK 1.8 及以后方法区的实现变成了元空间（本地内存）</strong>。</li>
 <li>转到本地内存的原因：元空间使用本地内存，可能会受到本机内存的限制，但是出现溢出的概率比原来的永久代小很多。
-<img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/519132906.jpg" alt="519132906"></li>
+<img src="/markdown/519132906.jpg" alt="519132906"></li>
 </ul>
 </li>
 </ul>
@@ -99,7 +99,7 @@
 <p>内存分配完成后，虚拟机需要将分配到的内存空间都初始化为零值（<strong>不包括对象头</strong>），这一步操作保证了对象的实例字段在 Java 代码中可以不赋初始值就直接使用，程序能访问到这些字段的数据类型所对应的零值。</p>
 <h3 id="_4-设置对象头" tabindex="-1"><a class="header-anchor" href="#_4-设置对象头" aria-hidden="true">#</a> 4：设置对象头</h3>
 <p>初始化零值完成之后，<strong>虚拟机要对对象进行必要的设置</strong>，例如这个对象是哪个类的实例、如何才能找到类的元数据信息、对象的哈希码、对象的 GC 分代年龄等信息。 <strong>这些信息存放在对象头中。</strong> 另外，根据虚拟机当前运行状态的不同，如是否启用偏向锁等，对象头会有不同的设置方式。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/19150227.jpg" alt="19150227"></p>
+<p><img src="/markdown/19150227.jpg" alt="19150227"></p>
 <h3 id="_5-执行-init-方法" tabindex="-1"><a class="header-anchor" href="#_5-执行-init-方法" aria-hidden="true">#</a> 5：执行 init 方法</h3>
 <p>执行 new 指令之后会接着执行 <code v-pre>&lt;init&gt;</code> 方法，把对象按照程序员的意愿进行初始化，这样一个真正可用的对象才算完全产生出来。</p>
 <h2 id="对象的内存布局" tabindex="-1"><a class="header-anchor" href="#对象的内存布局" aria-hidden="true">#</a> 对象的内存布局</h2>
@@ -110,10 +110,10 @@
 <p>对象的访问定位就是如何找到创建的对象信息，包括实例和类数据。</p>
 <h3 id="直接指针" tabindex="-1"><a class="header-anchor" href="#直接指针" aria-hidden="true">#</a> 直接指针</h3>
 <p>如果使用直接指针访问，reference 中存储的直接就是对象的地址。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/519151023.jpg" alt="519151023"></p>
+<p><img src="/markdown/519151023.jpg" alt="519151023"></p>
 <h3 id="句柄" tabindex="-1"><a class="header-anchor" href="#句柄" aria-hidden="true">#</a> 句柄</h3>
 <p>如果使用句柄的话，那么 Java 堆中将会划分出一块内存来作为句柄池，reference 中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与对象类型数据各自的具体地址信息。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/19151947.jpg" alt="19151947"></p>
+<p><img src="/markdown/19151947.jpg" alt="19151947"></p>
 </div></template>
 
 

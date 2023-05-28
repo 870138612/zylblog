@@ -256,7 +256,7 @@ String str = new String("abc");
 
 示意图：
 
-![image-20230515171640642](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230515171640642.png)
+![image-20230515171640642](/markdown/image-20230515171640642.png)
 
 ### String#intern 方法有什么作用?
 

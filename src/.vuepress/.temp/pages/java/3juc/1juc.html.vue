@@ -6,7 +6,7 @@
 <!-- more -->
 <h2 id="从-jvm-角度说进程和线程之间的关系" tabindex="-1"><a class="header-anchor" href="#从-jvm-角度说进程和线程之间的关系" aria-hidden="true">#</a> 从 JVM 角度说进程和线程之间的关系</h2>
 <p>一个进程能有很多个线程，多个线程共享本进程的堆和方法区（1.8之后的元空间），每一个线程拥有自己的虚拟机栈，本地方法栈，程序计数器。</p>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230517134427874.png" alt="image-20230517134427874"></p>
+<p><img src="/markdown/image-20230517134427874.png" alt="image-20230517134427874"></p>
 <p><a href="https://www.bilibili.com/video/BV1Q64y1h7PT/?spm_id_from=333.337.search-card.all.click&amp;vd_source=90bb400ad92a9344bb4c2ca0d7921be7" target="_blank" rel="noopener noreferrer"><strong>五分钟记住JVM内存结构</strong><ExternalLinkIcon/></a></p>
 <h3 id="程序计数器为什么是线程私有" tabindex="-1"><a class="header-anchor" href="#程序计数器为什么是线程私有" aria-hidden="true">#</a> 程序计数器为什么是线程私有？</h3>
 <p>程序计数器存放的是下一条将要执行指令的地址。</p>
@@ -26,7 +26,7 @@
 <li>TIME_WAITING：超时等待状态，可以在等待一段时间之后自行返回，而不是像WAITING一样一直等待。</li>
 <li>TERMINATED：终止状态，表示线程运行完毕。</li>
 </ul>
-<p><img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230517140544893.png" alt="image-20230517140544893"></p>
+<p><img src="/markdown/image-20230517140544893.png" alt="image-20230517140544893"></p>
 <h2 id="什么是死锁-如何避免" tabindex="-1"><a class="header-anchor" href="#什么是死锁-如何避免" aria-hidden="true">#</a> 什么是死锁？如何避免</h2>
 <h3 id="死锁" tabindex="-1"><a class="header-anchor" href="#死锁" aria-hidden="true">#</a> 死锁</h3>
 <p>两个或者以上的线程因为竞争资源导致阻塞，若无外力作用都无法向前推进。</p>

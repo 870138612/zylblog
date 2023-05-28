@@ -161,4 +161,4 @@ DNS（Domain Name System）域名管理系统，是当用户使用浏览器访�
 
 解析方式分为迭代查询和递归查询。
 
-![3192518](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/3192518.jpg)
+![3192518](/markdown/3192518.jpg)

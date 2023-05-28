@@ -20,7 +20,7 @@ JDK是功能齐全的SDK，包含JRE和一些其他的工具，例如javac，jav
 
 JRE是Java运行时环境，仅包含Java应用程序运行时的必要环境。
 <!-- more -->
-![image-20230514210704461](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/image-20230514210704461.png)
+![image-20230514210704461](/markdown/image-20230514210704461.png)
 
 ## 什么是字节码？采用字节码的好处？
 

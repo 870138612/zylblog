@@ -11,7 +11,7 @@
 <h3 id="什么是主内存-什么是本地内存" tabindex="-1"><a class="header-anchor" href="#什么是主内存-什么是本地内存" aria-hidden="true">#</a> 什么是主内存？什么是本地内存？</h3>
 <ul>
 <li>主内存：所有线程创建的对象实例都放在主内存中；</li>
-<li>本地内存：每个线程都有私有的本地内存来存储共享变量的副本，并且每一个线程只能访问自己的本地内存，无法访问其他线程的本地内存。本地内存是JMM抽象出的概念，存储了主内存中的变量副本。<img src="https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/jmm.jpg" alt="jmm"></li>
+<li>本地内存：每个线程都有私有的本地内存来存储共享变量的副本，并且每一个线程只能访问自己的本地内存，无法访问其他线程的本地内存。本地内存是JMM抽象出的概念，存储了主内存中的变量副本。<img src="/markdown/jmm.jpg" alt="jmm"></li>
 </ul>
 <h3 id="java内存结构和java内存模型的区别" tabindex="-1"><a class="header-anchor" href="#java内存结构和java内存模型的区别" aria-hidden="true">#</a> Java内存结构和Java内存模型的区别</h3>
 <ul>

@@ -60,7 +60,7 @@ JVM中内置了三个`ClassLoader`：
 
 下图展示的各种类加载器之间的层次关系被称为类加载器的“**双亲委派模型(Parents Delegation Model)**”。
 
-![230522202439](https://blog-1312634242.cos.ap-shanghai.myqcloud.com/markdown/230522202439.jpg)
+![230522202439](/markdown/230522202439.jpg)
 
 info::: warning
 
