@@ -2,7 +2,7 @@
 title: 欢迎
 index: false
 icon: daohang
-cover: /2023/indexbg.jpg
+cover: /home/indexbg.jpg
 pageInfo: false
 article: false
 timeline: false
