@@ -105,7 +105,7 @@
 <h2 id="undo-log-回滚日志" tabindex="-1"><a class="header-anchor" href="#undo-log-回滚日志" aria-hidden="true">#</a> undo log 回滚日志</h2>
 <p>在 MySQL 中，恢复机制是通过 <strong>回滚日志（undo log）</strong> 实现的，所有事务进行的修改都会先记录到这个回滚日志中，然后再执行相关的操作。如果执行过程中遇到异常的话，我们直接利用 <strong>回滚日志</strong> 中的信息将数据回滚到修改之前的样子即可！并且，回滚日志会先于数据持久化到磁盘上。这样就保证了即使遇到数据库突然宕机等情况，当用户再次启动数据库的时候，数据库还能够通过查询回滚日志来回滚将之前未完成的事务。</p>
 <p><code v-pre>MVCC</code> 的实现依赖于：<strong>隐藏字段、Read View、undo log</strong>。在内部实现中，<code v-pre>InnoDB</code> 通过数据行的 <code v-pre>DB_TRX_ID</code> 和 <code v-pre>Read View</code> 来判断数据的可见性，如不可见，则通过数据行的 <code v-pre>DB_ROLL_PTR</code> 找到 <code v-pre>undo log</code> 中的历史版本。每个事务读到的数据版本可能是不一样的，在同一个事务中，用户只能看到该事务创建 <code v-pre>Read View</code> 之前已经提交的修改和该事务本身做的修改。</p>
-<p>详见<a href="http://ylzhong.top/database/1mysql/5mysqlmvcc.html" target="_blank" rel="noopener noreferrer"><strong>MVCC</strong><ExternalLinkIcon/></a>。</p>
+<p>详见<a href="http://ylzhong.top/database/1mysql/4mysqlmvcc.html" target="_blank" rel="noopener noreferrer"><strong>事务隔离级别和MVCC</strong><ExternalLinkIcon/></a>。</p>
 <h2 id="总结" tabindex="-1"><a class="header-anchor" href="#总结" aria-hidden="true">#</a> 总结</h2>
 <p>MySQL InnoDB 引擎使用 <strong>redo log(重做日志)</strong> 保证事务的<strong>持久性</strong>，使用 <strong>undo log(回滚日志)</strong> 来保证事务的<strong>原子性</strong>。</p>
 <p><code v-pre>MySQL</code>数据库的<strong>数据备份、主备、主主、主从</strong>都离不开<code v-pre>binlog</code>，需要依靠<code v-pre>binlog</code>来同步数据，保证数据一致性。</p>
