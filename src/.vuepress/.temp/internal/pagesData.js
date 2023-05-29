@@ -9,12 +9,12 @@ export const pagesData = {
   "v-0f6e5a7b": () => import(/* webpackChunkName: "v-0f6e5a7b" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/3io.html.js").then(({ data }) => data),
   // path: /computer/
   "v-a94a8cca": () => import(/* webpackChunkName: "v-a94a8cca" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/index.html.js").then(({ data }) => data),
+  // path: /framework/
+  "v-7d72c4ac": () => import(/* webpackChunkName: "v-7d72c4ac" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/framework/index.html.js").then(({ data }) => data),
   // path: /database/
   "v-2e25198a": () => import(/* webpackChunkName: "v-2e25198a" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/index.html.js").then(({ data }) => data),
   // path: /home/
   "v-14b0a7d7": () => import(/* webpackChunkName: "v-14b0a7d7" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/home/index.html.js").then(({ data }) => data),
-  // path: /framework/
-  "v-7d72c4ac": () => import(/* webpackChunkName: "v-7d72c4ac" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/framework/index.html.js").then(({ data }) => data),
   // path: /interview/
   "v-71b3ae87": () => import(/* webpackChunkName: "v-71b3ae87" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/interview/index.html.js").then(({ data }) => data),
   // path: /java/
@@ -39,6 +39,8 @@ export const pagesData = {
   "v-b9583b32": () => import(/* webpackChunkName: "v-b9583b32" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/1net/3net.html.js").then(({ data }) => data),
   // path: /computer/1net/
   "v-18d61928": () => import(/* webpackChunkName: "v-18d61928" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/1net/index.html.js").then(({ data }) => data),
+  // path: /framework/1spring/
+  "v-182fabca": () => import(/* webpackChunkName: "v-182fabca" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/framework/1spring/index.html.js").then(({ data }) => data),
   // path: /database/1mysql/0database.html
   "v-6f176f1e": () => import(/* webpackChunkName: "v-6f176f1e" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/1mysql/0database.html.js").then(({ data }) => data),
   // path: /database/1mysql/1mysql.html
@@ -55,8 +57,6 @@ export const pagesData = {
   "v-c91da0ba": () => import(/* webpackChunkName: "v-c91da0ba" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/1mysql/index.html.js").then(({ data }) => data),
   // path: /database/2redis/
   "v-50823daa": () => import(/* webpackChunkName: "v-50823daa" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/2redis/index.html.js").then(({ data }) => data),
-  // path: /framework/1spring/
-  "v-182fabca": () => import(/* webpackChunkName: "v-182fabca" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/framework/1spring/index.html.js").then(({ data }) => data),
   // path: /java/1java/1java.html
   "v-e26068d4": () => import(/* webpackChunkName: "v-e26068d4" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/1java/1java.html.js").then(({ data }) => data),
   // path: /java/1java/2java.html
@@ -75,6 +75,20 @@ export const pagesData = {
   "v-1485935c": () => import(/* webpackChunkName: "v-1485935c" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/2collection/2collection.html.js").then(({ data }) => data),
   // path: /java/2collection/
   "v-31c43ed3": () => import(/* webpackChunkName: "v-31c43ed3" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/2collection/index.html.js").then(({ data }) => data),
+  // path: /java/3juc/1juc.html
+  "v-53d0b748": () => import(/* webpackChunkName: "v-53d0b748" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/3juc/1juc.html.js").then(({ data }) => data),
+  // path: /java/3juc/2juc.html
+  "v-6a5c135d": () => import(/* webpackChunkName: "v-6a5c135d" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/3juc/2juc.html.js").then(({ data }) => data),
+  // path: /java/3juc/3juc.html
+  "v-02befb44": () => import(/* webpackChunkName: "v-02befb44" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/3juc/3juc.html.js").then(({ data }) => data),
+  // path: /java/3juc/4synchronizedlock.html
+  "v-d0bf4a88": () => import(/* webpackChunkName: "v-d0bf4a88" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/3juc/4synchronizedlock.html.js").then(({ data }) => data),
+  // path: /java/3juc/5aqs.html
+  "v-70192d16": () => import(/* webpackChunkName: "v-70192d16" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/3juc/5aqs.html.js").then(({ data }) => data),
+  // path: /java/3juc/6juccollections.html
+  "v-169e4648": () => import(/* webpackChunkName: "v-169e4648" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/3juc/6juccollections.html.js").then(({ data }) => data),
+  // path: /java/3juc/
+  "v-64a8bef6": () => import(/* webpackChunkName: "v-64a8bef6" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/3juc/index.html.js").then(({ data }) => data),
   // path: /java/4jvm/1memory.html
   "v-616d4a15": () => import(/* webpackChunkName: "v-616d4a15" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/4jvm/1memory.html.js").then(({ data }) => data),
   // path: /java/4jvm/2gc.html
@@ -91,20 +105,6 @@ export const pagesData = {
   "v-3c93d317": () => import(/* webpackChunkName: "v-3c93d317" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/4jvm/7gcoptimize.html.js").then(({ data }) => data),
   // path: /java/4jvm/
   "v-64b6db6e": () => import(/* webpackChunkName: "v-64b6db6e" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/4jvm/index.html.js").then(({ data }) => data),
-  // path: /java/3juc/1juc.html
-  "v-53d0b748": () => import(/* webpackChunkName: "v-53d0b748" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/3juc/1juc.html.js").then(({ data }) => data),
-  // path: /java/3juc/2juc.html
-  "v-6a5c135d": () => import(/* webpackChunkName: "v-6a5c135d" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/3juc/2juc.html.js").then(({ data }) => data),
-  // path: /java/3juc/3juc.html
-  "v-02befb44": () => import(/* webpackChunkName: "v-02befb44" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/3juc/3juc.html.js").then(({ data }) => data),
-  // path: /java/3juc/4synchronizedlock.html
-  "v-d0bf4a88": () => import(/* webpackChunkName: "v-d0bf4a88" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/3juc/4synchronizedlock.html.js").then(({ data }) => data),
-  // path: /java/3juc/5aqs.html
-  "v-70192d16": () => import(/* webpackChunkName: "v-70192d16" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/3juc/5aqs.html.js").then(({ data }) => data),
-  // path: /java/3juc/6juccollections.html
-  "v-169e4648": () => import(/* webpackChunkName: "v-169e4648" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/3juc/6juccollections.html.js").then(({ data }) => data),
-  // path: /java/3juc/
-  "v-64a8bef6": () => import(/* webpackChunkName: "v-64a8bef6" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/3juc/index.html.js").then(({ data }) => data),
   // path: /404.html
   "v-3706649a": () => import(/* webpackChunkName: "v-3706649a" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/404.html.js").then(({ data }) => data),
   // path: /category/
@@ -155,6 +155,14 @@ export const pagesData = {
   "v-2652ff58": () => import(/* webpackChunkName: "v-2652ff58" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/单例模式/index.html.js").then(({ data }) => data),
   // path: /tag/java%E9%9B%86%E5%90%88/
   "v-12e56aa2": () => import(/* webpackChunkName: "v-12e56aa2" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/java集合/index.html.js").then(({ data }) => data),
+  // path: /tag/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/
+  "v-5c4e59bd": () => import(/* webpackChunkName: "v-5c4e59bd" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/并发编程/index.html.js").then(({ data }) => data),
+  // path: /tag/synchronized%E9%94%81%E4%BC%98%E5%8C%96/
+  "v-33f11876": () => import(/* webpackChunkName: "v-33f11876" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/synchronized锁优化/index.html.js").then(({ data }) => data),
+  // path: /tag/aqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/
+  "v-85a23e68": () => import(/* webpackChunkName: "v-85a23e68" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/aqs抽象队列同步器/index.html.js").then(({ data }) => data),
+  // path: /tag/juc%E5%B8%B8%E8%A7%81%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8/
+  "v-c99639e4": () => import(/* webpackChunkName: "v-c99639e4" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/juc常见并发容器/index.html.js").then(({ data }) => data),
   // path: /tag/jvm%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/
   "v-62393f4a": () => import(/* webpackChunkName: "v-62393f4a" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/jvm内存结构/index.html.js").then(({ data }) => data),
   // path: /tag/jvm%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/
@@ -169,12 +177,4 @@ export const pagesData = {
   "v-4c64403f": () => import(/* webpackChunkName: "v-4c64403f" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/jvm重要参数/index.html.js").then(({ data }) => data),
   // path: /tag/gc%E8%B0%83%E4%BC%98/
   "v-c561ebd0": () => import(/* webpackChunkName: "v-c561ebd0" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/gc调优/index.html.js").then(({ data }) => data),
-  // path: /tag/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/
-  "v-5c4e59bd": () => import(/* webpackChunkName: "v-5c4e59bd" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/并发编程/index.html.js").then(({ data }) => data),
-  // path: /tag/synchronized%E9%94%81%E4%BC%98%E5%8C%96/
-  "v-33f11876": () => import(/* webpackChunkName: "v-33f11876" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/synchronized锁优化/index.html.js").then(({ data }) => data),
-  // path: /tag/aqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/
-  "v-85a23e68": () => import(/* webpackChunkName: "v-85a23e68" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/aqs抽象队列同步器/index.html.js").then(({ data }) => data),
-  // path: /tag/juc%E5%B8%B8%E8%A7%81%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8/
-  "v-c99639e4": () => import(/* webpackChunkName: "v-c99639e4" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/tag/juc常见并发容器/index.html.js").then(({ data }) => data),
 }
