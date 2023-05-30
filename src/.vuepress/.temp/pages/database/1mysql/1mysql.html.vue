@@ -21,6 +21,10 @@
 <li><strong>执行器</strong>：执行语句，然后从存储引擎返回数据。</li>
 <li><strong>插件式存储引擎</strong>：主要负责数据的存储和读取，采用的是插件式架构，支持InnoDB，MyISAM，Memory等多种存储引擎。</li>
 </ul>
+<p>MySQL 主要分为 Server 层和引擎层，Server 层主要包括连接器、查询缓存、分析器、优化器、执行器，同时还有一个日志模块（binlog），这个日志模块所有执行引擎都可以共用，redolog 只有 InnoDB 有。</p>
+<p>引擎层是插件式的，目前主要包括，MyISAM，InnoDB，Memory 等。</p>
+<p>查询语句的执行流程如下：权限校验（如果命中缓存）---&gt;查询缓存---&gt;分析器---&gt;优化器---&gt;权限校验---&gt;执行器---&gt;引擎</p>
+<p>更新语句执行流程如下：分析器----&gt;权限校验----&gt;执行器---&gt;引擎---redo log(prepare 状态)---&gt;binlog---&gt;redo log(commit 状态)</p>
 <h2 id="mysql存储引擎" tabindex="-1"><a class="header-anchor" href="#mysql存储引擎" aria-hidden="true">#</a> MySQL存储引擎</h2>
 <p>MySQL 5.5.5之前，MyISAM是MySQL的默认存储引擎。之后，InnoDB是MySQL的默认存储引擎。</p>
 <h3 id="myisam-和-innodb-有什么区别" tabindex="-1"><a class="header-anchor" href="#myisam-和-innodb-有什么区别" aria-hidden="true">#</a> MyISAM 和 InnoDB 有什么区别？</h3>

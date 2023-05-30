@@ -162,7 +162,7 @@ CAS 只对单个共享变量有效，当操作涉及跨多个共享变量时 CAS
 
 早期版本中`synchronized` 属于重量级锁，Java 6 之后对`synchronized` 做了优化。
 
-详见[synchronized锁优化](http://ylzhong.top/java/3juc/4synchronizedlock.html)。
+☀️详见[synchronized锁优化](http://ylzhong.top/java/3juc/4synchronizedlock.html)。
 
 ### sychronized修饰方法
 
@@ -237,7 +237,7 @@ synchronized(类.class) {
 
 `ReentrantLock` 里面有一个内部类 `Sync`，`Sync` 继承 AQS（`AbstractQueuedSynchronizer`），添加锁和释放锁的大部分操作实际上都是在 `Sync` 中实现的。`Sync` 有公平锁 `FairSync` 和非公平锁 `NonfairSync` 两个子类。
 
-详见[AQS抽象队列同步器](http://ylzhong.top/java/3juc/5aqs.html)。
+☀️详见[AQS抽象队列同步器](http://ylzhong.top/java/3juc/5aqs.html)。
 
 ### 公平锁和非公平锁有什么区别？
 

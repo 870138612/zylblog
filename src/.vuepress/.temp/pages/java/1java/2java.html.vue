@@ -16,7 +16,8 @@
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str1 <span class="token operator">==</span> str3<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//true</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str1<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//true	</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str1<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>str3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//true</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>System.out.println(str1 == str2);//false</code>详见后半部分<a href="##String">String</a>。</p>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>System.out.println(str1 == str2);//false</code></p>
+<p>☀️详见<a href="http://ylzhong.top/java/1java/2java.html#string" target="_blank" rel="noopener noreferrer">String<ExternalLinkIcon/></a>。</p>
 <h3 id="如果没有声明构造方法-程序能正确执行吗" tabindex="-1"><a class="header-anchor" href="#如果没有声明构造方法-程序能正确执行吗" aria-hidden="true">#</a> 如果没有声明构造方法，程序能正确执行吗？</h3>
 <p>如果类没有声明构造方法则会默认生成一个不带参数的构造方法。</p>
 <p>如果自己添加了构造方法无论是否有参数都不会再自动生成无参构造方法。</p>
@@ -26,7 +27,7 @@
 <p>封装是将一个对象的状态信息隐藏在内部，不允许外部直接访问这些属性，但是会提供方法来操作属性。</p>
 <p><strong>继承</strong></p>
 <p>不同类型的对象可能会具有相似特点，例如游戏中的每一个英雄都有血量，移速等基础属性，但是每一个英雄的技能各有不同，则可以通过继承复用减少开发难度。</p>
-<Tabs id="62" :data='[{"title":"HeroTemplate"},{"title":"Hero1"},{"title":"Hero2"}]' :active="0">
+<Tabs id="65" :data='[{"title":"HeroTemplate"},{"title":"Hero1"},{"title":"Hero2"}]' :active="0">
 <template #tab0="{ title, value, isActive }">
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Hero</span> <span class="token punctuation">{</span>
     <span class="token keyword">private</span> <span class="token keyword">int</span> hp<span class="token punctuation">;</span>
@@ -54,7 +55,7 @@
 </ol>
 <p><strong>多态</strong></p>
 <p>表示一个对象具有多种状态，上述代码中创建对象：</p>
-<Tabs id="91" :data='[{"title":"HeroTemplate"},{"title":"Hero1"},{"title":"Hero2"}]' :active="0">
+<Tabs id="94" :data='[{"title":"HeroTemplate"},{"title":"Hero1"},{"title":"Hero2"}]' :active="0">
 <template #tab0="{ title, value, isActive }">
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Hero</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">skill</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
