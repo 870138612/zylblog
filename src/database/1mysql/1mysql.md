@@ -214,11 +214,10 @@ InnoDB支持三种行锁定方式：
 
 ### 快照读和当前读的区别
 
-**快照读**（一致性非锁定读）就是单纯的 `SELECT` 语句。
+**快照读**（一致性非锁定读）就是单纯的 `SELECT` 语句，不对数据加锁的读。
 
 ```mysql
-SELECT ... FOR UPDATE
-SELECT ... LOCK IN SHARE MODE
+SELECT ... WHERE ...
 ```
 
 快照即记录的历史版本，每行记录可能存在多个历史版本。
