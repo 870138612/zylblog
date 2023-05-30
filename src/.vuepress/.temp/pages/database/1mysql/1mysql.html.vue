@@ -24,7 +24,7 @@
 <p>MySQL 主要分为 Server 层和引擎层，Server 层主要包括连接器、查询缓存、分析器、优化器、执行器，同时还有一个日志模块（binlog），这个日志模块所有执行引擎都可以共用，redolog 只有 InnoDB 有。</p>
 <p>引擎层是插件式的，目前主要包括，MyISAM，InnoDB，Memory 等。</p>
 <p>查询语句的执行流程如下：权限校验（如果命中缓存）---&gt;查询缓存---&gt;分析器---&gt;优化器---&gt;权限校验---&gt;执行器---&gt;引擎</p>
-<p>更新语句执行流程如下：分析器----&gt;权限校验----&gt;执行器---&gt;引擎---redo log(prepare 状态)---&gt;binlog---&gt;redo log(commit 状态)</p>
+<p>更新语句执行流程如下：分析器---&gt;权限校验---&gt;执行器---&gt;引擎---redo log(prepare 状态)---&gt;binlog---&gt;redo log(commit 状态)</p>
 <h2 id="mysql存储引擎" tabindex="-1"><a class="header-anchor" href="#mysql存储引擎" aria-hidden="true">#</a> MySQL存储引擎</h2>
 <p>MySQL 5.5.5之前，MyISAM是MySQL的默认存储引擎。之后，InnoDB是MySQL的默认存储引擎。</p>
 <h3 id="myisam-和-innodb-有什么区别" tabindex="-1"><a class="header-anchor" href="#myisam-和-innodb-有什么区别" aria-hidden="true">#</a> MyISAM 和 InnoDB 有什么区别？</h3>
@@ -58,7 +58,7 @@
 <ul>
 <li><strong>性能</strong></li>
 </ul>
-<p>InnoDb的性能比MyISAM性能更好，InnoDb读写支持并发，MyISAM不支持并发。</p>
+<p>InnoDB的性能比MyISAM性能更好，InnoDB读写支持并发，MyISAM不支持并发。</p>
 <h2 id="mysql查询缓存" tabindex="-1"><a class="header-anchor" href="#mysql查询缓存" aria-hidden="true">#</a> MySQL查询缓存</h2>
 <p>执行查询语句的时候，会先查询缓存，不过在8.0版本之后缓存被移除。</p>
 <p><strong>查询不命中的情况：</strong></p>
@@ -104,7 +104,7 @@ COMMIT;
 <p>READ-UNCOMMITTED、READ-COMMITTED、REPEATABLE-READ（通过MVCC和Next-Key Lock可解决幻读）</p>
 </blockquote>
 <h3 id="并发事务的控制方式有哪些" tabindex="-1"><a class="header-anchor" href="#并发事务的控制方式有哪些" aria-hidden="true">#</a> 并发事务的控制方式有哪些？</h3>
-<p>MySQL中并发事务的控制方式有两种：<strong>锁和MVCC</strong>。锁可以看做是悲观控制的模式，多版本并发控制是勒段控制的模式。</p>
+<p>MySQL中并发事务的控制方式有两种：<strong>锁和MVCC</strong>。锁可以看做是悲观控制的模式，多版本并发控制是乐观控制的模式。</p>
 <h3 id="mysql的隔离级别是基于锁实现的吗" tabindex="-1"><a class="header-anchor" href="#mysql的隔离级别是基于锁实现的吗" aria-hidden="true">#</a> MySQL的隔离级别是基于锁实现的吗？</h3>
 <p>MySQL的隔离级别基于锁和MVCC机制共同实现的。</p>
 <p>SERIALIZABLE隔离级别是通过锁来实现的，READ-COMMITTED 和 REPEATABLE-READ 隔离级别是基于 MVCC 实现的。</p>

@@ -41,7 +41,7 @@ MySQL 主要分为 Server 层和引擎层，Server 层主要包括连接器、�
 
 查询语句的执行流程如下：权限校验（如果命中缓存）--->查询缓存--->分析器--->优化器--->权限校验--->执行器--->引擎
 
-更新语句执行流程如下：分析器---->权限校验---->执行器--->引擎---redo log(prepare 状态)--->binlog--->redo log(commit 状态)
+更新语句执行流程如下：分析器--->权限校验--->执行器--->引擎---redo log(prepare 状态)--->binlog--->redo log(commit 状态)
 
 ## MySQL存储引擎
 
@@ -81,7 +81,7 @@ InnoDB引擎中，其数据文件本身就是索引文件。相比MyISAM，索�
 
 - **性能**
 
-InnoDb的性能比MyISAM性能更好，InnoDb读写支持并发，MyISAM不支持并发。
+InnoDB的性能比MyISAM性能更好，InnoDB读写支持并发，MyISAM不支持并发。
 
 ## MySQL查询缓存
 
@@ -143,13 +143,13 @@ COMMIT;
 
 ### 并发事务的控制方式有哪些？
 
-MySQL中并发事务的控制方式有两种：**锁和MVCC**。锁可以看做是悲观控制的模式，多版本并发控制是勒段控制的模式。
+MySQL中并发事务的控制方式有两种：**锁和MVCC**。锁可以看做是悲观控制的模式，多版本并发控制是乐观控制的模式。
 
 ### MySQL的隔离级别是基于锁实现的吗？
 
 MySQL的隔离级别基于锁和MVCC机制共同实现的。
 
-SERIALIZABLE隔离级别是通过锁来实现的，READ-COMMITTED 和 REPEATABLE-READ 隔离级别是基于 MVCC 实现的。
+**SERIALIZABLE**隔离级别是通过锁来实现的，**READ-COMMITTED** 和 **REPEATABLE-READ** 隔离级别是基于 MVCC 实现的。
 
 ### MySQL的默认隔离级别是什么？
 
