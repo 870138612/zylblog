@@ -107,7 +107,7 @@ COMMIT;
 <p>MySQL中并发事务的控制方式有两种：<strong>锁和MVCC</strong>。锁可以看做是悲观控制的模式，多版本并发控制是乐观控制的模式。</p>
 <h3 id="mysql的隔离级别是基于锁实现的吗" tabindex="-1"><a class="header-anchor" href="#mysql的隔离级别是基于锁实现的吗" aria-hidden="true">#</a> MySQL的隔离级别是基于锁实现的吗？</h3>
 <p>MySQL的隔离级别基于锁和MVCC机制共同实现的。</p>
-<p>SERIALIZABLE隔离级别是通过锁来实现的，READ-COMMITTED 和 REPEATABLE-READ 隔离级别是基于 MVCC 实现的。</p>
+<p><strong>SERIALIZABLE</strong>隔离级别是通过锁来实现的，<strong>READ-COMMITTED</strong> 和 <strong>REPEATABLE-READ</strong> 隔离级别是基于 MVCC 实现的。</p>
 <h3 id="mysql的默认隔离级别是什么" tabindex="-1"><a class="header-anchor" href="#mysql的默认隔离级别是什么" aria-hidden="true">#</a> MySQL的默认隔离级别是什么？</h3>
 <p>MySQL InnoDB 存储引擎的默认支持的隔离级别是 <strong>REPEATABLE-READ（可重读）</strong>。</p>
 <h2 id="mysql-锁" tabindex="-1"><a class="header-anchor" href="#mysql-锁" aria-hidden="true">#</a> MySQL 锁</h2>
@@ -133,7 +133,7 @@ COMMIT;
 <h3 id="共享锁和排他锁区别" tabindex="-1"><a class="header-anchor" href="#共享锁和排他锁区别" aria-hidden="true">#</a> 共享锁和排他锁区别</h3>
 <p><strong>两者都是行级锁</strong>。</p>
 <p><strong>共享锁（S 锁）</strong>：又称读锁，事务在读取记录的时候获取共享锁，允许多个事务同时获取（锁兼容）。读写互斥，写写互斥，其他不互斥。</p>
-<p><strong>排他锁（X 锁）</strong>：又称写锁/独占锁，事务在修改记录的时候获取排他锁，不允许多个事务同时获取。如果一个记录已经被加了排他锁，那其他事务不能再对这条事务加任何类型的锁（锁不兼容）。操作都互斥。</p>
+<p><strong>排他锁（X 锁）</strong>：又称写锁/独占锁，事务在修改记录的时候获取排他锁，不允许多个事务同时获取。如果一个记录已经被加了排他锁，那其他事务不能再对这条事务加任何类型的锁（锁不兼容）。</p>
 <p>由于 MVCC 的存在，对于一般的 <code v-pre>SELECT</code> 语句，InnoDB 不会加任何锁。</p>
 <h3 id="意向锁有什么作用" tabindex="-1"><a class="header-anchor" href="#意向锁有什么作用" aria-hidden="true">#</a> 意向锁有什么作用？</h3>
 <p>如果需要用到表锁的话，如何判断表中的记录没有行锁呢，一行一行遍历肯定是不行，性能太差，所以需要意向锁来快速判断是否可以对某个表使用表锁。</p>
@@ -153,17 +153,16 @@ COMMIT;
 <p><strong>除了意向共享锁（IS）和共享锁兼容（S），其余的意向锁和共享或者排他锁都互斥。</strong></p>
 </div>
 <h3 id="快照读和当前读的区别" tabindex="-1"><a class="header-anchor" href="#快照读和当前读的区别" aria-hidden="true">#</a> 快照读和当前读的区别</h3>
-<p><strong>快照读</strong>（一致性非锁定读）就是单纯的 <code v-pre>SELECT</code> 语句。</p>
-<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>SELECT ... FOR UPDATE
-SELECT ... LOCK IN SHARE MODE
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>快照即记录的历史版本，每行记录可能存在多个历史版本。</p>
+<p><strong>快照读</strong>（一致性非锁定读）就是单纯的 <code v-pre>SELECT</code> 语句，不对数据加锁的读。</p>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>SELECT ... WHERE ...
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>快照即记录的历史版本，每行记录可能存在多个历史版本。</p>
 <p>快照读的情况下，如果读取的记录正在执行UPDATE/DELETE操作，读取操作不会因此去等待记录上X锁的释放，而是会去读取行的一个快照。</p>
 <p>只有在事务隔离级别RC和RR下，InnoDB才会使用快照读。</p>
 <ul>
 <li>在RC级别下，对于快照数据，快照读总是读取被锁定行的最新一份快照数据。</li>
 <li>在RR级别下，对于快照数据，快照读总是读取本事务开始时的行数据版本。</li>
 </ul>
-<p><strong>当前读</strong>（一致性锁定读）就是给行记录加X锁或者S锁。</p>
+<p><strong>当前读</strong>（一致性锁定读）就是给行记录加S锁（共享锁）或者X锁（排它锁）。</p>
 <div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code># 对读的记录加一个X锁
 SELECT...FOR UPDATE
 # 对读的记录加一个S锁
@@ -177,7 +176,7 @@ DELETE...
 <p>MySQL提供了两个方法来处理ip地址：</p>
 <ul>
 <li><code v-pre>INET_ATON()</code>：把ip转化为无符号整数。</li>
-<li><code v-pre>INET_NTOA()</code> :把整型的 ip 转为地址。</li>
+<li><code v-pre>INET_NTOA()</code>：把整型的 ip 转为地址。</li>
 </ul>
 <p>插入数据前，先用 <code v-pre>INET_ATON()</code> 把 ip 地址转为整型，显示数据时，使用 <code v-pre>INET_NTOA()</code> 把整型的 ip 地址转为地址显示即可。</p>
 <h2 id="执行计划" tabindex="-1"><a class="header-anchor" href="#执行计划" aria-hidden="true">#</a> 执行计划</h2>
@@ -298,7 +297,7 @@ DELETE...
 <ul>
 <li><strong>join操作</strong>：同一个数据库中的表分布在不同的数据库中，导致无法使用join操作。</li>
 <li><strong>事务问题</strong>：同一个数据库中的表分布在不同的数据库中，如果单个操作涉及到多个数据库，那么数据库自带的事物就无法满足要求。</li>
-<li><strong>分布式id</strong>分库之后，数据遍布在不同服务器上的数据库，数据库的自增主键已经没办法满足生成唯一主键。</li>
+<li><strong>分布式id</strong>：分库之后，数据遍布在不同服务器上的数据库，数据库的自增主键已经没办法满足生成唯一主键。</li>
 </ul>
 </div></template>
 
