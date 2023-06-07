@@ -1,4 +1,100 @@
-<template><div><!-- more -->
+<template><div><p>Redis 共有 5 种基本数据结构：String（字符串）、List（列表）、Set（集合）、Hash（散列）、Zset（有序集合）。</p>
+<p>这 5 种数据结构是直接提供给用户使用的，是数据的保存形式，其底层实现主要依赖这 8 种数据结构：简单动态字符串（SDS）、LinkedList（双向链表）、Hash Table（哈希表）、SkipList（跳跃表）、Intset（整数集合）、ZipList（压缩列表）、QuickList（快速列表）。</p>
+<!-- more -->
+<p>Redis 基本数据结构的底层数据结构实现如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">String</th>
+<th style="text-align:left">List</th>
+<th style="text-align:left">Hash</th>
+<th style="text-align:left">Set</th>
+<th style="text-align:left">Zset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">SDS</td>
+<td style="text-align:left">LinkedList/ZipList/QuickList</td>
+<td style="text-align:left">Hash Table、ZipList</td>
+<td style="text-align:left">ZipList、Intset</td>
+<td style="text-align:left">ZipList、SkipList</td>
+</tr>
+</tbody>
+</table>
+<h2 id="string-字符串" tabindex="-1"><a class="header-anchor" href="#string-字符串" aria-hidden="true">#</a> String（字符串）</h2>
+<p>String 是 Redis 中最简单同时也是最常用的一个数据结构。</p>
+<p>String 是一种二进制安全的数据结构，可以用来存储任何类型的数据比如字符串、整数、浮点数、图片（图片的 base64 编码或者解码或者图片的路径）、序列化后的对象。</p>
+<p><img src="/markdown/image-20230607205223121.png" alt="image-20230607205223121"></p>
+<p>Redis自己构建了一种 <strong>简单动态字符串</strong>（Simple Dynamic String，<strong>SDS</strong>）。相比于 C 的原生字符串，Redis 的 SDS 不光可以保存文本数据还可以保存二进制数据，并且获取字符串长度复杂度为 O(1)（C 字符串为 O(N)）,除此之外，Redis 的 SDS API 是安全的，不会造成缓冲区溢出。</p>
+<h3 id="常用命令" tabindex="-1"><a class="header-anchor" href="#常用命令" aria-hidden="true">#</a> 常用命令</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SET key value</td>
+<td>设置指定 key 的值</td>
+</tr>
+<tr>
+<td>SETNX key value</td>
+<td>只有在 key 不存在时设置 key 的值</td>
+</tr>
+<tr>
+<td>GET key</td>
+<td>获取指定 key 的值</td>
+</tr>
+<tr>
+<td>MSET key1 value1 key2 value2 …</td>
+<td>设置一个或多个指定 key 的值</td>
+</tr>
+<tr>
+<td>MGET key1 key2 ...</td>
+<td>获取一个或多个指定 key 的值</td>
+</tr>
+<tr>
+<td>STRLEN key</td>
+<td>返回 key 所储存的字符串值的长度</td>
+</tr>
+<tr>
+<td>INCR key</td>
+<td>将 key 中储存的数字值增一</td>
+</tr>
+<tr>
+<td>DECR key</td>
+<td>将 key 中储存的数字值减一</td>
+</tr>
+<tr>
+<td>EXISTS key</td>
+<td>判断指定 key 是否存在</td>
+</tr>
+<tr>
+<td>DEL key（通用）</td>
+<td>删除指定的 key</td>
+</tr>
+<tr>
+<td>EXPIRE key seconds（通用）</td>
+<td>给指定 key 设置过期时间</td>
+</tr>
+</tbody>
+</table>
+<h3 id="应用场景" tabindex="-1"><a class="header-anchor" href="#应用场景" aria-hidden="true">#</a> 应用场景</h3>
+<p><strong>需要存储常规数据的场景</strong></p>
+<ul>
+<li>举例：缓存 session、token、图片地址、序列化后的对象(相比较于 Hash 存储更节省内存)。</li>
+<li>相关命令：<code v-pre>SET</code>、<code v-pre>GET</code>。</li>
+</ul>
+<p><strong>需要计数的场景</strong></p>
+<ul>
+<li>举例：用户单位时间的请求数（简单限流可以用到）、页面单位时间的访问数。</li>
+<li>相关命令：<code v-pre>SET</code>、<code v-pre>GET</code>、 <code v-pre>INCR</code>、<code v-pre>DECR</code> 。</li>
+</ul>
+<p><strong>分布式锁</strong></p>
+<p>利用 <code v-pre>SETNX key value</code> 命令可以实现一个最简易的分布式锁（存在一些缺陷，通常不建议这样实现分布式锁）。</p>
 </div></template>
 
 
