@@ -40,7 +40,7 @@
 <h3 id="redo-log-小结" tabindex="-1"><a class="header-anchor" href="#redo-log-小结" aria-hidden="true">#</a> redo log 小结</h3>
 <p><code v-pre>redo log</code>刷盘和从<code v-pre>Buffer Pool</code>刷盘的区别。</p>
 <p>数据页的大小是<code v-pre>16KB</code>，刷盘比较耗时，可能就修改了几<code v-pre>Byte</code>数据，没有必要将整个页面刷盘。</p>
-<p>而且数据也刷盘是随机写，因为一个数据也对应的位置可能在磁盘文件的随机位置，性能很差。</p>
+<p>而且数据页刷盘是随机写，因为一个数据也对应的位置可能在磁盘文件的随机位置，性能很差。</p>
 <p>如果是写<code v-pre>redo log</code>，一行记录就占用很少的空间，而且是顺序写，刷盘速度很快。</p>
 <p>所以用<code v-pre>redo log</code>形式记录修改内容，性能会远远超过刷数据页面的方式，这也让数据库的并发能力增强。</p>
 <blockquote>
@@ -73,7 +73,7 @@
 <p><code v-pre>binlog</code>日志刷盘流程如下。</p>
 <p><img src="/markdown/image-20230529172120404.png" alt="image-20230529172120404"></p>
 <ul>
-<li>write是吧日志写入page cache，不是数据持久化到磁盘，所以速度比较快。</li>
+<li>write是把日志写入page cache，不是数据持久化到磁盘，所以速度比较快。</li>
 <li>fsync超时将数据持久化到磁盘的操作。</li>
 </ul>
 <p><code v-pre>write</code>和<code v-pre>fsync</code>的时机，可以由参数<code v-pre>sync_binlog</code>控制，默认是<code v-pre>0</code>。</p>
@@ -81,7 +81,7 @@
 <p>虽然性能得到提升，但是机器宕机，<code v-pre>page cache</code>里面的 binlog 会丢失。</p>
 <p>为了安全起见，可以设置为<code v-pre>1</code>，表示每次提交事务都会执行<code v-pre>fsync</code>，就如同 <strong>redo log 日志刷盘流程</strong> 一样。</p>
 <p>最后还有一种折中方式，可以设置为<code v-pre>N(N&gt;1)</code>，表示每次提交事务都<code v-pre>write</code>，但累积<code v-pre>N</code>个事务后才<code v-pre>fsync</code>。</p>
-<p>在出现<code v-pre>IO</code>瓶颈的场景里，将<code v-pre>sync_binlog</code>设置成一个比较大的值，可以提升性能。</p>
+<p>在出现IO瓶颈的场景里，将<code v-pre>sync_binlog</code>设置成一个比较大的值，可以提升性能。</p>
 <p>同样的，如果机器宕机，会丢失最近<code v-pre>N</code>个事务的<code v-pre>binlog</code>日志。</p>
 <h2 id="两阶段提交" tabindex="-1"><a class="header-anchor" href="#两阶段提交" aria-hidden="true">#</a> 两阶段提交</h2>
 <p><code v-pre>redo log</code>（重做日志）让<code v-pre>InnoDB</code>存储引擎拥有了崩溃恢复能力。</p>

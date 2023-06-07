@@ -8,3 +8,4 @@ article: false
 timeline: false
 ---
 
+- <HopeIcon icon="page"/> [Redis基础一](0redis.md)

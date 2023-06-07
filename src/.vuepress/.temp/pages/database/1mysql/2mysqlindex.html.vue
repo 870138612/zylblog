@@ -41,7 +41,7 @@
 <p>和 AVL 树不同的是，红黑树并不追求严格的平衡，而是大致的平衡。正因如此，红黑树的查询效率稍有下降，因为红黑树的平衡性相对较弱，可能会导致树的高度较高，这可能会导致一些数据需要进行多次磁盘 IO 操作才能查询到，这也是 MySQL 没有选择红黑树的主要原因。也正因如此，红黑树的插入和删除操作效率大大提高了，因为红黑树在插入和删除节点时只需进行 O(1) 次数的旋转和变色操作，即可保持基本平衡状态，而不需要像 AVL 树一样进行 O(logn) 次数的旋转操作。</p>
 </blockquote>
 <h3 id="b-树-b-树" tabindex="-1"><a class="header-anchor" href="#b-树-b-树" aria-hidden="true">#</a> B 树&amp; B+树</h3>
-<p>B树也称为B-树，全称<strong>多路平衡查找树</strong>，B+树是B树的编题，B树和B+树中的B是<code v-pre>Balanced</code>的意思。</p>
+<p>B树也称为B-树，全称<strong>多路平衡查找树</strong>，B+树是B树的变体，B树和B+树中的B是<code v-pre>Balanced</code>的意思。</p>
 <p><strong>有何不同？</strong></p>
 <ul>
 <li>B树的所有节点既存放键（key）也存放数据（data），而B+树只有叶子节点存放key和data，其他节点只存放key，起到索引作用。</li>
@@ -122,7 +122,7 @@ where b=2 and c=3;
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>跟例子1很像，不过条件变成了a&gt;=1；</p>
 <p>符合a&gt;=1条件的二级索引记录的范围里，b字段的值是无序的，但是在a=1的二级索引记录的范围里，b字段是有序的（因为对于联合索引，先是按照a字段的值排序，然后在a字段相同的情况下，再按照b字段值进行排序）。所以对于这个查询ab都用到了联合索引进行查询。</p>
 <h3 id="索引下推" tabindex="-1"><a class="header-anchor" href="#索引下推" aria-hidden="true">#</a> 索引下推</h3>
-<p>索引下推是MySQL 5.6版本中提供的索引优化功能，可以在非聚簇索引遍历啊过程中，对索引中包含的字段做判断，过滤掉不符合条件的记录，减少回表次数。</p>
+<p>索引下推是MySQL 5.6版本中提供的索引优化功能，可以在非聚簇索引遍历过程中，对索引中包含的字段做判断，过滤掉不符合条件的记录，减少回表次数。</p>
 <h2 id="使用索引的建议" tabindex="-1"><a class="header-anchor" href="#使用索引的建议" aria-hidden="true">#</a> 使用索引的建议</h2>
 <h3 id="选择合适的字段创建索引" tabindex="-1"><a class="header-anchor" href="#选择合适的字段创建索引" aria-hidden="true">#</a> 选择合适的字段创建索引</h3>
 <p>以下字段适合创建索引：</p>
