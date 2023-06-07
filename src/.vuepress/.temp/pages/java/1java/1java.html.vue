@@ -1,6 +1,6 @@
 <template><div><div class="hint-container tip">
 <p class="hint-container-title">一切就从这里开始吧</p>
-<p>笔记来源网络，仅做个人学习，非商业用途。</p>
+<p>笔记来源网络，仅做个人学习。</p>
 </div>
 <h2 id="jvm-jre-jdk" tabindex="-1"><a class="header-anchor" href="#jvm-jre-jdk" aria-hidden="true">#</a> JVM  JRE  JDK</h2>
 <p>JVM是java虚拟机，针对不同系统有不同的实现，常用的为HotSpot VM。</p>

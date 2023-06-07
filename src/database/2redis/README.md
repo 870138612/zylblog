@@ -9,3 +9,4 @@ timeline: false
 ---
 
 - <HopeIcon icon="page"/> [Redis基础一](0redis.md)
+- <HopeIcon icon="page"/> [分布式锁](2lock.md)

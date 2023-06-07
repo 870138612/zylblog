@@ -53,6 +53,8 @@ export const pagesData = {
   "v-c91da0ba": () => import(/* webpackChunkName: "v-c91da0ba" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/1mysql/index.html.js").then(({ data }) => data),
   // path: /database/2redis/0redis.html
   "v-32a15a63": () => import(/* webpackChunkName: "v-32a15a63" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/2redis/0redis.html.js").then(({ data }) => data),
+  // path: /database/2redis/2lock.html
+  "v-41f5be07": () => import(/* webpackChunkName: "v-41f5be07" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/2redis/2lock.html.js").then(({ data }) => data),
   // path: /database/2redis/
   "v-50823daa": () => import(/* webpackChunkName: "v-50823daa" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/2redis/index.html.js").then(({ data }) => data),
   // path: /framework/1spring/

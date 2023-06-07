@@ -55,6 +55,8 @@ export const pagesComponents = {
   "v-c91da0ba": defineAsyncComponent(() => import(/* webpackChunkName: "v-c91da0ba" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/1mysql/index.html.vue")),
   // path: /database/2redis/0redis.html
   "v-32a15a63": defineAsyncComponent(() => import(/* webpackChunkName: "v-32a15a63" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/2redis/0redis.html.vue")),
+  // path: /database/2redis/2lock.html
+  "v-41f5be07": defineAsyncComponent(() => import(/* webpackChunkName: "v-41f5be07" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/2redis/2lock.html.vue")),
   // path: /database/2redis/
   "v-50823daa": defineAsyncComponent(() => import(/* webpackChunkName: "v-50823daa" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/2redis/index.html.vue")),
   // path: /framework/1spring/

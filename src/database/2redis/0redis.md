@@ -16,8 +16,6 @@ Redis 是一个基于 C 语言开发的开源数据库（BSD 许可），与传�
 
 为了满足不同的业务场景，Redis 内置了多种数据类型实现（比如 String、Hash、Sorted Set、Bitmap、HyperLogLog、GEO）。并且，Redis 还支持事务、持久化、Lua 脚本、多种开箱即用的集群方案（Redis Sentinel、Redis Cluster）。
 
-<!-- more -->
-
 ### Redis 为什么这么快？
 
 1. Redis 基于内存，内存的访问速度是磁盘的上千倍；
@@ -149,4 +147,19 @@ Write Behind Pattern 下 db 的写性能非常高，非常适合一些数据经�
 
 ## Redis 应用
 
-### [#](https://javaguide.cn/database/redis/redis-questions-01.html#redis-除了做缓存-还能做什么)Redis 除了做缓存
+### Redis 除了做缓存，还能做什么？
+
+**分布式锁**：通过 Redis 来做分布式锁是一种比较常见的方式。通常情况下，我们都是基于 Redisson 来实现分布式锁。（秒杀下更新数据库时使用分布式锁）
+
+☀️详见：[分布式锁](http://ylzhong.top/database/2redis/2lock.html)
+
+**限流**：一般是通过 Redis + Lua 脚本的方式来实现限流。（秒杀下一人一单占位使用Lua脚本）
+
+**消息队列**：Redis 自带的 list 数据结构可以作为一个简单的队列使用。Redis 5.0 中增加的 Stream 类型的数据结构更加适合用来做消息队列。它比较类似于 Kafka，有主题和消费组的概念，支持消息持久化以及 ACK 机制。（快速创建秒杀单之后写回数据库使用消息队列）
+
+**复杂业务场景**：通过 Redis 以及 Redis 扩展（比如 Redisson）提供的数据结构，我们可以很方便地完成很多复杂的业务场景比如通过 bitmap 统计活跃用户、通过 sorted set 维护排行榜。
+
+
+
+
+

@@ -2,7 +2,6 @@
 <h3 id="什么是-redis" tabindex="-1"><a class="header-anchor" href="#什么是-redis" aria-hidden="true">#</a> 什么是 Redis？</h3>
 <p>Redis 是一个基于 C 语言开发的开源数据库（BSD 许可），与传统数据库不同的是 Redis 的数据是存在内存中的（内存数据库），读写速度非常快，被广泛应用于缓存方向。并且，Redis 存储的是 KV 键值对数据。</p>
 <p>为了满足不同的业务场景，Redis 内置了多种数据类型实现（比如 String、Hash、Sorted Set、Bitmap、HyperLogLog、GEO）。并且，Redis 还支持事务、持久化、Lua 脚本、多种开箱即用的集群方案（Redis Sentinel、Redis Cluster）。</p>
-<!-- more -->
 <h3 id="redis-为什么这么快" tabindex="-1"><a class="header-anchor" href="#redis-为什么这么快" aria-hidden="true">#</a> Redis 为什么这么快？</h3>
 <ol>
 <li>
@@ -105,7 +104,12 @@
 <p>这种策略在我们平时开发过程中也非常非常少见，但是不代表它的应用场景少，比如消息队列中消息的异步写入磁盘、MySQL 的 Innodb Buffer Pool 机制都用到了这种策略。</p>
 <p>Write Behind Pattern 下 db 的写性能非常高，非常适合一些数据经常变化又对数据一致性要求没那么高的场景，比如浏览量、点赞量。</p>
 <h2 id="redis-应用" tabindex="-1"><a class="header-anchor" href="#redis-应用" aria-hidden="true">#</a> Redis 应用</h2>
-<h3 id="redis-除了做缓存" tabindex="-1"><a class="header-anchor" href="#redis-除了做缓存" aria-hidden="true">#</a> <a href="https://javaguide.cn/database/redis/redis-questions-01.html#redis-%E9%99%A4%E4%BA%86%E5%81%9A%E7%BC%93%E5%AD%98-%E8%BF%98%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88" target="_blank" rel="noopener noreferrer">#<ExternalLinkIcon/></a>Redis 除了做缓存</h3>
+<h3 id="redis-除了做缓存-还能做什么" tabindex="-1"><a class="header-anchor" href="#redis-除了做缓存-还能做什么" aria-hidden="true">#</a> Redis 除了做缓存，还能做什么？</h3>
+<p><strong>分布式锁</strong>：通过 Redis 来做分布式锁是一种比较常见的方式。通常情况下，我们都是基于 Redisson 来实现分布式锁。（秒杀下更新数据库时使用分布式锁）</p>
+<p>☀️详见：<a href="http://ylzhong.top/database/2redis/2lock.html" target="_blank" rel="noopener noreferrer">分布式锁<ExternalLinkIcon/></a></p>
+<p><strong>限流</strong>：一般是通过 Redis + Lua 脚本的方式来实现限流。（秒杀下一人一单占位使用Lua脚本）</p>
+<p><strong>消息队列</strong>：Redis 自带的 list 数据结构可以作为一个简单的队列使用。Redis 5.0 中增加的 Stream 类型的数据结构更加适合用来做消息队列。它比较类似于 Kafka，有主题和消费组的概念，支持消息持久化以及 ACK 机制。（快速创建秒杀单之后写回数据库使用消息队列）</p>
+<p><strong>复杂业务场景</strong>：通过 Redis 以及 Redis 扩展（比如 Redisson）提供的数据结构，我们可以很方便地完成很多复杂的业务场景比如通过 bitmap 统计活跃用户、通过 sorted set 维护排行榜。</p>
 </div></template>
 
 
