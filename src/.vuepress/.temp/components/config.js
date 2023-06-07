@@ -1,13 +1,13 @@
 import { defineClientConfig } from "@vuepress/client";
-import { hasGlobalComponent } from "C:/Users/zyl/Desktop/my-docs/node_modules/vuepress-plugin-components/lib/client/shared.js";
+import { hasGlobalComponent } from "C:/Users/zyl/Desktop/my-docs/node_modules/.pnpm/vuepress-plugin-components@2.0.0-beta.206_vuepress@2.0.0-beta.61/node_modules/vuepress-plugin-components/lib/client/shared.js";
 import { h } from "vue";
 
-import { useStyleTag } from "C:/Users/zyl/Desktop/my-docs/node_modules/vuepress-plugin-components/lib/client/vueuse.js";
-import Badge from "C:/Users/zyl/Desktop/my-docs/node_modules/vuepress-plugin-components/lib/client/components/Badge.js";
-import FontIcon from "C:/Users/zyl/Desktop/my-docs/node_modules/vuepress-plugin-components/lib/client/components/FontIcon.js";
-import BackToTop from "C:/Users/zyl/Desktop/my-docs/node_modules/vuepress-plugin-components/lib/client/components/BackToTop.js";
+import { useStyleTag } from "C:/Users/zyl/Desktop/my-docs/node_modules/.pnpm/vuepress-plugin-components@2.0.0-beta.206_vuepress@2.0.0-beta.61/node_modules/vuepress-plugin-components/lib/client/vueuse.js";
+import Badge from "C:/Users/zyl/Desktop/my-docs/node_modules/.pnpm/vuepress-plugin-components@2.0.0-beta.206_vuepress@2.0.0-beta.61/node_modules/vuepress-plugin-components/lib/client/components/Badge.js";
+import FontIcon from "C:/Users/zyl/Desktop/my-docs/node_modules/.pnpm/vuepress-plugin-components@2.0.0-beta.206_vuepress@2.0.0-beta.61/node_modules/vuepress-plugin-components/lib/client/components/FontIcon.js";
+import BackToTop from "C:/Users/zyl/Desktop/my-docs/node_modules/.pnpm/vuepress-plugin-components@2.0.0-beta.206_vuepress@2.0.0-beta.61/node_modules/vuepress-plugin-components/lib/client/components/BackToTop.js";
 
-import "C:/Users/zyl/Desktop/my-docs/node_modules/vuepress-plugin-components/lib/client/styles/sr-only.scss";
+import "C:/Users/zyl/Desktop/my-docs/node_modules/.pnpm/vuepress-plugin-components@2.0.0-beta.206_vuepress@2.0.0-beta.61/node_modules/vuepress-plugin-components/lib/client/styles/sr-only.scss";
 
 export default defineClientConfig({
   enhance: ({ app }) => {

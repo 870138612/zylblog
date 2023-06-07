@@ -109,7 +109,19 @@
 <p>☀️详见：<a href="http://ylzhong.top/database/2redis/2lock.html" target="_blank" rel="noopener noreferrer">分布式锁<ExternalLinkIcon/></a></p>
 <p><strong>限流</strong>：一般是通过 Redis + Lua 脚本的方式来实现限流。（秒杀下一人一单占位使用Lua脚本）</p>
 <p><strong>消息队列</strong>：Redis 自带的 list 数据结构可以作为一个简单的队列使用。Redis 5.0 中增加的 Stream 类型的数据结构更加适合用来做消息队列。它比较类似于 Kafka，有主题和消费组的概念，支持消息持久化以及 ACK 机制。（快速创建秒杀单之后写回数据库使用消息队列）</p>
+<blockquote>
+<p>Redis 2.0 之前，如果想要使用 Redis 来做消息队列的话，只能通过 List 来实现，List 实现消息队列功能太简单，像消息确认机制等功能还需要我们自己实现，最要命的是没有广播机制，消息也只能被消费一次。</p>
+<p>Redis 2.0 引入了发布订阅 (pub/sub) 功能，解决了 List 实现消息队列没有广播机制的问题。Redis 5.0 新增加的一个数据结构 <code v-pre>Stream</code> 来做消息队列。</p>
+<p><code v-pre>Stream</code> 支持：</p>
+<ul>
+<li>发布 / 订阅模式</li>
+<li>按照消费者组进行消费</li>
+<li>消息持久化（ RDB 和 AOF）</li>
+</ul>
+</blockquote>
 <p><strong>复杂业务场景</strong>：通过 Redis 以及 Redis 扩展（比如 Redisson）提供的数据结构，我们可以很方便地完成很多复杂的业务场景比如通过 bitmap 统计活跃用户、通过 sorted set 维护排行榜。</p>
+<h2 id="redis-数据结构" tabindex="-1"><a class="header-anchor" href="#redis-数据结构" aria-hidden="true">#</a> Redis 数据结构</h2>
+<p>☀️详见：<a href="http://ylzhong.top/database/2redis/3redisdatastructures.html" target="_blank" rel="noopener noreferrer">Redis数据结构<ExternalLinkIcon/></a></p>
 </div></template>
 
 
