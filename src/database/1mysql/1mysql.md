@@ -1,6 +1,7 @@
 ---
 title: MySQL基础
 icon: page
+star: 1
 category:
   - 数据库
 tags:

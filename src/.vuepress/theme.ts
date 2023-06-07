@@ -25,23 +25,11 @@ export default hopeTheme({
   footer: "Copyright © 2023-present Liang",
   copyright: false,
   displayFooter: true,
-  pageInfo: [
-    "Author",
-    "Category",
-    "Tag",
-    "Date",
-    "Original",
-    "Word",
-    "ReadingTime",
-  ],
   blog: {
     sidebarDisplay:"mobile",
     description: "Java菜鸟",
     intro: "/intro.html",
   },
-
-
-
 
   plugins: {
     blog: true,

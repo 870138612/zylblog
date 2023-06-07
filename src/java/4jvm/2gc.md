@@ -1,6 +1,7 @@
 ---
 title: JVM垃圾回收
 icon: page
+star: true
 category:
   - Java
 tags:

@@ -6,6 +6,7 @@ category:
 tags:
   - MySQL
   - 八股
+star: true
 ---
 
 ## 数据库的三大范式

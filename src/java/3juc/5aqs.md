@@ -1,6 +1,7 @@
 ---
 title: AQS抽象队列同步器
 icon: page
+star: true
 category:
   - Java
 tags:

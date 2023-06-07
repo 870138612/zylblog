@@ -1,6 +1,7 @@
 ---
 title: 事务隔离级别和MVCC
 icon: page
+star: true
 category:
   - 数据库
 tags:
