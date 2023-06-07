@@ -40,7 +40,7 @@ tags:
 
 选用 Lua 脚本是为了保证解锁操作的原子性。
 
-```java
+```lua
 // 释放锁时，先比较锁对应的 value 值是否相等，避免锁的误释放
 if redis.call("get",KEYS[1]) == ARGV[1] then
     return redis.call("del",KEYS[1])
