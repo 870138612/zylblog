@@ -2,9 +2,9 @@ import {
   isArray,
   isFunction,
   isString
-} from "./chunk-6LKE2AJO.js";
+} from "./chunk-O4SLOSAD.js";
 
-// node_modules/.pnpm/registry.npmmirror.com+@vuepress+shared@2.0.0-beta.62/node_modules/@vuepress/shared/dist/index.js
+// node_modules/.pnpm/@vuepress+shared@2.0.0-beta.61/node_modules/@vuepress/shared/dist/index.js
 var resolveHeadIdentifier = ([
   tag,
   attrs,
@@ -33,8 +33,8 @@ var dedupeHead = (head) => {
   });
   return result;
 };
-var ensureLeadingSlash = (str) => str[0] === "/" ? str : `/${str}`;
-var ensureEndingSlash = (str) => str[str.length - 1] === "/" || str.endsWith(".html") ? str : `${str}/`;
+var ensureLeadingSlash = (str) => str.replace(/^\/?/, "/");
+var ensureEndingSlash = (str) => /(\.html|\/)$/.test(str) ? str : str + "/";
 var formatDateString = (str, defaultDateString = "") => {
   const dateMatch = str.match(/\b(\d{4})-(\d{1,2})-(\d{1,2})\b/);
   if (dateMatch === null) {
@@ -65,8 +65,8 @@ var omit = (obj, ...keys) => {
   }
   return result;
 };
-var removeEndingSlash = (str) => str[str.length - 1] === "/" ? str.slice(0, -1) : str;
-var removeLeadingSlash = (str) => str[0] === "/" ? str.slice(1) : str;
+var removeEndingSlash = (str) => str.replace(/\/$/, "");
+var removeLeadingSlash = (str) => str.replace(/^\//, "");
 var resolveLocalePath = (locales, routePath) => {
   const localePaths = Object.keys(locales).sort((a, b) => {
     const levelDelta = b.split("/").length - a.split("/").length;
@@ -82,10 +82,7 @@ var resolveLocalePath = (locales, routePath) => {
   }
   return "/";
 };
-var resolveRoutePathFromUrl = (url, base = "/") => {
-  const pathname = url.replace(/^(https?:)?\/\/[^/]*/, "");
-  return pathname.startsWith(base) ? `/${pathname.slice(base.length)}` : pathname;
-};
+var resolveRoutePathFromUrl = (url, base = "/") => url.replace(/^(https?:)?\/\/[^/]*/, "").replace(new RegExp(`^${base}`), "/");
 export {
   dedupeHead,
   ensureEndingSlash,
