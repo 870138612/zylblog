@@ -106,7 +106,7 @@
 <h2 id="redis-应用" tabindex="-1"><a class="header-anchor" href="#redis-应用" aria-hidden="true">#</a> Redis 应用</h2>
 <h3 id="redis-除了做缓存-还能做什么" tabindex="-1"><a class="header-anchor" href="#redis-除了做缓存-还能做什么" aria-hidden="true">#</a> Redis 除了做缓存，还能做什么？</h3>
 <p><strong>分布式锁</strong>：通过 Redis 来做分布式锁是一种比较常见的方式。通常情况下，我们都是基于 Redisson 来实现分布式锁。（秒杀下更新数据库时使用分布式锁）</p>
-<p>☀️详见：<a href="http://ylzhong.top/database/2redis/2lock.html" target="_blank" rel="noopener noreferrer">分布式锁<ExternalLinkIcon/></a></p>
+<p>☀️详见：<RouterLink to="/database/2redis/https://ylzhong.top/database/2redis/2lock.html">分布式锁</RouterLink></p>
 <p><strong>限流</strong>：一般是通过 Redis + Lua 脚本的方式来实现限流。（秒杀下一人一单占位使用Lua脚本）</p>
 <p><strong>消息队列</strong>：Redis 自带的 list 数据结构可以作为一个简单的队列使用。Redis 5.0 中增加的 Stream 类型的数据结构更加适合用来做消息队列。它比较类似于 Kafka，有主题和消费组的概念，支持消息持久化以及 ACK 机制。（快速创建秒杀单之后写回数据库使用消息队列）</p>
 <blockquote>
@@ -121,7 +121,174 @@
 </blockquote>
 <p><strong>复杂业务场景</strong>：通过 Redis 以及 Redis 扩展（比如 Redisson）提供的数据结构，我们可以很方便地完成很多复杂的业务场景比如通过 bitmap 统计活跃用户、通过 sorted set 维护排行榜。</p>
 <h2 id="redis-数据结构" tabindex="-1"><a class="header-anchor" href="#redis-数据结构" aria-hidden="true">#</a> Redis 数据结构</h2>
-<p>☀️详见：<a href="http://ylzhong.top/database/2redis/3redisdatastructures.html" target="_blank" rel="noopener noreferrer">Redis数据结构<ExternalLinkIcon/></a></p>
+<p>☀️详见：<RouterLink to="/database/2redis/https://ylzhong.top/database/2redis/3redisdatastructures.html">Redis数据结构</RouterLink></p>
+<h3 id="redis-常用的数据结构有哪些" tabindex="-1"><a class="header-anchor" href="#redis-常用的数据结构有哪些" aria-hidden="true">#</a> Redis 常用的数据结构有哪些？</h3>
+<ul>
+<li><strong>5 种基础数据结构</strong>：String（字符串）、List（列表）、Set（集合）、Hash（散列）、Zset（有序集合）。</li>
+<li><strong>3 种特殊数据结构</strong>：HyperLogLogs（基数统计）、Bitmap （位存储）、Geospatial (地理位置)。</li>
+</ul>
+<h3 id="string-的应用场景有哪些" tabindex="-1"><a class="header-anchor" href="#string-的应用场景有哪些" aria-hidden="true">#</a> String 的应用场景有哪些？</h3>
+<p>String 是 Redis 中最简单同时也是最常用的一个数据结构。String 是一种二进制安全的数据结构，可以用来存储任何类型的数据比如字符串、整数、浮点数、图片（图片的 base64 编码或者解码或者图片的路径）、序列化后的对象。</p>
+<p>String 的常见应用场景如下：</p>
+<ul>
+<li>常规数据（比如 session、token、序列化后的对象、图片的路径）的缓存；</li>
+<li>计数比如用户单位时间的请求数（简单限流可以用到）、页面单位时间的访问数；</li>
+<li>分布式锁(利用 <code v-pre>SETNX key value</code> 命令可以实现一个最简易的分布式锁)。</li>
+</ul>
+<h3 id="string-还是-hash-存储对象数据更好呢" tabindex="-1"><a class="header-anchor" href="#string-还是-hash-存储对象数据更好呢" aria-hidden="true">#</a> String 还是 Hash 存储对象数据更好呢？</h3>
+<ul>
+<li>String 存储的是<strong>序列化后的对象数据</strong>，存放的是整个对象。Hash 是对对象的每个字段单独存储，可以获取部分字段的信息，也可以修改或者添加部分字段，节省网络流量。如果对象中某些字段需要经常变动或者经常需要单独查询对象中的个别字段信息，Hash 就非常适合。</li>
+<li>String 存储相对来说更加节省内存，缓存相同数量的对象数据，String 消耗的内存约是 Hash 的一半。并且，存储具有多层嵌套的对象时也方便很多。如果系统对性能和资源消耗非常敏感的话，String 就非常适合。</li>
+</ul>
+<h3 id="string-的底层实现是什么" tabindex="-1"><a class="header-anchor" href="#string-的底层实现是什么" aria-hidden="true">#</a> String 的底层实现是什么？</h3>
+<p>Redis 是基于 C 语言编写的，但 Redis 的 String 类型的底层实现并不是 C 语言中的字符串（即以空字符 <code v-pre>\0</code> 结尾的字符数组），而是自己编写了 <strong>SDS</strong>（Simple Dynamic String，简单动态字符串） 来作为底层实现。</p>
+<p>Redis 会根据初始化的长度决定使用哪种类型，从而减少内存的使用。</p>
+<p>SDS 相比于 C 语言中的字符串有如下提升：</p>
+<ul>
+<li>
+<p><strong>可以避免缓冲区溢出</strong>：C 语言中的字符串被修改（比如拼接）时，一旦没有分配足够长度的内存空间，就会造成缓冲区溢出。SDS 被修改时，会先根据 len 属性检查空间大小是否满足要求，如果不满足，则先扩展至所需大小再进行修改操作。</p>
+</li>
+<li>
+<p><strong>获取字符串长度的复杂度较低</strong>：C 语言中的字符串的长度通常是经过遍历计数来实现的，时间复杂度为 O(n)。SDS 的长度获取直接读取 len 属性即可，时间复杂度为 O(1)。</p>
+</li>
+<li>
+<p><strong>减少内存分配次数</strong>：为了避免修改（增加/减少）字符串时，每次都需要重新分配内存（C 语言的字符串是这样的），SDS 实现了空间预分配和惰性空间释放两种优化策略。当 SDS 需要增加字符串时，Redis 会为 SDS 分配好内存，并且根据特定的算法分配多余的内存，这样可以减少连续执行字符串增长操作所需的内存重分配次数。当 SDS 需要减少字符串时，这部分内存不会立即被回收，会被记录下来，等待后续使用（支持手动释放，有对应的 API）。</p>
+</li>
+<li>
+<p><strong>二进制安全</strong>：C 语言中的字符串以空字符 <code v-pre>\0</code> 作为字符串结束的标识，这存在一些问题，像一些二进制文件（比如图片、视频、音频）就可能包括空字符，C 字符串无法正确保存。SDS 使用 len 属性判断字符串是否结束，不存在这个问题。</p>
+</li>
+</ul>
+<h3 id="购物车信息用-string-还是-hash-存储更好呢" tabindex="-1"><a class="header-anchor" href="#购物车信息用-string-还是-hash-存储更好呢" aria-hidden="true">#</a> 购物车信息用 String 还是 Hash 存储更好呢?</h3>
+<p>由于购物车中的商品频繁修改和变动，购物车信息建议使用 Hash 存储：</p>
+<ul>
+<li>用户 id 为 key；</li>
+<li>商品 id 为 field，商品数量为 value。</li>
+</ul>
+<h3 id="使用-redis-实现一个排行榜怎么做" tabindex="-1"><a class="header-anchor" href="#使用-redis-实现一个排行榜怎么做" aria-hidden="true">#</a> 使用 Redis 实现一个排行榜怎么做？</h3>
+<p>Redis 中有一个叫做 <code v-pre>sorted set</code> 的数据结构经常被用在各种排行榜的场景，比如直播间送礼物的排行榜、朋友圈的微信步数排行榜、游戏中的段位排行榜、话题热度排行榜等等。</p>
+<p>相关的一些 Redis 命令: <code v-pre>ZRANGE</code> (从小到大排序)、 <code v-pre>ZREVRANGE</code> （从大到小排序）、<code v-pre>ZREVRANK</code> (指定元素排名)。</p>
+<h3 id="set-的应用场景是什么" tabindex="-1"><a class="header-anchor" href="#set-的应用场景是什么" aria-hidden="true">#</a> Set 的应用场景是什么？</h3>
+<p>Redis 中 <code v-pre>Set</code> 是一种无序集合，集合中的元素没有先后顺序但都唯一，有点类似于 Java 中的 <code v-pre>HashSet</code> 。</p>
+<p>Set 的常见应用场景如下：</p>
+<ul>
+<li>存放的数据不能重复的场景：网站 UV 统计（数据量巨大的场景还是 <code v-pre>HyperLogLog</code>更适合一些）、文章点赞、动态点赞等等。</li>
+<li>需要获取多个数据源交集、并集和差集的场景：共同好友(交集)、共同粉丝(交集)、共同关注(交集)、好友推荐（差集）、音乐推荐（差集）、订阅号推荐（差集+交集） 等等。</li>
+<li>需要随机获取数据源中的元素的场景：抽奖系统、随机点名等等。</li>
+</ul>
+<h3 id="使用-set-实现抽奖系统怎么做" tabindex="-1"><a class="header-anchor" href="#使用-set-实现抽奖系统怎么做" aria-hidden="true">#</a> 使用 Set 实现抽奖系统怎么做？</h3>
+<p>如果想要使用 Set 实现一个简单的抽奖系统的话，直接使用下面这几个命令就可以了：</p>
+<ul>
+<li><code v-pre>SADD key member1 member2 ...</code>：向指定集合添加一个或多个元素。</li>
+<li><code v-pre>SPOP key count</code>：随机移除并获取指定集合中一个或多个元素，适合不允许重复中奖的场景。</li>
+<li><code v-pre>SRANDMEMBER key count</code> : 随机获取指定集合中指定数量的元素，适合允许重复中奖的场景。</li>
+</ul>
+<h3 id="使用-bitmap-统计活跃用户怎么做" tabindex="-1"><a class="header-anchor" href="#使用-bitmap-统计活跃用户怎么做" aria-hidden="true">#</a> 使用 Bitmap 统计活跃用户怎么做？</h3>
+<p>Bitmap 存储的是连续的二进制数字（0 和 1），通过 Bitmap只需要一个 bit 位来表示某个元素对应的值或者状态，key 就是对应元素本身 。</p>
+<p>如果想要使用 Bitmap 统计活跃用户的话，可以使用日期（精确到天）作为 key，然后用户 ID 为 offset，如果当日活跃过就设置为 1。</p>
+<p><img src="/markdown/image-20230608175823735.png" alt="image-20230608175823735"></p>
+<p>初始化数据：</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token operator">></span> SETBIT <span class="token number">20210308</span> <span class="token number">1</span> <span class="token number">1</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span>
+<span class="token operator">></span> SETBIT <span class="token number">20210308</span> <span class="token number">2</span> <span class="token number">1</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span>
+<span class="token operator">></span> SETBIT <span class="token number">20210309</span> <span class="token number">1</span> <span class="token number">1</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>统计 20210308~20210309 总活跃用户数:</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token operator">></span> BITOP and desk1 <span class="token number">20210308</span> <span class="token number">20210309</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token operator">></span> BITCOUNT desk1
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>统计 20210308~20210309 在线活跃用户数:</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token operator">></span> BITOP or desk2 <span class="token number">20210308</span> <span class="token number">20210309</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token operator">></span> BITCOUNT desk2
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">2</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="使用-hyperloglog-统计页面-uv-怎么做" tabindex="-1"><a class="header-anchor" href="#使用-hyperloglog-统计页面-uv-怎么做" aria-hidden="true">#</a> 使用 HyperLogLog 统计页面 UV 怎么做？</h3>
+<p>使用 HyperLogLog 统计页面 UV 主要需要用到下面这两个命令：</p>
+<ul>
+<li><code v-pre>PFADD key element1 element2 ...</code>：添加一个或多个元素到 HyperLogLog 中。</li>
+<li><code v-pre>PFCOUNT key1 key2</code>：获取一个或者多个 HyperLogLog 的唯一计数。</li>
+</ul>
+<p>1、将访问指定页面的每个用户 ID 添加到 <code v-pre>HyperLogLog</code> 中。</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code>PFADD PAGE_1:UV USER1 USER2 <span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span> USERn
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>2、统计指定页面的 UV。</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code>PFCOUNT PAGE_1:UV
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="redis持久化" tabindex="-1"><a class="header-anchor" href="#redis持久化" aria-hidden="true">#</a> Redis持久化</h2>
+<p>☀️详见：<RouterLink to="/database/2redis/https://ylzhong.top/database/2redis/4redispersistence.html">Redis持久化</RouterLink></p>
+<h2 id="redis线程模型" tabindex="-1"><a class="header-anchor" href="#redis线程模型" aria-hidden="true">#</a> Redis线程模型</h2>
+<div class="hint-container info">
+<p class="hint-container-title">Redis读写单线程</p>
+<p>对于读写来说，Redis一直是单线程模型。不过在Redis 4.0版本之后引入了多线程来执行一些大键值对的异步删除操作，Redis 6.0之后引入了多线程来处理网络请求（提高网络IO读写性能）。</p>
+</div>
+<h3 id="redis单线程了解吗" tabindex="-1"><a class="header-anchor" href="#redis单线程了解吗" aria-hidden="true">#</a> Redis单线程了解吗？</h3>
+<p>Redis基于Reactor模式设计开发了一套高效的事件处理模型（Netty的线程模型也是基于Reactor模式），这套时间处理模型对应的是Redis中的文件事件处理器，由于文件事件处理器是单线程方式运行的，所以一般说Redis是单线程模型。</p>
+<div class="hint-container info">
+<p class="hint-container-title">Redis IO多路复用</p>
+<p>文件事件处理器使用IO多路复用程序来同时监听多个套接字，并根据套接字目前执行的任务来为套接字关联不同的事件处理器。</p>
+<p>虽然文件事件处理器以单线程方式运行，但通过IO多路复用程序来监听多个套接字，文件事件处理器既实现了高性能的网络通信模型，又可以很好地与Redis服务器中其他同样以单线程方式运行的模块进行对阶，这保持列Redis内部单线程设计的简单性。</p>
+</div>
+<h3 id="单线程如何监听大量的客户端连接" tabindex="-1"><a class="header-anchor" href="#单线程如何监听大量的客户端连接" aria-hidden="true">#</a> 单线程如何监听大量的客户端连接？</h3>
+<p>Redis通过IO多路复用程序来监听来自客户端的大量连接（或者说是监听多个socket），它将感兴趣的事件及类型注册到内核中并监听每个事件是否发生。</p>
+<p>IO多路复用技术的使用让Redis不需要额外创建多余的线程来监听客户端的大量连接，降低了资源消耗，（和NIO中的<code v-pre>Selector</code>组件很像）。</p>
+<p><strong>文件事件处理器</strong>包含四个部分：</p>
+<ul>
+<li>多个socket（客户端连接）；</li>
+<li>IO多路复用程序（支持多个客户端连接的关键）；</li>
+<li>文件事件派发器（将socket关联到相应的事件处理器）；</li>
+<li>事件处理器（连接应答处理器、命令请求处理器、命令回复处理器）。</li>
+</ul>
+<p><img src="/markdown/image-20230609155812203.png" alt="image-20230609155812203"></p>
+<h3 id="redis-6-0之前为什么不使用多线程" tabindex="-1"><a class="header-anchor" href="#redis-6-0之前为什么不使用多线程" aria-hidden="true">#</a> Redis 6.0之前为什么不使用多线程？</h3>
+<p><strong>在Redis 4.0之后的版本中就已经加入了对多线程的支持。不过多线程主要是针对一些大键值对的删除操作的命令，使用这些命令就会使用主线程之外的其他线程来异步处理。</strong></p>
+<ul>
+<li>单线程变成容易并且易于维护；</li>
+<li>Redis的性能瓶颈不再CPU，主要在于内存和网络；</li>
+<li>多线程就会存在死锁、线程上下文切换等问题，可能会影响性能。</li>
+</ul>
+<h3 id="redis-6-0之后为何引入了多线程" tabindex="-1"><a class="header-anchor" href="#redis-6-0之后为何引入了多线程" aria-hidden="true">#</a> Redis 6.0之后为何引入了多线程？</h3>
+<p>Redis 6.0引入多线程主要是为了提高网络IO读写性能，这是Redis中的一个性能瓶颈。</p>
+<p>虽然引入了多线程，但是Redis 的多线程只是在网络数据的读写上使用，执行命令仍然是单线程顺序执行。</p>
+<h3 id="redis后台线程了解吗" tabindex="-1"><a class="header-anchor" href="#redis后台线程了解吗" aria-hidden="true">#</a> Redis后台线程了解吗？</h3>
+<p>虽然经常说 Redis 是单线程模型（主要逻辑是单线程完成的），但实际还有一些后台线程用于执行一些比较耗时的操作：</p>
+<ul>
+<li>通过 <code v-pre>bio_close_file</code> 后台线程来释放 AOF / RDB 等过程中产生的临时文件资源。</li>
+<li>通过 <code v-pre>bio_aof_fsync</code> 后台线程调用 <code v-pre>fsync</code> 函数将系统内核缓冲区还未同步到到磁盘的数据强制刷到磁盘（ AOF 文件）。</li>
+<li>通过 <code v-pre>bio_lazy_free</code>后台线程释放大对象（已删除）占用的内存空间.</li>
+</ul>
+<h2 id="redis内存管理" tabindex="-1"><a class="header-anchor" href="#redis内存管理" aria-hidden="true">#</a> Redis内存管理</h2>
+<h3 id="redis给缓存数据设置过期时间有啥用" tabindex="-1"><a class="header-anchor" href="#redis给缓存数据设置过期时间有啥用" aria-hidden="true">#</a> Redis给缓存数据设置过期时间有啥用？</h3>
+<p>因为内存有限，不设置过期时间，会导致OOM。</p>
+<p>Redis 自带了给缓存数据设置过期时间的功能，比如：</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>></span> expire key <span class="token number">60</span> <span class="token comment"># 数据在 60s 后过期</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>></span> setex key <span class="token number">60</span> value <span class="token comment"># 数据在 60s 后过期 (setex:[set] + [ex]pire)</span>
+OK
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>></span> ttl key <span class="token comment"># 查看数据还有多久过期</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">56</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>Redis中除了字符串类型有自己独有设置过期时间的命令<code v-pre>setex</code>外，其他方法都需要依靠<code v-pre>expire</code>命令来设置过期时间。<code v-pre>persist</code>命令可以溢出一个键的过期时间。</p>
+<p>Redis是如何判断数据是否过期的？</p>
+<p>Redis通过过期字典（可以看做是hash表）来保存数据过期的时间，过期字典的键指向Redis数据库中的某个key，过期字典的值是一个long long 类型的整数，这个整数保存了key所指向的数据库键的过期时间。</p>
+<h3 id="过期数据的删除策略" tabindex="-1"><a class="header-anchor" href="#过期数据的删除策略" aria-hidden="true">#</a> 过期数据的删除策略</h3>
+<p>常用的过期数据的删除策略就两个：</p>
+<ol>
+<li><strong>惰性删除</strong>：只会在取出key的时候才对数据进行过期检查，这样对CPU友好，但是可能会造成过多的key没有被删除。</li>
+<li><strong>定期删除</strong>：每隔一段时间抽取一批key执行删除过期key操作。并且Redis底层会通过限制删除操作执行的时长和频率来减少删除操作对CPU时间的影响。</li>
+</ol>
+<h3 id="redis内存淘汰机制" tabindex="-1"><a class="header-anchor" href="#redis内存淘汰机制" aria-hidden="true">#</a> Redis内存淘汰机制</h3>
+<p>Redis 提供 6 种数据淘汰策略：</p>
+<ol>
+<li><strong>volatile-lru（least recently used）</strong>：从已设置过期时间的数据集（<code v-pre>server.db[i].expires</code>）中挑选最近最少使用的数据淘汰。</li>
+<li><strong>volatile-ttl</strong>：从已设置过期时间的数据集（<code v-pre>server.db[i].expires</code>）中挑选将要过期的数据淘汰。</li>
+<li><strong>volatile-random</strong>：从已设置过期时间的数据集（<code v-pre>server.db[i].expires</code>）中任意选择数据淘汰。</li>
+<li><strong>allkeys-lru（least recently used）</strong>：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的 key（这个是最常用的）。</li>
+<li><strong>allkeys-random</strong>：从数据集（<code v-pre>server.db[i].dict</code>）中任意选择数据淘汰。</li>
+<li><strong>no-eviction</strong>：禁止驱逐数据，也就是说当内存不足以容纳新写入数据时，新写入操作会报错。这个应该没人使用吧！</li>
+</ol>
+<p>4.0 版本后增加以下两种：</p>
+<ol>
+<li><strong>volatile-lfu（least frequently used）</strong>：从已设置过期时间的数据集（<code v-pre>server.db[i].expires</code>）中挑选最不经常使用的数据淘汰。</li>
+<li><strong>allkeys-lfu（least frequently used）</strong>：当内存不足以容纳新写入数据时，在键空间中，移除最不经常使用的 key。</li>
+</ol>
 </div></template>
 
 

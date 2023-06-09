@@ -116,7 +116,7 @@
 <p>在快照读的情况下，RR 隔离级别只会在事务开启后的第一次查询生成 <code v-pre>Read View</code> ，并使用至事务提交。所以在生成 <code v-pre>Read View</code> 之后其它事务所做的更新、插入记录版本对当前事务并不可见，实现了可重复读和防止快照读下的 “幻读”。</p>
 <p><strong>2、执行 select...for update/lock in share mode、insert、update、delete 等当前读</strong></p>
 <p>在当前读下，读取的都是最新的数据，如果其它事务有插入新的记录，并且刚好在当前事务查询范围内，就会产生幻读！<code v-pre>InnoDB</code> 使用 <strong>Next-key Lock</strong>来防止这种情况。当执行当前读时，会锁定读取到的记录的同时，锁定它们的间隙，防止其它事务在查询范围内插入数据。只要我不让你插入，就不会发生幻读。</p>
-<p>☀️详见<a href="http://ylzhong.top/database/1mysql/1mysql.html#mysql-%E9%94%81" target="_blank" rel="noopener noreferrer">MySQL锁<ExternalLinkIcon/></a></p>
+<p>☀️详见<RouterLink to="/database/1mysql/https://ylzhong.top/database/1mysql/1mysql.html#mysql-%E9%94%81">MySQL锁</RouterLink></p>
 <blockquote>
 <p><strong>临键锁（Next-Key Lock）</strong>：Record Lock+Gap Lock，锁定一个范围，包含记录本身，主要目的是为了解决幻读问题。记录锁只能锁住已经存在的记录，为了避免插入新记录，需要依赖间隙锁。</p>
 </blockquote>

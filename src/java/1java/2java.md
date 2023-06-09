@@ -38,7 +38,7 @@ System.out.println(str1.equals(str3));//true
 
 `System.out.println(str1 == str2);//false`
 
-☀️详见[String](http://ylzhong.top/java/1java/2java.html#string)。
+☀️详见[String](https://ylzhong.top/java/1java/2java.html#string)。
 
 ### 如果没有声明构造方法，程序能正确执行吗？
 

@@ -124,6 +124,6 @@ MySQL InnoDB 存储引擎的默认支持的隔离级别是 **REPEATABLE-READ（�
 
 在当前读下，读取的都是最新的数据，如果其它事务有插入新的记录，并且刚好在当前事务查询范围内，就会产生幻读！`InnoDB` 使用 **Next-key Lock**来防止这种情况。当执行当前读时，会锁定读取到的记录的同时，锁定它们的间隙，防止其它事务在查询范围内插入数据。只要我不让你插入，就不会发生幻读。
 
-☀️详见[MySQL锁](http://ylzhong.top/database/1mysql/1mysql.html#mysql-%E9%94%81)
+☀️详见[MySQL锁](https://ylzhong.top/database/1mysql/1mysql.html#mysql-%E9%94%81)
 
 > **临键锁（Next-Key Lock）**：Record Lock+Gap Lock，锁定一个范围，包含记录本身，主要目的是为了解决幻读问题。记录锁只能锁住已经存在的记录，为了避免插入新记录，需要依赖间隙锁。
