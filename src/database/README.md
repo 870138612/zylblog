@@ -7,5 +7,5 @@ pageInfo: false
 article: false
 timeline: false
 ---
-- <HopeIcon icon="mysql"/> [Mysql](1mysql)
-- <HopeIcon icon="redis"/> [Rddis](2redis)
+- <HopeIcon icon="mysql"/> [MySQL](1mysql)
+- <HopeIcon icon="redis"/> [Redis](2redis)

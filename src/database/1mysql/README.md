@@ -1,5 +1,5 @@
 ---
-title: Mysql
+title: MySQL
 icon: mysql 
 index: false
 cover: /home/202305122sdf05406.jpg
