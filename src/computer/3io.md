@@ -1,7 +1,6 @@
 ---
 title: I/O
 icon: io
-date: 2023-5-28
 category:
   - 计算机基础
 tags:

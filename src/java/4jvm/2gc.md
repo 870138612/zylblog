@@ -2,7 +2,6 @@
 title: JVM垃圾回收
 icon: page
 star: true
-date: 2023-5-26
 category:
   - Java
 tags:

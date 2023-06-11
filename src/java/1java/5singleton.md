@@ -2,7 +2,6 @@
 title: 单例模式
 icon: page
 star: true
-date: 2023-5-25
 category:
   - Java
 tags:

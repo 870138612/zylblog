@@ -2,7 +2,6 @@
 title: 代理模式
 icon: page
 star: true
-date: 2023-5-24
 category:
   - Java
 tags:

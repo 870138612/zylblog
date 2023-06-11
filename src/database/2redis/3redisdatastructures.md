@@ -2,7 +2,6 @@
 title: Redis数据结构
 icon: page
 star: true
-date: 2023-5-29
 category:
   - 数据库
 tags:
