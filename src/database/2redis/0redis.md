@@ -1,6 +1,7 @@
 ---
 title: Redis基础一
 icon: page
+date: 2023-5-28
 category:
   - 数据库
 tags:

@@ -2,6 +2,7 @@
 title: Java基础一
 icon: page
 star: true
+date: 2023-5-24
 category:
   - Java
 tags:

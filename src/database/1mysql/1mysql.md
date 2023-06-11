@@ -1,6 +1,7 @@
 ---
 title: MySQL基础
 icon: page
+date: 2023-5-26
 star: 1
 category:
   - 数据库

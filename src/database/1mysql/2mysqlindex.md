@@ -1,6 +1,7 @@
 ---
 title: MySQL索引
 icon: page
+date: 2023-5-26
 star: true
 category:
   - 数据库

@@ -1,6 +1,7 @@
 ---
 title: Java基础二
 icon: page
+date: 2023-5-24
 star: true
 category:
   - Java
