@@ -6,11 +6,11 @@ heroImage: /home/0514172706.jpg
 heroText: 终将美好
 tagline: 我们的春夏秋冬✨
 actions:
-  - text: 导航
+  - text: 逛逛 ❄️
     link: /home/
     type: primary
     
-  - text: 关于我
+  - text: 关于 ☀️
     link: /intro.md
   
 
