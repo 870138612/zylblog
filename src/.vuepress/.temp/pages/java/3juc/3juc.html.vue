@@ -181,8 +181,10 @@
 <h3 id="callable-和-future-有什么关系" tabindex="-1"><a class="header-anchor" href="#callable-和-future-有什么关系" aria-hidden="true">#</a> Callable 和 Future 有什么关系？</h3>
 <p><code v-pre>FutureTask</code> 提供了 <code v-pre>Future</code> 接口的基本实现，常用来封装 <code v-pre>Callable</code> 和 <code v-pre>Runnable</code>，具有取消任务、查看任务是否执行完成以及获取任务执行结果的方法。<code v-pre>ExecutorService.submit()</code> 方法返回的其实就是 <code v-pre>Future</code> 的实现类 <code v-pre>FutureTask</code>。</p>
 <p><code v-pre>FutureTask</code> 有两个构造函数，可传入 <code v-pre>Callable</code> 或者 <code v-pre>Runnable</code> 对象。实际上，传入 <code v-pre>Runnable</code> 对象也会在方法内部转换为<code v-pre>Callable</code> 对象。</p>
-<Tabs id="374" :data='[{"title":"传入Callable"},{"title":"传入Runnable"}]' :active="0">
-<template #tab0="{ title, value, isActive }">
+<Tabs id="374" :data='[{"id":"传入Callable"},{"id":"传入Runnable"}]' :active="0">
+<template #title0="{ value, isActive }">传入Callable</template>
+<template #title1="{ value, isActive }">传入Runnable</template>
+<template #tab0="{ value, isActive }">
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token class-name">FutureTask</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> callableTask <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FutureTask</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Callable</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Object</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
@@ -191,7 +193,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></template>
-<template #tab1="{ title, value, isActive }">
+<template #tab1="{ value, isActive }">
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token class-name">FutureTask</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> task <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FutureTask</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
      <span class="token annotation punctuation">@Override</span>
      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>

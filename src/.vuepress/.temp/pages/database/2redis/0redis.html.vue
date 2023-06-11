@@ -106,7 +106,7 @@
 <h2 id="redis-应用" tabindex="-1"><a class="header-anchor" href="#redis-应用" aria-hidden="true">#</a> Redis 应用</h2>
 <h3 id="redis-除了做缓存-还能做什么" tabindex="-1"><a class="header-anchor" href="#redis-除了做缓存-还能做什么" aria-hidden="true">#</a> Redis 除了做缓存，还能做什么？</h3>
 <p><strong>分布式锁</strong>：通过 Redis 来做分布式锁是一种比较常见的方式。通常情况下，我们都是基于 Redisson 来实现分布式锁。（秒杀下更新数据库时使用分布式锁）</p>
-<p>☀️详见：<RouterLink to="/database/2redis/https://ylzhong.top/database/2redis/2lock.html">分布式锁</RouterLink></p>
+<p>☀️详见：<a href="https://ylzhong.top/database/2redis/2lock.html" target="_blank" rel="noopener noreferrer">分布式锁<ExternalLinkIcon/></a></p>
 <p><strong>限流</strong>：一般是通过 Redis + Lua 脚本的方式来实现限流。（秒杀下一人一单占位使用Lua脚本）</p>
 <p><strong>消息队列</strong>：Redis 自带的 list 数据结构可以作为一个简单的队列使用。Redis 5.0 中增加的 Stream 类型的数据结构更加适合用来做消息队列。它比较类似于 Kafka，有主题和消费组的概念，支持消息持久化以及 ACK 机制。（快速创建秒杀单之后写回数据库使用消息队列）</p>
 <blockquote>
@@ -121,7 +121,7 @@
 </blockquote>
 <p><strong>复杂业务场景</strong>：通过 Redis 以及 Redis 扩展（比如 Redisson）提供的数据结构，我们可以很方便地完成很多复杂的业务场景比如通过 bitmap 统计活跃用户、通过 sorted set 维护排行榜。</p>
 <h2 id="redis-数据结构" tabindex="-1"><a class="header-anchor" href="#redis-数据结构" aria-hidden="true">#</a> Redis 数据结构</h2>
-<p>☀️详见：<RouterLink to="/database/2redis/https://ylzhong.top/database/2redis/3redisdatastructures.html">Redis数据结构</RouterLink></p>
+<p>☀️详见：<a href="https://ylzhong.top/database/2redis/3redisdatastructures.html" target="_blank" rel="noopener noreferrer">Redis数据结构<ExternalLinkIcon/></a></p>
 <h3 id="redis-常用的数据结构有哪些" tabindex="-1"><a class="header-anchor" href="#redis-常用的数据结构有哪些" aria-hidden="true">#</a> Redis 常用的数据结构有哪些？</h3>
 <ul>
 <li><strong>5 种基础数据结构</strong>：String（字符串）、List（列表）、Set（集合）、Hash（散列）、Zset（有序集合）。</li>
@@ -214,7 +214,7 @@
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>2、统计指定页面的 UV。</p>
 <div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code>PFCOUNT PAGE_1:UV
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="redis持久化" tabindex="-1"><a class="header-anchor" href="#redis持久化" aria-hidden="true">#</a> Redis持久化</h2>
-<p>☀️详见：<RouterLink to="/database/2redis/https://ylzhong.top/database/2redis/4redispersistence.html">Redis持久化</RouterLink></p>
+<p>☀️详见：<a href="https://ylzhong.top/database/2redis/4redispersistence.html" target="_blank" rel="noopener noreferrer">Redis持久化<ExternalLinkIcon/></a></p>
 <h2 id="redis线程模型" tabindex="-1"><a class="header-anchor" href="#redis线程模型" aria-hidden="true">#</a> Redis线程模型</h2>
 <div class="hint-container info">
 <p class="hint-container-title">Redis读写单线程</p>

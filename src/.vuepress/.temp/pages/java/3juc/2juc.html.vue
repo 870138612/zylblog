@@ -55,9 +55,9 @@
 <p>双检查单例模式：</p>
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span><span class="token punctuation">{</span>
 	<span class="token keyword">private</span> <span class="token class-name">Singleton</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment">//构造方法私有</span>
-
+    
     <span class="token keyword">private</span> <span class="token keyword">volatile</span> <span class="token class-name">Singleton</span> singleton<span class="token punctuation">;</span><span class="token comment">//volatile修饰的singleton 保证可见性</span>
-
+    
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span>singleton<span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
             <span class="token keyword">synchronized</span><span class="token punctuation">(</span><span class="token class-name">Singleton</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment">//对类对象加锁</span>
@@ -97,21 +97,24 @@
 <h3 id="synchronized-是什么-有什么用" tabindex="-1"><a class="header-anchor" href="#synchronized-是什么-有什么用" aria-hidden="true">#</a> synchronized 是什么？有什么用？</h3>
 <p><code v-pre>synchronized</code> 是 Java 中的一个关键字，翻译成中文是同步的意思，主要解决的是多个线程之间访问资源的同步性，可以保证被它修饰的方法或者代码块在任意时刻只能有一个线程执行。</p>
 <p>早期版本中<code v-pre>synchronized</code> 属于重量级锁，Java 6 之后对<code v-pre>synchronized</code> 做了优化。</p>
-<p>☀️详见<RouterLink to="/java/3juc/https://ylzhong.top/java/3juc/4synchronizedlock.html">synchronized锁优化</RouterLink>。</p>
+<p>☀️详见<a href="https://ylzhong.top/java/3juc/4synchronizedlock.html" target="_blank" rel="noopener noreferrer">synchronized锁优化<ExternalLinkIcon/></a>。</p>
 <h3 id="sychronized修饰方法" tabindex="-1"><a class="header-anchor" href="#sychronized修饰方法" aria-hidden="true">#</a> sychronized修饰方法</h3>
 <p><code v-pre>synchronized</code> 关键字的使用方式主要有下面 3 种：</p>
-<Tabs id="257" :data='[{"title":"修饰实例方法"},{"title":"修饰静态方法"},{"title":"修饰代码块"}]' :active="0">
-<template #tab0="{ title, value, isActive }">
+<Tabs id="257" :data='[{"id":"修饰实例方法"},{"id":"修饰静态方法"},{"id":"修饰代码块"}]' :active="0">
+<template #title0="{ value, isActive }">修饰实例方法</template>
+<template #title1="{ value, isActive }">修饰静态方法</template>
+<template #title2="{ value, isActive }">修饰代码块</template>
+<template #tab0="{ value, isActive }">
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">synchronized</span> <span class="token keyword">void</span> <span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">//锁对象</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></template>
-<template #tab1="{ title, value, isActive }">
+<template #tab1="{ value, isActive }">
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">synchronized</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">//锁类</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></template>
-<template #tab2="{ title, value, isActive }">
+<template #tab2="{ value, isActive }">
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">synchronized</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">//锁对象</span>
 <span class="token punctuation">}</span>
@@ -147,7 +150,7 @@
 <h3 id="reentrantlock-是什么" tabindex="-1"><a class="header-anchor" href="#reentrantlock-是什么" aria-hidden="true">#</a> ReentrantLock 是什么？</h3>
 <p><code v-pre>ReentrantLock</code> 实现了 <code v-pre>Lock</code> 接口，是一个可重入且独占式的锁，和 <code v-pre>synchronized</code> 关键字类似。不过，<code v-pre>ReentrantLock</code> 更灵活、更强大，增加了轮询、超时、中断、公平锁和非公平锁等高级功能。</p>
 <p><code v-pre>ReentrantLock</code> 里面有一个内部类 <code v-pre>Sync</code>，<code v-pre>Sync</code> 继承 AQS（<code v-pre>AbstractQueuedSynchronizer</code>），添加锁和释放锁的大部分操作实际上都是在 <code v-pre>Sync</code> 中实现的。<code v-pre>Sync</code> 有公平锁 <code v-pre>FairSync</code> 和非公平锁 <code v-pre>NonfairSync</code> 两个子类。</p>
-<p>☀️详见<RouterLink to="/java/3juc/https://ylzhong.top/java/3juc/5aqs.html">AQS抽象队列同步器</RouterLink>。</p>
+<p>☀️详见<a href="https://ylzhong.top/java/3juc/5aqs.html" target="_blank" rel="noopener noreferrer">AQS抽象队列同步器<ExternalLinkIcon/></a>。</p>
 <h3 id="公平锁和非公平锁有什么区别" tabindex="-1"><a class="header-anchor" href="#公平锁和非公平锁有什么区别" aria-hidden="true">#</a> 公平锁和非公平锁有什么区别？</h3>
 <ul>
 <li>
