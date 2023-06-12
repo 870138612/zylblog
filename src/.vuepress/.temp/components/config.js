@@ -1,8 +1,8 @@
 import { defineClientConfig } from "@vuepress/client";
-import { hasGlobalComponent } from "C:/Users/zyl/Desktop/my-docs/node_modules/vuepress-shared/lib/client/index.js";
+import { hasGlobalComponent } from "C:/Users/zyl/Desktop/my-docs/node_modules/vuepress-plugin-components/lib/client/shared.js";
 import { h } from "vue";
 
-import { useStyleTag } from "C:/Users/zyl/Desktop/my-docs/node_modules/@vueuse/core/index.mjs";
+import { useStyleTag } from "C:/Users/zyl/Desktop/my-docs/node_modules/vuepress-plugin-components/lib/client/vueuse.js";
 import Badge from "C:/Users/zyl/Desktop/my-docs/node_modules/vuepress-plugin-components/lib/client/components/Badge.js";
 import FontIcon from "C:/Users/zyl/Desktop/my-docs/node_modules/vuepress-plugin-components/lib/client/components/FontIcon.js";
 import BackToTop from "C:/Users/zyl/Desktop/my-docs/node_modules/vuepress-plugin-components/lib/client/components/BackToTop.js";
