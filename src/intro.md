@@ -5,7 +5,7 @@ editLink: false
 article: false
 ---
 
-# 关于我
+# 关于
 
 杭州某电计算机专业研二学生，java菜鸟，摸鱼王者，摄影爱好者。
 

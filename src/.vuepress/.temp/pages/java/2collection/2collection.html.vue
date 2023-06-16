@@ -1,0 +1,72 @@
+<template><div><h2 id="map" tabindex="-1"><a class="header-anchor" href="#map" aria-hidden="true">#</a> Map</h2>
+<h3 id="hashmap-和-hashtable-的区别" tabindex="-1"><a class="header-anchor" href="#hashmap-和-hashtable-的区别" aria-hidden="true">#</a> HashMap 和 Hashtable 的区别</h3>
+<ul>
+<li><strong>线程是否安全</strong>：<code v-pre>HashMap</code>是非线程安全的，<code v-pre>Hashtable</code>是线程安全的，内部方法使用<code v-pre>synchronized</code>修饰。</li>
+<li><strong>效率</strong>：因为锁的问题，<code v-pre>HashMap</code>的效率要稍微好点。</li>
+<li><strong>是否能存储Null Key和Value</strong>：<code v-pre>HashMap</code>能存储<code v-pre>null</code>的key和value，但是作为<code v-pre>null</code>的key只能有一个，<code v-pre>Hashtable</code>不能有<code v-pre>null</code>key和value。</li>
+<li><strong>扩容</strong>：<code v-pre>Hashtable</code>默认初始大小是11，扩容之后变为2n+1。<code v-pre>HashMap</code>默认大小是16，当元素个数超过负载因子*表长时扩容，每次扩容变为原来的两倍。</li>
+<li><strong>底层</strong>：JDK1.8之后<code v-pre>HashMap</code>底层使用数组+链表/红黑树，特定条件链表转化为红黑树，<code v-pre>Hashtable</code>则没有转化为红黑树的机制。</li>
+</ul>
+<!-- more -->
+<h3 id="hashmap-和-treemap-区别" tabindex="-1"><a class="header-anchor" href="#hashmap-和-treemap-区别" aria-hidden="true">#</a> HashMap 和 TreeMap 区别</h3>
+<p><code v-pre>TreeMap</code> 和<code v-pre>HashMap</code> 都继承自<code v-pre>AbstractMap</code> ，<code v-pre>TreeMap</code>还实现了<code v-pre>NavigableMap</code>接口和<code v-pre>SortedMap</code> 接口。实现 <code v-pre>NavigableMap</code> 接口让 <code v-pre>TreeMap</code> 有了对集合内元素的搜索的能力。实现<code v-pre>SortedMap</code>接口让 <code v-pre>TreeMap</code> 有了对集合中的元素根据键排序的能力。默认是按 key 的升序排序。</p>
+<h3 id="hashmap-的底层实现" tabindex="-1"><a class="header-anchor" href="#hashmap-的底层实现" aria-hidden="true">#</a> HashMap 的底层实现</h3>
+<h4 id="jdk1-8-之前" tabindex="-1"><a class="header-anchor" href="#jdk1-8-之前" aria-hidden="true">#</a> JDK1.8 之前</h4>
+<p>JDK1.8之前<code v-pre>HashMap</code>底层是数组和链表集合一起，通过key的<code v-pre>hashcode</code>经过扰动函数之后获得hash值，通过<code v-pre>(n-1)&amp;hash</code>计算元素存放的位置。</p>
+<p>找到存放位置之后判断当前位置元素和要存入的元素hash值和key是否相同，相同则直接覆盖，否则通过链表法解决冲突。</p>
+<p>JDK1.8中的扰动函数源码：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">hash</span><span class="token punctuation">(</span><span class="token class-name">Object</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">int</span> h<span class="token punctuation">;</span>
+	<span class="token comment">// key.hashCode()：返回散列值也就是hashcode</span>
+	<span class="token comment">// ^：按位异或</span>
+	<span class="token comment">// >>>:无符号右移，忽略符号位，空位都以0补齐</span>
+	<span class="token keyword">return</span> <span class="token punctuation">(</span>key <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> <span class="token punctuation">(</span>h <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token punctuation">(</span>h <span class="token operator">>>></span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="jdk1-8-之后" tabindex="-1"><a class="header-anchor" href="#jdk1-8-之后" aria-hidden="true">#</a> JDK1.8 之后</h4>
+<p>JDK1.8之后<code v-pre>HashMap</code>使用数组+链表/红黑树作为底层，当单个链表的长度<strong>大于8</strong>（默认8），数组长度<strong>大于等于64</strong>的时候就会触发树化，将链表转化为红黑树，以此减少查找时间。</p>
+<h3 id="hashmap-的长度为什么是-2-的幂次方" tabindex="-1"><a class="header-anchor" href="#hashmap-的长度为什么是-2-的幂次方" aria-hidden="true">#</a> HashMap 的长度为什么是 2 的幂次方?</h3>
+<p>Hash值的取值为32位补码的取值范围，一般情况很难出现碰撞。但是范围过大不可能直接放入内存中进行计算，因此需要先通过取模运算（数据结构散列表中除留余数法），通过位运算实现取模。</p>
+<p>假设数组长度n为16；Hash值为<code v-pre>0111 0000 1001 0000 000 1001 1110 1101 </code></p>
+<table>
+<thead>
+<tr>
+<th><strong>Hash</strong></th>
+<th><strong>0111 0000 1001 0000 0000 1001 1110 1101</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>n-1</strong></td>
+<td><strong>0000 0000 0000 0000 0000 0000 0000 1111</strong></td>
+</tr>
+<tr>
+<td><strong>Hash&amp;(n-1)</strong></td>
+<td><strong>0000 0000 0000 0000 0000 0000 0000 1101</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="hashmap-多线程操作导致死链问题" tabindex="-1"><a class="header-anchor" href="#hashmap-多线程操作导致死链问题" aria-hidden="true">#</a> HashMap 多线程操作导致死链问题</h3>
+<p>JDK1.7 及之前版本的 <code v-pre>HashMap</code> 在多线程环境下扩容操作可能存在死循环问题，这是由于当一个桶位中有多个元素需要进行扩容时，多个线程同时对链表进行操作，<strong>头插法</strong>可能会导致链表中的节点指向错误的位置，从而形成一个环形链表，进而使得查询元素的操作陷入死循环无法结束。</p>
+<p>JDK1.8之后通过尾插法解决上述问题。但是在多线程下还是会出现数据覆盖问题，推荐使用线程安全的<code v-pre>CucurrentHashMap</code>。</p>
+<h3 id="concurrenthashmap-和-hashtable-的区别" tabindex="-1"><a class="header-anchor" href="#concurrenthashmap-和-hashtable-的区别" aria-hidden="true">#</a> ConcurrentHashMap 和 Hashtable 的区别</h3>
+<p><code v-pre>ConcurrentHashMap</code> 和 <code v-pre>Hashtable</code> 的区别主要体现在实现线程安全的方式上不同。</p>
+<ul>
+<li><strong>底层数据结构</strong>： JDK1.7 的 <code v-pre>ConcurrentHashMap</code> 底层采用 <strong>分段的Segment、HashEntry数组+链表</strong> 实现，JDK1.8 时采用**<code v-pre>Node</code>+链表/红黑二叉树**。<code v-pre>Hashtable</code> 和 JDK1.8 之前的 <code v-pre>HashMap</code> 的底层数据结构类似都是采用 <strong>数组+链表</strong> 的形式，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的。</li>
+<li><strong>实现线程安全的方式（重要）</strong>：
+<ul>
+<li>JDK1.7的时候，<code v-pre>ConcurrentHashMap</code> 底层采用 <strong>分段的Segment、HashEntry数组+链表</strong> 实现，每一把锁锁住一个Segment，Segment的个数固定默认16，也就是并发度固定为16。</li>
+<li>到了 JDK1.8 的时候，<code v-pre>ConcurrentHashMap</code> 已经摒弃了 <code v-pre>Segment</code> 的概念，改用**<code v-pre>Node</code>数组+链表/红黑树**，采用 <code v-pre>Node + CAS + synchronized</code> 来保证并发安全。</li>
+<li><code v-pre>Hashtable</code>使用同一个锁进行并发控制，效率低下。</li>
+</ul>
+</li>
+</ul>
+<h3 id="jdk-1-7-和-jdk-1-8-的-concurrenthashmap-实现有什么不同" tabindex="-1"><a class="header-anchor" href="#jdk-1-7-和-jdk-1-8-的-concurrenthashmap-实现有什么不同" aria-hidden="true">#</a> JDK 1.7 和 JDK 1.8 的 ConcurrentHashMap 实现有什么不同？</h3>
+<ul>
+<li><strong>线程安全实现方式</strong>：</li>
+<li><strong>线程安全实现方式</strong>：JDK 1.7 采用 <code v-pre>Segment</code> 分段锁来保证安全， <code v-pre>Segment</code> 是继承自 <code v-pre>ReentrantLock</code>。JDK1.8 放弃了 <code v-pre>Segment</code> 分段锁的设计，采用 <code v-pre>Node + CAS + synchronized</code> 保证线程安全，锁粒度更细，<code v-pre>synchronized</code> 只锁定当前链表或红黑二叉树的首节点。</li>
+<li><strong>Hash解决碰撞办法</strong>：JDK1.7采用拉链法，JDK1.8采用拉链法+红黑树。</li>
+<li><strong>并发度</strong>：JDK1.7中最大的并发度是Segment的个数，默认是16。JDK1.8最大并发度是Node的个数，并发度更大。</li>
+</ul>
+</div></template>
+
+
