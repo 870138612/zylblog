@@ -21,8 +21,6 @@ export const pagesComponents = {
   "v-71b3ae87": defineAsyncComponent(() => import(/* webpackChunkName: "v-71b3ae87" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/interview/index.html.vue")),
   // path: /java/
   "v-14c69af4": defineAsyncComponent(() => import(/* webpackChunkName: "v-14c69af4" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/index.html.vue")),
-  // path: /note/
-  "v-15054f24": defineAsyncComponent(() => import(/* webpackChunkName: "v-15054f24" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/note/index.html.vue")),
   // path: /middleware/1nginx.html
   "v-7273d1ac": defineAsyncComponent(() => import(/* webpackChunkName: "v-7273d1ac" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/middleware/1nginx.html.vue")),
   // path: /middleware/2rabbitmq.html
@@ -33,6 +31,8 @@ export const pagesComponents = {
   "v-14642a24": defineAsyncComponent(() => import(/* webpackChunkName: "v-14642a24" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/middleware/4distributedtransaction.html.vue")),
   // path: /middleware/
   "v-4d194044": defineAsyncComponent(() => import(/* webpackChunkName: "v-4d194044" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/middleware/index.html.vue")),
+  // path: /note/
+  "v-15054f24": defineAsyncComponent(() => import(/* webpackChunkName: "v-15054f24" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/note/index.html.vue")),
   // path: /photo/992023.4%E5%B9%B3%E6%BD%AD.html
   "v-7ce4aeb6": defineAsyncComponent(() => import(/* webpackChunkName: "v-7ce4aeb6" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/photo/992023.4平潭.html.vue")),
   // path: /photo/99%E5%B9%B3%E6%BD%AD.html

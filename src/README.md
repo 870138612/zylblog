@@ -16,7 +16,7 @@ features:
 
   - title: Java
     icon: java
-    details: Java知识点
+    details: Java基础、集合、并发编程、JVM
     link: /java/
     
   - title: 计算机基础
