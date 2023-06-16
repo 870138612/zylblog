@@ -76,7 +76,7 @@
 <h2 id="rabbitmq特点" tabindex="-1"><a class="header-anchor" href="#rabbitmq特点" aria-hidden="true">#</a> RabbitMQ特点</h2>
 <ul>
 <li><strong>可靠性</strong>：RabbitMQ使用一些机制保证可靠性，例如持久化、传输确认以及发布确认。</li>
-<li><strong>灵活的路由</strong>：在消息进入队列之前，通过交换机来路由消息。</li>
+<li><strong>灵活的路由</strong>：在消息进入队列之前，通过交换器来路由消息。</li>
 <li><strong>扩展性</strong>：多个RabbitMQ节点可以组成一个集群，也可以根据实际业务情况动态地扩展 集群中节点。</li>
 <li><strong>高可用性</strong> : 队列可以在集群中的机器上设置镜像，使得在部分节点出现问题的情况下队 列仍然可用。</li>
 <li><strong>多种协议</strong>: RabbitMQ 除了原生支持 AMQP 协议，还支持 STOMP， MQTT 等多种消息 中间件协议。</li>
@@ -85,7 +85,7 @@
 <li><strong>插件机制</strong> : RabbitMQ 提供了许多插件 ， 以实现从多方面进行扩展，当然也可以编写自 己的插件。</li>
 </ul>
 <h2 id="rabbitmq组成" tabindex="-1"><a class="header-anchor" href="#rabbitmq组成" aria-hidden="true">#</a> RabbitMQ组成</h2>
-<p>RabbitMQ 整体上是一个生产者与消费者模型，主要负责接收、存储和转发消息。从计算机术语层面来说，RabbitMQ 模型更像是一种交换机模型。</p>
+<p>RabbitMQ 整体上是一个生产者与消费者模型，主要负责接收、存储和转发消息。从计算机术语层面来说，RabbitMQ 模型更像是一种交换器模型。</p>
 <p><img src="/markdown/image-20230616162759698.png" alt="image-20230616162759698"></p>
 <h3 id="producer-生产者-和consumer-消费者" tabindex="-1"><a class="header-anchor" href="#producer-生产者-和consumer-消费者" aria-hidden="true">#</a> Producer（生产者）和Consumer（消费者）</h3>
 <ul>
@@ -93,11 +93,11 @@
 <li><strong>Consumer(消费者)</strong> :消费消息的一方。</li>
 </ul>
 <p>消息一般由 2 部分组成：<strong>消息头</strong>和 <strong>消息体</strong>。消息体也可以称为 payLoad，消息体是不透明的，而消息头则由一系列的可选属性组成，这些属性包括 routing-key（路由键）、priority（相对于其他消息的优先权）、delivery-mode（指出该消息可能需要持久性存储）等。生产者把消息交由 RabbitMQ 后，RabbitMQ 会根据消息头把消息发送给感兴趣的 Consumer(消费者)。</p>
-<h3 id="exchange-交换机" tabindex="-1"><a class="header-anchor" href="#exchange-交换机" aria-hidden="true">#</a> Exchange（交换机）</h3>
-<p>在RabbitMQ中，消息并不是直接投递到<strong>Queue（消息队列）<strong>中，中间还必须经过</strong>Exchange（交换机）</strong>，交换机会根据路由键和路由方式将消息发送给对应的**Queue（消息队列）**中。</p>
+<h3 id="exchange-交换器" tabindex="-1"><a class="header-anchor" href="#exchange-交换器" aria-hidden="true">#</a> Exchange（交换器）</h3>
+<p>在RabbitMQ中，消息并不是直接投递到<strong>Queue（消息队列）<strong>中，中间还必须经过</strong>Exchange（交换器）</strong>，交换器会根据路由键和路由方式将消息发送给对应的**Queue（消息队列）**中。</p>
 <p>**Exchange（交换器）<strong>用来接收生产者发送的消息并将这些消息路由给服务器中的队列，如果路由不到则会返回给</strong>Producer（生产者）**或者直接丢失。</p>
-<p><strong>RabbitMQ的Exchange（交换机）有4种类型，不同的类型对应着不同的路由策略：direct（默认），fanout，topic和headers。</strong></p>
-<p>生产者将消息发给交换机的时候需要指定一个<strong>RoutingKey（路由键）</strong>，用来指定这个消息的路由规则，而这个<strong>RoutingKey</strong>需要与交换机类型和绑定键**（BindingKey）**联合使用才能生效。</p>
+<p><strong>RabbitMQ的Exchange（交换器）有4种类型，不同的类型对应着不同的路由策略：direct（默认），fanout，topic和headers。</strong></p>
+<p>生产者将消息发给交换器的时候需要指定一个<strong>RoutingKey（路由键）</strong>，用来指定这个消息的路由规则，而这个<strong>RoutingKey</strong>需要与交换器类型和绑定键**（BindingKey）**联合使用才能生效。</p>
 <p>RabbitMQ 中通过 <strong>Binding(绑定)</strong> 将 <strong>Exchange(交换器)</strong> 与 <strong>Queue(消息队列)</strong> 关联起来，在绑定的时候一般会指定一个 <strong>BindingKey(绑定建)</strong> ,这样 RabbitMQ 就知道如何正确将消息路由到队列了,如下图所示。一个绑定就是基于路由键将交换器和消息队列连接起来的路由规则，所以可以将交换器理解成一个由绑定构成的路由表。Exchange 和 Queue 的绑定可以是多对多的关系。</p>
 <p><img src="/markdown/image-20230616163557422.png" alt="image-20230616163557422"></p>
 <p><strong>Bindkey</strong>就像路由表中的一个表项，指明了响应的<strong>RoutingKey</strong>应该投递到哪个队列。</p>
@@ -115,9 +115,9 @@
 <p>由于RabbitMQ是以<code v-pre>byte[]</code>为单位进行传输的，因此消息需要序列化和反序列化。</p>
 </blockquote>
 <p><img src="/markdown/image-20230616165505506.png" alt="image-20230616165505506"></p>
-<h3 id="exchange-types-交换机类型" tabindex="-1"><a class="header-anchor" href="#exchange-types-交换机类型" aria-hidden="true">#</a> Exchange Types（交换机类型）</h3>
+<h3 id="exchange-types-交换器类型" tabindex="-1"><a class="header-anchor" href="#exchange-types-交换器类型" aria-hidden="true">#</a> Exchange Types（交换器类型）</h3>
 <h4 id="_1、fanout-广播" tabindex="-1"><a class="header-anchor" href="#_1、fanout-广播" aria-hidden="true">#</a> 1、fanout（广播）</h4>
-<p>fanout 类型的 Exchange 路由规则非常简单，它会把所有发送到该 Exchange 的消息路由到所有与它绑定的 Queue 中，不需要做任何判断操作，所以 fanout 类型是所有的交换机类型里面速度最快的。fanout 类型常用来广播消息。</p>
+<p>fanout 类型的 Exchange 路由规则非常简单，它会把所有发送到该 Exchange 的消息路由到所有与它绑定的 Queue 中，不需要做任何判断操作，所以 fanout 类型是所有的交换器类型里面速度最快的。fanout 类型常用来广播消息。</p>
 <h4 id="_2、direct-精确匹配" tabindex="-1"><a class="header-anchor" href="#_2、direct-精确匹配" aria-hidden="true">#</a> 2、direct（精确匹配）</h4>
 <p>direct 类型的 Exchange 路由规则也很简单，它会把消息路由到<strong>那些</strong> Bindingkey 与 RoutingKey 完全匹配的 Queue 中。</p>
 <blockquote>
@@ -144,6 +144,34 @@
 <p><strong>Broker</strong>：可以看做 RabbitMQ 的服务节点。一般情况下一个 Broker 可以看做一个 RabbitMQ 服务器。</p>
 <p><strong>Queue</strong> :RabbitMQ 的内部对象，用于存储消息。多个消费者可以订阅同一队列，这时队列中的消息会被平摊（轮询）给多个消费者进行处理。</p>
 <p><strong>Exchange</strong> : 生产者将消息发送到交换器，由交换器将消息路由到一个或者多个队列中。当路由不到时，或返回给生产者或直接丢弃。</p>
+<h2 id="什么是死信路由-如何产生的" tabindex="-1"><a class="header-anchor" href="#什么是死信路由-如何产生的" aria-hidden="true">#</a> 什么是死信路由，如何产生的？</h2>
+<p>DLX，全称为 <code v-pre>Dead-Letter-Exchange</code>，死信交换器，死信邮箱。当消息在一个队列中变成死信 (<code v-pre>dead message</code>) 之后，它能被重新被发送到另一个交换器中，这个交换器就是 DLX，绑定 DLX 的队列就称之为死信队列。</p>
+<p><strong>导致的死信的几种原因</strong>：</p>
+<ul>
+<li>消息被拒（<code v-pre>Basic.Reject /Basic.Nack</code>) 且 <code v-pre>requeue = false</code>。</li>
+<li>消息 TTL 过期。</li>
+<li>队列满了，无法再添加。</li>
+</ul>
+<h2 id="什么是延迟队列-rabbitmq-怎么实现延迟队列" tabindex="-1"><a class="header-anchor" href="#什么是延迟队列-rabbitmq-怎么实现延迟队列" aria-hidden="true">#</a> 什么是延迟队列？RabbitMQ 怎么实现延迟队列？</h2>
+<p>延时队列指的是存储对应的延时消息，消息被发送给队列之后，并不会立刻让消费者得到消息，而是等待一段时间之后才会消费消息。</p>
+<p>RabbitMQ本身没有延时队列，可以通过本身的队列特性，需要使用死信交换机和消息存活的TTL。</p>
+<h3 id="消息的ttl" tabindex="-1"><a class="header-anchor" href="#消息的ttl" aria-hidden="true">#</a> 消息的TTL</h3>
+<p>TTL就是消息的存活时间，RabbitMQ可以对队列和消息分别设置TTL。</p>
+<ul>
+<li>对队列设置TTL，也可以为每一个消息单独设置TTL，如果两个都设置了会选择较小值。通过<code v-pre>expiration</code>或者<code v-pre>x-message-ttl</code>属性来设置过期时间。</li>
+</ul>
+<h3 id="模拟订单过期解锁库存" tabindex="-1"><a class="header-anchor" href="#模拟订单过期解锁库存" aria-hidden="true">#</a> 模拟订单过期解锁库存</h3>
+<p><img src="/markdown/image-20230616205428858.png" alt="image-20230616205428858"></p>
+<p>订单创建的时候在延时队列中添加库存解锁信息，信息过期的时候表明订单也就过期了，进入死信路由DLX，接着转发到解锁库存的队列中，在解锁前还需要检查订单是否支付（支付宝中采用最大努力交付，用户还可通过接口主动查询支付结果），没有支付则释放库存和取消订单（取消订单可以通过信息发送给相应的订单解锁队列）。</p>
+<h2 id="rabbitmq-消息怎么传输" tabindex="-1"><a class="header-anchor" href="#rabbitmq-消息怎么传输" aria-hidden="true">#</a> RabbitMQ 消息怎么传输？</h2>
+<p>由于 TCP 链接的创建和销毁开销较大，且并发数受系统资源限制，会造成性能瓶颈，所以 RabbitMQ 使用信道的方式来传输数据。</p>
+<p>信道（Channel）是生产者、消费者与 RabbitMQ 通信的渠道，信道是建立在 TCP 链接上的虚拟链接，且每条 TCP 链接上的信道数量没有限制。就是说 RabbitMQ 在一条 TCP 链接上建立成百上千个信道来达到多个线程处理，这个 TCP 被多个线程共享，每个信道在 RabbitMQ 都有唯一的 ID，保证了信道私有性，每个信道对应一个线程使用。</p>
+<p><img src="/markdown/image-20230616211804679.png" alt="image-20230616211804679"></p>
+<p><strong>Broker</strong>: 中间件本身。接收和分发消息的应用，这里指的就是RabbitMQ Server。</p>
+<p><strong>Virtual host</strong>: 虚拟主机。出于多租户和安全因素设计的，把AMQP的基本组件划分到一个虚拟的分组中，类似于网络中的namespace概念。当多个不同的用户使用同一个RabbitMQ server提供的服务时，可以划分出多个vhost，每个用户在自己的vhost创建exchange／queue等。</p>
+<p><strong>Connection</strong>: 连接。publisher／consumer和broker之间的TCP连接。断开连接的操作只会在client端进行，Broker不会断开连接，除非出现网络故障或broker服务出现问题。</p>
+<p><strong>Channel</strong>: 渠道。如果每一次访问RabbitMQ都建立一个Connection，在消息量大的时候建立TCP 。</p>
+<p>Connection的开销会比较大且效率也较低。Channel是在connection内部建立的逻辑连接，如果应用程序支持多线程，通常每个thread创建单独的channel进行通讯，AMQP method包含了channel id帮助客户端和message broker识别channel，所以channel之间是完全隔离的。Channel作为轻量级的Connection极大减少了操作系统建立TCP connection的开销。</p>
 </div></template>
 
 
