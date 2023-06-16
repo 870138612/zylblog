@@ -31,7 +31,7 @@
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>每个<code v-pre>Thread</code>中都具备一个<code v-pre>ThreadLocalMap</code>，<strong>而<code v-pre>ThreadLocalMap</code>存储以<code v-pre>ThreadLocal</code>为key，Object对象为value的键值对</strong>（JDK1.8）。</p>
 <p><code v-pre>ThreadLocalMap</code>是<code v-pre>ThreadLocal</code>的静态内部类。</p>
-<p><img src="/markdown/17195626.jpg" alt="17195626"></p>
+<p><img src="/markdown/image-20230616174109050.png" alt="17195626"></p>
 <h3 id="threadlocal内存泄露" tabindex="-1"><a class="header-anchor" href="#threadlocal内存泄露" aria-hidden="true">#</a> ThreadLocal内存泄露</h3>
 <p><code v-pre>ThreadLocalMap</code> 中使用的 key 为 <code v-pre>ThreadLocal</code> 的<strong>弱引用</strong>，而 value 是<strong>强引用</strong>。所以，如果 <code v-pre>ThreadLocal</code> 没有被外部强引用的情况下，在垃圾回收的时候，key 会被清理掉，而 value 不会被清理掉。</p>
 <p>这样一来，<code v-pre>ThreadLocalMap</code> 中就会出现 key 为 null 的 Entry。假如不做任何措施的话，value 永远无法被 GC 回收，这个时候就可能会产生内存泄露。<code v-pre>ThreadLocalMap</code> 实现中已经考虑了这种情况，在调用 <code v-pre>set()</code>、<code v-pre>get()</code>、<code v-pre>remove()</code> 方法的时候，会清理掉 key 为 null 的记录。</p>

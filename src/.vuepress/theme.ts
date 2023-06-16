@@ -12,7 +12,7 @@ export default hopeTheme({
   },
   // pure: true,
   contributors: false,
-  iconAssets: "//at.alicdn.com/t/c/font_4062992_6rftfgxadsq.css",
+  iconAssets: "//at.alicdn.com/t/c/font_4062992_96rzlz1uq0j.css",
   docsDir: "src",
   repo: "https://gitee.com/zyl1210/zyl1210",
   //根据文件的名称进行排序
@@ -25,11 +25,23 @@ export default hopeTheme({
   footer: "Copyright © 2023-present Liang",
   copyright: false,
   displayFooter: true,
+  pageInfo: [
+    "Author",
+    "Category",
+    "Tag",
+    "Date",
+    "Original",
+    "Word",
+    "ReadingTime",
+  ],
   blog: {
     sidebarDisplay:"mobile",
     description: "Java菜鸟",
     intro: "/intro.html",
   },
+
+
+
 
   plugins: {
     blog: true,

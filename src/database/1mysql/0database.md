@@ -1,13 +1,11 @@
 ---
 title: 数据库基础
 icon: page
-date: 2023-5-26
 category:
   - 数据库
 tags:
   - MySQL
   - 八股
-star: true
 ---
 
 ## 数据库的三大范式

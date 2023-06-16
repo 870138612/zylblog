@@ -1,8 +1,6 @@
 ---
 title: 并发编程三
 icon: page
-star: true
-date: 2023-5-25
 category:
   - Java
 tags:
@@ -60,7 +58,7 @@ ThreadLocalMap getMap(Thread t) {
 
 `ThreadLocalMap`是`ThreadLocal`的静态内部类。
 
-![17195626](/markdown/17195626.jpg)
+![17195626](/markdown/image-20230616174109050.png)
 
 ### ThreadLocal内存泄露
 

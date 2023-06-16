@@ -1,8 +1,6 @@
 ---
 title: Java基础二
 icon: page
-date: 2023-5-24
-star: true
 category:
   - Java
 tags:
@@ -37,9 +35,7 @@ System.out.println(str1.equals(str2));//true
 System.out.println(str1.equals(str3));//true
 ```
 
-`System.out.println(str1 == str2);//false`
-
-☀️详见[String](https://ylzhong.top/java/1java/2java.html#string)。
+`System.out.println(str1 == str2);//false`详见后半部分[String](##String)。
 
 ### 如果没有声明构造方法，程序能正确执行吗？
 

@@ -1,8 +1,6 @@
 ---
 title: Java基础一
 icon: page
-star: true
-date: 2023-5-24
 category:
   - Java
 tags:
@@ -11,7 +9,7 @@ tags:
 ---
 
 ::: tip 一切就从这里开始吧
-笔记来源网络，仅做个人学习。
+笔记来源网络，仅做个人学习，非商业用途。
 :::
 
 ## JVM  JRE  JDK

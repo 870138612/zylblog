@@ -1,8 +1,6 @@
 ---
 title: JVM重要参数
 icon: page
-star: true
-date: 2023-5-27
 category:
   - Java
 tags:

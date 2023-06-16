@@ -7,7 +7,7 @@
 <li>
 <HopeIcon icon="database"/> <RouterLink to="/database/">数据库</RouterLink></li>
 <li>
-<HopeIcon icon="middleware"/> <RouterLink to="/middleware/">中间件</RouterLink></li>
+<HopeIcon icon="middleware"/> <RouterLink to="/middleware/">中间件云原生</RouterLink></li>
 <li>
 <HopeIcon icon="framework"/> <RouterLink to="/framework/">框架</RouterLink></li>
 <li>

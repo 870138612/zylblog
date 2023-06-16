@@ -59,11 +59,11 @@
 <h5 id="方法区" tabindex="-1"><a class="header-anchor" href="#方法区" aria-hidden="true">#</a> 方法区</h5>
 <ul>
 <li>方法区属于是 JVM 运行时数据区域的一块逻辑区域，是各个线程共享的内存区域。从内存分布图中可以看出<strong>永久代是 JDK 1.8 之前的方法区实现（运行时数据区），JDK 1.8 及以后方法区的实现变成了元空间（本地内存）</strong>。</li>
-<li>转到本地内存的原因：元空间使用本地内存，可能会受到本机内存的限制，但是出现溢出的概率比原来的永久代小很多。
-<img src="/markdown/519132906.jpg" alt="519132906"></li>
+<li>转到本地内存的原因：元空间使用本地内存，可能会受到本机内存的限制，但是出现溢出的概率比原来的永久代小很多。</li>
 </ul>
 </li>
 </ul>
+<p><img src="/markdown/image-20230616180622721.png" alt="519132906"></p>
 <h2 id="运行时常量池-方法区内部" tabindex="-1"><a class="header-anchor" href="#运行时常量池-方法区内部" aria-hidden="true">#</a> 运行时常量池（方法区内部）</h2>
 <p>Class文件中除了有类的版本号、字段、方法、接口等描述信息，还有用于存放各种<strong>字面量和符号引用</strong>的常量池表。</p>
 <p>字面量是源代码中的固定值的表示法，即通过字面我们就能知道其值的含义。字面量包括整数、浮点数和字符串字面量。常见的符号引用包括类符号引用、字段符号引用、方法符号引用、接口方法符号。</p>
@@ -110,10 +110,10 @@
 <p>对象的访问定位就是如何找到创建的对象信息，包括实例和类数据。</p>
 <h3 id="直接指针" tabindex="-1"><a class="header-anchor" href="#直接指针" aria-hidden="true">#</a> 直接指针</h3>
 <p>如果使用直接指针访问，reference 中存储的直接就是对象的地址。</p>
-<p><img src="/markdown/519151023.jpg" alt="519151023"></p>
+<p><img src="/markdown/image-20230616174907760.png" alt="image-20230616174907760"></p>
 <h3 id="句柄" tabindex="-1"><a class="header-anchor" href="#句柄" aria-hidden="true">#</a> 句柄</h3>
 <p>如果使用句柄的话，那么 Java 堆中将会划分出一块内存来作为句柄池，reference 中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与对象类型数据各自的具体地址信息。</p>
-<p><img src="/markdown/19151947.jpg" alt="19151947"></p>
+<p><img src="/markdown/image-20230616174740922.png" alt="image-20230616174740922"></p>
 </div></template>
 
 

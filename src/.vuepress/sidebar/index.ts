@@ -27,7 +27,7 @@ export const zhSidebar = sidebar({
 
     {
       collapsible: true,
-      text: "中间件",
+      text: "中间件云原生",
       icon: "middleware",
       prefix: "middleware/",
       children: "structure",

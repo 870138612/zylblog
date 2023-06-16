@@ -4,15 +4,11 @@ title: 主页
 icon: discovery
 heroImage: /home/0514172706.jpg
 heroText: 终将美好
-tagline: 我们的春夏秋冬✨
+tagline: 我们的春夏秋冬
 actions:
-  - text: 逛逛 ❄️
+  - text: 逛逛
     link: /home/
     type: primary
-    
-  - text: 关于 ☀️
-    link: /intro.md
-  
 
 features:
 
@@ -20,13 +16,32 @@ features:
     icon: java
     details: Java知识点
     link: /java/
+    
+  - title: 计算机基础
+    icon: computer
+    details: 计算机网络、操作系统、IO
+    link: /computer/
   
-  
+  - title: 数据库
+    icon: database
+    details: MySQL、Redis
+    link: /database/
+    
+  - title: 中间件云原生
+    icon: middleware
+    details: Nginx、RabbitMQ、Docker、分布式
+    link: /middleware/ 
+    
+  - title: 框架
+    icon: framework
+    details: Spring、Mybatis
+    link: /framework/
+    
   - title: 面经
     icon: interview
     details: 秋招面经
-    link: /interview/
-    
+    link: /interview/  
+  
   - title: 笔记
     icon: note
     details: 日常记录

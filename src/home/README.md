@@ -11,7 +11,7 @@ timeline: false
 - <HopeIcon icon="java"/> [Java](/java/)
 - <HopeIcon icon="computer"/> [计算机基础](/computer/)
 - <HopeIcon icon="database"/> [数据库](/database/)
-- <HopeIcon icon="middleware"/> [中间件](/middleware/)
+- <HopeIcon icon="middleware"/> [中间件云原生](/middleware/)
 - <HopeIcon icon="framework"/> [框架](/framework/)
 - <HopeIcon icon="interview"/> [面经](/interview/)
 - <HopeIcon icon="note"/> [笔记](/note/)

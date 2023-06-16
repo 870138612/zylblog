@@ -1,7 +1,6 @@
 ---
 title: Redis基础一
 icon: page
-date: 2023-5-28
 category:
   - 数据库
 tags:
@@ -152,7 +151,7 @@ Write Behind Pattern 下 db 的写性能非常高，非常适合一些数据经�
 
 **分布式锁**：通过 Redis 来做分布式锁是一种比较常见的方式。通常情况下，我们都是基于 Redisson 来实现分布式锁。（秒杀下更新数据库时使用分布式锁）
 
-☀️详见：[分布式锁](https://ylzhong.top/database/2redis/2lock.html)
+☀️详见：[分布式锁](http://ylzhong.top/database/2redis/2lock.html)
 
 **限流**：一般是通过 Redis + Lua 脚本的方式来实现限流。（秒杀下一人一单占位使用Lua脚本）
 
@@ -172,7 +171,7 @@ Write Behind Pattern 下 db 的写性能非常高，非常适合一些数据经�
 
 ## Redis 数据结构
 
-☀️详见：[Redis数据结构](https://ylzhong.top/database/2redis/3redisdatastructures.html)
+☀️详见：[Redis数据结构](http://ylzhong.top/database/2redis/3redisdatastructures.html)
 
 ### Redis 常用的数据结构有哪些？
 
@@ -299,7 +298,7 @@ PFCOUNT PAGE_1:UV
 
 ## Redis持久化
 
- ☀️详见：[Redis持久化](https://ylzhong.top/database/2redis/4redispersistence.html)
+ ☀️详见：[Redis持久化](http://ylzhong.top/database/2redis/4redispersistence.html)
 
 ## Redis线程模型
 
@@ -405,4 +404,3 @@ Redis 提供 6 种数据淘汰策略：
 
 1. **volatile-lfu（least frequently used）**：从已设置过期时间的数据集（`server.db[i].expires`）中挑选最不经常使用的数据淘汰。
 2. **allkeys-lfu（least frequently used）**：当内存不足以容纳新写入数据时，在键空间中，移除最不经常使用的 key。
-

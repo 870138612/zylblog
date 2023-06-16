@@ -2,7 +2,6 @@
 title: Redis持久化
 icon: page
 star: true
-date: 2023-5-30
 category:
   - 数据库
 tags:
