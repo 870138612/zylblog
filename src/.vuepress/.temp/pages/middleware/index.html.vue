@@ -2,7 +2,7 @@
 <li>
 <HopeIcon icon="nginx"/> <RouterLink to="/middleware/1nginx.html">Nginx</RouterLink></li>
 <li>
-<HopeIcon icon="mq"/> <RouterLink to="/middleware/2rabbitmq.html">RabbitMQ</RouterLink></li>
+<HopeIcon icon="mq"/> <RouterLink to="/middleware/2mq.html">RabbitMQ</RouterLink></li>
 <li>
 <HopeIcon icon="docker"/> <RouterLink to="/middleware/3docker.html">Docker</RouterLink></li>
 <li>
