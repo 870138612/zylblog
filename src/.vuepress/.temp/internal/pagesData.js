@@ -9,30 +9,28 @@ export const pagesData = {
   "v-0f6e5a7b": () => import(/* webpackChunkName: "v-0f6e5a7b" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/3io.html.js").then(({ data }) => data),
   // path: /computer/
   "v-a94a8cca": () => import(/* webpackChunkName: "v-a94a8cca" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/index.html.js").then(({ data }) => data),
-  // path: /framework/
-  "v-7d72c4ac": () => import(/* webpackChunkName: "v-7d72c4ac" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/framework/index.html.js").then(({ data }) => data),
   // path: /database/
   "v-2e25198a": () => import(/* webpackChunkName: "v-2e25198a" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/index.html.js").then(({ data }) => data),
   // path: /home/
   "v-14b0a7d7": () => import(/* webpackChunkName: "v-14b0a7d7" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/home/index.html.js").then(({ data }) => data),
+  // path: /framework/
+  "v-7d72c4ac": () => import(/* webpackChunkName: "v-7d72c4ac" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/framework/index.html.js").then(({ data }) => data),
   // path: /interview/
   "v-71b3ae87": () => import(/* webpackChunkName: "v-71b3ae87" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/interview/index.html.js").then(({ data }) => data),
   // path: /java/
   "v-14c69af4": () => import(/* webpackChunkName: "v-14c69af4" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/index.html.js").then(({ data }) => data),
-  // path: /note/
-  "v-15054f24": () => import(/* webpackChunkName: "v-15054f24" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/note/index.html.js").then(({ data }) => data),
   // path: /middleware/1nginx.html
   "v-7273d1ac": () => import(/* webpackChunkName: "v-7273d1ac" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/middleware/1nginx.html.js").then(({ data }) => data),
   // path: /middleware/2rabbitmq.html
   "v-d8f9caa6": () => import(/* webpackChunkName: "v-d8f9caa6" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/middleware/2rabbitmq.html.js").then(({ data }) => data),
   // path: /middleware/
   "v-4d194044": () => import(/* webpackChunkName: "v-4d194044" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/middleware/index.html.js").then(({ data }) => data),
+  // path: /note/
+  "v-15054f24": () => import(/* webpackChunkName: "v-15054f24" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/note/index.html.js").then(({ data }) => data),
   // path: /photo/992023.4%E5%B9%B3%E6%BD%AD.html
   "v-7ce4aeb6": () => import(/* webpackChunkName: "v-7ce4aeb6" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/photo/992023.4平潭.html.js").then(({ data }) => data),
   // path: /photo/
   "v-e2acc714": () => import(/* webpackChunkName: "v-e2acc714" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/photo/index.html.js").then(({ data }) => data),
-  // path: /framework/1spring/
-  "v-182fabca": () => import(/* webpackChunkName: "v-182fabca" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/framework/1spring/index.html.js").then(({ data }) => data),
   // path: /computer/1net/1net.html
   "v-7acb0465": () => import(/* webpackChunkName: "v-7acb0465" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/computer/1net/1net.html.js").then(({ data }) => data),
   // path: /computer/1net/2net.html
@@ -65,6 +63,8 @@ export const pagesData = {
   "v-7251bf68": () => import(/* webpackChunkName: "v-7251bf68" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/2redis/4redispersistence.html.js").then(({ data }) => data),
   // path: /database/2redis/
   "v-50823daa": () => import(/* webpackChunkName: "v-50823daa" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/database/2redis/index.html.js").then(({ data }) => data),
+  // path: /framework/1spring/
+  "v-182fabca": () => import(/* webpackChunkName: "v-182fabca" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/framework/1spring/index.html.js").then(({ data }) => data),
   // path: /java/1java/1java.html
   "v-e26068d4": () => import(/* webpackChunkName: "v-e26068d4" */"C:/Users/zyl/Desktop/my-docs/src/.vuepress/.temp/pages/java/1java/1java.html.js").then(({ data }) => data),
   // path: /java/1java/2java.html

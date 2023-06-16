@@ -14,7 +14,7 @@ export default hopeTheme({
   contributors: false,
   iconAssets: "//at.alicdn.com/t/c/font_4062992_6rftfgxadsq.css",
   docsDir: "src",
-  repo: "https://github.com/870138612/870138612.github.io.git",
+  repo: "https://gitee.com/zyl1210/zyl1210",
   //根据文件的名称进行排序
   sidebarSorter: ["readme", "order", "filename"],
 
