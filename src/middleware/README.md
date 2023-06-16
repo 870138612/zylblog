@@ -8,6 +8,6 @@ article: false
 timeline: false
 ---
 - <HopeIcon icon="nginx"/> [Nginx](1nginx.md)
-- <HopeIcon icon="mq"/> [RabbitMQ](2rabbitmq.md)
+- <HopeIcon icon="mq"/> [RabbitMQ](2mq.md)
 - <HopeIcon icon="docker"/> [Docker](3docker.md)
 - <HopeIcon icon="fenbushi"/> [分布式事务](4docker.md)
