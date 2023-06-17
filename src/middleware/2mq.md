@@ -228,9 +228,9 @@ TTL就是消息的存活时间，RabbitMQ可以对队列和消息分别设置TTL
 
 ## RabbitMQ 消息怎么传输？
 
-由于 TCP 链接的创建和销毁开销较大，且并发数受系统资源限制，会造成性能瓶颈，所以 RabbitMQ 使用信道的方式来传输数据。
+由于 TCP 链接的创建和销毁开销较大，且并发数受系统资源限制，会造成性能瓶颈，所以 **RabbitMQ 使用信道的方式来传输数据**。
 
-信道（Channel）是生产者、消费者与 RabbitMQ 通信的渠道，信道是建立在 TCP 链接上的虚拟链接，且每条 TCP 链接上的信道数量没有限制。就是说 RabbitMQ 在一条 TCP 链接上建立成百上千个信道来达到多个线程处理，这个 TCP 被多个线程共享，每个信道在 RabbitMQ 都有唯一的 ID，保证了信道私有性，每个信道对应一个线程使用。
+信道（Channel）是生产者、消费者与 RabbitMQ 通信的渠道，**信道是建立在 TCP 链接上的虚拟链接**，且每条 TCP 链接上的信道数量没有限制。就是说 RabbitMQ 在一条 TCP 链接上建立成百上千个信道来达到多个线程处理，这个 TCP 被多个线程共享，每个信道在 RabbitMQ 都有唯一的 ID，保证了信道私有性，每个信道对应一个线程使用。
 
 ![image-20230616211804679](/markdown/image-20230616211804679.png)
 
@@ -244,4 +244,65 @@ TTL就是消息的存活时间，RabbitMQ可以对队列和消息分别设置TTL
 
 Connection的开销会比较大且效率也较低。Channel是在connection内部建立的逻辑连接，如果应用程序支持多线程，通常每个thread创建单独的channel进行通讯，AMQP method包含了channel id帮助客户端和message broker识别channel，所以channel之间是完全隔离的。Channel作为轻量级的Connection极大减少了操作系统建立TCP connection的开销。
 
+## 如何保证消息的可靠性，防止消息丢失？
 
+- 生产者到RabbitMQ：事务的Confirm机制，事务和confirm机制不能同时存在。
+- RabbitMQ自身：持久化、集群、普通模式、镜像模式。
+- RabbitMQ到消费者：basicACK机制、死信队列、消息补偿机制。
+
+![image-20230617224404357](/markdown/image-20230617224404357.png)
+
+#### confirmCallback
+
+**消息从producer——>exchange，会回调confirmCallback**，重写confirm方法有3个参数：
+
+- correlationData：相关配置信息；
+
+- ack：exchange交换机是否成功收到信息，true成功，false失败；
+
+- cause：失败原因；
+
+producer端发送消息需要添加异常处理，防止发送途中MQ宕机。
+
+#### returnCallback
+
+**消息从exchange——>queue，当交换机到队列路由失败时才会执行returnCallback** 。
+
+```java
+rabbitTemplate.setMandatory(true);//设置交换机处理失败消息的模式，如果不设置，默认会丢失消息，设置为true，则会执行returnMessage方法，将消息返回给生产者。
+rabbitTemplage.setReturnCallback(new RabbitTemplate.ReturnCallback(){
+    @Override
+    public void returnMessage(Message message, int replyCode, String replyText, String exchange, String routingKey){
+        System.out.println("return 执行了");
+    }
+});
+```
+
+#### ack
+
+ack指Acknowledge，确认，表示消费者收到消息后的确认方式。
+
+有3种确认方式：
+
+- 自动确认：acknowledge="none"；
+- 手动确认：acknowledge="manual"；
+- 根据异常情况确认：acknowledge="auto"。
+
+其中自动确认是指一旦消息被consumer收到，则自动确认收到，并将相应的message从RabbitMQ缓存中移除，但在实际业务处理中，很可能消息接收到但是业务处理出现异常，那么该消息就会丢失。
+
+如果设置了手动确认模式，则在业务处理成功后，调用`channel.basicAck()`手动签收，如果出现异常，则调用`channel.basicNack()`方法，让其自动重新发送消息。
+
+## 如何保证 RabbitMQ 消息的顺序性？
+
+一个 queue (消息队列)是对应一个 consumer(消费者)，然后这个 consumer(消费者)内部用内存队列做排队，然后分发给底层不同的 worker 来处理。
+
+## RabbitMQ消息积压如何处理？
+
+消息生产太快，消费不过来，导致队列堆积很长，把服务器内存耗尽，这时RabbitMQ的处理能力很低下。
+总结起来解决方案大体包括：
+
+- 增加消费者的处理能力，或减少发布频率，**增加消费端实例**。说白了就是增加机器。
+- 如果申请机器行不通，毕竟公司的机器是有限的，此时可以增加消费端的消费能力。在MQ的配置中配置"**最大消费者数量**"与"**每次从队列中获取的消息数量**"。
+- 考虑使用队列最大长度限制，RabbitMQ 3.1支持。
+- 给消息设置年龄，超时就丢弃。
+- 发送者发送流量太大上线更多的消费者，**紧急上线专门用于记录消息的队列**，将消息先批量取出来，记录数据库，离线慢慢处理。
