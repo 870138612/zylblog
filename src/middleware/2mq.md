@@ -47,9 +47,10 @@ AMQP，即 Advanced Message Queuing Protocol，一个提供统一消息服务的
 
 ## RPC和消息队列的区别
 
-RPC和消息队列都是分布式系统中重要的组件之一。
+ RPC 和消息队列都是分布式系统中重要的组件之一。
 
-- **从用途来看**：RPC主要解决两个服务的远程通信问题，不需要了解底层网络的通信机制。通过 RPC 可以帮助我们调用远程计算机上某个服务的方法，这个过程就像调用本地方法一样简单。消息队列主要用来降低系统耦合性、实现任务异步、有效地进行流量削峰。
+- **从用途来看**：RPC 主要解决两个服务的远程通信问题，不需要了解底层网络的通信机制。通过 RPC 
+  可以帮助我们调用远程计算机上某个服务的方法，这个过程就像调用本地方法一样简单。消息队列主要用来降低系统耦合性、实现任务异步、有效地进行流量削峰。
 - **从通信方式来看**：RPC 是双向直接网络通讯，消息队列是单向引入中间载体的网络通讯。
 
 - **从架构上来看**：消息队列需要把消息存储起来，RPC 则没有这个要求，因为前面也说了 RPC 是双向直接网络通讯。
@@ -59,7 +60,7 @@ RPC和消息队列都是分布式系统中重要的组件之一。
 
 ### Kafka
 
-> 项目中使用的消息队列是RabbitMQ，Kafka仅做介绍。
+> 项目中使用的消息队列是 RabbitMQ ， Kafka 仅做介绍。
 
 ![image-20230616154303334](/markdown/image-20230616154303334.png)
 
@@ -103,9 +104,9 @@ RabbitMQ 是使用 Erlang 编写的一个开源的消息队列，本身支持很
 
 ## RabbitMQ特点
 
-- **可靠性**：RabbitMQ使用一些机制保证可靠性，例如持久化、传输确认以及发布确认。
+- **可靠性**：RabbitMQ 使用一些机制保证可靠性，例如持久化、传输确认以及发布确认。
 - **灵活的路由**：在消息进入队列之前，通过交换器来路由消息。
-- **扩展性**：多个RabbitMQ节点可以组成一个集群，也可以根据实际业务情况动态地扩展 集群中节点。
+- **扩展性**：多个 RabbitMQ 节点可以组成一个集群，也可以根据实际业务情况动态地扩展 集群中节点。
 - **高可用性** : 队列可以在集群中的机器上设置镜像，使得在部分节点出现问题的情况下队 列仍然可用。
 - **多种协议**: RabbitMQ 除了原生支持 AMQP 协议，还支持 STOMP， MQTT 等多种消息 中间件协议。
 - **跨语言**：RabbitMQ 几乎支持所有常用语言，比如 Java、 Python、 Ruby、 PHP、 C#、 JavaScript 等。
@@ -127,15 +128,16 @@ RabbitMQ 整体上是一个生产者与消费者模型，主要负责接收、�
 
 ### Exchange（交换器）
 
-在RabbitMQ中，消息并不是直接投递到 **Queue(消息队列)** 中，中间还必须经过 **Exchange(交换器)** ，交换器会根据路由键和路由方式将消息发送给对应的 **Queue(消息队列)** 中。
+在 RabbitMQ 中，消息并不是直接投递到**Queue**（消息队列）中，中间还必须经过**Exchange**（交换器），交换器会根据路由键和路由方式将消息发送给对应的**Queue**中。
 
-**Exchange(交换器)** 用来接收生产者发送的消息并将这些消息路由给服务器中的队列，如果路由不到则会返回给 **Producer(生产者)** 或者直接丢失。
+**Exchange**用来接收生产者发送的消息并将这些消息路由给服务器中的队列，如果路由不到则会返回给**Producer**（生产者）或者直接丢失。
 
-RabbitMQ的 **Exchange(交换器)** 有4种类型，不同的类型对应着不同的路由策略：direct（默认），fanout，topic和headers。
+RabbitMQ的**Exchange**有4种类型，不同的类型对应着不同的路由策略：direct（默认），fanout，topic和headers。
 
-生产者将消息发给交换器的时候需要指定一个**RoutingKey(路由键)**，用来指定这个消息的路由规则，而这个**RoutingKey**需要与交换器类型和绑定键**BindingKey**联合使用才能生效。
+生产者将消息发给交换器的时候需要指定一个**RoutingKey**（路由键），用来指定这个消息的路由规则，而这个**RoutingKey**需要与交换器类型和绑定键**BindingKey**联合使用才能生效。
 
-RabbitMQ 中通过 **Binding(绑定)** 将 **Exchange(交换器)** 与 **Queue(消息队列)** 关联起来，在绑定的时候一般会指定一个 **BindingKey(绑定建)** ,这样 RabbitMQ 就知道如何正确将消息路由到队列了,如下图所示。一个绑定就是基于路由键将交换器和消息队列连接起来的路由规则，所以可以将交换器理解成一个由绑定构成的路由表。Exchange 和 Queue 的绑定可以是多对多的关系。
+RabbitMQ 中通过**Binding**（绑定）将**Exchange**与**Queue**关联起来，在绑定的时候一般会指定一个**BindingKey**（绑定键），这样 RabbitMQ 
+就知道如何正确将消息路由到队列了，如下图所示。一个绑定就是基于路由键将交换器和消息队列连接起来的路由规则，所以可以将交换器理解成一个由绑定构成的路由表。**Exchange**和**Queue**的绑定可以是多对多的关系。
 
 ![image-20230616163557422](/markdown/image-20230616163557422.png)
 
@@ -145,7 +147,7 @@ RabbitMQ 中通过 **Binding(绑定)** 将 **Exchange(交换器)** 与 **Queue(�
 
 Queue（消息队列）用来保存消息直到发送给消费者。是消息的容器也是终点，一个消息可以投入一个或者多个队列中。
 
-**RabbitMQ** 中消息只能存储在 **队列** 中，这一点和 **Kafka** 相反。Kafka 将消息存储在 **topic（主题）** 这个逻辑层面，而相对应的队列逻辑只是 topic 实际存储文件中的位移标识。
+**RabbitMQ中消息只能存储在队列中，这一点和Kafka相反。Kafka将消息存储在topic(主题)这个逻辑层面，而相对应的队列逻辑只是topic实际存储文件中的位移标识。**
 
 > 事件被组织并持久地存储在Topic中，Topic类似于文件系统中的文件夹，事件就是该文件夹中的文件。Kafka中的Topic始终是多生产者和多订阅者：一个Topic可以有零个、一个或多个生产者向其写入事件，也可以有零个、一个或多个消费者订阅这些事件。Topic中的事件可以根据需要随时读取，与传统的消息中间件不同，事件在使用后不会被删除，相反，可以通过配置来定义Kafka中每个Topic应该保留事件的时间，超过该事件后旧事件将被丢弃。Kafka的性能在数据大小方面实际上是恒定的，因此长时间存储数据是非常好的。
 
@@ -153,9 +155,9 @@ Queue（消息队列）用来保存消息直到发送给消费者。是消息的
 
 ### Broker（消息中间件的服务节点）
 
-对于 RabbitMQ 来说，一个 RabbitMQ Broker 可以简单地看作一个 RabbitMQ 服务节点，或者 RabbitMQ 服务实例。大多数情况下也可以将一个 RabbitMQ Broker 看作一台 RabbitMQ 服务器。
+对于RabbitMQ来说，一个RabbitMQ Broker可以简单地看作一个RabbitMQ服务节点，或者RabbitMQ服务实例。大多数情况下也可以将一个RabbitMQ Broker看作一台RabbitMQ服务器。
 
-下图展示了生产者将消息存入 RabbitMQ Broker，以及消费者从 Broker 中消费数据的整个流程。
+下图展示了生产者将消息存入RabbitMQ Broker，以及消费者从Broker中消费数据的整个流程。
 
 >  由于RabbitMQ是以`byte[]`为单位进行传输的，因此消息需要序列化和反序列化。
 
@@ -165,23 +167,23 @@ Queue（消息队列）用来保存消息直到发送给消费者。是消息的
 
 #### 1、fanout（广播）
 
-fanout 类型的 Exchange 路由规则非常简单，它会把所有发送到该 Exchange 的消息路由到所有与它绑定的 Queue 中，不需要做任何判断操作，所以 fanout 类型是所有的交换器类型里面速度最快的。fanout 类型常用来广播消息。
+fanout类型的Exchange路由规则非常简单，它会把所有发送到该Exchange的消息路由到所有与它绑定的Queue中，不需要做任何判断操作，所以fanout类型是所有的交换器类型里面速度最快的。fanout类型常用来广播消息。
 
 #### 2、direct（精确匹配）
 
-direct 类型的 Exchange 路由规则也很简单，它会把消息路由到**那些** Bindingkey 与 RoutingKey 完全匹配的 Queue 中。
+direct类型的Exchange路由规则也很简单，它会把消息路由到**那些**Bindingkey与RoutingKey完全匹配的Queue中。
 
 > 可能匹配的队列有多个。
 
 #### 3、topic
 
-topic 类型的交换器在匹配规则上进行了扩展，它与 direct 类型的交换器相似，也是将消息路由到 BindingKey 和 RoutingKey 相匹配的队列中，但这里的匹配规则有些不同，它约定：
+topic类型的交换器在匹配规则上进行了扩展，它与direct类型的交换器相似，也是将消息路由到BindingKey和RoutingKey相匹配的队列中，但这里的匹配规则有些不同，它约定：
 
-- RoutingKey 为一个点号`.`分隔的字符串（被点号`.`分隔开的每一段独立的字符串称为一个单词），如 `com.rabbitmq.client`、`java.util.concurrent`、`com.hidden.client`;
+- RoutingKey为一个点号`.`分隔的字符串（被点号`.`分隔开的每一段独立的字符串称为一个单词），如 `com.rabbitmq.client`、`java.util.concurrent`、`com.hidden.client`;
 
-- BindingKey 和 RoutingKey 一样也是点号`.`分隔的字符串；
+- BindingKey和RoutingKey一样也是点号`.`分隔的字符串；
 
-- BindingKey 中可以存在两种特殊字符串`*`和`#`，用于做模糊匹配，其中`*`用于匹配一个单词，`#`用于匹配零个或者多个单词。
+- BindingKey中可以存在两种特殊字符串`*`和`#`，用于做模糊匹配，其中`*`用于匹配一个单词，`#`用于匹配零个或者多个单词。
 
 例如BindKey为`#.com`，则所有以`com`结尾的路由键消息都会匹配，`*.*.com`，则路由键必须有三个单词，且最后一个单词是`com`才会匹配，例如`yl.zhong.com`。
 
@@ -189,24 +191,24 @@ topic 类型的交换器在匹配规则上进行了扩展，它与 direct 类型
 
 #### 4、headers(不推荐)
 
-headers 类型的交换器不依赖于路由键的匹配规则来路由消息，而是根据发送的消息内容中的 headers 属性进行匹配。
+headers类型的交换器不依赖于路由键的匹配规则来路由消息，而是根据发送的消息内容中的headers属性进行匹配。
 
-## 说说 Broker 服务节点、Queue 队列、Exchange 交换器？
+## 说说Broker服务节点、Queue队列、Exchange交换器？
 
-**Broker**：可以看做 RabbitMQ 的服务节点。一般情况下一个 Broker 可以看做一个 RabbitMQ 服务器。
+**Broker**：可以看做RabbitMQ的服务节点。一般情况下一个Broker可以看做一个RabbitMQ服务器。
 
-**Queue** :RabbitMQ 的内部对象，用于存储消息。多个消费者可以订阅同一队列，这时队列中的消息会被平摊（轮询）给多个消费者进行处理。
+**Queue**：RabbitMQ的内部对象，用于存储消息。多个消费者可以订阅同一队列，这时队列中的消息会被平摊（轮询）给多个消费者进行处理。
 
-**Exchange** : 生产者将消息发送到交换器，由交换器将消息路由到一个或者多个队列中。当路由不到时，或返回给生产者或直接丢弃。
+**Exchange**：生产者将消息发送到交换器，由交换器将消息路由到一个或者多个队列中。当路由不到时，或返回给生产者或直接丢弃。
 
 ## 什么是死信路由，如何产生的？
 
-DLX，全称为 `Dead-Letter-Exchange`，死信交换器，死信邮箱。当消息在一个队列中变成死信 (`dead message`) 之后，它能被重新被发送到另一个交换器中，这个交换器就是 DLX，绑定 DLX 的队列就称之为死信队列。
+DLX，全称为 `Dead-Letter-Exchange`，死信交换器，死信邮箱。当消息在一个队列中变成死信 (`dead message`) 之后，它能被重新被发送到另一个交换器中，这个交换器就是DLX，绑定DLX的队列就称之为**死信队列**。
 
 **导致的死信的几种原因**：
 
-- 消息被拒（`Basic.Reject /Basic.Nack`) 且 `requeue = false`。
-- 消息 TTL 过期。
+- 消息被拒（`Basic.Reject /Basic.Nack`）且`requeue = false`。
+- 消息TTL过期。
 - 队列满了，无法再添加。
 
 ## 什么是延迟队列？RabbitMQ 怎么实现延迟队列？
@@ -229,21 +231,23 @@ TTL就是消息的存活时间，RabbitMQ可以对队列和消息分别设置TTL
 
 ## RabbitMQ 消息怎么传输？
 
-由于 TCP 链接的创建和销毁开销较大，且并发数受系统资源限制，会造成性能瓶颈，所以 **RabbitMQ 使用信道的方式来传输数据**。
+由于TCP链接的创建和销毁开销较大，且并发数受系统资源限制，会造成性能瓶颈，所以**RabbitMQ 使用信道的方式来传输数据**。
 
-信道（Channel）是生产者、消费者与 RabbitMQ 通信的渠道，**信道是建立在 TCP 链接上的虚拟链接**，且每条 TCP 链接上的信道数量没有限制。就是说 RabbitMQ 在一条 TCP 链接上建立成百上千个信道来达到多个线程处理，这个 TCP 被多个线程共享，每个信道在 RabbitMQ 都有唯一的 ID，保证了信道私有性，每个信道对应一个线程使用。
+信道（Channel）是生产者、消费者与RabbitMQ通信的渠道，**信道是建立在 TCP 链接上的虚拟链接**，且每条TCP链接上的信道数量没有限制。就是说RabbitMQ在一条TCP链接上建立成百上千个信道来达到多个线程处理，这个TCP被多个线程共享，每个信道在RabbitMQ都有唯一的 ID，保证了信道私有性，每个信道对应一个线程使用。
 
 ![image-20230616211804679](/markdown/image-20230616211804679.png)
 
-**Broker**: 中间件本身。接收和分发消息的应用，这里指的就是RabbitMQ Server。
+**Broker**：中间件本身。接收和分发消息的应用，这里指的就是RabbitMQ Server。
 
-**Virtual host**: 虚拟主机。出于多租户和安全因素设计的，把AMQP的基本组件划分到一个虚拟的分组中，类似于网络中的namespace概念。当多个不同的用户使用同一个RabbitMQ server提供的服务时，可以划分出多个vhost，每个用户在自己的vhost创建exchange／queue等。
+**Virtual host**：虚拟主机。出于多租户和安全因素设计的，把AMQP的基本组件划分到一个虚拟的分组中，类似于网络中的namespace概念。当多个不同的用户使用同一个RabbitMQ 
+server提供的服务时，可以划分出多个vhost，每个用户在自己的vhost创建exchange／queue等。
 
-**Connection**: 连接。publisher／consumer和broker之间的TCP连接。断开连接的操作只会在client端进行，Broker不会断开连接，除非出现网络故障或broker服务出现问题。
+**Connection**：连接。publisher／consumer和Broker之间的TCP连接。断开连接的操作只会在client端进行，Broker不会断开连接，除非出现网络故障或Broker服务出现问题。
 
-**Channel**: 渠道。如果每一次访问RabbitMQ都建立一个Connection，在消息量大的时候建立TCP 。
+**Channel**：渠道。如果每一次访问RabbitMQ都建立一个Connection，在消息量大的时候建立TCP 。
 
-Connection的开销会比较大且效率也较低。Channel是在connection内部建立的逻辑连接，如果应用程序支持多线程，通常每个thread创建单独的channel进行通讯，AMQP method包含了channel id帮助客户端和message broker识别channel，所以channel之间是完全隔离的。Channel作为轻量级的Connection极大减少了操作系统建立TCP connection的开销。
+Connection的开销会比较大且效率也较低。Channel是在Connection内部建立的逻辑连接，如果应用程序支持多线程，通常每个thread创建单独的Channel进行通讯，AMQP method包含了Channel 
+Id帮助客户端和Message Broker识别Channel，所以Channel之间是完全隔离的。Channel作为轻量级的Connection极大减少了操作系统建立TCP Connection的开销。
 
 ## 如何保证消息的可靠性，防止消息丢失？
 
