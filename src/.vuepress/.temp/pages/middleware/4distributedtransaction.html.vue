@@ -29,7 +29,7 @@
 <li>由于数据同步的过程，写操作的响应有一定的延时。</li>
 <li>为了保证数据一致性会对资源进行锁定，待数据同步完成再释放资源。</li>
 </ul>
-<h4 id="a-availability-可用性" tabindex="-1"><a class="header-anchor" href="#a-availability-可用性" aria-hidden="true">#</a> A-Availability 可用性</h4>
+<h4 id="a-availability可用性" tabindex="-1"><a class="header-anchor" href="#a-availability可用性" aria-hidden="true">#</a> A-Availability可用性</h4>
 <p><strong>任何事务操作都可以得到响应结果，且不会出现响应超时或者错误</strong>。</p>
 <p>商品信息满足可用性需要：</p>
 <ul>
@@ -46,7 +46,7 @@
 <ul>
 <li>所有请求都有响应，并且不会出现响应错误或者响应超时。</li>
 </ul>
-<h4 id="p-partition-tolerance-分区容错性" tabindex="-1"><a class="header-anchor" href="#p-partition-tolerance-分区容错性" aria-hidden="true">#</a> P-Partition tolerance 分区容错性</h4>
+<h4 id="p-partition-tolerance分区容错性" tabindex="-1"><a class="header-anchor" href="#p-partition-tolerance分区容错性" aria-hidden="true">#</a> P-Partition tolerance分区容错性</h4>
 <p><strong>分布式系统部署在不同的子网，不可避免出现由于网络问题而导致的节点之间通信失败，对此仍然可以对外提供服务，称为分区容错性</strong>。</p>
 <p>商品信息满足分区容错性需要：</p>
 <ul>
@@ -60,7 +60,7 @@
 </ul>
 <p>分布式系统分区容错性的特点：</p>
 <ul>
-<li>分区容错性是分布式系统最基本的能力。</li>
+<li><strong>分区容错性是分布式系统最基本的能力</strong>。</li>
 </ul>
 <p>在所有分布式事务场景中不会同时具备CAP三个特性，满足P的前提下C和A是不能共存的。</p>
 <h3 id="cap组合方式" tabindex="-1"><a class="header-anchor" href="#cap组合方式" aria-hidden="true">#</a> CAP组合方式</h3>
