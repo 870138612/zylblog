@@ -8,7 +8,7 @@ export default hopeTheme({
 
   author: {
     name: "ZYL1210",
-    url: "https://localhost",
+    url: "https://github.com/870138612",
   },
   // pure: true,
   contributors: false,
@@ -54,9 +54,9 @@ export default hopeTheme({
     comment: {
       provider: "Giscus",
       repo: "870138612/zyl",
-      repoId: "MDEwOlJlcG9zaXRvcnkyNDAwOTMxMzE=",
+      repoId: "R_kgDOJw1i1g",
       category:"Announcements",
-      categoryId:"DIC_kwDODk-Hy84CWgpw"
+      categoryId:"DIC_kwDOJw1i1s4CXSr9"
     },
   },
 });
