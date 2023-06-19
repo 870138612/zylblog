@@ -74,7 +74,7 @@ for (Method method : userService1.getClass().getDeclaredMethods()) {
 
 初始化过程其实就是对应`afterPropertiesSet()`方法，通过判断
 
-```
+```java
 boolean isInitializingBean = (bean instanceof InitializingBean);
 ```
 
@@ -167,7 +167,7 @@ class UserServiceProxy extends UserService{
 	UserService target;
 	public void test(){
 		//@Transactional
-        //事务管理器新建一个数据库连接conn
+        //事务管理器新建一个数据库连接conn;ThreadLocal<Map,conn>
 		//conn.autocommit=false;//关闭自动提交
         //target.test();//执行数据库操作
         //没有出现异常则提交conn.commit();否则回滚conn.rollBack();
@@ -205,7 +205,7 @@ public void test(){
 
 如果内部方法的事务传播类型为不支持事务的传播类型，那么，内部方法的事务在Spring中会失效。
 
-```
+```java
 @Transaction(propagation = Propagation.NEVER)
 //如果有一个事务已经存在则会抛出异常
 ```
@@ -216,4 +216,72 @@ public void test(){
 
 7、**没有被Spring管理**
 
-## @Configuration的作用
+## Spring为什么要使用三级缓存来解决循环依赖？
+
+Bean的创建生命周期
+
+1. 创建普通对象；
+2. 填充属性；
+3. 填充其他属性；
+4. 其他操作；
+5. 初始化后；
+6. 放入单例池。
+
+三级缓存，就是三个Map集合。
+
+**第一级缓存**：单例池 singletonObjects，它用来存放经过完整Bean生命周期过程的单例Bean对象；
+
+**第二级缓存**：earlySingletonObjects，它用来保存哪些没有经过完整Bean生命周期的单例Bean对象，用来保证不完整的bean也是单例；
+
+**第三级缓存**：singletonFactories，它保存的就是一个lambda表达式，它主要的作用就是bean出现循环依赖后，某一个bean到底会不会进行AOP操作。
+
+::: info 循环依赖为什么用三级缓存
+
+AService和BService相互依赖。
+
+**AService 创建生命周期**
+
+- 推断构造函数，实例化得到普通对象 —> singletonFactories(lambda(beanName,普通对象，beanDefinition))；
+- 依赖注入，为bService属性赋值—>去单例池SingletonObjects中找—>没找到 —> 创建BService的Bean对象；
+- 填充其他属性；
+- 初始化前操作，`@PostConstruct`；
+- 初始化，实现`InitialozingBean`接口，`afterPropertiesSet()`方法；
+- 初始化后，AOP操作，判断是否需要；
+- **将二级缓存earlySingletonObjects中的代理对象/普通对象取出来**；
+
+- 存入单例池中；
+
+**BService 创建生命周期**
+
+- 推断构造函数，实例化得到普通对象；
+- 依赖注入，为aService属性赋值 —> 去singletonObjects中找 —> 没找到 —> creatingSet，判断是否循环依赖 —> 二级缓存earlySingletonObjects中找 —> 没找到 —> singletonFactories --> 代理对象/普通对象 —> 存入二级缓存earlySingletonObjects；(出现了循环依赖才会提前AOP)
+- 初始化前操作，`@PostConstruct`；
+- 初始化，实现`InitialozingBean`接口，`afterPropertiesSet()`方法；
+- 初始化后，AOP操作，判断是否需要；
+- **将二级缓存earlySingletonObjects中的代理对象/普通对象取出来**；
+- 存入单例池中；
+
+对于循环依赖的对象创建，可以先创建A放入二级缓存，然后创建B对象并将A对象进行依赖注入，初始化之后放入一级缓存，此时A对象也能依赖注入B了。
+
+**二级缓存就能解决普通对象的循环依赖问题，那三级缓存的作用？**
+
+比如，可能AService会进行AOP操作，会创建AServiceProxy代理对象（**正常情况是在属性注入之后进行AOP**），然后将代理对象放入单例池中，但是BService进行属性赋值，依赖注入的时候是把AService的普通对象进行赋值，同时存在代理对象和普通对象违背了规则。
+
+解决办法就是在AService创建普通对象之后存入一个Lamda表达式到三级缓存中。
+
+- 创建AService普通对象；
+
+- 放入Lambda表达式到三级缓存中；
+- 尝试注入BService发现没有；
+- 创建BService普通对象，尝试注入AService属性；
+- 发现一二级缓存都没有；
+- 执行三级缓存中的Lambda表达式返回AService普通对象或者代理对象；
+- 将返回的对象放入二级缓存中，称为早期Bean对象；
+- 将二级缓存中的AService对象或者AService代理对象注入到BService中；
+- BService完成创建周期放入一级缓存；
+- AService普通对象注入一级缓存中的BService完整对象；
+- 根据是否需要AOP决定最后放入单例池中的对象是普通对象还是代理对象。
+
+![image-20230619212929209](/markdown/image-20230619212929209.png)
+
+:::

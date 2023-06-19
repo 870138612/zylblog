@@ -36,12 +36,8 @@ export default hopeTheme({
   ],
   blog: {
     sidebarDisplay:"mobile",
-    description: "Java菜鸟",
     intro: "/intro.html",
   },
-
-
-
 
   plugins: {
     blog: true,
