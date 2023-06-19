@@ -74,9 +74,9 @@
 <p><strong>字符串常量池</strong> 是 JVM 为了提升性能和减少内存消耗针对字符串（String 类）专门开辟的一块区域，主要目的是为了避免字符串的重复创建。</p>
 <p>HotSpot 虚拟机中字符串常量池的实现是 <code v-pre>stringTable.cpp</code> ，<code v-pre>StringTable</code> 可以简单理解为一个固定大小的<code v-pre>HashTable</code> ，容量为 <code v-pre>StringTableSize</code>（可以通过 <code v-pre>-XX:StringTableSize</code> 参数来设置），保存的是字符串（key）和 字符串对象的引用（value）的映射关系，字符串对象的引用指向堆中的字符串对象。</p>
 <h2 id="jvm中对象的创建" tabindex="-1"><a class="header-anchor" href="#jvm中对象的创建" aria-hidden="true">#</a> JVM中对象的创建</h2>
-<h3 id="_1-类加载检查" tabindex="-1"><a class="header-anchor" href="#_1-类加载检查" aria-hidden="true">#</a> 1：类加载检查</h3>
+<h3 id="_1-类加载检查" tabindex="-1"><a class="header-anchor" href="#_1-类加载检查" aria-hidden="true">#</a> 1. 类加载检查</h3>
 <p>虚拟机遇到new指令时，先会检查指令的参数能否在<strong>常量池</strong>中找到这个参数对应类的符号引用，并检查这个符号引用代表的类是否已经加载，解析和初始化。如果没有需要先执行响应的类加载过程。</p>
-<h3 id="_2-分配内存" tabindex="-1"><a class="header-anchor" href="#_2-分配内存" aria-hidden="true">#</a> 2：分配内存</h3>
+<h3 id="_2-分配内存" tabindex="-1"><a class="header-anchor" href="#_2-分配内存" aria-hidden="true">#</a> 2. 分配内存</h3>
 <p>类加载完成之后开始分配内存，所需要的内存大小在类加载完成之后就能确定。内存的分配方式有“<strong>指针碰撞</strong>”和“<strong>空闲列表</strong>”两种。</p>
 <p><strong>指针碰撞</strong></p>
 <ul>
@@ -95,12 +95,12 @@
 <li>CAS+重试：虚拟机采用CAS和失败重试的方式保证更新操作的原子性。</li>
 <li>：每一个线程都有一个TLAB（线程本地分配缓冲区），在线程中对象分配内存的时候先会在TLAB中分配，当对象大于TLAB剩余空内存或者TLAB内存耗尽的时候，才会使用CAS+重试的分配方式。</li>
 </ul>
-<h3 id="_3-初始化零值" tabindex="-1"><a class="header-anchor" href="#_3-初始化零值" aria-hidden="true">#</a> 3：初始化零值</h3>
+<h3 id="_3-初始化零值" tabindex="-1"><a class="header-anchor" href="#_3-初始化零值" aria-hidden="true">#</a> 3. 初始化零值</h3>
 <p>内存分配完成后，虚拟机需要将分配到的内存空间都初始化为零值（<strong>不包括对象头</strong>），这一步操作保证了对象的实例字段在 Java 代码中可以不赋初始值就直接使用，程序能访问到这些字段的数据类型所对应的零值。</p>
-<h3 id="_4-设置对象头" tabindex="-1"><a class="header-anchor" href="#_4-设置对象头" aria-hidden="true">#</a> 4：设置对象头</h3>
+<h3 id="_4-设置对象头" tabindex="-1"><a class="header-anchor" href="#_4-设置对象头" aria-hidden="true">#</a> 4. 设置对象头</h3>
 <p>初始化零值完成之后，<strong>虚拟机要对对象进行必要的设置</strong>，例如这个对象是哪个类的实例、如何才能找到类的元数据信息、对象的哈希码、对象的 GC 分代年龄等信息。 <strong>这些信息存放在对象头中。</strong> 另外，根据虚拟机当前运行状态的不同，如是否启用偏向锁等，对象头会有不同的设置方式。</p>
 <p><img src="/markdown/19150227.jpg" alt="19150227"></p>
-<h3 id="_5-执行-init-方法" tabindex="-1"><a class="header-anchor" href="#_5-执行-init-方法" aria-hidden="true">#</a> 5：执行 init 方法</h3>
+<h3 id="_5-执行-init-方法" tabindex="-1"><a class="header-anchor" href="#_5-执行-init-方法" aria-hidden="true">#</a> 5. 执行 init 方法</h3>
 <p>执行 new 指令之后会接着执行 <code v-pre>&lt;init&gt;</code> 方法，把对象按照程序员的意愿进行初始化，这样一个真正可用的对象才算完全产生出来。</p>
 <h2 id="对象的内存布局" tabindex="-1"><a class="header-anchor" href="#对象的内存布局" aria-hidden="true">#</a> 对象的内存布局</h2>
 <p>在 Hotspot 虚拟机中，对象在内存中的布局可以分为 3 块区域：<strong>对象头</strong>、<strong>实例数据</strong>和<strong>对齐填充</strong>。</p>

@@ -9,36 +9,211 @@ tags:
   - SpringBoot
   - 八股
 ---
+
+## 什么是单例池？作用是什么？
+
+**单例Bean**通过多次`getBean`方法都会获得同一个实例。
+
+```java
+@ComponentScan("com.zyl")
+public class AppConfig {
+}
+
+@Component
+public class UserService {
+}
+
+public class Test {
+    public static void main(String[] args) {
+        AnnotationConfigApplicationContext applicationContext =
+                new AnnotationConfigApplicationContext(AppConfig.class);
+        Object userService1 = applicationContext.getBean("userService");
+        Object userService2 = applicationContext.getBean("userService");
+        System.out.println(userService1);
+        System.out.println(userService2);
+    }
+}
+```
+
+创建容器之后获取userService得到的是同一个实例。而这个实例就是放入单例池中，单例池可以看成是一个Map，保证Bean是单例。
+
+## Bean对象和普通对象之间的区别是什么
+
+Bean对象本身就是普通对象，不过可能会经过初始化前和初始化后的增强。
+
+## @PostConstruct是如何工作的
+
+创建Bean的过程：UserService类-->无参构造方法-->对象-->依赖注入-->初始化前（@PostConstruct）-->初始化（InitializingBean）-->初始化后（AOP）-->放入Map单例池-->Bean对象。
+
+![image-20230619153337460](/markdown/image-20230619153337460.png)
+
+```java
+@Component
+public class UserService {
+    //想加入一个特定的User对象到UserService
+    private User admin;
+
+    @PostConstruct
+    public void a(){
+        //mysql ->管理员的信息->User对象->admin
+    }
+}
+```
+
+通过`@PostConstruct`，让Bean在初始化前进行增强。对应于创建Bean过程中的**初始化前（调用@PostConstruct修饰的方法）**，再通过反射去调用方法。
+
+```java
+for (Method method : userService1.getClass().getDeclaredMethods()) {
+    if (method.isAnnotationPresent(PostConstruct.class)) {
+        method.invoke(userService1, null);
+    }
+}
+```
+
+## Bean的初始化是如何工作的？
+
+初始化过程其实就是对应`afterPropertiesSet()`方法，通过判断
+
+```
+boolean isInitializingBean = (bean instanceof InitializingBean);
+```
+
+bean实现了`InitializingBean`则调用`afterPropertiesSet()`。
+
+```java
+@Component
+public class UserService implements InitializingBean {
+    //想加入一个特定的User对象到UserService
+    private User admin;
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        //mysql ->管理员的信息->User对象->admin
+    }
+}
+```
+
+## Bean初始化和实例化的区别是什么？
+
+Bean的实例化就是步骤**UserService类-->无参构造方法-->对象**，而初始化就是调用`afterPropertiesSet()`（类需要实现`InitializingBean`接口）。
+
+## 初始化后是什么？
+
+初始化后做的事情就是执行AOP，生成代理对象，并将代理对象放入单例池中。
+
+## 构造方法推断
+
+Spring发现有多个构造方法的时候，**如果有无参构造方法则调用无参构造，如果没有无参构造，并且有参构造不止一个则会报错**。（例如不存在无参构造，但是存在多个不同参数的有参构造方法）
+
+可以使用`@Autowired`注解默认使用的构造方法。
+
+## 先ByType再ByName
+
+在单例池Map中会存在多个类型相同的Bean。
+
+```java
+@Configuration
+public class BeanConfig {
+    @Bean
+    UserService userService1(){
+        return new UserService();
+    }
+    @Bean
+    UserService userService2(){
+        return new UserService();
+    }
+}
+```
+
+会产生两个UserService类型的Bean，但是名字不同。
+
+依赖注入时，如果执行有参构造方法，发现UserService类型的Bean只有一个则直接注入（ByType），发现有多个则根据名称注入（ByName）。
+
+```java
+@Autowired 
+public OrderService(UserService userService2){
+	this.userService = userService2;
+};//注入的是第二个名为“userService2”的Bean
+```
+
+`@Autowired`只能根据类型注入的，可以使用`@Qualifier`注解指定名称。
+
+## SpringAOP怎么工作的？
+
+在初始化后（AOP）之后生成的代理对象是没有做依赖注入的。
+
+如果需要代理的类没有实现接口则会通过CGLIB生成代理对象。
+
+UserServiceProxy对象-->UserService对象-->UserServiceProxy.target=普通对象-->放入Map单例池。
+
+也就是生成一个父类对象，将普通对象赋值给父类对象的属性`target`，再对方法进行前后增强，实质就是换了一个对象调用普通对象的普通对象。
+
+```
+class UserServiceProxy extends UserService{
+	UserService target;
+	public void test(){
+		//@Before 切面
+		//target.test();//相当于执行普通对象的test()方法	
+	}
+}
+```
+
+## Spring事务底层如何工作？
+
+事务本质也是通过代理对象调用普通对象的方法，并在前后做增强。
+
+```java
+class UserServiceProxy extends UserService{
+	UserService target;
+	public void test(){
+		//@Transactional
+        //事务管理器新建一个数据库连接conn
+		//conn.autocommit=false;//关闭自动提交
+        //target.test();//执行数据库操作
+        //没有出现异常则提交conn.commit();否则回滚conn.rollBack();
+	}
+}
+```
+
+## Spring事务失效的原因
+
+1、**方法异常没有抛出**
+
+```java
 @Transactionl
 public void test(){
-try {
-System.out.println("Spring事务"); //正常代码执行
-int a=1/0;  //异常代码  被捕获
-}catch (Exception e){
-System.out.println("出现异常");//这里并没有抛出异常，而是自己处理了 因此Spring无法感知
+	try {
+		System.out.println("Spring事务"); //正常代码执行
+		int a=1/0;  //异常代码  被捕获
+	}catch (Exception e){
+		System.out.println("出现异常");//这里并没有抛出异常，而是自己处理了 因此Spring无法感知
+	}
 }
-}
-一些概念：
+```
 
-- 函数依赖：若在一张表中，在属性X（或属性组）的值确定的情况下，必定能确定属性Y的值，那么可以说Y函数依赖于X，写作X->Y。
-- 部分函数依赖：如果X->Y，并且存在X的一个真子集X0，是的X0->Y，则Y对X部分函数依赖。比如学生基本信息表 R 中（学号，身份证号，姓名）**当然学号属性取值是唯一的**，在 R 关系中，（学号，身份证号）->（姓名），（学号）->（姓名），（身份证号）->（姓名）；所以姓名部分函数依赖与（学号，身份证号），因为确定了学号或者是身份证就能确定姓名。
-- 完全函数依赖：在一个关系中，若某个非主属性数据项依赖于全部关键字称为完全函数依赖。比如学生基本信息表 R（学号，班级，姓名）**假设不同的班级学号有相同的**，班级内学号不能相同，在 R 关系中，（学号，班级）->（姓名），但是（学号）->(姓名)不成立，（班级）->(姓名)不成立，所以姓名完全函数依赖与（学号，班级）；
-- 传递函数依赖：在关系模式 R(U)中，设 X，Y，Z 是 U 的不同的属性子集，如果 X 确定 Y、Y 确定 Z，且有 X 不包含 Y，Y 不确定 X，（X∪Y）∩Z=空集合，则称 Z 传递函数依赖于 X。传递函数依赖会导致数据冗余和异常。比如在关系 R(学号 , 姓名, 系名，系主任)中，学号 → 系名，系名 → 系主任，所以存在非主属性**系主任**对于**学号**的传递函数依赖。
+异常不能被Spring感知就不会执行`rollBack`。
 
-### 3NF
+2、**使用`@Transactionl`修饰的方法不是public方法**
 
-3NF在2NF的基础上，**消除了非主属性对于码的传递函数依赖**。符合3NF要求的数据库设计，基本上解决了数据冗余过大，插入异常，修改异常，删除异常的问题。比如在关系 R(学号 , 姓名, 系名，系主任)中，学号 → 系名，系名 → 系主任，所以存在非主属性系主任对于学号的传递函数依赖，所以该表的设计，不符合 3NF 的要求。
+通过实现类或者是父类生成代理对象，代理对象不能调用子类private方法。
 
-## drop、delete 与 truncate 区别？
+3、**自身调用**
 
-- `drop`(丢弃数据): `drop table 表名` ，直接将表都删除掉，在删除表的时候使用。
-- `truncate` (清空数据) : `truncate table 表名` ，只删除表中的数据，再插入数据的时候自增长 id 又从 1 开始，在清空表中数据的时候使用。
-- `delete`（删除数据） : `delete from 表名 where 列名=值`，删除某一行的数据，如果不加 `where` 子句和`truncate table 表名`作用类似。
+事务是通过代理对象调用才能生效，如果在一个类里面调用本类的方法就相当于`this`调用，事务不会生效。 
 
-## DML 语句和 DDL 语句区别
+4、**propagation事务传播机制设置错误**
 
-- DML 是数据库操作语言（Data Manipulation Language）的缩写，是指对数据库中表记录的操作，主要包括表记录的插入、更新、删除和查询，是开发人员日常使用最频繁的操作。
+如果内部方法的事务传播类型为不支持事务的传播类型，那么，内部方法的事务在Spring中会失效。
 
-- DDL （Data Definition Language）是数据定义语言的缩写，简单来说，就是对数据库内部的对象进行创建、删除、修改的操作语言。它和 DML 语言的最大区别是 DML 只是对表内部数据的操作，而不涉及到表的定义、结构的修改，更不会涉及到其他对象。DDL 语句更多的被数据库管理员（DBA）所使用，一般的开发人员很少使用。
+```
+@Transaction(propagation = Propagation.NEVER)
+//如果有一个事务已经存在则会抛出异常
+```
 
+5、**数据库不支持事务**
 
+6、**异常类型错误**
+
+7、**没有被Spring管理**
+
+## @Configuration的作用
