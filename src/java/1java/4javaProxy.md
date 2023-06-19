@@ -174,8 +174,8 @@ public class JdkProxyFactory{
 
 ```java
 public static void main(String[] args) {
-        TInteger proxy = (TInteger) F.getProxy(new T());
-        proxy.send("abc");
+    TInteger proxy = (TInteger) F.getProxy(new T());
+    proxy.send("abc");
 }
 ```
 
