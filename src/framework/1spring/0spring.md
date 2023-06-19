@@ -229,7 +229,7 @@ Bean的创建生命周期
 
 三级缓存，就是三个Map集合。
 
-**第一级缓存**：单例池 singletonObjects，它用来存放经过完整Bean生命周期过程的单例Bean对象；
+**第一级缓存**：singletonObjects，它用来存放经过完整Bean生命周期过程的单例Bean对象；
 
 **第二级缓存**：earlySingletonObjects，它用来保存哪些没有经过完整Bean生命周期的单例Bean对象，用来保证不完整的bean也是单例；
 
@@ -239,33 +239,13 @@ Bean的创建生命周期
 
 AService和BService相互依赖。
 
-**AService 创建生命周期**
+如果采用以下方法：
 
-- 推断构造函数，实例化得到普通对象 —> singletonFactories(lambda(beanName,普通对象，beanDefinition))；
-- 依赖注入，为bService属性赋值—>去单例池SingletonObjects中找—>没找到 —> 创建BService的Bean对象；
-- 填充其他属性；
-- 初始化前操作，`@PostConstruct`；
-- 初始化，实现`InitialozingBean`接口，`afterPropertiesSet()`方法；
-- 初始化后，AOP操作，判断是否需要；
-- **将二级缓存earlySingletonObjects中的代理对象/普通对象取出来**；
-
-- 存入单例池中；
-
-**BService 创建生命周期**
-
-- 推断构造函数，实例化得到普通对象；
-- 依赖注入，为aService属性赋值 —> 去singletonObjects中找 —> 没找到 —> creatingSet，判断是否循环依赖 —> 二级缓存earlySingletonObjects中找 —> 没找到 —> singletonFactories --> 代理对象/普通对象 —> 存入二级缓存earlySingletonObjects；(出现了循环依赖才会提前AOP)
-- 初始化前操作，`@PostConstruct`；
-- 初始化，实现`InitialozingBean`接口，`afterPropertiesSet()`方法；
-- 初始化后，AOP操作，判断是否需要；
-- **将二级缓存earlySingletonObjects中的代理对象/普通对象取出来**；
-- 存入单例池中；
-
-对于循环依赖的对象创建，可以先创建A放入二级缓存，然后创建B对象并将A对象进行依赖注入，初始化之后放入一级缓存，此时A对象也能依赖注入B了。
+创建AService普通对象之后放入二级缓存，注入BService时发现没有，转而去创建BService对象，BService对象需要依赖注入AService对象，因此从二级缓存中拿去AService进行依赖注入，完成创建周期后将BService放入一级缓存中，返回AService的创建过程就能进行BService的依赖注入，之后AService也完成创建周期。
 
 **二级缓存就能解决普通对象的循环依赖问题，那三级缓存的作用？**
 
-比如，可能AService会进行AOP操作，会创建AServiceProxy代理对象（**正常情况是在属性注入之后进行AOP**），然后将代理对象放入单例池中，但是BService进行属性赋值，依赖注入的时候是把AService的普通对象进行赋值，同时存在代理对象和普通对象违背了规则。
+比如，可能AService会进行AOP操作，会创建AServiceProxy代理对象（**正常情况是在属性注入之后进行AOP**），然后将代理对象放入单例池中，但是BService进行属性赋值，依赖注入的时候是把二级缓存中的AService的普通对象进行赋值，同时存在普通对象和代理对象违背了单例池规则。
 
 解决办法就是在AService创建普通对象之后存入一个Lamda表达式到三级缓存中。
 
