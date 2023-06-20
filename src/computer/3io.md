@@ -3,7 +3,7 @@ title: I/O
 icon: io
 category:
   - 计算机基础
-tags:
+tag:
   - IO
   - 八股
 ---

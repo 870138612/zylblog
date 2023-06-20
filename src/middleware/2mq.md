@@ -3,7 +3,7 @@ title: RabbitMQ
 icon: mq
 category:
   - 中间件云原生
-tags:
+tag:
   - 消息队列
   - RabbitMQ
   - 八股

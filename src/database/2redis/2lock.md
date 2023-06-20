@@ -3,7 +3,7 @@ title: 分布式锁
 icon: page
 category:
   - 数据库
-tags:
+tag:
   - Redis
   - 八股
 ---

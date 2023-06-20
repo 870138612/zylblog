@@ -3,7 +3,7 @@ title: 数据库基础
 icon: page
 category:
   - 数据库
-tags:
+tag:
   - MySQL
   - 八股
 ---

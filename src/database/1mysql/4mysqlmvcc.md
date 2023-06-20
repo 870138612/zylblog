@@ -3,7 +3,7 @@ title: 事务隔离级别和MVCC
 icon: page
 category:
   - 数据库
-tags:
+tag:
   - MySQL
   - 八股
 ---

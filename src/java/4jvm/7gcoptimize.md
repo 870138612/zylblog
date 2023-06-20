@@ -3,7 +3,7 @@ title: GC调优
 icon: page
 category:
   - Java
-tags:
+tag:
   - GC调优
   - 八股
 ---

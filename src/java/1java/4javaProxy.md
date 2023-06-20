@@ -3,7 +3,7 @@ title: 代理模式
 icon: page
 category:
   - Java
-tags:
+tag:
   - 代理模式
   - 八股
 ---

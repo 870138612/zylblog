@@ -3,7 +3,7 @@ title: 单例模式
 icon: page
 category:
   - Java
-tags:
+tag:
   - 单例模式
   - 八股
 ---

@@ -3,7 +3,7 @@ title: 类文件结构
 icon: page
 category:
   - Java
-tags:
+tag:
   - 类文件结构
   - 八股
 ---

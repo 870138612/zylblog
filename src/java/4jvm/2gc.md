@@ -3,7 +3,7 @@ title: JVM垃圾回收
 icon: page
 category:
   - Java
-tags:
+tag:
   - JVM垃圾回收
   - 八股
 ---

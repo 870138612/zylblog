@@ -3,7 +3,7 @@ title: JVM内存结构
 icon: page
 category:
   - Java
-tags:
+tag:
   - JVM内存结构
   - 八股
 ---

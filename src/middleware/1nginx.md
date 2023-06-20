@@ -3,7 +3,7 @@ title: Nginx
 icon: nginx
 category:
   - 中间件
-tags:
+tag:
   - Nginx
   - 八股
 ---

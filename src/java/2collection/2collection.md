@@ -3,7 +3,7 @@ title: Java集合二
 icon: page
 category:
   - Java
-tags:
+tag:
   - Java集合
   - 八股
 ---

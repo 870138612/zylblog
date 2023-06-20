@@ -3,7 +3,7 @@ title: Java基础二
 icon: page
 category:
   - Java
-tags:
+tag:
   - Java基础
   - 八股 
 ---

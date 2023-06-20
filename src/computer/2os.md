@@ -3,7 +3,7 @@ title: 操作系统
 icon: os
 category:
   - 计算机基础
-tags:
+tag:
   - 操作系统
   - 八股
 ---
