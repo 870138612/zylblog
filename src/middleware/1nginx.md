@@ -2,7 +2,7 @@
 title: Nginx
 icon: nginx
 category:
-  - 中间件
+  - 中间件云原生
 tag:
   - Nginx
   - 八股
