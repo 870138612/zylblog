@@ -264,4 +264,24 @@ AService和BService相互依赖。
 
 ![image-20230619212929209](/markdown/image-20230619212929209.png)
 
+通过对注入属性添加`@Lazy`实现懒惰式加载，只有在调用方法用到属性的时候才会进行初始化，此时本类已经完成创建周期，因此不会出现循环依赖。
+
 :::
+
+## SpringMVC处理请求的底层原理
+
+请求会被`DispatcherServlet`拦截，`DispatcherServlet`结构如图。
+
+![image-20230620221443613](/markdown/image-20230620221443613.png)
+
+**SpringMVC中的一次请求流程：**
+
+1. 客户端（浏览器）发送请求， `DispatcherServlet`拦截请求。
+2. `DispatcherServlet` 根据请求信息调用 `HandlerMapping` 。`HandlerMapping` 根据 uri 去匹配查找能处理的 `Handler`（也就是我们平常说的 `Controller` 控制器） ，并会将请求涉及到的拦截器和 `Handler` 一起封装。
+3. `DispatcherServlet` 调用 `HandlerAdapter`适配器执行 `Handler` 。
+4. `Handler` 完成对用户请求的处理后，会返回一个 `ModelAndView` 对象给`DispatcherServlet`，`ModelAndView`包含了数据模型以及相应的视图的信息。`Model` 是返回的数据对象，`View` 是个逻辑上的 `View`。
+5. `ViewResolver` 会根据逻辑 `View` 查找实际的 `View`。
+6. `DispaterServlet` 把返回的 `Model` 传给 `View`（视图渲染）。
+7. 把 `View` 返回给请求者（浏览器）。
+
+![image-20230620223832571](/markdown/image-20230620223832571.png)
