@@ -1,7 +1,7 @@
 ---
 title: Docker
 icon: docker
-star: true
+
 category:
   - 中间件云原生
 tags:

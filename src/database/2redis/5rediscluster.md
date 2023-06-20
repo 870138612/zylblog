@@ -1,7 +1,7 @@
 ---
 title: Redis集群
 icon: page
-star: true
+
 category:
   - 数据库
 tags:

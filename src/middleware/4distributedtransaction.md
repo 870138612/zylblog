@@ -1,7 +1,7 @@
 ---
 title: 分布式事务
 icon: fenbushi
-star: true
+
 category:
   - 中间件云原生
 tags:

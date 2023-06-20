@@ -1,7 +1,7 @@
 ---
 title: Java基础一
 icon: page
-star: true
+
 category:
   - Java
 tags:

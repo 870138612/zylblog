@@ -1,7 +1,7 @@
 ---
 title: GC调优
 icon: page
-star: true
+
 category:
   - Java
 tags:

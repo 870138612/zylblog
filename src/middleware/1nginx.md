@@ -1,7 +1,7 @@
 ---
 title: Nginx
 icon: nginx
-star: true
+
 category:
   - 中间件
 tags:

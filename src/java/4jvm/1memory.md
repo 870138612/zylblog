@@ -1,7 +1,7 @@
 ---
 title: JVM内存结构
 icon: page
-star: true
+
 category:
   - Java
 tags:

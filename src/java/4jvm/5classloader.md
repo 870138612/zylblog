@@ -1,7 +1,7 @@
 ---
 title: 类加载器
 icon: page
-star: true
+
 category:
   - Java
 tags:

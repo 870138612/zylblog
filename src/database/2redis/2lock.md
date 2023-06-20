@@ -1,7 +1,7 @@
 ---
 title: 分布式锁
 icon: page
-star: true
+
 category:
   - 数据库
 tags:

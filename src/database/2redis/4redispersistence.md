@@ -1,7 +1,7 @@
 ---
 title: Redis持久化
 icon: page
-star: true
+
 category:
   - 数据库
 tags:

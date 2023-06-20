@@ -1,7 +1,7 @@
 ---
 title: 类文件结构
 icon: page
-star: true
+
 category:
   - Java
 tags:

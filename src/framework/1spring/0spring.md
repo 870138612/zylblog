@@ -1,7 +1,7 @@
 ---
 title: Spring面试题一
 icon: page
-star: true
+
 category:
   - 框架
 tags:

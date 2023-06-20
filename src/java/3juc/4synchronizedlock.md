@@ -1,7 +1,7 @@
 ---
 title: synchronized锁优化
 icon: page
-star: true
+
 category:
   - Java
 tags:

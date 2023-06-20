@@ -1,7 +1,7 @@
 ---
 title: Redis基础一
 icon: page
-star: true
+
 category:
   - 数据库
 tags:

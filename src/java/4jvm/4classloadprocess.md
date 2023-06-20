@@ -1,7 +1,7 @@
 ---
 title: 类加载过程
 icon: page
-star: true
+
 category:
   - Java
 tags:
