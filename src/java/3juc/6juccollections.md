@@ -1,6 +1,7 @@
 ---
 title: JUC常见并发容器
 icon: page
+star: true
 category:
   - Java
 tags:

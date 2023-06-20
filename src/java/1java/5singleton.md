@@ -1,6 +1,7 @@
 ---
 title: 单例模式
 icon: page
+star: true
 category:
   - Java
 tags:

@@ -1,6 +1,7 @@
 ---
 title: 操作系统
 icon: os
+star: true
 category:
   - 计算机基础
 tags:

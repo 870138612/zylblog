@@ -1,6 +1,7 @@
 ---
 title: JVM重要参数
 icon: page
+star: true
 category:
   - Java
 tags:

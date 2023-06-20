@@ -1,6 +1,7 @@
 ---
 title: I/O
 icon: io
+star: true
 category:
   - 计算机基础
 tags:

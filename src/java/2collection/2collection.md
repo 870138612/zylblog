@@ -1,6 +1,7 @@
 ---
 title: Java集合二
 icon: page
+star: true
 category:
   - Java
 tags:

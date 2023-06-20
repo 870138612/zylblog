@@ -1,6 +1,7 @@
 ---
 title: Java反射
 icon: page
+star: true
 category:
   - Java
 tags:

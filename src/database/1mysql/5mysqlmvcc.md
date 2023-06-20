@@ -1,6 +1,7 @@
 ---
 title: MVCC
 icon: page
+star: true
 category:
   - 数据库
 tags:

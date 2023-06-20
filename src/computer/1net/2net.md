@@ -1,6 +1,7 @@
 ---
 title: 计算机网络二
 icon: page
+star: true
 category:
   - 计算机基础
 tags:

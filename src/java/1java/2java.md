@@ -1,6 +1,7 @@
 ---
 title: Java基础二
 icon: page
+star: true
 category:
   - Java
 tags:
