@@ -1,7 +1,6 @@
 ---
 title: Nginx
 icon: nginx
-
 category:
   - 中间件
 tags:

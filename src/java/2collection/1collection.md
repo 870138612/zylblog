@@ -1,7 +1,6 @@
 ---
 title: Java集合一
 icon: page
-
 category:
   - Java
 tags:

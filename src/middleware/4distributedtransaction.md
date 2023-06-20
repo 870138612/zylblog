@@ -1,7 +1,6 @@
 ---
 title: 分布式事务
 icon: fenbushi
-
 category:
   - 中间件云原生
 tags:

@@ -1,7 +1,6 @@
 ---
 title: 代理模式
 icon: page
-
 category:
   - Java
 tags:

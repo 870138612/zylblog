@@ -1,7 +1,6 @@
 ---
 title: MySQL索引
 icon: page
-
 category:
   - 数据库
 tags:

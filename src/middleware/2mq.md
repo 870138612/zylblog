@@ -1,7 +1,6 @@
 ---
 title: RabbitMQ
 icon: mq
-
 category:
   - 中间件云原生
 tags:
