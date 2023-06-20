@@ -3,7 +3,7 @@ title: Spring面试题一
 icon: page
 category:
   - 框架
-tag:
+tags:
   - Spring
   - SpringWeb  
   - SpringBoot
@@ -285,3 +285,11 @@ AService和BService相互依赖。
 7. 把 `View` 返回给请求者（浏览器）。
 
 ![image-20230620223832571](/markdown/image-20230620223832571.png)
+
+## SpringMVC的核心组件有哪些？
+
+- `DispatcherServlet`：**核心的中央处理器**，负责接收请求、分发、并给予客户端响应。
+- `HandlerMapping`：**处理器映射器**，根据uri去匹配查找能处理的`Handler`，并会将请求涉及到的拦截器和`Handler`一起封装，`Handler`其实就是`Controller`。
+- `HandlerAdapter`：**处理器适配器**，根据`HandlerMapping`找到的`Handler`，适配执行对应的`Handler`。
+- `Handler`：**请求处理器**，处理实际请求的处理器。
+- `ViewResolver`：**视图解析器**，根据`Handler`返回的逻辑视图/视图，解析并渲染真正的视图，并传递给`DispatcherServlet`响应给客户端。
