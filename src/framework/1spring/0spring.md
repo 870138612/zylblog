@@ -136,7 +136,7 @@ public OrderService(UserService userService2){
 };//注入的是第二个名为“userService2”的Bean
 ```
 
-`@Autowired`只能根据类型注入的，可以使用`@Qualifier`注解指定名称。
+`@Autowired`只能根据类型注入的，可以使用`@Qualifier("userService1")`指定名称。
 
 ## SpringAOP怎么工作的？
 
