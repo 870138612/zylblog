@@ -8,4 +8,4 @@ article: false
 timeline: false
 ---
 
-- <HopeIcon icon="biji1"/> [关于项目](0aboutprojects.md)
+- <HopeIcon icon="biji1"/> [简历项目详解](0aboutprojects.md)

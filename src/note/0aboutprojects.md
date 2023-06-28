@@ -1,5 +1,5 @@
 ---
-title: 关于项目
+title: 简历项目详解
 icon: biji1
 star: 1
 category:
