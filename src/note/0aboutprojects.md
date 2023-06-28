@@ -1,6 +1,7 @@
 ---
 title: 关于项目
 icon: biji1
+star: true
 category:
   - 笔记
 tag:
@@ -36,13 +37,13 @@ springcloud，springboot，mybatis，redis，rabbitmq，sentinel，nginx, docker
 
 下面逐句进行分析。
 
-### 介绍下项目的技术选型
+## 介绍下项目的技术选型
 
 项目中使用到的技术栈为**springcloud**，**springboot**，**mybatis**，**redis**，**rabbitmq**，**sentinel**，**nginx**，**docker**，使用**springcloud（Nacos**作为注册中心和配置中心，简化多服务器的管理，并将项目拆分为多个微服务（模块），微服务之间使用**OpenFeign**调用，**mybatis**作为数据库框架，**redis**作为缓存，分布式锁，**rabbitmq**用来队列削峰，**sentinel**用来熔断降级限流，主要用在秒杀部分，**nginx**用来动静分离，**docker**容器化部署，**zipkin**用作链路追踪，分析请求到每个模块的运行耗时。
 
-### 商城页面由Nginx代理实现动静分离，请求负载均衡
+## 商城页面由Nginx代理实现动静分离，请求负载均衡
 
-#### Nginx反向代理在计算机网络的第几层？
+### Nginx反向代理在计算机网络的第几层？
 
 Nginx反向代理包含7层反向代理（应用层）和4层反向代理（传输层）两种。
 
@@ -93,17 +94,17 @@ stream {
 
 > 在本项目中，upstream使用的是七层代理的配置方法。
 
-#### Nginx的负载均衡算法有哪些？
+### Nginx的负载均衡算法有哪些？
 
 详见☀️[Nginx负载均衡](https://ylzhong.top/middleware/1nginx.html#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1)
 
 负载均衡策略有：轮训，最小连接，ip_hash，hash，权重，随机。
 
-#### Nginx动静分离
+### Nginx动静分离
 
 项目编译完成之后会产生一些不会发生变化的静态文件，放入到nginx的html目录下，通过nginx配置进行获取这些静态文件，后端tomcat服务器应该用来处理请求而不是返回这些静态数据。开启nginx缓冲（buffer）之后还能解决高并发下的连接积压问题（server端到nginx端的连接）。
 
-#### Nginx反向代理怎么配置的？反向代理跟正向代理的区别是什么？nginx可以配置正向代理吗？
+### Nginx反向代理怎么配置的？反向代理跟正向代理的区别是什么？nginx可以配置正向代理吗？
 
 详见☀️[正向代理和反向代理](https://ylzhong.top/middleware/1nginx.html#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86)
 
@@ -131,9 +132,9 @@ http {
 
 - Nginx可以配置正向代理，例如A能访问外网，BCD不能访问外网但是能访问A，则可以通过正向代理将请求代理转发给A进行外网访问。（类似VPN代理模式）
 
-### 拆分为网关，订单，秒杀等微服务
+## 拆分为网关，订单，秒杀等微服务
 
-#### 分微服务的原则是什么？
+### 分微服务的原则是什么？
 
 1. **单一职责原则**：每个微服务应该只负责一个特定的业务功能。例如网关微服务只用来做请求转发，秒杀微服务只做秒杀，即使因为高流量导致秒杀微服务宕机也不会影响到正常的订单微服务。
 
@@ -147,9 +148,9 @@ http {
 
 6. **技术多样性**：微服务架构允许使用不同的技术栈来实现不同的服务。
 
-### 实现单点登录
+## 实现单点登录
 
-#### 单点登录怎么实现的？
+### 单点登录怎么实现的？
 
 使用SpringSecurity框架实现。
 
@@ -230,11 +231,11 @@ UsernamePasswordAuthenticationToken authenticationToken =
 
 登录状态续期可以通过给Redis添加新的过期时间进行续期。
 
-#### 如果想要用户仅仅在一段时间内免登录怎么办？
+### 如果想要用户仅仅在一段时间内免登录怎么办？
 
 在`OncePerRequestFilter`过滤器添加Redis数据的时候加上过期时间，在通过key（`"LOGIN:"+userId`）获取Redis数据失败的时候则认为是用户的免登录时间已经过期。（用户数据在Redis中过期，则需要重新登录并将用户数据保存至Redis，返回新的Token）
 
-#### JWT（Token）如何生成的？
+### JWT（Token）如何生成的？
 
 详见☀️[15分钟学会JWT的使用](https://www.bilibili.com/video/BV1cK4y197EM/?spm_id_from=333.788.recommend_more_video.1&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
 
