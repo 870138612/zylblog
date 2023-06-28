@@ -18,6 +18,8 @@ tags:
 
 ![image-20230620221443613](/markdown/image-20230620221443613.png)
 
+<!-- more -->
+
 **SpringMVC中的一次请求流程：**
 
 1. 客户端（浏览器）发送请求， `DispatcherServlet`拦截请求。
