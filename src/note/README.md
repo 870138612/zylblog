@@ -7,3 +7,5 @@ pageInfo: false
 article: false
 timeline: false
 ---
+
+- <HopeIcon icon="biji1"/> [关于项目](aboutprojects.md)
