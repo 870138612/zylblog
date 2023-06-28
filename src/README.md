@@ -42,16 +42,16 @@ features:
     icon: framework
     details: Spring、Mybatis
     link: /framework/
+
+  - title: 笔记
+    icon: note
+    details: 日常记录
+    link: /note/
     
   - title: 面经
     icon: interview
     details: 秋招面经
     link: /interview/  
-  
-  - title: 笔记
-    icon: note
-    details: 日常记录
-    link: /note/
 
   - title: 拍拍
     icon: photo
