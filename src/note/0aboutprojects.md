@@ -1,17 +1,17 @@
 ---
-title: 简历项目详解
+title: 简历项目详解-谷粒商城
 icon: biji1
 star: 1
 category:
   - 笔记
 tag:
   - 简历
-  - 项目
+  - 谷粒商城项目
 ---
 
-八股经历大约两个月终于是啃（抄）完了，得上点硬菜了，以下针对我简历上的三个项目进行复习。
+八股经历大约两个月终于是啃（抄）完了，得上点硬菜了，以下针对我简历上的两个项目进行复习。
 
-包含[谷粒商城](https://www.bilibili.com/video/BV1np4y1C7Yf/?spm_id_from=333.337.search-card.all.click&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)，[黑马点评](https://www.bilibili.com/video/BV1cr4y1671t/?spm_id_from=333.337.search-card.all.click&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)，[三更博客](https://www.bilibili.com/video/BV1hq4y1F7zk/?spm_id_from=333.337.search-card.all.click&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)。（点击跳转B站网课）
+包含[谷粒商城](https://www.bilibili.com/video/BV1np4y1C7Yf/?spm_id_from=333.337.search-card.all.click&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)，[黑马点评](https://www.bilibili.com/video/BV1cr4y1671t/?spm_id_from=333.337.search-card.all.click&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)。（点击跳转B站网课）
 
 <!-- more -->
 
