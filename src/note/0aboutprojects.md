@@ -9,7 +9,7 @@ tag:
   - 项目
 ---
 
-八股经历大约两个月终于是啃（抄）完了，该换点活的东西看看了，以下针对简历上的三个项目进行复习。
+八股经历大约两个月终于是啃（抄）完了，得上点硬菜了，以下针对我简历上的三个项目进行复习。
 
 包含[谷粒商城](https://www.bilibili.com/video/BV1np4y1C7Yf/?spm_id_from=333.337.search-card.all.click&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)，[黑马点评](https://www.bilibili.com/video/BV1cr4y1671t/?spm_id_from=333.337.search-card.all.click&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)，[三更博客](https://www.bilibili.com/video/BV1hq4y1F7zk/?spm_id_from=333.337.search-card.all.click&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)。（点击跳转B站网课）
 
@@ -23,9 +23,9 @@ tag:
 
 ```
 恐龙商城                                                                  2022.3-2022.8
-springcloud，springboot，mybatis，redis，rabbitmq，sentinel，nginx, docker
-商城页面由Nginx代理实现动静分离，请求负载均衡，拆分为网关，订单，秒杀等微服务。
-实现单点登录，商品缓存快速查询，秒杀遵从服务单一职责，独立部署，定时上架，库存预热快速扣减，秒杀连接加密，恶意请求拦截，流量错峰，后端限流，队列削峰。
+springcloud，springsecurity，springboot，mybatis，redis，rabbitmq，sentinel，nginx, docker
+商城页面由Nginx代理实现动静分离，请求负载均衡，拆分为网关，订单，购物车，秒杀等微服务。
+实现单点登录，商品缓存快速查询，订单创建幂等性。秒杀遵从服务单一职责，独立部署，定时上架，库存预热快速扣减，秒杀连接加密，恶意请求拦截，流量错峰，后端限流，队列削峰。
 ● 网关微服务实现集群状态下的负载均衡，使得来自同一个主域名的不同请求分发到对应的微服务。
 ● Redis存储Token，完成多微服务下的用户登录验证和状态刷新。
 ● SpringSchedule定时任务上架秒杀商品。
@@ -35,13 +35,13 @@ springcloud，springboot，mybatis，redis，rabbitmq，sentinel，nginx, docker
 ● RabbitMq延时队列模拟订单过期，过期订单的解锁订单和解锁库存通过RabbitMq消息队列实现。
 ```
 
-> 为什么叫做恐龙商城？因为诚哥写的就是恐龙商城，哥们照抄的✨
+> 为什么叫做恐龙商城？因为诚哥写的就是恐龙商城，哥们照抄的✨。
 
 下面逐句进行分析。
 
 ## 介绍下项目的技术选型
 
-项目中使用到的技术栈为**springcloud**，**springboot**，**mybatis**，**redis**，**rabbitmq**，**sentinel**，**nginx**，**docker**，使用**springcloud（Nacos**作为注册中心和配置中心，简化多服务器的管理，并将项目拆分为多个微服务（模块），微服务之间使用**OpenFeign**调用，**mybatis**作为数据库框架，**redis**作为缓存，分布式锁，**rabbitmq**用来队列削峰，**sentinel**用来熔断降级限流，主要用在秒杀部分，**nginx**用来动静分离，**docker**容器化部署，**zipkin**用作链路追踪，分析请求到每个模块的运行耗时。
+项目中使用到的技术栈为**springcloud**，**springboot**，**mybatis**，**redis**，**rabbitmq**，**sentinel**，**nginx**，**docker**，使用**springcloud（Nacos**作为注册中心和配置中心，简化多服务器的管理，并将项目拆分为多个微服务（模块），微服务之间使用**openFeign**调用，**mybatis**作为数据库框架，**redis**作为缓存，分布式锁，**rabbitmq**用来队列削峰，**sentinel**用来熔断降级限流，主要用在秒杀部分，**nginx**用来动静分离，负载均衡，**docker**容器化部署，**zipkin**用作链路追踪，分析请求到每个模块的运行耗时，另外还用到了**jmeter**进行压力测试，**visualVM**查看堆内存情况。
 
 ## 商城页面由Nginx代理实现动静分离，请求负载均衡
 
@@ -212,9 +212,9 @@ UsernamePasswordAuthenticationToken authenticationToken =
 
 认证整体流程：
 
-1. 用户提交用户名、密码被`SecurityFilterChain`中的 `UsernamePasswordAuthenticationFilter`过滤器获取到， 封装为请求`Authentication`，通常情况下是`UsernamePasswordAuthenticationToken`这个实现类。
+1. 用户提交用户名、密码被`SecurityFilterChain`中的 `UsernamePasswordAuthenticationFilter`过滤器获取到， 封装为`Authentication`，通常情况下是`UsernamePasswordAuthenticationToken`这个实现类。
 
-2. 然后过滤器将`Authentication`提交至认证管理器（`AuthenticationManager`）进行认证，通过`UserDetailsService`实现类获取包含用户账号密码的`UserDetails`实现类 ，密码对比过`PasswordEncoder`实现类`BCryptPasswordEncoder`完成，认证成功则返回`Authentication`，否则返回空。
+2. 然后过滤器将`Authentication`提交至认证管理器（`AuthenticationManager<<interface>>`，实现类为`ProviderManager`，内部包含`DaoAuthenticationProvider`用来查找用户数据并认证）进行认证`authenticationManager.authenticate(authenticationToken)`，通过`UserDetailsService`实现类获取包含用户账号密码的`UserDetails`实现类 ，密码加密解密通过`PasswordEncoder`实现类`BCryptPasswordEncoder`完成，认证成功则返回`Authentication`，否则返回空。通过`.getPrincipal`从`Authentication`中获取用户数据（`UserDetails`的实现类）。
 3. 认证成功之后通过userId生成JWT返回给前端，封装用户部分数据保存到Redis中，Redis数据的key是`"LOGIN:"+userId`。
 
 4. `SecurityContextHolder` 安全上下文容器将第2步填充了信息的 `Authentication` ，通过 `SecurityContextHolder.getContext().setAuthentication(…)`方法，设置到其中。
@@ -223,15 +223,21 @@ UsernamePasswordAuthenticationToken authenticationToken =
 
 上述流程在分布式下有时候不能保持登录状态，可以将用户数据保存至Redis中。
 
-**分布式下的用户登录状态保持：**
+### 分布式下的用户登录状态保持
 
 第二次会话时开启新的线程就会导致不能获取之前的用户数据，不能保持登录状态。
 
+可将Redis作为分布式下用户数据的存储介质。
+
 在第二步认证成功之后通过userId生成JWT返回给前端，封装用户部分数据保存到Redis中，Redis数据的key是`"LOGIN:"+userId`。
 
-添加`OncePerRequestFilter`过滤器，每次请求都会被拦截。如果请求中没有携带token则表示是不需要登录的请求，直接放行，携带了token通过JWT工具类进行解密获得userId，如果解密为有效的userId，则可以作为key（`"LOGIN:"+userId`）去Redis中找到用户数据，并添加到`SecurityContextHolder`中，这样只要客户端保存正确的token就能保持登录状态。
+添加`OncePerRequestFilter`过滤器，需要重写`doFilterInternal`方法，每次请求都会被拦截。如果请求中没有携带token则表示是不需要登录的请求，直接放行，携带了token通过JWT工具类进行解密获得userId，如果解密为有效的userId，则可以作为key（`"LOGIN:"+userId`）去Redis中找到用户数据，并添加到`SecurityContextHolder`中，这样只要客户端保存正确的token就能保持登录状态。
 
 登录状态续期可以通过给Redis添加新的过期时间进行续期。
+
+### 项目中用到了哪些SpringSecurity过滤器？
+
+ `UsernamePasswordAuthenticationFilter`用来做用户认证，`OncePerRequestFilter`用来做请求拦截并根据情况做业务处理之后放行。
 
 ### 如果想要用户仅仅在一段时间内免登录怎么办？
 
@@ -290,7 +296,7 @@ JWT由三个部分构成，用`.`拼接：
 
 失效模式下如果有三个进程，1修改数据库，1删除缓存，3查询缓存没有，3读数据库，2修改数据库，2删除缓存，3更新缓存，此时缓存中为旧数据，同样存在脏数据问题。
 
-![image-20230628214754324](/markdown/image-20230628214754324.png)
+![image-20230628214754324](markdown/image-20230628214754324.png)
 
 两种方式都会存在脏数据问题，只能通过添加过期时间缓解，对于经常变化的数据就应该直接查询数据库，放入缓存的数据应该是变化度不高的数据。
 
@@ -316,6 +322,18 @@ JWT由三个部分构成，用`.`拼接：
 ```
 
 常规数据使用`SpringCache`可以满足大部分要求。
+
+## 订单创建幂等性
+
+### 订单创建的幂等性如何实现？
+
+当用户点击多次提交订单的时候应该保证只会产生一个唯一的订单，也就是接口的幂等性。
+
+实现方式为从购物车页面点击确认订单的时候会在后端生成一个**防重令牌**，令牌的Key和`memberId`有关，值为随机生成的UUID，并将令牌放入Redis中，返回令牌到前端。
+
+此时前端提交订单的时候就会将令牌进行提交，后端从数据库中获取对应的令牌，如果比对成功则创建订单并将令牌删除，否则不会创建订单。这样就保证了在确认页面只有第一次点击订单能创建成功。
+
+![image-20230630165509583](/markdown/image-20230630165509583.png)
 
 ## 秒杀遵从服务单一职责，独立部署，定时上架
 
@@ -368,4 +386,5 @@ JWT由三个部分构成，用`.`拼接：
 
 ### 后端限流如何实现？
 
-后端限流在本项目中使用Sentinel框架实现
+后端限流在本项目中使用Sentinel框架实现后端限流。
+
