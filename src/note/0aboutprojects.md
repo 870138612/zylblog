@@ -428,7 +428,8 @@ springboot，mybatis，redis，nginx，docker
 
 ### 点评平台由Nginx实现动静分离
 
-Nginx动静分离的好处参考谷粒商城项目[Nginx动静分离](https://ylzhong.top/note/0aboutprojects.html#%E5%95%86%E5%9F%8E%E9%A1%B5%E9%9D%A2%E7%94%B1nginx%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB-%E8%AF%B7%E6%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1)。
+Nginx动静分离的好处参考谷粒商城项目。
+详见☀️[Nginx动静分离](https://ylzhong.top/note/0aboutprojects.html#%E5%95%86%E5%9F%8E%E9%A1%B5%E9%9D%A2%E7%94%B1nginx%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB-%E8%AF%B7%E6%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1)。
 
 ### Redis实现用户登录，登录状态刷新
 
