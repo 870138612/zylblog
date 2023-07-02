@@ -80,14 +80,14 @@ http {
 ```nginx
 stream {
     # 写在stream中 基于ip和端口进行转发 实际上是修改了请求头中的目标ip和端口
-	server {
-		listen 30028;
-		proxy_pass appserver;
-	}
-	upstream appserver {
-		server 10.0.0.12:8080;
-		server 10.0.0.13:8080;
-	}
+    server {
+        listen 30028;
+        proxy_pass appserver;
+    }
+    upstream appserver {
+        server 10.0.0.12:8080;
+        server 10.0.0.13:8080;
+    }
 }
 ```
 

@@ -23,13 +23,13 @@ tag:
 
 ```java
 public interface TInterface{
-	String method(String str);
+    String method(String str);
 }
 
 public class T implements TargetInterface{
-	public String method(String str){
-		return str;
-	}
+    public String method(String str){
+        return str;
+    }
 }
 ```
 
@@ -37,11 +37,11 @@ public class T implements TargetInterface{
 
 ```java
 public class TargetProxy implements TInterface{
-	private final Target target;
+    private final Target target;
     
-	public TargetProxy(T target){
-		this.target=target;
-	}
+    public TargetProxy(T target){
+        this.target=target;
+    }
     
     @Override
     public String method(String str){
@@ -103,8 +103,8 @@ public static Object newProxyInstance(ClassLoader loader,
 public interface InvocationHandler {
 
     /**
-     * 当你使用代理对象调用方法的时候实际会调用到这个方法
-     */
+    * 当你使用代理对象调用方法的时候实际会调用到这个方法
+    */
     public Object invoke(Object proxy, Method method, Object[] args)
         throws Throwable;
 }
@@ -126,13 +126,13 @@ public interface InvocationHandler {
 
 ```java
 public interface TInterface{
-	String targetMethod(String str);
+    String targetMethod(String str);
 }
 
 public class T implements TargetInterface{
-	public String targetMethod(String str){
-		return str;
-	}
+    public String targetMethod(String str){
+        return str;
+    }
 }
 ```
 
@@ -140,11 +140,11 @@ public class T implements TargetInterface{
 
 ```java
 public class TargetProxy implements InvocationHandler{
-	private final Object target;
+    private final Object target;
     
-	public TargetProxy(Object target){
-		this.target=target;
-	}
+    public TargetProxy(Object target){
+        this.target=target;
+    }
     
     @Override
     public Object invoke(Object proxy, Method method, Object[] args){
@@ -160,11 +160,11 @@ public class TargetProxy implements InvocationHandler{
 
 ```java
 public class JdkProxyFactory{
-	public static Object getProxy(Object target){
+    public static Object getProxy(Object target){
         return Proxy.newProxyInstance(
-        		target.getClass().getClassLoader(),
-            	target.getClass().getInterfaces(),
-            	new TargetProxy(target)
+                target.getClass().getClassLoader(),
+                target.getClass().getInterfaces(),
+                new TargetProxy(target)
         );
     }    
 }
@@ -210,9 +210,9 @@ extends Callback{
 
 ```xml
 <dependency>
-  <groupId>cglib</groupId>
-  <artifactId>cglib</artifactId>
-  <version>3.3.0</version>
+    <groupId>cglib</groupId>
+    <artifactId>cglib</artifactId>
+    <version>3.3.0</version>
 </dependency>
 ```
 
@@ -222,10 +222,10 @@ extends Callback{
 
 ```java
 public class T {
-	public String targetMethod(String str){
+    public String targetMethod(String str){
         System.out.println("目标类");
-		return str;
-	}
+        return str;
+    }
 }
 ```
 
