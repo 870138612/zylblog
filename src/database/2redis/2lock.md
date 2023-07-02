@@ -49,7 +49,7 @@ else
 end
 ```
 
-+这是一种最简易的 Redis 分布式锁实现，实现方式比较简单，性能也很高效。不过，这种方式实现分布式锁存在一些问题。例如引用程序释放锁的逻辑挂掉，可能会导致锁无法被释放，进而造成共享资源无法再被其他线程/进程访问。
+这是一种最简易的 Redis 分布式锁实现，实现方式比较简单，性能也很高效。不过，这种方式实现分布式锁存在一些问题。例如引用程序释放锁的逻辑挂掉，可能会导致锁无法被释放，进而造成共享资源无法再被其他线程/进程访问。
 
 ### 如何防止释放锁逻辑失效导致的锁无法释放？
 
@@ -89,7 +89,7 @@ public Config setLockWatchdogTimeout(long lockWatchdogTimeout) {
     return this;
 }
 public long getLockWatchdogTimeout() {
-   return lockWatchdogTimeout;
+    return lockWatchdogTimeout;
 }
 ```
 
