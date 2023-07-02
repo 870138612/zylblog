@@ -14,7 +14,7 @@ actions:
     link: /article/
      
   - text: 关于❄️
-    link: /intro.md
+    link: intro.md
 
 features:
 
