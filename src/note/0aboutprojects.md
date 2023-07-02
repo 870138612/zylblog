@@ -31,8 +31,8 @@ springcloud，springsecurity，springboot，mybatis，redis，rabbitmq，sentine
 ● SpringSchedule定时任务上架秒杀商品。
 ● 前端限流，后端验证登录，Sentinel框架熔断降级的流量错峰保证在秒杀高流量的情况下项目稳定。
 ● Redis验证秒杀中的一人一单，信号量Semaphore实现库存的快速扣减，解决并发安全问题。
-● RabbitMq完成秒杀订单创建，实现队列削峰，减少数据库压力，采用手动ack确保订单创建成功。
-● RabbitMq延时队列模拟订单过期，过期订单的解锁订单和解锁库存流程通过RabbitMq消息队列实现。
+● RabbitMQ完成秒杀订单创建，实现队列削峰，减少数据库压力，采用手动ack确保订单创建成功。
+● RabbitMQ延时队列模拟订单过期，过期订单的解锁订单和解锁库存流程通过RabbitMq消息队列实现。
 ```
 
 > 为什么叫做恐龙商城？因为诚哥写的就是恐龙商城，哥们照抄的✨。
@@ -41,7 +41,7 @@ springcloud，springsecurity，springboot，mybatis，redis，rabbitmq，sentine
 
 ## 介绍下项目的技术选型
 
-项目中使用到的技术栈为**springcloud**，**springboot**，**mybatis**，**redis**，**rabbitmq**，**sentinel**，**nginx**，**docker**，使用**springcloud（Nacos**作为注册中心和配置中心，简化多服务器的管理，并将项目拆分为多个微服务（模块），微服务之间使用**openFeign**调用，**mybatis**作为数据库框架，**redis**作为缓存，分布式锁，**rabbitmq**用来队列削峰，**sentinel**用来熔断降级限流，主要用在秒杀部分，**nginx**用来动静分离，负载均衡，**docker**容器化部署，**zipkin**用作链路追踪，分析请求到每个模块的运行耗时，另外还用到了**jmeter**进行压力测试，**visualVM**查看堆内存情况。
+项目中使用到的技术栈为**springcloud**，**springboot**，**mybatis**，**redis**，**rabbitmq**，**sentinel**，**nginx**，**docker**，使用**springcloud（Nacos**作为注册中心和配置中心，简化多服务器的管理，并将项目拆分为多个微服务（模块），微服务之间使用**openfeign**调用，**mybatis**作为数据库框架，**redis**作为缓存，分布式锁，**rabbitmq**用来队列削峰，**sentinel**用来熔断降级限流，主要用在秒杀部分，**nginx**用来动静分离，负载均衡，**docker**容器化部署，**zipkin**用作链路追踪，分析请求到每个模块的运行耗时，另外还用到了**jmeter**进行压力测试，**visualVM**查看堆内存情况。
 
 ## 商城页面由Nginx代理实现动静分离，请求负载均衡
 
@@ -49,7 +49,7 @@ springcloud，springsecurity，springboot，mybatis，redis，rabbitmq，sentine
 
 Nginx反向代理包含7层反向代理（应用层）和4层反向代理（传输层）两种。
 
-7层代理是写在http模块中的，而4层代理是写在stream模块中，与http模块并列。
+7层代理是写在`htt`p模块中的，而4层代理是写在`stream`模块中，与`http`模块并列。
 
 4层代理是基于**ip和端口**转发的，基于**TCP/UDP**协议。
 
@@ -82,17 +82,17 @@ stream {
     # 写在stream中 基于ip和端口进行转发 实际上是修改了请求头中的目标ip和端口
 	server {
 		listen 30028;
-        proxy_pass appserver;
+		proxy_pass appserver;
 	}
-    upstream appserver {
-        server 10.0.0.12:8080;
-        server 10.0.0.13:8080;
-    }
+	upstream appserver {
+		server 10.0.0.12:8080;
+		server 10.0.0.13:8080;
+	}
 }
 ```
 
 4层代理设备将client发送报文中的目标地址（原来为4层代理的ip地址）修改为目标内部服务器的地址，这样client就可以和server建立TCP连接并发送数据。
-在stream中，server一定要配置port，proxy_pass配置行直接加集群名，**不能加http:// **。
+在`stream`中，server一定要配置`port`，`proxy_pass`配置行直接加集群名，不能加`http://`。
 
 > 在本项目中，upstream使用的是七层代理的配置方法。
 
@@ -104,13 +104,15 @@ stream {
 
 ### Nginx动静分离
 
-项目编译完成之后会产生一些不会发生变化的静态文件，放入到nginx的html目录下，通过nginx配置进行获取这些静态文件，后端tomcat服务器应该用来处理请求而不是返回这些静态数据。开启nginx缓冲（buffer）之后还能解决高并发下的连接积压问题（server端到nginx端的连接）。
+项目编译完成之后会产生一些不会发生变化的静态文件，放入到nginx的`html`目录下，通过nginx配置进行获取这些静态文件，后端tomcat服务器应该用来处理请求而不是返回这些静态数据。开启nginx缓冲（buffer）之后还能解决高并发下的连接积压问题。
+
+> 连接：Tomcat端到Server端的连接
 
 ### Nginx反向代理怎么配置的？反向代理跟正向代理的区别是什么？nginx可以配置正向代理吗？
 
 详见☀️[正向代理和反向代理](https://ylzhong.top/middleware/1nginx.html#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86)
 
-- 反向代理通过在location里添加`proxy_pass`进行请求代理
+- 反向代理通过在`location`里添加`proxy_pass`进行请求代理
 
 ```nginx
 http {
@@ -166,9 +168,9 @@ http {
 
 本项目使用`Redis`进行用户数据统一存储。添加依赖之后将session存储方式改为redis。
 
-> 项目课程中使用SpringSession进行登录数据存储，后续改为SpringSecurity框架实现认证授权功能。
+> 谷粒商城项目课程中使用SpringSession进行登录数据存储，后续自己改为SpringSecurity框架实现认证授权功能。
 
-在配置类中添加了`jwtAuthenticationTokenFilter(OncePerRequestFilter的实现类，每次请求都会拦截)`，和`UsernamePasswordAuthenticationFilter.class`。
+在配置类中添加了`jwtAuthenticationTokenFilter(OncePerRequestFilter的实现类，每次请求都会拦截)`，和`UsernamePasswordAuthenticationFilter(登录认证的过滤器，在配置中需要认证的请求都会被要求登录)`。
 
 其中**登录的密码查询**是需要自己去实现接口`UserDetailsService`，并重写方法。
 
@@ -210,9 +212,9 @@ UsernamePasswordAuthenticationToken authenticationToken =
  }
 ```
 
-认证整体流程：
+### SpringSecurity认证整体流程
 
-1. 用户提交用户名、密码被`SecurityFilterChain`中的 `UsernamePasswordAuthenticationFilter`过滤器获取到， 封装为`Authentication`，通常情况下是`UsernamePasswordAuthenticationToken`这个实现类。
+1. 用户提交用户名、密码被`SecurityFilterChain`中的`UsernamePasswordAuthenticationFilter`过滤器获取到， 封装为`Authentication`，通常情况下是`UsernamePasswordAuthenticationToken`这个实现类。
 
 2. 然后过滤器将`Authentication`提交至认证管理器（`AuthenticationManager<<interface>>`，实现类为`ProviderManager`，内部包含`DaoAuthenticationProvider`用来查找用户数据并认证）进行认证`authenticationManager.authenticate(authenticationToken)`，通过`UserDetailsService`实现类获取包含用户账号密码的`UserDetails`实现类 ，密码加密解密通过`PasswordEncoder`实现类`BCryptPasswordEncoder`完成，认证成功则返回`Authentication`，否则返回空。通过`.getPrincipal`从`Authentication`中获取用户数据（`UserDetails`的实现类）。
 3. 认证成功之后通过userId生成JWT返回给前端，封装用户部分数据保存到Redis中，Redis数据的key是`"LOGIN:"+userId`。
@@ -231,13 +233,13 @@ UsernamePasswordAuthenticationToken authenticationToken =
 
 在第二步认证成功之后通过userId生成JWT返回给前端，封装用户部分数据保存到Redis中，Redis数据的key是`"LOGIN:"+userId`。
 
-添加`OncePerRequestFilter`过滤器，需要重写`doFilterInternal`方法，每次请求都会被拦截。如果请求中没有携带token则表示是不需要登录的请求，直接放行，携带了token通过JWT工具类进行解密获得userId，如果解密为有效的userId，则可以作为key（`"LOGIN:"+userId`）去Redis中找到用户数据，并添加到`SecurityContextHolder`中，这样只要客户端保存正确的token就能保持登录状态。
+添加`OncePerRequestFilter`过滤器，需要重写`doFilterInternal`方法，每次请求都会被拦截。如果请求中没有携带Token则表示是不需要登录的请求，直接放行，携带了Token通过JWT工具类进行解密获得userId，如果解密为有效的userId，则可以作为key（`"LOGIN:"+userId`）去Redis中找到用户数据，并添加到`SecurityContextHolder`中，这样只要客户端保存正确的Token就能保持登录状态。
 
 登录状态续期可以通过给Redis添加新的过期时间进行续期。
 
 ### 项目中用到了哪些SpringSecurity过滤器？
 
- `UsernamePasswordAuthenticationFilter`用来做用户认证，`OncePerRequestFilter`用来做请求拦截并根据情况做业务处理之后放行。
+ `UsernamePasswordAuthenticationFilter`用来做登录认证，`OncePerRequestFilter`用来做每一个请求拦截并根据情况做业务处理之后放行。
 
 ### 如果想要用户仅仅在一段时间内免登录怎么办？
 
@@ -260,12 +262,12 @@ JWT由三个部分构成，用`.`拼接：
   }
   ```
 
-- Payload，载荷，用于存放主要信息，通过BASE64加密之后得到TOKEN的第二个部分。
+- Payload，载荷，用于存放主要信息，通过BASE64加密之后得到Token的第二个部分。
 
   ```json
   {
   	"sub":"123456",
-  	"name":"zyl",
+  	"name":"zyl"
   }
   ```
 
@@ -280,7 +282,7 @@ JWT由三个部分构成，用`.`拼接：
 
 ## 商品缓存快速查询
 
-项目中使用`SpringCache`作为缓存框架。使用`@Cacheable`快速添加返回结果到缓存。
+项目中使用SpringCache作为缓存框架。使用`@Cacheable`快速添加返回结果到缓存。
 
 ### 数据更新之后对缓存如何操作？缓存一致性解决办法？
 
@@ -341,7 +343,7 @@ JWT由三个部分构成，用`.`拼接：
 String script = "if redis.call('get', KEY[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
 String orderToken = vo.getOrderToken();
 Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class),
-                Arrays.asList(OrderConstant.USER_ORDER_TOKEN_PREFIX + memberResponseVo.getId()),
+                Arrays.asList(OrderConstant.USER_ORDER_Token_PREFIX + memberResponseVo.getId()),
                 orderToken);
 ```
 
@@ -353,7 +355,7 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 
 如果订单支付成功，则支付宝会进行异步回调，此时可以发送订单已支付消息到队列中修改订单状态。
 
-![image-20230630184323871](/markdown/image-20230630184323871.png)
+![image-20230702160233816](/markdown/image-20230702160233816.png)
 
 ### 延时关单如何实现的？
 
@@ -365,18 +367,18 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 
 - 秒杀开始前通过`@Scheduled`进行定时上架商品，查询近期的秒杀场次，保存至Redis用于后续秒杀的时间和场次合法性校验，查询SKU信息保存至Redis加速查询，同时通过UUID生成随机码保存到SKU详情数据。
 
-- 秒杀商品的信号量key为`SKU_STOCK_SEMAPHORE + token`，token是生成的SKU随机码，通过`semaphore.trySetPermits(seckillSkuVo.getSeckillCount())`设置对应SKU信号量的许可证数量（秒杀库存数量）。
+- 秒杀商品的信号量key为`SKU_STOCK_SEMAPHORE + Token`，Token是生成的SKU随机码，通过`semaphore.trySetPermits(seckillSkuVo.getSeckillCount())`设置对应SKU信号量的许可证数量（秒杀库存数量）。
 
 - 秒杀开始判断用户是否登录，登录的话进行合法性校验，包含当前所处时间是否处于秒杀时间，检验随机码是否正确（在秒杀开始时返回到前端的随机码，用于防止恶意请求），验证购买数量是否超额。
 
-- 合法性校验通过之后进行占位（防止一个用户并发秒杀），使用`SETNX`进行占位（原子操作），key为`userId+'_'+skuId`，同时还需要添加过期时间，过期时间为场次结束时间-当前时间，让一个用户只能对同一个商品秒杀一次。**遵从请求的幂等性**。
+- 合法性校验通过之后进行占位（防止一个用户并发秒杀），使用`SETNX`进行占位（原子操作），Key为`userId+'_'+skuId`，同时还需要添加过期时间，过期时间为`场次结束时间-当前时间`，让一个用户只能对同一个商品秒杀一次，**遵从请求的幂等性**。
 - `boolean b = semaphore.tryAcquire(num, 100, TimeUnit.MILLISECONDS)`如果获取信号量成功则表示秒杀成功，将**OrderSn**，**UserId**，**SkuId**，**SeckillSkuPrice**，**Num**，**PromotionSessionId**封装发送到RabbitMQ的`order-event-exchange`交换机，路由键为`order.seckill.order`，返回OrderSn到前端，前端可以使用一个页面让用户选择收货地址。
 
-`SETNX`占位成功表示这个用户没有买过商品，通过Redssion的Semaphore。
+`SETNX`占位成功表示这个用户没有买过商品，通过Redission的`Semaphore`模拟库存扣减。
 
 ![image-20230628222659062](/markdown/image-20230628222659062.png)
 
-- 等待一段时间之后如果没有出现差错则订单已经创建在数据库中了，为未消费状态。
+- 等待一段时间之后如果没有出现差错则订单已经创建在数据库中了，为未支付状态。
 
 ![image-20230628225544890](/markdown/image-20230628225544890.png) 
 
@@ -392,11 +394,11 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 
 ### 库存预热快速扣减如何实现？
 
-预热通过定时上架商品为Redis信号量完成，快速扣减使用Semaphore完成。
+预热通过定时上架商品为Redis信号量完成，快速扣减使用Redission的`Semaphore`完成。
 
 ### 秒杀连接加密，恶意请求拦截如何实现？
 
-秒杀在快开始的时候才会将随机的UUID设置到SKU详情中，请求携带这个UUID才是正确的请求参数，同时秒杀商品信号量的Semaphore的key也是SkuId生成的UUID组合起来的，而不是SkuId，如果是SkuId则很容易被人猜到。
+秒杀在快开始的时候才会将随机的UUID设置到SKU详情中，请求携带这个UUID才是正确的请求参数，同时秒杀商品信号量的`Semaphore`的key也是SkuId生成的UUID组合起来的，而不是SkuId，如果是SkuId则很容易被人猜到。
 
 恶意请求拦截体现在对请求的合法性校验上，包含时间段校验，随机码校验，SkuId和秒杀场次的对应正确性校验，一人一单的秒杀幂等性问题。
 
@@ -412,7 +414,7 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 
 后端限流在本项目中使用Sentinel框架实现限流熔断降级。
 
-- **熔断**：A调用B，如果因为某些原因B宕机，则可以将B直接断路，不再调用B的服务。这样B的问题就不会影响到A的运作。`@FeignClient(value = "gulimall-seckill",fallback = SeckillFallbackService.class)`，调用失败之后回调方法。Sentinel中设置RT（每秒的并发数），异常比例，异常数进行服务熔断。
+- **熔断**：A调用B，如果因为某些原因B宕机，则可以将B直接断路，不再调用B的服务。这样B的问题就不会影响到A的运作。`@FeignClient(value = "gulimall-seckill",fallback = SeckillFallbackService.class)`，调用失败之后回调方法。Sentinel中可以设置RT（每秒的并发数），异常比例，异常数进行服务熔断。
 - **降级**：服务器压力剧增时，可以进行降级，就是将服务器停止服务，直接返回降级数据（前方拥堵，请稍后再试）。以上两者都是为了集群的大部分可用，防止整体崩溃，牺牲自己，用户最终的体验都是部分服务不可用。熔断是服务故障触发系统主动规则，降级是全局考虑，停止正常的服务，释放资源。
 - **限流**：对请求的QPS进行限制，使得请求不会超过服务器能接受的最大压力。
 
@@ -423,7 +425,7 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 #### 消息丢失
 
 - 消息发送由于网络问题没有到达服务器。
-  - 做好容错机制(try-catch)失败之后要有重试机制，可记录到数据库，采用定期重发的机制。
+  - 做好容错机制（try-catch）失败之后要有重试机制，可记录到数据库，采用定期重发的机制。
 - 消息抵达Broker，Broker在持久化之前宕机。
   - publisher也必须加入确认回调机制，确认成功的消息，修改数据库的消息状态。
 - 自动ACK状态下，消费者收到消息但是没有执行完业务。
@@ -438,7 +440,7 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 - ack时消息宕机，导致消息重新放入队列被消费。
   - 消费者的业务接口应该设计为幂等性，比如库存工作单的状态标志。
 - 消费失败，消息又冲洗放回队列中。
-  - rabbitMq中的每一个消息都有`redelivered`字段，获取消息是否是被重新投递的。
+  - RabbitMQ中的每一个消息都有`redelivered`字段，获取消息是否是被重新投递的。
 
 #### 消息积压
 
