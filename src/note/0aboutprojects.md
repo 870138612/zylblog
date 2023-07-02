@@ -1,5 +1,5 @@
 ---
-title: 简历项目详解-谷粒商城
+title: 简历项目详解
 icon: biji1
 star: 1
 category:
@@ -39,11 +39,10 @@ springcloud，springsecurity，springboot，mybatis，redis，rabbitmq，sentine
 
 下面逐句进行分析。
 
-## 介绍下项目的技术选型
+### 介绍下项目的技术选型
 
 项目中使用到的技术栈为**springcloud**，**springboot**，**mybatis**，**redis**，**rabbitmq**，**sentinel**，**nginx**，**docker**，使用**springcloud（Nacos**作为注册中心和配置中心，简化多服务器的管理，并将项目拆分为多个微服务（模块），微服务之间使用**openfeign**调用，**mybatis**作为数据库框架，**redis**作为缓存，分布式锁，**rabbitmq**用来队列削峰，**sentinel**用来熔断降级限流，主要用在秒杀部分，**nginx**用来动静分离，负载均衡，**docker**容器化部署，**zipkin**用作链路追踪，分析请求到每个模块的运行耗时，另外还用到了**jmeter**进行压力测试，**visualVM**查看堆内存情况。
 
-## 商城页面由Nginx代理实现动静分离，请求负载均衡
 
 ### Nginx反向代理在计算机网络的第几层？
 
@@ -136,8 +135,6 @@ http {
 
 - Nginx可以配置正向代理，例如A能访问外网，BCD不能访问外网但是能访问A，则可以通过正向代理将请求代理转发给A进行外网访问。（类似VPN代理模式）
 
-## 拆分为网关，订单，秒杀等微服务
-
 ### 分微服务的原则是什么？
 
 1. **单一职责原则**：每个微服务应该只负责一个特定的业务功能。例如网关微服务只用来做请求转发，秒杀微服务只做秒杀，即使因为高流量导致秒杀微服务宕机也不会影响到正常的订单微服务。
@@ -151,8 +148,6 @@ http {
 5. **数据自治原则**：每个微服务应该对其所使用的数据有完全的控制权。每一个微服务都对自己所属的数据库架构有完全控制权。
 
 6. **技术多样性**：微服务架构允许使用不同的技术栈来实现不同的服务。
-
-## 实现单点登录
 
 ### 单点登录怎么实现的？
 
@@ -280,8 +275,6 @@ JWT由三个部分构成，用`.`拼接：
 
 ​	最后HS256加盐算法中的秘钥`secret`也可以通过BASE64加密获得。
 
-## 商品缓存快速查询
-
 项目中使用SpringCache作为缓存框架。使用`@Cacheable`快速添加返回结果到缓存。
 
 ### 数据更新之后对缓存如何操作？缓存一致性解决办法？
@@ -325,8 +318,6 @@ JWT由三个部分构成，用`.`拼接：
 
 常规数据使用`SpringCache`可以满足大部分要求。
 
-## 订单创建幂等性
-
 ### 订单创建的幂等性如何实现？
 
 当用户点击多次提交订单的时候应该保证只会产生一个唯一的订单，也就是接口的幂等性。
@@ -361,8 +352,6 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 
 使用RabbitMQ的死信队列实现，将队列添加`x-message-ttl`属性，让消息在一定时间之后成为死信交给死信交换机，后续可进行库存释放操作。
 
-## 秒杀遵从服务单一职责，独立部署，定时上架
-
 ### 秒杀的流程是啥样的？
 
 - 秒杀开始前通过`@Scheduled`进行定时上架商品，查询近期的秒杀场次，保存至Redis用于后续秒杀的时间和场次合法性校验，查询SKU信息保存至Redis加速查询，同时通过UUID生成随机码保存到SKU详情数据。
@@ -390,8 +379,6 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 
 定时上架使用`@Scheduled(cron = "0 */1 * * * ?")`完成，参数为Cron表达式。
 
-## 库存预热快速扣减，秒杀连接加密，恶意请求拦截
-
 ### 库存预热快速扣减如何实现？
 
 预热通过定时上架商品为Redis信号量完成，快速扣减使用Redission的`Semaphore`完成。
@@ -401,8 +388,6 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 秒杀在快开始的时候才会将随机的UUID设置到SKU详情中，请求携带这个UUID才是正确的请求参数，同时秒杀商品信号量的`Semaphore`的key也是SkuId生成的UUID组合起来的，而不是SkuId，如果是SkuId则很容易被人猜到。
 
 恶意请求拦截体现在对请求的合法性校验上，包含时间段校验，随机码校验，SkuId和秒杀场次的对应正确性校验，一人一单的秒杀幂等性问题。
-
-## 流量错峰，后端限流，队列削峰。
 
 ### 流量错峰，队列削峰如何实现？
 
