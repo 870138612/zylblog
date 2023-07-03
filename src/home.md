@@ -4,6 +4,7 @@ index: false
 icon: daohang
 cover: /home/indexbg.jpg
 pageInfo: false
+article: false
 timeline: false
 ---
 ## <HopeIcon icon="java"/> Java
