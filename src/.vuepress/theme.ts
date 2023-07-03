@@ -49,6 +49,7 @@ export default hopeTheme({
     },
     comment: {
       provider: "Giscus",
+      lazyLoading: false,
       repo: "870138612/zyl",
       repoId: "R_kgDOJw1i1g",
       category:"Announcements",
