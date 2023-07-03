@@ -7,7 +7,7 @@ heroText: 终将美好
 tagline: 我们的春夏秋冬✨
 actions:
   - text: 导航☀️
-    link: /home/
+    link: /home.md
     type: primary
     
   - text: 文章⛅
