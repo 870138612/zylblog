@@ -139,11 +139,11 @@ Redis 中的 Set 类型是一种无序集合，集合中的元素没有先后顺
 | SMEMBERS key                          | 获取指定集合中的所有元素                  |
 | SCARD key                             | 获取指定集合的元素数量                    |
 | SISMEMBER key member                  | 判断指定元素是否在指定集合中              |
-| **SINTER** key1 key2 ...              | 获取给定所有集合的交集                    |
+| SINTER key1 key2 ...              | 获取给定所有集合的交集                    |
 | SINTERSTORE destination key1 key2 ... | 将给定所有集合的交集存储在 destination 中 |
-| **SUNION** key1 key2 ...              | 获取给定所有集合的并集                    |
+| SUNION key1 key2 ...              | 获取给定所有集合的并集                    |
 | SUNIONSTORE destination key1 key2 ... | 将给定所有集合的并集存储在 destination 中 |
-| **SDIFF** key1 key2 ...               | 获取给定所有集合的差集                    |
+| SDIFF key1 key2 ...               | 获取给定所有集合的差集                    |
 | SDIFFSTORE destination key1 key2 ...  | 将给定所有集合的差集存储在 destination 中 |
 | SPOP key count                        | 随机移除并获取指定集合中一个或多个元素    |
 | SRANDMEMBER key count                 | 随机获取指定集合中指定数量的元素          |

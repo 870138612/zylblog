@@ -121,6 +121,7 @@ slaveof <master ip><masterport>  //关联从节点
 - 每一个master都可以有多个slave节点。
 - master之间通过ping检测彼此健康状况。
 - 客户端请求可以访问集群任意节点，最终都会被转发到正确的节点上。
+- 从节点提供slot数据备份以及故障转移，保证可用性，主节点宕机可以从从节点中产生新的主节点。
 
 创建命令
 
@@ -129,6 +130,8 @@ redis-cli --cluster create --cluster-replicas 1 <ip：端口> <ip：端口> <ip�
 ```
 
 `--cluster-replicas 1`表示集群中每个master的副本个数为1，例如写1，则表示一个master对应一个slave，则4个实例中有2个是master，2个是slave。其中写在前面的2个实例是master。
+
+![img.png](/markdown/20230703001.png)
 
 ### 散列插槽
 
