@@ -49,7 +49,7 @@ springcloud，springsecurity，springboot，mybatis，redis，rabbitmq，sentine
 
 Nginx反向代理包含7层反向代理（应用层）和4层反向代理（传输层）两种。
 
-7层代理是写在`htt`p模块中的，而4层代理是写在`stream`模块中，与`http`模块并列。
+7层代理是写在`http`模块中的，而4层代理是写在`stream`模块中，与`http`模块并列。
 
 4层代理是基于**ip和端口**转发的，基于**TCP/UDP**协议。
 
