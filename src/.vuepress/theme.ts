@@ -8,7 +8,7 @@ export default hopeTheme({
 
   author: {
     name: "ZYL1210",
-    url: "https://github.com/870138612",
+    url: "https://ylzhong.top",
   },
   // pure: true,
   contributors: false,
@@ -37,6 +37,9 @@ export default hopeTheme({
   blog: {
     sidebarDisplay:"mobile",
     intro: "/intro.html",
+    // medias: {
+    //   Gitee: "https://gitee.com/SnailClimb",
+    // },
   },
 
   plugins: {
