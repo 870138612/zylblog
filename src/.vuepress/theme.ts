@@ -22,7 +22,7 @@ export default hopeTheme({
   navbar: zhNavbar,
   // sidebar
   sidebar: zhSidebar,
-  footer: "Copyright © 2023-present Liang",
+  footer: "Copyright © 2023-present Liang | 皖ICP备2023007292号",
   copyright: false,
   displayFooter: true,
   pageInfo: [
