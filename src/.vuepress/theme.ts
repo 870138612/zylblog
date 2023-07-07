@@ -22,8 +22,8 @@ export default hopeTheme({
   navbar: zhNavbar,
   // sidebar
   sidebar: zhSidebar,
-  footer: "Copyright © 2023-present Liang | 皖ICP备2023007292号",
-  copyright: false,
+  footer: "<a href=\"https://beian.miit.gov.cn/\">皖ICP备2023007292号</a>",
+  copyright: "Copyright © 2023-present Liang",
   displayFooter: true,
   pageInfo: [
     "Author",
