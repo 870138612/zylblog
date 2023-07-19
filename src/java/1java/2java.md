@@ -242,7 +242,7 @@ public final class String implements java.io.Serializable, Comparable<String>, C
 
 :::
 
-### String s1 = new String("abc");这句话创建了几个字符串对象？
+### String s1 = new String("abc")这句话创建了几个字符串对象？
 
 会创建1个或者2个字符串对象。
 
@@ -318,7 +318,7 @@ String s = "abc";
 method(s);
 //str 为形参
 void method(String str){
-	System.out.println(str);
+    System.out.println(str);
 }
 ```
 
