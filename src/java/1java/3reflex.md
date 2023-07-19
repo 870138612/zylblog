@@ -28,6 +28,7 @@ public class DebugInvocationHandler implements InvocationHandler {
     public DebugInvocationHandler(Object target) {
         this.target = target;
     }
+    @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws InvocationTargetException, IllegalAccessException {
         System.out.println("before method " + method.getName());
         Object result = method.invoke(target, args);

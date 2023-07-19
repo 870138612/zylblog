@@ -132,3 +132,12 @@ SpringBoot在启动的过程中，会找出项目中所有的spring.factories文
 
 6. **运行应用**：
    一切就绪后，Spring Boot 会开始运行应用。它会触发各种生命周期事件，调用初始化方法、执行业务逻辑等。
+
+### 自动装配原理
+
+- 判断自动装配开关是否打开。默认`spring.boot.enableautoconfiguration=true`，可在 `application.properties` 或 `application.yml` 中设置。
+- 获取`EnableAutoConfiguration`注解中的 `exclude` 和 `excludeName`，排除部分类。
+- 获取需要自动装配的所有配置类，读取`META-INF/spring.factories`。
+- 加载经过`@ConditionalOnXXX`筛选后的组件进行加载。
+
+### 实现一个Stater
