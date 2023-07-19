@@ -98,7 +98,9 @@ class Singleton{
 }
 ```
 
-**线程安全；延迟加载；效率较高**
+两个`static`，一个`volatile`，一个`synchronized`修饰符。
+
+**线程安全；延迟加载；效率较高。**
 
 ### 静态内部类（重要）
 
