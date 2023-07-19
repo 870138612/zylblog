@@ -68,9 +68,9 @@ Java有8种基本数据类型：
 
 装箱就是使用包装类的`valueOf`方法，拆箱就是使用xxValue方法。
 
-`Integer i=10`等价于`Integer i = Integer.valueOf(10)`
+`Integer i=10`等价于`Integer i = Integer.valueOf(10)`，
 
-`int n = i `等价于` int  n = i.intValue() `
+`int n = i `等价于` int  n = i.intValue() `，
 
 ### 浮点数运算的时候会有精度丢失的风险？
 
@@ -185,7 +185,7 @@ public class F {
 
 ```java
 public class S extends F{
-    //次方法不能添加@Override，但是可以再次声明
+    //此方法不能添加@Override，但是可以再次声明
     public static void method() {
         System.out.println("子类方法");
     }
