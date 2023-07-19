@@ -15,7 +15,7 @@ tag:
 <!-- more -->
 ## 静态代理
 
-静态代理中，对方法的增强是手动完成的，非常不灵活，从JVM层面来说，静态代理在编译的时候就将接口、实现类、代理类变成一个个class文件。编译从`.java`变成`.class`。
+静态代理中，对方法的增强是手动完成的，非常不灵活，从JVM层面来说，静态代理在编译的时候就将接口、实现类、代理类变成一个个`class`文件。编译从`.java`变成`.class`。
 
 ::: tabs
 
@@ -93,9 +93,9 @@ public static Object newProxyInstance(ClassLoader loader,
 
 `newProxyInstance()`方法有三个参数：
 
-- loader：类加载器，用来加载代理对象；
-- interfaces：被代理类实现的接口；
-- h：实现了`InvocationHandler`接口的对象。
+- `loader`：类加载器，用来加载代理对象；
+- `interfaces`：被代理类实现的接口；
+- `h`：实现了`InvocationHandler`接口的对象。
 
 要实现动态代理，还要实现`InvocationHandler`接口，使用动态代理类调用方法的时候，方法就会被转发到实现`InvocationHandler`接口类的`invoke`方法来调用。
 
@@ -112,9 +112,9 @@ public interface InvocationHandler {
 
 `invoke()`方法有三个参数：
 
-- proxy：动态生成的代理类；
-- method：与代理类对象调用的方法相对应；
-- args：当前method方法的参数。
+- `proxy`：动态生成的代理类；
+- `method`：与代理类对象调用的方法相对应；
+- `args`：当前method方法的参数。
 
 流程：通过`proxy`类的`newInstance()`创建代理对象调用方法，会实际调用实现`InvocationHandler`接口类的`invoke()`方法。
 
