@@ -92,7 +92,7 @@ public class Example{
     private String name;
     private int age;
     
-    public void method(){
+    public void method() {
         int num1 = 0;//栈中分配的局部变量，没有逃逸出本方法
         System.out.println(num1);
     }

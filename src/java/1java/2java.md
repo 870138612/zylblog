@@ -228,7 +228,7 @@ public final class String implements java.io.Serializable, Comparable<String>, C
 
 - `String`类本身也被`final`修饰导致不能被继承，从而避免子类破坏`String`的不变性。
 
-### 字符串拼接用“+” 还是 StringBuilder?
+### 字符串拼接用"+" 还是"StringBuilder"?
 
 +和+=是Java中唯二为`String`重载过的运算符。
 
