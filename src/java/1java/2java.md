@@ -202,15 +202,16 @@ hero.skill();//打印技能1，编译是否能通过看左边，执行结果看�
 
 - 两个对象的`HashCode`不同则对象一定不同。
 
-重写`equals()`代表这个方法是用来比较两个对象是否相等，如果不重写`HashCode()`方法可能会导致判断是相等的两个对象但是`HashCode`不等。
+重写`equals()`代表这个方法是用来比较两个对象是否相等，如果不重写`HashCode()`方法可能会导致判断是相等的两个对象但是`HashCode`不等，则HashMap这样的数据结构无法正常工作。
 
 ## String
 
 ### String、StringBuffer、StringBuilder 的区别？
 
-- `String`是不可变的，可以看成常量，线程安全。对内部方法加了同步锁，是线程安全的。`StringBuilder`没有添加同步锁，所以是线程不安全的。
+- `String`是不可变的，可以看成常量，线程安全。`StringBuffer`对内部方法加了同步锁，是线程安全的。`StringBuilder`没有添加同步锁，所以是线程不安全的。
 - 每次对`String`类型进行修改的时候，都会新生成一个`String`类型，然后将引用指向新的`String`对象。`StringBuffer`和`StringBuilder`是对对象本身进行操作，不会生成新的对象，相同情况下使用`StringBuilder`会带来一点性能提升，但是线程不安全。
 - 少量数据使用`String`，单线程下大量数据使用`StringBuilder`，多线程下使用`StringBuffer`。
+- `toString`方法。`StringBuffer`中保存了一个缓冲区`toStringCache`。会保存之前`toString`的结果，只要在两次调用`toString`期间没有修改`StringBuffer`，那么可以加快返回的速度，发生了修改，缓冲区就会被清空。`StringBuilder`没有缓冲区，每次都是重新拷贝一次数组。
 
 ### String为何不可变？
 
