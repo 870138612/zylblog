@@ -256,8 +256,6 @@ String str = new String("abc");
 
 如果字符串常量池中存在"abc"的引用，则会在堆中创建1个字符串对象"abc"。也就是new在堆中创建的对象。
 
-示意图：
-
 ![image-20230515171640642](/markdown/image-20230515171640642.png)
 
 ### String#intern 方法有什么作用?
