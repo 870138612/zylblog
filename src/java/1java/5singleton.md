@@ -122,7 +122,7 @@ public class Singleton{
 
 ```java
 enum Singleton{
-	SINGLETON;
+    SINGLETON;
 }
 ```
 
