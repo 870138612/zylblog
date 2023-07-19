@@ -35,7 +35,6 @@ System.out.println(str1.equals(str2));//true
 System.out.println(str1.equals(str3));//true
 ```
 
-`System.out.println(str1 == str2);//false`
 
 ☀️详见[String](https://ylzhong.top/java/1java/2java.html#string)。
 
@@ -138,7 +137,7 @@ hero.skill();//打印技能1，编译是否能通过看左边，执行结果看�
 
 - 对象类型和引用类型之间具有继承/实现关系；
 - 引用类型变量发出的方法调用到底是哪个类中的方法，在程序运行的时候才能确定；
-- 多态不能调用只在子类中存在，但是父类中不存在的方法，也就是`hero`能调用的方法是看父类`Hero`的，执行的结果看子类`Hero1`；
+- 多态不能调用只在子类中存在，但是父类中不存在的方法，也就是`Hero`能调用的方法是看父类`Hero`的，执行的结果看子类`Hero1`；
 - 如果子类重写了父类方法，则执行的是子类中的方法，如果没有重写则执行的是父类中的方法。
 
 ### 接口和抽象类的共同点
