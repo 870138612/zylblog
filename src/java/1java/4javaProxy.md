@@ -197,10 +197,10 @@ extends Callback{
 }
 ```
 
-- obj：被代理的对象（需要增强的对象）；
-- method：被拦截的方法；
-- args：方法参数；
-- proxy：用于调用原始方法。
+- `obj`：被代理的对象（需要增强的对象）；
+- `method`：被拦截的方法；
+- `args`：方法参数；
+- `proxy`：用于调用原始方法。
 
 通过`Enhancer`类来动态获取被代理类，当代理类调用方法的时候，实际调用的是`MethodInterceptor`中的`intercept`方法。
 
