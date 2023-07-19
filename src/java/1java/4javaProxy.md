@@ -151,7 +151,7 @@ public class TargetProxy implements InvocationHandler{
         System.out.println("前置增强");
         Object result = method.invoke(target, args);
         System.out.println("后置增强");
-        return result
+        return result;
     }
 }
 ```
