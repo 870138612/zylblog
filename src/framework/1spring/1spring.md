@@ -141,3 +141,86 @@ SpringBoot在启动的过程中，会找出项目中所有的spring.factories文
 - 加载经过`@ConditionalOnXXX`筛选后的组件进行加载。
 
 ### 实现一个Stater
+
+1. 引入依赖
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-autoconfigure</artifactId>
+        <version>2.0.3.RELEASE</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-configuration-processor</artifactId>
+        <version>2.1.3.RELEASE</version>
+    </dependency>
+</dependencies>
+```
+
+2. 写一个TestBen，装载信息。
+
+```java
+public class TestBean {
+    private String msg;
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+}
+```
+
+3. 写一个Properties类。
+
+```java
+@ConfigurationProperties(prefix = "hello")
+public class HelloServiceProperties {
+    private static final String MSG="hello world";
+    private String msg=MSG;
+    public static String getMSG() {
+        return MSG;
+    }
+    public String getMsg() {
+        return msg;
+    }
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+}
+```
+
+4. 写一个自动配置类 MyAutoConfiguration
+
+```java
+@Configuration
+@ConditionalOnClass({TestBean.class})//判断当前classpath下是否存在指定类，若是则将当前的配置装载入spring容器
+@EnableConfigurationProperties(HelloServiceProperties.class)//激活自动配置（指定文件中的配置）
+public class MyAutoConfiguration {
+    @Autowired
+    HelloServiceProperties helloServiceProperties;//注入测试的配置信息类
+    @Bean
+    @ConditionalOnMissingBean(TestBean.class) //当前上下文中没有TestBean实例时创建实例
+    public TestBean getTestService(){
+        TestBean testBean=new TestBean();
+        testBean.setMsg(helloServiceProperties.getMsg());
+        return testBean;
+    }
+}
+```
+
+5. 新建spring.factories文件。
+
+在resources文件夹下新建文件夹META-INF/spring.factories，将上面的自定义配置类MyAutoConfiguration的全路径名+类名配置到该文件中（遵循spring.factories的格式），这样随着项目的启动就可以实现自动装配！
+
+```yaml
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.zyl.tomcat.bean.MyAutoConfiguration
+```
+
+6. package install 进行打包，这样就能在其他项目中引用这个starter。
