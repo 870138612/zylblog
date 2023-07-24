@@ -165,11 +165,9 @@ SpringBoot在启动的过程中，会找出项目中所有的spring.factories文
 ```java
 public class TestBean {
     private String msg;
-
     public String getMsg() {
         return msg;
     }
-
     public void setMsg(String msg) {
         this.msg = msg;
     }
