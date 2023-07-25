@@ -20,7 +20,7 @@ tag:
 
 ### ThreadLocal 原理
 
-`Thread`类源码：
+`Thread` 类源码：
 
 ```java
 public class Thread implements Runnable {

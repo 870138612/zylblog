@@ -332,7 +332,7 @@ final boolean acquireQueued(final Node node, int arg) {
 
 #### 可重入原理
 
-- 加锁时如果发现 `exclusiveOwnerThread` 线程是自己则表示重入，将 `state++`。解锁时如果`state`不是1则不会解锁，而是将`state--`，当 `state`为0时才会真正解开。
+- 加锁时如果发现 `exclusiveOwnerThread` 线程是自己则表示重入，将 `state++`。解锁时如果 `state` 不是1则不会解锁，而是将 `state--`，当 `state` 为0时才会真正解开。
 
 #### 可打断原理
 
@@ -347,7 +347,7 @@ if (shouldParkAfterFailedAcquire(p, node) &&
 #### 公平锁原理
 
 - 非公平锁中，外部的竞争线程不会检查AQS队列，直接进行抢占锁。
-- 公平锁中，外部的竞争线程会先检查AQS队列中是否有前驱节点，没有才去竞争。
+- 公平锁中，外部的竞争线程会先检查AQS队列中是否有线程Node，没有才去竞争，有线程Node则表示已经有先来的线程排队等待。
 
 ### synchronized 和 ReentrantLock 有什么区别？
 
