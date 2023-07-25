@@ -12,9 +12,9 @@ tag:
 
 ### ThreadLocal 有什么用？
 
-`ThreadLocal`类主要解决的就是让每个线程绑定自己的值，可以将`ThreadLocal`类形象的比喻成存放数据的盒子，盒子中可以存储每个线程的私有数据。
+`ThreadLocal` 类主要解决的就是让每个线程绑定自己的值，可以将 `ThreadLocal` 类形象的比喻成存放数据的盒子，盒子中可以存储每个线程的私有数据。
 
-如果创建了一个`ThreadLocal`变量，那么访问这个变量的每一个线程都有这个变量的副本。可以使用 `get()` 和 `set()` 方法来获取默认值或将其值更改为当前线程所存的副本的值，从而避免了线程安全问题。
+如果创建了一个 `ThreadLocal` 变量，那么访问这个变量的每一个线程都有这个变量的副本。可以使用 `get()` 和 `set()` 方法来获取默认值或将其值更改为当前线程所存的副本的值，从而避免了线程安全问题。
 
 <!-- more -->
 
@@ -27,15 +27,15 @@ public class Thread implements Runnable {
     //与此线程有关的ThreadLocal值。由ThreadLocal类维护
     ThreadLocal.ThreadLocalMap threadLocals = null;
 
-    //与此线程有关的InheritableThreadLocal值。由InheritableThreadLocal类维护
+    //与此线程有关的InheritableThreadLocal值，由InheritableThreadLocal类维护。
     ThreadLocal.ThreadLocalMap inheritableThreadLocals = null;
     //......
 }
 ```
 
-变量是放在了当前线程的`ThreadLocalMap`中，并不是存在`ThreadLocal`中,`ThreadLocal`可以理解为`ThreadLocalMap`的封装。
+变量是放在了当前线程的 `ThreadLocalMap` 中，并不是存在 `ThreadLocal` 中，`ThreadLocal` 可以理解为 `ThreadLocalMap` 的封装。
 
-`ThreadLocal`类的`set()`方法：
+`ThreadLocal` 类的 `set()` 方法：
 
 ```java
 public void set(T value) {
@@ -54,17 +54,18 @@ ThreadLocalMap getMap(Thread t) {
 }
 ```
 
-每个`Thread`中都具备一个`ThreadLocalMap`，**而`ThreadLocalMap`存储以`ThreadLocal`为key，Object对象为value的键值对**（JDK1.8）。
+每个 `Thread` 中都具备一个 `ThreadLocalMap`，**而 `ThreadLocalMap` 存储以 `ThreadLocal` 为key，Object对象为value的键值对**（JDK1.8）。
 
-`ThreadLocalMap`是`ThreadLocal`的静态内部类。
+`ThreadLocalMap` 是 `ThreadLocal` 的静态内部类。
 
 ![17195626](/markdown/image-20230616174109050.png)
 
 ### ThreadLocal内存泄露
 
-`ThreadLocalMap` 中使用的 key 为 `ThreadLocal` 的**弱引用**，而 value 是**强引用**。所以，如果 `ThreadLocal` 没有被外部强引用的情况下，在垃圾回收的时候，key 会被清理掉，而 value 不会被清理掉。
+`ThreadLocalMap` 中使用的key为 `ThreadLocal` 的**弱引用**，而value是**强引用**。所以，如果 `ThreadLocal` 没有被外部强引用的情况下，在垃圾回收的时候，key会被清理掉，而value不会被清理掉。
 
-这样一来，`ThreadLocalMap` 中就会出现 key 为 null 的 Entry。假如不做任何措施的话，value 永远无法被 GC 回收，这个时候就可能会产生内存泄露。`ThreadLocalMap` 实现中已经考虑了这种情况，在调用 `set()`、`get()`、`remove()` 方法的时候，会清理掉 key 为 null 的记录。
+这样一来，`ThreadLocalMap` 中就会出现key为null的Entry。假如不做任何措施的话，value永远无法被GC回收，这个时候就可能会产生内存泄露。`ThreadLocalMap` 实现中已经考虑了这种情况，在调用 `set()`、`get()`、`remove()` 
+方法的时候，会清理掉key为null的记录，建议在每次操作 `ThreaLocalMap` 的时候都调用一次 `remove()` 方法。
 
 ## 线程池
 
@@ -84,16 +85,16 @@ ThreadLocalMap getMap(Thread t) {
 
 ### 如何创建线程池？
 
-- 通过`ThreadPoolExecutor`构造函数来创建；
+- 通过 `ThreadPoolExecutor` 构造函数来创建；
 - 通过 `Executor` 框架的工具类 `Executors` 来创建。
 
-不同类型的`ThreadPoolExecutor`:
+不同类型的 `ThreadPoolExecutor`:
 
 - **`FixedThreadPool`**：该方法返回一个固定线程数量的线程池。该线程池中的线程数量始终不变。当有一个新的任务提交时，线程池中若有空闲线程，则立即执行。若没有，则新的任务会被暂存在一个任务队列中，待有线程空闲时，便处理在任务队列中的任务。**核心线程数为n，最大线程数为n**。
 
-- **`SingleThreadExecutor`：** 该方法返回一个只有一个线程的线程池。若多余一个任务被提交到该线程池，任务会被保存在一个任务队列中，待线程空闲，按先入先出的顺序执行队列中的任务。**核心线程数为1，最大线程数为1。**
+- **`SingleThreadExecutor`**： 该方法返回一个只有一个线程的线程池。若多余一个任务被提交到该线程池，任务会被保存在一个任务队列中，待线程空闲，按先入先出的顺序执行队列中的任务。**核心线程数为1，最大线程数为1。**
 
-- **`CachedThreadPool`：** 该方法返回一个可根据实际情况调整线程数量的线程池。线程池的线程数量不确定，但若有空闲线程可以复用，则会优先使用可复用的线程。若所有线程均在工作，又有新的任务提交，则会创建新的线程处理任务。所有线程在当前任务执行完毕后，将返回线程池进行复用。**核心线程数为0，最大线程数为`Integer.MAX_VALUE`**。
+- **`CachedThreadPool`**： 该方法返回一个可根据实际情况调整线程数量的线程池。线程池的线程数量不确定，但若有空闲线程可以复用，则会优先使用可复用的线程。若所有线程均在工作，又有新的任务提交，则会创建新的线程处理任务。所有线程在当前任务执行完毕后，将返回线程池进行复用。**核心线程数为0，最大线程数为`Integer.MAX_VALUE`**。
 
 - **`ScheduledThreadPool`**：该返回一个用来在给定的延迟后运行任务或者定期执行任务的线程池。**核心线程数为n，最大线程数为`Integer.MAX_VALUE`**。
 
@@ -114,27 +115,27 @@ ThreadLocalMap getMap(Thread t) {
 ### 线程池的主要参数
 
 ```java
-int corePoolSize,//线程池的核心线程数量
-int maximumPoolSize,//线程池的最大线程数
-long keepAliveTime,//当线程数大于核心线程数时，多余的空闲线程存活的最长时间
-TimeUnit unit,//时间单位
-BlockingQueue<Runnable> workQueue,//任务队列
-ThreadFactory threadFactory,//线程工厂
-RejectedExecutionHandler handler//拒绝策略
+int corePoolSize;//线程池的核心线程数量
+int maximumPoolSize;//线程池的最大线程数
+long keepAliveTime;//当线程数大于核心线程数时，多余的空闲线程存活的最长时间
+TimeUnit unit;//时间单位
+BlockingQueue<Runnable> workQueue;//任务队列
+ThreadFactory threadFactory;//线程工厂
+RejectedExecutionHandler handler;//拒绝策略
 ```
 
 **`ThreadPoolExecutor` 3 个最重要的参数：**
 
-- **`corePoolSize` :** 任务队列未达到队列容量时，最大可以同时运行的线程数量。
-- **`maximumPoolSize` :** 任务队列中存放的任务达到队列容量的时候，当前可以同时运行的线程数量变为最大线程数。
-- **`workQueue`:** 新任务来的时候会先判断当前运行的线程数量是否达到核心线程数，如果达到的话，新任务就会被存放在队列中。
+- **`corePoolSize`**： 任务队列未达到队列容量时，最大可以同时运行的线程数量。
+- **`maximumPoolSize`**：任务队列中存放的任务达到队列容量的时候，当前可以同时运行的线程数量变为最大线程数。
+- **`workQueue`**：新任务来的时候会先判断当前运行的线程数量是否达到核心线程数，如果达到的话，新任务就会被存放在队列中。
 
-`ThreadPoolExecutor`其他常见参数 :
+`ThreadPoolExecutor` 其他常见参数 :
 
-- **`keepAliveTime`**:线程池中的线程数量大于 `corePoolSize` 的时候，如果这时没有新的任务提交，核心线程外的线程不会立即销毁，而是会等待，直到等待的时间超过了 `keepAliveTime`才会被回收销毁；
-- **`unit`** : `keepAliveTime` 参数的时间单位。
-- **`threadFactory`** :executor 创建新线程的时候会用到。
-- **`handler`** :饱和策略。
+- **`keepAliveTime`**：线程池中的线程数量大于 `corePoolSize` 的时候，如果这时没有新的任务提交，核心线程外的线程不会立即销毁，而是会等待，直到等待的时间超过了 `keepAliveTime` 才会被回收销毁；
+- **`unit`**：`keepAliveTime` 参数的时间单位。
+- **`threadFactory`**：executor创建新线程的时候会用到。
+- **`handler`**：饱和策略。
 
 ### 线程池的饱和策略有哪些？
 
@@ -154,9 +155,12 @@ RejectedExecutionHandler handler//拒绝策略
 
 常见的阻塞队列：
 
-- 容量为 `Integer.MAX_VALUE` 的 `LinkedBlockingQueue`（无界队列）：`FixedThreadPool` 和 `SingleThreadExector` 。由于队列永远不会被放满，因此**`FixedThreadPool`**最多只能创建核心线程数的线程****。
-- `SynchronousQueue`（同步队列）：`CachedThreadPool` 。`SynchronousQueue` 没有容量，不存储元素，目的是保证对于提交的任务，如果有空闲线程，则使用空闲线程来处理；否则新建一个线程来处理任务。也就是说，**`CachedThreadPool` 的最大线程数是 `Integer.MAX_VALUE`** ，可以理解为线程数是可以无限扩展的，可能会创建大量线程，从而导致 OOM。
-- `DelayedWorkQueue`（延迟阻塞队列）：`ScheduledThreadPool` 和 `SingleThreadScheduledExecutor` 。`DelayedWorkQueue` 的内部元素并不是按照放入的时间排序，而是会按照延迟的时间长短对任务进行排序，内部采用的是“堆”的数据结构，可以保证每次出队的任务都是当前队列中执行时间最靠前的。`DelayedWorkQueue` 添加元素满了之后会自动扩容原来容量的 1/2，即永远不会阻塞，最大扩容可达 `Integer.MAX_VALUE`，所以**最多只能创建核心线程数的线程**。
+- 容量为 `Integer.MAX_VALUE` 的 `LinkedBlockingQueue`（无界队列）：`FixedThreadPool` 和 `SingleThreadExector` 。由于队列永远不会被放满，因此 **`FixedThreadPool` 最多只能创建核心线程数的线程**。
+- `SynchronousQueue`（同步队列）：`CachedThreadPool` 。`SynchronousQueue` 没有容量，不存储元素，目的是保证对于提交的任务，如果有空闲线程，则使用空闲线程来处理；否则新建一个线程来处理任务。也就是说，**`CachedThreadPool` 的最大线程数是 `Integer.MAX_VALUE`**，可以理解为线程数是可以无限扩展的，可能会创建大量线程，从而导致OOM。
+- `DelayedWorkQueue`（延迟阻塞队列）：`ScheduledThreadPool` 和 `SingleThreadScheduledExecutor`。`DelayedWorkQueue` 
+  的内部元素并不是按照放入的时间排序，而是会按照延迟的时间长短对任务进行排序，内部采用的是“堆”的数据结构，可以保证每次出队的任务都是当前队列中执行时间最靠前的。`DelayedWorkQueue` 添加元素满了之后会自动扩容原来容量的 1/2，即永远不会阻塞，最大扩容可达 `Integer.MAX_VALUE`，可以看做是一个放不满的队列，所以**最多只能创建核心线程数的线程**。
+
+总结：只有 `SynchronousQueue` 任务队列不放任务，因此直接创建线程，能创建的线程数就是最大线程数，其他几种队列都可以看做不会塞满，因此最多只能创建核心线程数的线程。
 
 ### 线程池处理任务的流程了解吗？
 
@@ -170,9 +174,9 @@ RejectedExecutionHandler handler//拒绝策略
 
 ### 如何设定线程池的大小？
 
-**CPU 密集型任务(N+1)**：N表示CPU核心数，比N多1是为了处理线程偶然发生的缺页中断，或者是其他原因导致任务暂停带来的影响。
+**CPU密集型任务(N+1)**：N表示CPU核心数，比N多1是为了处理线程偶然发生的缺页中断，或者是其他原因导致任务暂停带来的影响。
 
-**I/O 密集型任务(2N)**：系统大部分时间用来IO交互，而在处理IO的时候不会占用CPU资源，这时可将CPU资源交给其他任务，因此创建N+N个核心线程。
+**I/O密集型任务(2N)**：系统大部分时间用来IO交互，而在处理IO的时候不会占用CPU资源，这时可将CPU资源交给其他任务，因此创建N+N个核心线程。
 
 ## Future
 
@@ -206,38 +210,38 @@ FutureTask<Object> callableTask = new FutureTask<>(new Callable<Object>() {
 
 ```java
 FutureTask<String> task = new FutureTask<>(new Runnable() {
-     @Override
-     public void run() {
-         System.out.println("Runnable对象");
-     }
+    @Override
+    public void run() {
+        System.out.println("Runnable对象");
+    }
 }, "result");
 ```
 
 :::
 
-`FutureTask`相当于对`Callable` 进行了封装，管理着任务执行的情况，存储了 `Callable` 的 `call` 方法的任务执行结果。
+`FutureTask` 相当于对 `Callable` 进行了封装，管理着任务执行的情况，存储了 `Callable` 的 `call` 方法的任务执行结果。
 
 ### CompletableFuture 类有什么用？
 
 `Future` 在实际使用过程中存在一些局限性比如不支持异步任务的编排组合、获取计算结果的 `get()` 方法为阻塞调用。
 
-Java 8 才被引入`CompletableFuture` 类可以解决`Future` 的这些缺陷。`CompletableFuture` 除了提供了更为好用和强大的 `Future` 特性之外，还提供了函数式编程、**异步任务编排组合**（可以将多个异步任务串联起来，组成一个完整的链式调用）等能力。
+Java8才被引入`CompletableFuture` 类可以解决 `Future` 的这些缺陷。`CompletableFuture` 除了提供了更为好用和强大的 `Future` 特性之外，还提供了函数式编程、**异步任务编排组合**（可以将多个异步任务串联起来，组成一个完整的链式调用）等能力。该类创建任务时需要添加一个任务，和用来执行任务的线程池。
 
 ```java
 CompletableFuture<SkuInfoEntity> future1 = CompletableFuture.supplyAsync(() -> {
-      //sku基本信息的获取  pms_sku_info
-      SkuInfoEntity info = this.getById(skuId);
-      skuItemVo.setInfo(info);
-      return info;
+    //sku基本信息的获取  pms_sku_info
+    SkuInfoEntity info = this.getById(skuId);
+    skuItemVo.setInfo(info);
+    return info;
 }, executor);
 CompletableFuture<SkuInfoEntity> future2 = future1.thenAcceptAsync(() -> {
-   //业务代码2，需要future1完成之后才能执行
+    //业务代码2，需要future1完成之后才能执行
 }, executor);
 CompletableFuture<SkuInfoEntity> future3 = CompletableFuture.supplyAsync(() -> {
-   //业务代码
+    //业务代码
 }, executor);
 CompletableFuture<SkuInfoEntity> future4 = CompletableFuture.supplyAsync(() -> {
-   //业务代码
+    //业务代码
 }, executor);
 //多个任务等待异步完成
 CompletableFuture.allOf(future1,future2,future3,future4).get();

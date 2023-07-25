@@ -49,7 +49,7 @@ int totalNum = userNum + teacherNum;	// 3
 2. 解锁规则：解锁happens-before加锁；
 3. volatile变量规则：对于一个volatile变量的写操作happens-before后面对这个变量的读操作，也就是对这个变量的修改对其后的所有操作都可见；
 4. 传递规则：如果A happens-before B，B happens-before C，则A happens-before C；
-5. 线程启动规则：Thread对象的`start()`方法happens-before这个线程的每一个操作。
+5. 线程启动规则：Thread对象的 `start()` 方法happens-before这个线程的每一个操作。
 
 如果两个操作不满足上述条件的任意一个，则这两个操作就没有顺序保障，JVM可以对这两个操作进行重排序。
 
@@ -59,29 +59,29 @@ int totalNum = userNum + teacherNum;	// 3
 
 一次操作或者多次操作，要么所有的操作都能全部执行不会收到任何外界因素干扰而中断，要么都不执行。
 
-`synchronized`和各种`Lock`来实现原子性。
+`synchronized` 和各种 `Lock` 来实现原子性。
 
 **可见性：**
 
 当一个线程对共享变量进行修改，那么另外的线程都是能立即看到的。
 
-`synchronized`、`volatile`、各种`Lock`实现可见性。
+`synchronized`、`volatile`、各种 `Lock` 实现可见性。
 
 **有序性：**
 
 由于指令重排序问题，代码的执行顺序未必就是编写代码的顺序。
 
-使用`volatile`关键字可以禁止指令进行重排序优化。
+使用 `volatile` 关键字可以禁止指令进行重排序优化。
 
 ## volatile关键字
 
-在 Java 中，`volatile` 关键字可以保证变量的可见性，如果我们将变量声明为 **`volatile`** ，这就指示 JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。
+在Java中，`volatile` 关键字可以保证变量的可见性，如果我们将变量声明为 `volatile` ，这就指示JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。
 
 **`volatile` 关键字能保证数据的可见性，但不能保证数据的原子性。`synchronized` 关键字两者都能保证。**
 
 ### volatile如何禁止指令重排序？
 
-如果将变量通过`volatile`修饰，则对这个变量读写的时候会添加上特定的读写屏障保证可见性。
+如果将变量通过 `volatile` 修饰，则对这个变量读写的时候会添加上特定的读写屏障保证可见性。
 
 在CPU的物理世界里，内存屏障通常有三种：
 
@@ -95,15 +95,15 @@ mfence: 全屏障 (memory fence)，即读写屏障，保证读写都串行化，
 
 ```java
 public class Singleton{
-	private Singleton{}//构造方法私有
+    private Singleton{}//构造方法私有
     
-    private volatile Singleton singleton;//volatile修饰的singleton 保证可见性
+    private static volatile Singleton SINGLETON;//volatile修饰的singleton 保证可见性
     
-    public static Singleton getInstance(){
-        if(singleton==null){
-            synchronized(Singleton.class){//对类对象加锁
-                if(singleton==null){
-                    singleton=new Singleton();
+    public static Singleton getInstance() {
+        if(SINGLETON == null) {
+            synchronized(Singleton.class) {//对类对象加锁
+                if(SINGLETON == null) {
+                    SINGLETON=new Singleton();
                 }
             }
         }
@@ -112,7 +112,8 @@ public class Singleton{
 }
 ```
 
-`volatile`是“轻量级”`synchronized`，保证了共享变量的“可见性”（JMM确保所有线程看到这个变量的值是一致的），当CPU写数据时，如果发现操作的变量是共享变量，即在其他CPU中也存在该变量的副本，**会发出信号通知其他CPU将该变量的缓存行置为无效状态，并且锁住缓存行**，因此当其他CPU需要读取这个变量时，要等锁释放，并发现自己缓存行是无效的，那么它就会从内存重新读取。
+`volatile` 是“轻量级” `synchronized`，保证了共享变量的“可见性”（JMM确保所有线程看到这个变量的值是一致的），当CPU写数据时，如果发现操作的变量是共享变量，即在其他CPU中也存在该变量的副本，**会发出信号通知其他CPU将该变量的缓存行置为无效状态，并且锁住缓存行**，因此当其他CPU
+需要读取这个变量时，要等锁释放，并发现自己缓存行是无效的，那么它就会从内存重新读取。
 
 ## 乐观锁和悲观锁
 
@@ -122,21 +123,22 @@ public class Singleton{
 
 验证数据是否被其他线程修改可通过版本号机制或者CAS算法。
 
-在 Java 中`java.util.concurrent.atomic`包下面的原子变量类（比如`AtomicInteger`、`LongAdder`）就是使用了乐观锁的一种实现方式 **CAS** 实现的。`AtomicInteger`类主要利用CAS(compare and swap)+`volatile`和`native`方法来保证原子操作，从而避免`synchronized`的高开销，执行效率大为提升。
+在Java中 `java.util.concurrent.atomic` 包下面的原子变量类（比如 `AtomicInteger`、`LongAdder`）就是使用了乐观锁的一种实现方式 **CAS** 实现的。`AtomicInteger` 类主要利用CAS(compare and swap)
++ `volatile` 和 `native` 方法来保证原子操作，从而避免 `synchronized` 的高开销，执行效率大为提升。
 
 ### 什么是悲观锁？
 
-悲观锁总是假设最坏的情况，认为共享资源总是会被其他线程修改了，所以在访问资源的时候采取加锁的方案，防止其他线程修改，像 Java 中`synchronized`和`ReentrantLock`等独占锁就是悲观锁思想的实现。
+悲观锁总是假设最坏的情况，认为共享资源总是会被其他线程修改了，所以在访问资源的时候采取加锁的方案，防止其他线程修改，像Java中 `synchronized` 和 `ReentrantLock` 等独占锁就是悲观锁思想的实现。
 
 高并发的场景下，激烈的锁竞争会造成线程阻塞，大量阻塞线程会导致系统的上下文切换，增加系统的性能开销。并且，悲观锁还可能会存在死锁问题，影响代码的正常运行。
 
-### CAS 算法
+### CAS
 
-CAS 的全称是 **Compare And Swap（比较与交换）** ，用于实现乐观锁，被广泛应用于各大框架中。CAS 的思想很简单，就是用一个预期值和要更新的变量值进行比较，两值相等才会进行更新。
+CAS的全称是**Compare And Swap（比较与交换）**，用于实现乐观锁，被广泛应用于各大框架中。CAS的思想很简单，就是用一个预期值和要更新的变量值进行比较，两值相等才会进行更新。
 
-CAS 是一个原子操作，底层依赖于一条 CPU 的原子指令。
+CAS是一个原子操作，底层依赖于一条 CPU 的原子指令。
 
-CAS 涉及到三个操作数：
+CAS涉及到三个操作数：
 
 - **V**：要更新的变量值(Var)
 - **E**：预期值(Expected)
@@ -150,9 +152,9 @@ CAS 涉及到三个操作数：
 
 ### CAS问题
 
-CAS 经常会用到自旋操作来进行重试，也就是不成功就一直循环执行直到成功。如果长时间不成功，会给 CPU 带来非常大的执行开销。
+CAS经常会用到自旋操作来进行重试，也就是不成功就一直循环执行直到成功。如果长时间不成功，会给CPU带来非常大的执行开销。
 
-CAS 只对单个共享变量有效，当操作涉及跨多个共享变量时 CAS 无效。但是从 JDK 1.5 开始，提供了`AtomicReference`类来保证引用对象之间的原子性，可以把多个变量放在一个对象里来进行 CAS 操作。
+CAS只对单个共享变量有效，当操作涉及跨多个共享变量时CAS无效。但是从JDK 1.5开始，提供了 `AtomicReference` 类来保证引用对象之间的原子性，可以把多个变量放在一个对象里来进行CAS操作。
 
 ## synchronized
 
@@ -160,7 +162,7 @@ CAS 只对单个共享变量有效，当操作涉及跨多个共享变量时 CAS
 
 `synchronized` 是 Java 中的一个关键字，翻译成中文是同步的意思，主要解决的是多个线程之间访问资源的同步性，可以保证被它修饰的方法或者代码块在任意时刻只能有一个线程执行。
 
-早期版本中`synchronized` 属于重量级锁，Java 6 之后对`synchronized` 做了优化。
+早期版本中 `synchronized` 属于重量级锁，Java6之后对`synchronized` 做了优化。
 
 详见[synchronized锁优化](http://ylzhong.top/java/3juc/4synchronizedlock.html)。
 
@@ -199,9 +201,9 @@ synchronized(类.class) {
 
 :::
 
-`synchronized` 关键字加到 `static` 静态方法和 `synchronized(class)` 代码块上都是是给 Class 类上锁；
+`synchronized` 关键字加到 `static` 静态方法和 `synchronized(class)` 代码块上都是是给Class类上锁；
 
-`synchronized` 关键字加到实例方法上是给对象实例上锁；
+`synchronized` 关键字加到实例方法上是给对象实例上锁。
 
 ### synchronized底层原理
 
@@ -209,9 +211,9 @@ synchronized(类.class) {
 
 `synchronized` 同步语句块的实现使用的是 `monitorenter` 和 `monitorexit` 指令，其中 `monitorenter` 指令指向同步代码块的开始位置，`monitorexit` 指令则指明同步代码块的结束位置。
 
-在执行`monitorenter`时，会尝试获取对象的锁，如果锁的计数器为 0 则表示锁可以被获取，获取后将锁计数器设为 1 也就是加 1。
+在执行 `monitorenter` 时，会尝试获取对象的锁，如果锁的计数器为0则表示锁可以被获取，获取后将锁计数器设为1。
 
-对象锁的的拥有者线程才可以执行 `monitorexit` 指令来释放锁。在执行 `monitorexit` 指令后，将锁计数器设为 0，表明锁被释放，其他线程可以尝试获取锁。
+对象锁的的拥有者线程才可以执行 `monitorexit` 指令来释放锁。在执行 `monitorexit` 指令后，将锁计数器设为0，表明锁被释放，其他线程可以尝试获取锁。
 
 **修饰方法**
 
@@ -223,36 +225,36 @@ synchronized(类.class) {
 
 ### synchronized 和 volatile 有什么区别？
 
-- `volatile` 关键字是线程同步的轻量级实现，所以 `volatile`性能肯定比`synchronized`关键字要好 。但是 `volatile` 关键字只能用于变量而 `synchronized` 关键字可以修饰方法以及代码块 。
+- `volatile` 关键字是线程同步的轻量级实现，所以 `volatile` 性能肯定比 `synchronized` 关键字要好 。但是 `volatile` 关键字只能用于变量而 `synchronized` 关键字可以修饰方法以及代码块 。
 
 - `volatile` 关键字能保证数据的可见性，但不能保证数据的原子性。`synchronized` 关键字两者都能保证。
 
-- `volatile`关键字主要用于解决变量在多个线程之间的可见性，而 `synchronized` 关键字解决的是多个线程之间访问资源的同步性。
+- `volatile` 关键字主要用于解决变量在多个线程之间的可见性，而 `synchronized` 关键字解决的是多个线程之间访问资源的同步性。
 
 ## ReentrantLock
 
 ### ReentrantLock 是什么？
 
-`ReentrantLock` 实现了 `Lock` 接口，是一个可重入且独占式的锁，和 `synchronized` 关键字类似。不过，`ReentrantLock` 更灵活、更强大，增加了轮询、超时、中断、公平锁和非公平锁等高级功能。
+`ReentrantLock` 实现了 `Lock` 接口，是一个可重入且独占式的锁，和 `synchronized` 关键字类似。不过 `ReentrantLock` 更灵活、更强大，增加了轮询、超时、中断、公平锁和非公平锁等高级功能。
 
-`ReentrantLock` 里面有一个内部类 `Sync`，`Sync` 继承 AQS（`AbstractQueuedSynchronizer`），添加锁和释放锁的大部分操作实际上都是在 `Sync` 中实现的。`Sync` 有公平锁 `FairSync` 和非公平锁 `NonfairSync` 两个子类。
+`ReentrantLock` 里面有一个内部类 `Sync`，`Sync` 继承AQS（`AbstractQueuedSynchronizer`），添加锁和释放锁的大部分操作实际上都是在 `Sync` 中实现的。`Sync` 有公平锁 `FairSync` 和非公平锁 `NonfairSync` 两个子类。
 
 详见[AQS抽象队列同步器](http://ylzhong.top/java/3juc/5aqs.html)。
 
 ### 公平锁和非公平锁有什么区别？
 
-- **公平锁** : 锁被释放之后，先申请的线程先得到锁。性能较差一些，因为公平锁为了保证时间上的绝对顺序，上下文切换更频繁。
+- **公平锁**：锁被释放之后，先申请的线程先得到锁。性能较差一些，因为公平锁为了保证时间上的绝对顺序，上下文切换更频繁。
 
 - **非公平锁**：锁被释放之后，后申请的线程可能会先获取到锁，是随机或者按照其他优先级排序的。性能更好，但可能会导致某些线程永远无法获取到锁。
 
 ### synchronized 和 ReentrantLock 有什么区别？
 
 - 两者都是可重入锁，也就是线程可以再次获取自己的内部锁。
-- `synchronized` 依赖于 JVM 而 `ReentrantLock` 依赖于 API。
-- `ReentrantLock` 比`synchronized` 增加了一些高级功能：
-  - 等待可中断：`ReentrantLock`提供了一种能够中断等待锁的线程的机制，通过 `lock.lockInterruptibly()` 来实现这个机制。也就是说正在等待的线程可以选择放弃等待，改为处理其他事情。
-  - 可实现公平锁: `ReentrantLock`可以指定是公平锁还是非公平锁，而`synchronized`只能是非公平锁。
-  - 可实现选择性通知（锁可以绑定多个条件）: `synchronized`关键字与`wait()`和`notify()`/`notifyAll()`方法相结合可以实现等待/通知机制。`ReentrantLock`也可以实现，但是需要借助于`Condition`接口与`newCondition()`方法。
+- `synchronized` 依赖于JVM而 `ReentrantLock` 依赖于API。
+- `ReentrantLock` 比 `synchronized` 增加了一些高级功能：
+  - 等待可中断：`ReentrantLock` 提供了一种能够中断等待锁的线程的机制，通过 `lock.lockInterruptibly()` 来实现这个机制。也就是说正在等待的线程可以选择放弃等待，改为处理其他事情。
+  - 可实现公平锁: `ReentrantLock` 可以指定是公平锁还是非公平锁，而 `synchronized` 只能是非公平锁。
+  - 可实现选择性通知（锁可以绑定多个条件）: `synchronized` 关键字与 `wait()` 和 `notify()` / `notifyAll()` 方法相结合可以实现等待/通知机制。`ReentrantLock` 也可以实现，但是需要借助于 `Condition` 接口与 `newCondition()` 方法。
 
 ### 可中断锁和不可中断锁有什么区别？
 

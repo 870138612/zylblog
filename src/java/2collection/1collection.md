@@ -14,7 +14,7 @@ Java集合由两大接口派生而来，分别是用来存放单一元素的 `Co
 
 <!-- more -->
 
-### 说说 List, Set, Queue, Map 四者的区别？
+### 说说 List，Set，Queue，Map 四者的区别？
 
 - `List` （顺序存储）存储的元素是有序的，可以重复；
 - `Set` （独一无二）存储的元素无序，不可重复；
@@ -48,7 +48,7 @@ Java集合由两大接口派生而来，分别是用来存放单一元素的 `Co
 
 ## List
 
-### 说说ArrayList
+### 说说 ArrayList
 
 - `ArrayList` 存储元素的特点是顺序，可重复；
 - `ArrayList` 会根据实际存储的元素动态扩容或者缩容；
@@ -59,7 +59,7 @@ Java集合由两大接口派生而来，分别是用来存放单一元素的 `Co
 - 扩容后大小为 `int newCapacity = oldCapacity + (oldCapacity >> 1);` ;
 - JDK1.8以无参数构造方法创建 `ArrayList` 时，实际上初始化赋值的是一个空数组。当真正对数组进行添加元素操作时，才真正分配容量。即向数组中添加第一个元素时，数组容量扩为 10。
 
-### ArryList和Vector区别？
+### ArryList 和 Vector 区别？
 
 - `ArrayList` 是 `List` 的主要实现类，底层用 `Object[]` 存储，适用于频繁查找的场景，线程不安全；
 - `Vector` 是 `List` 的古老实现类，底层用 `Object[]` 存储，线程安全。
@@ -124,21 +124,21 @@ Java集合由两大接口派生而来，分别是用来存放单一元素的 `Co
 ```java
 //调整函数 建立大顶堆
 void Sift(int R[], int low, int high) {
-	int i = low;
-	int j = 2*i;
-	int temp = R[i];
-	while(j <= high) {
-		if(j < high && R[j] < R[i+1])
-			++j;//j指向左右孩子中大的那个
+    int i = low;
+    int j = 2*i;
+    int temp = R[i];
+    while(j <= high) {
+        if(j < high && R[j] < R[i+1])
+            ++j;//j指向左右孩子中大的那个
         if(temp < R[j]){
-        	R[i] = R[j];
-        	i = j;
-        	j = 2*i;
-        } else {
-        	break;
+            R[i] = R[j];
+            i = j;
+            j = 2*i;
+        }else {
+            break;
         }
-	}
-	R[i] = temp;
+    }
+    R[i] = temp;
 }
 //堆排序
 void headSort(int R[], int n) {
@@ -161,3 +161,11 @@ void headSort(int R[], int n) {
 `BlockingQueue` （阻塞队列）是一个接口，继承自 `Queue` 。`BlockingQueue` 阻塞的原因是其支持当队列没有元素时一直阻塞，直到有有元素；如果队列已满，一直等到队列可以放入新元素时再放入。
 
 `BlockingQueue` 常用于生产者-消费者模型中，生产者线程会向队列中添加数据，而消费者线程会从队列中取出数据进行处理。
+
+### ArrayBlockingQueue 和 LinkedBlockingQueue 有什么区别？
+
+`ArrayBlockingQueue` 和 `LinkedBlockingQueue` 是Java并发包中常用的两种阻塞队列实现，它们都是线程安全的。不过，不过它们之间也存在下面这些区别：
+- 底层实现：`ArrayBlockingQueue` 基于数组实现，而 `LinkedBlockingQueue` 基于链表实现。
+- 是否有界：`ArrayBlockingQueue` 是有界队列，必须在创建时指定容量大小。`LinkedBlockingQueue` 创建时可以不指定容量大小，默认是 `Integer.MAX_VALUE`，也就是无界的。但也可以指定队列大小，从而成为有界的。
+- 锁是否分离：`ArrayBlockingQueue` 中的锁是没有分离的，即生产和消费用的是同一个锁；`LinkedBlockingQueue`中的锁是分离的，即生产用的是 `putLock`，消费是 `takeLock`，这样可以防止生产者和消费者线程之间的锁争夺。
+- 内存占用：`ArrayBlockingQueue` 需要提前分配数组内存，而 `LinkedBlockingQueue` 则是动态分配链表节点内存。这意味着 `ArrayBlockingQueue` 在创建时就会占用一定的内存空间，且往往申请的内存比实际所用的内存更大，而 `LinkedBlockingQueue` 则是根据元素的增加而逐渐占用内存空间。
