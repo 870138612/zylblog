@@ -14,9 +14,9 @@ tag:
 
 ## 内存分配和回收原则
 
-### 对象优先在Eden中分配
+### 对象优先在 Eden 中分配
 
-大多数情况下，对象在新生代中 Eden 区分配。当 Eden 区没有足够空间进行分配时，虚拟机将发起一次 Minor GC。
+大多数情况下，对象在新生代中Eden区分配。当Eden区没有足够空间进行分配时，虚拟机将发起一次Minor GC。
 
 ### 大对象直接进入老年代
 
@@ -28,21 +28,21 @@ tag:
 
 虚拟机给每个对象一个对象年龄（Age）计数器。
 
-大部分情况，对象都会首先在 Eden 区域分配。如果对象在 Eden 出生并经过第一次 Minor GC 后仍然能够存活，并且能被 Survivor 容纳的话，将被移动到 Survivor 空间（s0 或者 s1）中，并将对象年龄设为 1(Eden 区->Survivor 区后对象的初始年龄变为 **1**)。
+大部分情况，对象都会首先在Eden区域分配。如果对象在Eden出生并经过第一次Minor GC后仍然能够存活，并且能被Survivor容纳的话，将被移动到Survivor空间（s0或者s1）中，并将对象年龄设为1(Eden区->Survivor区后对象的初始年龄变为**1**)。
 
-对象在 Survivor 中每熬过一次 MinorGC,年龄就增加 1 岁，当它的年龄增加到一定程度（默认为 15 岁），就会被晋升到老年代中。
+对象在Survivor中每熬过一次MinorGC,年龄就增加1岁，当它的年龄增加到一定程度（默认为 15 岁），就会被晋升到老年代中。
 
 对象晋升到老年代的年龄阈值，可以通过参数 `-XX:MaxTenuringThreshold` 来设置。
 
 ::: info 额外的
 
-Hotspot 遍历所有对象时，按照年龄从小到大对其所占用的大小进行累积，当累积的某个年龄大小超过了 survivor 区的 50% 时（默认值是 50%，可以通过 `-XX:TargetSurvivorRatio=percent` 来设置），取这个年龄和 MaxTenuringThreshold 中更小的一个值，作为新的晋升年龄阈值”。
+Hotspot遍历所有对象时，按照年龄从小到大对其所占用的大小进行累积，当累积的某个年龄大小超过了 survivor 区的50%时（默认值是50%，可以通过 `-XX:TargetSurvivorRatio=percent` 来设置），取这个年龄和 `MaxTenuringThreshold` 中更小的一个值，作为新的晋升年龄阈值。
 
 :::
 
 ### GC区域
 
-针对 HotSpot VM 的实现，它里面的 GC 其实准确分类只有两大种：
+针对HotSpot VM的实现，它里面的 GC 其实准确分类只有两大种：
 
 **部分收集 (Partial GC)**：
 
