@@ -18,7 +18,7 @@ tag:
 
 <!-- more -->
 
-### ThreadLocal原理
+### ThreadLocal 原理
 
 `Thread`类源码：
 
@@ -60,7 +60,7 @@ ThreadLocalMap getMap(Thread t) {
 
 ![17195626](/markdown/image-20230616174109050.png)
 
-### ThreadLocal内存泄露
+### ThreadLocal 内存泄露
 
 `ThreadLocalMap` 中使用的key为 `ThreadLocal` 的**弱引用**，而value是**强引用**。所以，如果 `ThreadLocal` 没有被外部强引用的情况下，在垃圾回收的时候，key会被清理掉，而value不会被清理掉。
 
@@ -180,7 +180,7 @@ RejectedExecutionHandler handler;//拒绝策略
 
 ## Future
 
-### Future类有什么用？
+### Future 类有什么用？
 
 `Future` 类是异步思想的典型运用，主要用在一些需要执行耗时任务的场景，避免程序一直原地等待耗时任务执行完成，执行效率太低。
 

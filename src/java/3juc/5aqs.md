@@ -16,9 +16,9 @@ AQS就是一个抽象类，主要用来构建锁和同步器。
 
 比如 `ReentrantLock`，`Semaphore`，其他的诸如 `ReentrantReadWriteLock`，`SynchronousQueue`等等皆是基于AQS实现的。
 
-## AQS原理
+## AQS 原理
 
-### AQS核心思想
+### AQS 核心思想
 
 AQS的核心思想是如果被请求的共享资源空闲，则将当前请求资源的线程设置为有效的工作线程，并将共享资源的状态设置为锁定状态。如果资源被占用，则需要一套线程阻塞等待以及被唤醒分配的机制，这个机制AQS是基于**CLH**锁实现的。
 
@@ -35,7 +35,7 @@ AQS使用 **int 成员变量 `state` 表示同步状态**，通过内置的**线
 
 `state` 变量由 `volatile` 修饰，用于展示当前临界资源的获锁情况，保证可见性和有序性。
 
-### AQS资源共享方式
+### AQS 资源共享方式
 
 AQS定义两种资源共享方式：`Exclusive`（独占，只有一个线程能执行，如`ReentrantLock`）和`Share`（共享，多个线程可同时执行，如 `Semaphore` / `CountDownLatch`）。
 

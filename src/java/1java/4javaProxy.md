@@ -75,7 +75,7 @@ public class Main {
 
 动态代理主要有两种：JDK动态代理、CGLIB动态代理。
 
-### JDK动态代理
+### JDK 动态代理
 
 Java中动态代理中`InvocationHandler`接口和`Proxy`类是核心。
 
@@ -181,7 +181,7 @@ public static void main(String[] args) {
 
 :::
 
-### CGLIB动态代理
+### CGLIB 动态代理
 
 JDK代理需要实现接口的类才能作为目标对象，为了解决这个问题，可以使用CGLIB动态代理。
 
@@ -272,7 +272,7 @@ proxy.send("java");
 
 :::
 
-## JDK动态代理和CGLIB动态代理的区别
+## JDK 动态代理和 CGLIB 动态代理的区别
 
 1. JDK动态代理需要目标类实现接口或直接代理接口，CGLIB则不需要，CGLIB是通过生成一个被代理类的子类来拦截代理类的方法调用，因此不能代理声明 `final` 类型的类和方法。
 
