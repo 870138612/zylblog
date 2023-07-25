@@ -15,7 +15,7 @@ tag:
 <!-- more -->
 ## 静态代理
 
-静态代理中，对方法的增强是手动完成的，非常不灵活，从JVM层面来说，静态代理在编译的时候就将接口、实现类、代理类变成一个个`class`文件。编译从`.java`变成`.class`。
+静态代理中，对方法的增强是手动完成的，非常不灵活，从JVM层面来说，静态代理在编译的时候就将接口、实现类、代理类变成一个个 `class` 文件。编译从 `.java` 变成 `.class`。
 
 ::: tabs
 
@@ -95,9 +95,9 @@ public static Object newProxyInstance(ClassLoader loader,
 
 - `loader`：类加载器，用来加载代理对象；
 - `interfaces`：被代理类实现的接口；
-- `h`：实现了`InvocationHandler`接口的对象。
+- `h`：实现了 `InvocationHandler` 接口的对象。
 
-要实现动态代理，还要实现`InvocationHandler`接口，使用动态代理类调用方法的时候，方法就会被转发到实现`InvocationHandler`接口类的`invoke`方法来调用。
+要实现动态代理，还要实现 `InvocationHandler` 接口，使用动态代理类调用方法的时候，方法就会被转发到实现 `InvocationHandler` 接口类的 `invoke` 方法来调用。
 
 ```java
 public interface InvocationHandler {
@@ -116,7 +116,7 @@ public interface InvocationHandler {
 - `method`：与代理类对象调用的方法相对应；
 - `args`：当前method方法的参数。
 
-流程：通过`proxy`类的`newInstance()`创建代理对象调用方法，会实际调用实现`InvocationHandler`接口类的`invoke()`方法。
+流程：通过 `proxy` 类的 `newInstance()` 创建代理对象调用方法，会实际调用实现 `InvocationHandler` 接口类的 `invoke()` 方法。
 
 **实现：**
 
@@ -185,9 +185,9 @@ public static void main(String[] args) {
 
 JDK代理需要实现接口的类才能作为目标对象，为了解决这个问题，可以使用CGLIB动态代理。
 
-CGLIB动态代理中`MethodIntercepter`接口和`Enhancer`类是核心。
+CGLIB动态代理中 `MethodIntercepter` 接口和 `Enhancer` 类是核心。
 
-需要自定义接口`MethodIntercepter`并重写`intercept`方法，用于拦截增强被代理类的方法。
+需要自定义接口 `MethodIntercepter` 并重写 `intercept` 方法，用于拦截增强被代理类的方法。
 
 ```java
 public interface MethodInterceptor
@@ -202,7 +202,7 @@ extends Callback{
 - `args`：方法参数；
 - `proxy`：用于调用原始方法。
 
-通过`Enhancer`类来动态获取被代理类，当代理类调用方法的时候，实际调用的是`MethodInterceptor`中的`intercept`方法。
+通过 `Enhancer` 类来动态获取被代理类，当代理类调用方法的时候，实际调用的是 `MethodInterceptor` 中的 `intercept` 方法。
 
 **实现：**
 
@@ -274,7 +274,7 @@ proxy.send("java");
 
 ## JDK动态代理和CGLIB动态代理的区别
 
-1. JDK动态代理需要目标类实现接口或直接代理接口，CGLIB则不需要，CGLIB是通过生成一个被代理类的子类来拦截代理类的方法调用，因此不能代理声明`final`类型的类和方法。
+1. JDK动态代理需要目标类实现接口或直接代理接口，CGLIB则不需要，CGLIB是通过生成一个被代理类的子类来拦截代理类的方法调用，因此不能代理声明 `final` 类型的类和方法。
 
 2. JDK动态代理的效率要更好。
 

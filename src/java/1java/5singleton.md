@@ -98,7 +98,7 @@ class Singleton{
 }
 ```
 
-两个`static`，一个`volatile`，一个`synchronized`修饰符。
+两个 `static`，一个 `volatile` ，一个 `synchronized` 修饰符。
 
 **线程安全；延迟加载；效率较高。**
 
@@ -116,7 +116,7 @@ public class Singleton{
 }
 ```
 
-**由于静态内部类在`Singleton`被装载的时候，并不会实例化静态内部类`SingletonInstance`，只有在被用到的时候才会实例化，线程安全，延时加载，效率高。**
+**由于静态内部类在 `Singleton` 被装载的时候，并不会实例化静态内部类 `SingletonInstance`，只有在被用到的时候才会实例化，线程安全，延时加载，效率高。**
 
 ### 枚举
 

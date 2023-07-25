@@ -38,9 +38,9 @@ public class DebugInvocationHandler implements InvocationHandler {
 }
 ```
 
-其中的`Method`就是反射类。
+其中的 `Method` 就是反射类。
 
-SpringBoot中使用`@Component`就能声明一个Bean，原理就是基于反射获取到对应类上的注解，再做处理。
+SpringBoot中使用 `@Component` 就能声明一个Bean，原理就是基于反射获取到对应类上的注解，再做处理。
 
 ### 反射的优缺点
 
@@ -56,20 +56,20 @@ SpringBoot中使用`@Component`就能声明一个Bean，原理就是基于反射
 Class clazz = Target.class;
 ```
 
-2. 通过`Class.forName()`传入类的全路径名：
+2. 通过 `Class.forName()` 传入类的全路径名：
 
 ```java
 Class clazz = Class.forName("com.zyl.Target");
 ```
 
-3. 通过实例对象的`getClass()`获取：
+3. 通过实例对象的 `getClass()` 获取：
 
 ```java
 Target t = new Target();
 Class clazz = t.getClass();
 ```
 
-4. 通过类加载器`xxxClassLoader.loadClasss()`传入类路径获取：
+4. 通过类加载器 `xxxClassLoader.loadClasss()` 传入类路径获取：
 
 ```java
 ClassLoader.getSystemClassLoader().loadClass("com.zyl.Target");
