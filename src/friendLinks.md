@@ -1,8 +1,10 @@
 ---
 icon: youlian
 cover: /home/aboutme.jpg
-editLink: false
+cover: /home/indexbg.jpg
+pageInfo: false
 article: false
+timeline: false
 ---
 # 友链
 ```card
