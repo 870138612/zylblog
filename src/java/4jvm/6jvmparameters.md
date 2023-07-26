@@ -10,14 +10,14 @@ tag:
 
 ## 堆内存相关
 
-### 指定堆内存`-Xms`和`-Xmx`
+### 指定堆内存 `-Xms` 和 `-Xmx`
 
 ```java
 -Xms<heap size>[unit]
 -Xmx<heap size>[unit]
 ```
 
-为JVM堆内存分配最大5GB，最小2GB内存：
+为 JVM 堆内存分配最大 5GB，最小 2GB 内存：
 
 ```
 -Xms2G -Xmx5G
@@ -29,16 +29,16 @@ tag:
 
 一共有两种指定新生代内存大小的办法：
 
-**1. 通过`-XX:NewSize`和`-XX:MaxNewSize`指定**
+**1. 通过 `-XX:NewSize` 和 `-XX:MaxNewSize` 指定**
 
 ```
 -XX:NewSize=256m
 -XX:MaxNewSize=1024m
 ```
 
-**2.通过`-Xmn<young size>[unit]`指定**
+**2.通过 `-Xmn<young size>[unit]` 指定**
 
-为新生代分配256MB内存：
+为新生代分配 256MB 内存：
 
 ```java
 -Xmn256m
@@ -52,25 +52,25 @@ tag:
 -XX:NewRatio=1
 ```
 
-### 指定永久代/元空间大小
+### 指定永久代 / 元空间大小
 
 从 Java 8 开始，如果我们没有指定 Metaspace 的大小，随着更多类的创建，虚拟机会耗尽所有可用的**系统内存**（永久代并不会出现这种情况）。
 
 JDK 1.8 之前永久代还没被彻底移除的时候通常通过下面这些参数来调节方法区大小：
 
 ```java
--XX:PermSize=N #方法区 (永久代) 初始大小
--XX:MaxPermSize=N #方法区 (永久代) 最大大小,超过这个值将会抛出 OutOfMemoryError 异常:java.lang.OutOfMemoryError: PermGen
+-XX:PermSize=N #方法区（永久代）初始大小
+-XX:MaxPermSize=N #方法区（永久代）最大大小,超过这个值将会抛出 OutOfMemoryError 异常:java.lang.OutOfMemoryError: PermGen
 ```
 
-JDK 1.8 的时候，方法区（HotSpot 的永久代）被彻底移除了（JDK1.7 就已经开始了），取而代之是元空间，**元空间使用的是本地内存**。
+JDK 1.8 的时候，方法区（HotSpot 的永久代）被彻底移除了（JDK 1.7 就已经开始了），取而代之是元空间，**元空间使用的是本地内存**。
 
 ```java
--XX:MetaspaceSize=N #设置 Metaspace 的FGC阈值
+-XX:MetaspaceSize=N #设置 Metaspace 的 FGC 阈值
 -XX:MaxMetaspaceSize=N #设置 Metaspace 的最大大小
 ```
 
-Metaspace 由于使用不断扩容到`-XX:MetaspaceSize`参数指定的量，就会发生 Full GC，且之后每次 Metaspace 扩容都会发生 Full GC。
+Metaspace 由于使用不断扩容到 `-XX:MetaspaceSize` 参数指定的量，就会发生 Full GC，且之后每次 Metaspace 扩容都会发生 Full GC。
 
 ## 垃圾收集器相关
 
@@ -141,7 +141,7 @@ JVM 具有四种类型的 GC 实现：
 
 - **HeapDumpOnOutOfMemoryError** 指示 JVM 在遇到 **OutOfMemoryError** 错误时将 heap 转储到物理文件中。
 
-- **HeapDumpPath** 表示要写入文件的路径; 可以给出任何文件名; 但是，如果 JVM 在名称中找到一个 `<pid>` 标记，则当前进程的进程 id 将附加到文件名中，并使用`.hprof`格式
+- **HeapDumpPath** 表示要写入文件的路径; 可以给出任何文件名; 但是，如果 JVM 在名称中找到一个 `<pid>` 标记，则当前进程的进程 id 将附加到文件名中，并使用 `.hprof` 格式
 
 - **OnOutOfMemoryError** 用于发出紧急命令，以便在内存不足的情况下执行; 应该在 `cmd args` 空间中使用适当的命令。例如，如果我们想在内存不足时重启服务器，我们可以设置参数: `-XX:OnOutOfMemoryError="shutdown -r"` 。
 
@@ -159,7 +159,7 @@ JVM 具有四种类型的 GC 实现：
 
 `-XX:MaxHeapFreeRatio` : 设置 GC 后, 堆空闲的最大百分比，以避免收缩。
 
-`-XX:SurvivorRatio` : eden/survivor 空间的比例, 例如`-XX:SurvivorRatio=6` 设置每个 survivor 和 eden 之间的比例为 1:6。
+`-XX:SurvivorRatio` : eden / survivor 空间的比例, 例如`-XX:SurvivorRatio=6` 设置每个 survivor 和 eden 之间的比例为 1:6。
 
 `-XX:+UseLargePages` : 如果系统支持，则使用大页面内存; 请注意，如果使用这个 JVM 参数，OpenJDK 7 可能会崩溃。
 
