@@ -46,7 +46,7 @@ tag:
 
 还可以通过 **`-XX:NewRatio=<int>`** 来设置老年代与新生代内存的比值：
 
-老年代与新生代比值为1:1，说明新生代占整个内存的1/2；
+老年代与新生代比值为 1:1，说明新生代占整个内存的 1/2；
 
 ```
 -XX:NewRatio=1
@@ -130,7 +130,7 @@ JVM 具有四种类型的 GC 实现：
 
 对于大型应用程序来说，面对内存不足错误是非常常见的，这反过来会导致应用程序崩溃。这是一个非常关键的场景，很难通过复制来解决这个问题。
 
-这就是为什么 JVM 提供了一些参数，这些参数将堆内存转储到一个物理文件中，以后可以用来查找泄漏:
+这就是为什么 JVM 提供了一些参数，这些参数将堆内存转储到一个物理文件中，以后可以用来查找泄漏。
 
 ```java
 -XX:+HeapDumpOnOutOfMemoryError
@@ -141,30 +141,30 @@ JVM 具有四种类型的 GC 实现：
 
 - **HeapDumpOnOutOfMemoryError** 指示 JVM 在遇到 **OutOfMemoryError** 错误时将 heap 转储到物理文件中。
 
-- **HeapDumpPath** 表示要写入文件的路径; 可以给出任何文件名; 但是，如果 JVM 在名称中找到一个 `<pid>` 标记，则当前进程的进程 id 将附加到文件名中，并使用 `.hprof` 格式
+- **HeapDumpPath** 表示要写入文件的路径; 可以给出任何文件名; 但是，如果 JVM 在名称中找到一个 `<pid>` 标记，则当前进程的进程 id 将附加到文件名中，并使用 `.hprof` 格式。
 
-- **OnOutOfMemoryError** 用于发出紧急命令，以便在内存不足的情况下执行; 应该在 `cmd args` 空间中使用适当的命令。例如，如果我们想在内存不足时重启服务器，我们可以设置参数: `-XX:OnOutOfMemoryError="shutdown -r"` 。
+- **OnOutOfMemoryError** 用于发出紧急命令，以便在内存不足的情况下执行; 应该在 `cmd args` 空间中使用适当的命令。例如，如果我们想在内存不足时重启服务器，我们可以设置参数： `-XX:OnOutOfMemoryError="shutdown -r"`。
 
-- **UseGCOverheadLimit** 是一种策略，它限制在抛出 OutOfMemory 错误之前在 GC 中花费的 VM 时间的比例
+- **UseGCOverheadLimit** 是一种策略，它限制在抛出 OutOfMemory 错误之前在 GC 中花费的 VM 时间的比例。
 
 ## 其他
 
-`-server` : 启用“ Server Hotspot VM”; 此参数默认用于 64 位 JVM
+`-server` ：启用“ Server Hotspot VM”; 此参数默认用于 64 位 JVM
 
-`-XX:+UseStringDeduplication` : *Java 8u20* 引入了这个 JVM 参数，通过创建太多相同 String 的实例来减少不必要的内存使用; 这通过将重复 String 值减少为单个全局 `char []` 数组来优化堆内存。
+`-XX:+UseStringDeduplication` ：*Java 8u20* 引入了这个 JVM 参数，通过创建太多相同 String 的实例来减少不必要的内存使用; 这通过将重复 String 值减少为单个全局 `char []` 数组来优化堆内存。
 
-`-XX:+UseLWPSynchronization`: 设置基于 LWP (轻量级进程)的同步策略，而不是基于线程的同步。
+`-XX:+UseLWPSynchronization` ：设置基于 LWP (轻量级进程)的同步策略，而不是基于线程的同步。
 
-``-XX:LargePageSizeInBytes `: 设置用于 Java 堆的较大页面大小; 它采用 GB/MB/KB 的参数; 页面大小越大，我们可以更好地利用虚拟内存硬件资源; 然而，这可能会导致 PermGen 的空间大小更大，这反过来又会迫使 Java 堆空间的大小减小。
+``-XX:LargePageSizeInBytes ` ：设置用于 Java 堆的较大页面大小; 它采用 GB/MB/KB 的参数; 页面大小越大，我们可以更好地利用虚拟内存硬件资源; 然而，这可能会导致 PermGen 的空间大小更大，这反过来又会迫使 Java 堆空间的大小减小。
 
-`-XX:MaxHeapFreeRatio` : 设置 GC 后, 堆空闲的最大百分比，以避免收缩。
+`-XX:MaxHeapFreeRatio` ：设置 GC 后, 堆空闲的最大百分比，以避免收缩。
 
-`-XX:SurvivorRatio` : eden / survivor 空间的比例, 例如`-XX:SurvivorRatio=6` 设置每个 survivor 和 eden 之间的比例为 1:6。
+`-XX:SurvivorRatio` ：eden / survivor 空间的比例, 例如 `-XX:SurvivorRatio=6` 设置每个 survivor 和 eden 之间的比例为 1:6。
 
-`-XX:+UseLargePages` : 如果系统支持，则使用大页面内存; 请注意，如果使用这个 JVM 参数，OpenJDK 7 可能会崩溃。
+`-XX:+UseLargePages` ：如果系统支持，则使用大页面内存; 请注意，如果使用这个 JVM 参数，OpenJDK 7 可能会崩溃。
 
-`-XX:+UseStringCache` : 启用 String 池中可用的常用分配字符串的缓存。
+`-XX:+UseStringCache` ：启用 String 池中可用的常用分配字符串的缓存。
 
-`-XX:+UseCompressedStrings` : 对 String 对象使用 `byte []` 类型，该类型可以用纯 ASCII 格式表示。
+`-XX:+UseCompressedStrings` ：对 String 对象使用 `byte []` 类型，该类型可以用纯 ASCII 格式表示。
 
-`-XX:+OptimizeStringConcat` : 它尽可能优化字符串串联操作。
+`-XX:+OptimizeStringConcat` ：它尽可能优化字符串串联操作。
