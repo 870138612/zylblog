@@ -9,12 +9,6 @@ export const zhNavbar = navbar([
   {
     text: "友链",
     icon: "youlian",
-    children: [
-      {
-        icon: "star",
-        text: "穿过海的声音",
-        link: "//jcwang.top"
-      }
-    ],
+    link:"/friendLinks"
   },
 ]);

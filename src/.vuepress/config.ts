@@ -1,6 +1,7 @@
 import {defineUserConfig} from "vuepress";
 import theme from "./theme.js";
 import {searchProPlugin} from "vuepress-plugin-search-pro";
+import {mdEnhance} from "vuepress-theme-hope";
 
 export default defineUserConfig({
 
@@ -28,6 +29,6 @@ export default defineUserConfig({
     searchProPlugin({
       // // 索引全部内容
       indexContent: true,
-    }),
+    })
   ]
 });

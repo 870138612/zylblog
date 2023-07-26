@@ -48,7 +48,7 @@ export default hopeTheme({
       container: true,
       tabs: true,
       align: true,
-
+      card: true
     },
     comment: {
       provider: "Giscus",
