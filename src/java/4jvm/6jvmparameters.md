@@ -141,7 +141,7 @@ JVM 具有四种类型的 GC 实现：
 
 - **HeapDumpOnOutOfMemoryError** 指示 JVM 在遇到 **OutOfMemoryError** 错误时将 heap 转储到物理文件中。
 
-- **HeapDumpPath** 表示要写入文件的路径; 可以给出任何文件名; 但是，如果 JVM 在名称中找到一个 `<pid>` 标记，则当前进程的进程 id 将附加到文件名中，并使用 `.hprof` 格式。
+- **HeapDumpPath** 表示要写入文件的路径; 可以给出任何文件名; 如果 JVM 在名称中找到一个 `<pid>` 标记，则当前进程的进程 id 将附加到文件名中，并使用 `.hprof` 格式。
 
 - **OnOutOfMemoryError** 用于发出紧急命令，以便在内存不足的情况下执行; 应该在 `cmd args` 空间中使用适当的命令。例如，如果我们想在内存不足时重启服务器，我们可以设置参数： `-XX:OnOutOfMemoryError="shutdown -r"`。
 
