@@ -25,14 +25,14 @@ tag:
 
 每个 Class 文件的**头 4 个字节**称为魔数（Magic Number）,它的唯一作用是**确定这个文件是否为一个能被虚拟机接收的 Class 文件**。
 
-### Class 文件版本号（Minor&Major Version）
+### Class 文件版本号（Minor & Major Version）
 
 ```java
     u2             minor_version;//Class 的小版本号
     u2             major_version;//Class 的大版本号
 ```
 
-**四个字节**存储的是 Class 文件的版本号：第 5 和第 6 位是**次版本号**（2个字节），第 7 和第 8 位是**主版本号（2个字节）**。
+**四个字节**存储的是 Class 文件的版本号：第 5 和第 6 位是**次版本号**（2 个字节），第 7 和第 8 位是**主版本号**（2 个字节）。
 
 每当 Java 发布大版本的时候，主版本号都会加 1。
 

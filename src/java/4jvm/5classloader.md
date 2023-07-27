@@ -50,7 +50,7 @@ JVM中内置了三个`ClassLoader`：
 
 ## 双亲委派
 
-`ClassLoader` 类使用委托模型来搜索类和资源。每个 `ClassLoader` 实例都有一个相关的父类加载器。需要查找类或资源时，`ClassLoader` 实例会在试图亲自查找类或资源之前，**将搜索类或资源的任务委托给其父类加载器**。 虚拟机中被称为 "Bootstrap Classloader"的内置类加载器本身没有父类加载器，但是可以作为 `ClassLoader` 
+`ClassLoader` 类使用委托模型来搜索类和资源。每个 `ClassLoader` 实例都有一个相关的父类加载器。需要查找类或资源时，`ClassLoader` 实例会在试图亲自查找类或资源之前，**将搜索类或资源的任务委托给其父类加载器**。 虚拟机中被称为 `Bootstrap Classloader` 的内置类加载器本身没有父类加载器，但是可以作为 `ClassLoader` 
 实例的父类加载器。
 
 - `ClassLoader` 类使用委托模型来搜索类和资源。
@@ -138,7 +138,7 @@ protected Class<?> loadClass(String name, boolean resolve)
 
 双亲委派模式，保证了 Java 程序的稳定运行，可以避免类的重复加载，也保证了 Java 的核心 API 不会被修改。
 
-例如自己写一个 `java.lang.Object` 类，在程序运行的时候就会产生两个 `Object` 类，一个是 JRE 里面的，一个是自己写的，使用双亲委派通过启动类加载器 `BootStrapClassLoader` 发现这个类已经加载了，则会直接返回，不会加载自己写的 `Object`。
+例如自己写一个 `java.lang.Object` 类，在程序运行的时候就会产生两个 `Object` 类，一个是 JRE 里面的，一个是自己写的，使用双亲委派通过启动类加载器 `Bootstrap ClassLoader` 发现这个类已经加载了，则会直接返回，不会加载自己写的 `Object`。
 
 ### 打破双亲委派模型方法
 
