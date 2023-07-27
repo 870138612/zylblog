@@ -144,7 +144,7 @@ void Sift(int R[], int low, int high) {
 void headSort(int R[], int n) {
     int i;
     int temp;
-    for(int j = n / 2; j >= 1; j--) {
+    for(int j = n/2; j >= 1; j--) {
         Sift(R,i,n);
     }
     for(i = n; i >= 2; --i) {

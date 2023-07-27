@@ -39,7 +39,7 @@ declare const _default: vue.DefineComponent<{
         default: undefined;
     };
     /**
-     * Component width / height ratio
+     * Component width/height ratio
      *
      * 组件长宽比
      */
@@ -100,7 +100,7 @@ declare const _default: vue.DefineComponent<{
         default: undefined;
     };
     /**
-     * Component width / height ratio
+     * Component width/height ratio
      *
      * 组件长宽比
      */

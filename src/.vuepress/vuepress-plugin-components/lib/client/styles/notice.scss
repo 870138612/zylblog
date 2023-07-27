@@ -84,7 +84,7 @@
     padding: 4px;
     border-radius: 50%;
 
-    background-color: rgb(0 0 0 / 20%);
+    background-color: rgb(0 0 0/20%);
     color: var(--white);
 
     cursor: pointer;
@@ -94,7 +94,7 @@
     }
 
     &:hover {
-      background-color: rgb(0 0 0 / 30%);
+      background-color: rgb(0 0 0/30%);
     }
   }
 }
