@@ -1,10 +1,10 @@
 ---
-title: Java集合二
+title: Java 集合二
 icon: page
 category:
   - Java
 tag:
-  - Java集合
+  - Java 集合
   - 八股
 ---
 ## Map
@@ -79,3 +79,68 @@ JDK1.8之后通过尾插法解决上述问题。但是在多线程下还是会�
 - **线程安全实现方式**：JDK1.7采用 `Segment` 分段锁来保证安全，`Segment` 是继承自 `ReentrantLock`。JDK1.8 放弃了 `Segment` 分段锁的设计，采用 `Node + CAS + synchronized` 保证线程安全，锁粒度更细，`synchronized` 只锁定当前链表或红黑二叉树的首节点。
 - **Hash解决碰撞办法**：JDK1.7采用拉链法，JDK1.8采用拉链法+红黑树。
 - **并发度**：JDK1.7中最大的并发度是Segment的个数，默认是16。JDK1.8最大并发度是Node的个数，并发度更大。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

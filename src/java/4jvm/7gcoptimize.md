@@ -1,11 +1,12 @@
 ---
-title: GC调优
+title: GC 调优
 icon: page
 category:
   - Java
 tag:
-  - GC调优
+  - GC 调优
   - 八股
+  - JVM
 ---
 
 ### 确定目标
