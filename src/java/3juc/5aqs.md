@@ -1,11 +1,12 @@
 ---
-title: AQS抽象队列同步器
+title: AQS 抽象队列同步器
 icon: page
 category:
   - Java
 tag:
-  - AQS抽象队列同步器
+  - AQS 抽象队列同步器
   - 八股
+  - 并发编程
 ---
 
 AQS的全称为 `AbstractQueuedSynchronizer` ，翻译过来的意思就是抽象队列同步器。这个类在 `java.util.concurrent.locks` 包下面。

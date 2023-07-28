@@ -1,11 +1,12 @@
 ---
-title: Redis数据结构
+title: Redis 数据结构
 icon: page
 category:
   - 数据库
 tag:
-  - Redis
+  - Redis 数据结构
   - 八股
+  - Redis
 ---
 
 Redis 共有 5 种基本数据结构：String（字符串）、List（列表）、Set（集合）、Hash（散列）、Zset（有序集合）。

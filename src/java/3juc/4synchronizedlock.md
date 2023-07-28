@@ -1,11 +1,12 @@
 ---
-title: synchronized锁优化
+title: synchronized 锁优化
 icon: page
 category:
   - Java
 tag:
-  - synchronized锁优化
+  - synchronized 锁优化
   - 八股
+  - 并发编程
 ---
 
 锁主要存在四种状态，依次是：无锁状态、偏向锁状态、轻量级锁状态、重量级锁状态，他们会随着竞争的激烈而逐渐升级。注意锁可以升级不可降级，这种策略是为了提高获得锁和释放锁的效率。

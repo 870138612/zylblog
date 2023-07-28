@@ -1,11 +1,12 @@
 ---
-title: JUC常见并发容器
+title: JUC 常见并发容器
 icon: page
 category:
   - Java
 tag:
-  - JUC常见并发容器
+  - JUC 常见并发容器
   - 八股
+  - 并发编程
 ---
 
 JDK 提供的这些容器大部分在 `java.util.concurrent` 包中。

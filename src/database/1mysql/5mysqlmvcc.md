@@ -4,8 +4,9 @@ icon: page
 category:
   - 数据库
 tag:
-  - MySQL
+  - MVCC
   - 八股
+  - MySQL
 ---
 
 <!-- more -->

@@ -1,11 +1,12 @@
 ---
-title: Java反射
+title: Java 反射
 icon: page
 category:
   - Java
 tag:
-  - Java反射
+  - Java 反射
   - 八股
+  - Java 基础
 ---
 
 反射可以获取任意一个类的所有属性和方法，还能调用这些方法和属性。

@@ -1,16 +1,17 @@
 ---
-title: Java基础一
+title: Java 基础一
 icon: page
 category:
   - Java
 tag:
-  - Java基础
+  - Java 基础
   - 八股 
 ---
 
 ::: tip 一切就从这里开始吧
 笔记来源网络，仅做个人学习，非商业用途。
 :::
+<!-- more -->
 
 ## JVM  JRE  JDK
 
@@ -19,7 +20,7 @@ JVM 是 java 虚拟机，针对不同系统有不同的实现，常用的为 Hot
 JDK 是功能齐全的 SDK，包含 JRE 和一些其他的工具，例如 javac，java等。
 
 JRE 是 Java 运行时环境，仅包含 Java 应用程序运行时的必要环境。
-<!-- more -->
+
 ![image-20230514210704461](/markdown/image-20230514210704461.png)
 
 ## 什么是字节码？采用字节码的好处？

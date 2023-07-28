@@ -1,11 +1,12 @@
 ---
-title: 分布式锁
+title: Redis 分布式锁
 icon: page
 category:
   - 数据库
 tag:
-  - Redis
+  - Redis 分布式锁
   - 八股
+  - Redis
 ---
 
 一个最基本的分布式锁需要满足：

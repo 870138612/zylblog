@@ -1,14 +1,13 @@
 ---
-title: Java基础二
+title: Java 基础二
 icon: page
 category:
   - Java
 tag:
-  - Java基础
+  - Java 基础
   - 八股 
 ---
 
-## 面向对象
 
 ### 面向对象和面向过程的区别
 

@@ -1,11 +1,12 @@
 ---
-title: JVM垃圾回收
+title: JVM 垃圾回收
 icon: page
 category:
   - Java
 tag:
-  - JVM垃圾回收
+  - JVM 垃圾回收
   - 八股
+  - JVM
 ---
 
 ![130](/markdown/130.jpg)
