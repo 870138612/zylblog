@@ -105,9 +105,9 @@ POST 请求是 HTTP 协议中的一种请求方法，通常用于创建新的资
 
 - **5 开头的表示服务端错误**。500 服务端内部出现错误；502 Bad Gateway；504 Gateway Timeout有可能是服务器断网了。
 
-### HTTPS与HTTP的区别
+### HTTPS 与 HTTP 的区别
 
-**端口号**：HTTP 默认是 80，HTTPS 默认是 443。
+**端口号**：HTTP 默认是 `80`，HTTPS 默认是 `443`。
 
 **URL 前缀**：HTTP 的 URL 前缀是 `http://`，HTTPS 的 URL 前缀是 `https://`。
 
