@@ -1,12 +1,11 @@
 ---
-title: 事务隔离级别和 MVCC
+title: 事务隔离级别和MVCC
 icon: page
 category:
   - 数据库
 tag:
-  - 事务隔离级别和 MVCC
-  - 八股
   - MySQL
+  - 八股
 ---
 
 ## 事务隔离级别

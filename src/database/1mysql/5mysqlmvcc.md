@@ -1,5 +1,5 @@
 ---
-title: MySQL日志
+title: MVCC
 icon: page
 category:
   - 数据库

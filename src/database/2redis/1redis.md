@@ -1,12 +1,11 @@
 ---
-title: Redis 基础二
+title: Redis基础二
 icon: page
 category:
   - 数据库
 tag:
-  - Redis 基础
-  - 八股
   - Redis
+  - 八股
 ---
 
 ## Redis性能优化

@@ -1,5 +1,5 @@
 ---
-title: MySQL日志
+title: MySQL事务隔离级别
 icon: page
 category:
   - 数据库

@@ -1,12 +1,11 @@
 ---
-title: Redis 基础一
+title: Redis基础一
 icon: page
 category:
   - 数据库
 tag:
-  - Redis 基础
-  - 八股
   - Redis
+  - 八股
 ---
 
 ## 基础
