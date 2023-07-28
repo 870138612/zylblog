@@ -6,6 +6,7 @@ category:
 tag:
   - MySQL
   - 八股
+  - MySQL索引
 ---
 ## 索引
 
