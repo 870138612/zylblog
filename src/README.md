@@ -20,7 +20,7 @@ features:
 
   - title: Java
     icon: java
-    details: Java基础、集合、并发编程、JVM
+    details: Java 基础、集合、并发编程、JVM
     link: /java/
     
   - title: 计算机基础
@@ -35,7 +35,7 @@ features:
     
   - title: 中间件云原生
     icon: middleware
-    details: Nginx、RabbitMQ、Docker、分布式
+    details: Nginx、RabbitMQ、Docker、分布式事务
     link: /middleware/ 
     
   - title: 框架
