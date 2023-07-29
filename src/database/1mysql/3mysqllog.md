@@ -99,15 +99,15 @@ tags:
 
 ![image-20230529165800826](/markdown/image-20230529165800826.png)
 
-`binlog`会记录所有涉及更新数据的逻辑操作，并且是顺序写。
+`binlog` 会记录所有涉及更新数据的逻辑操作，并且是顺序写。
 
 ### 记录格式
 
 `binlog` 日志有三种格式，可以通过 `binlog_format` 参数指定。
 
-- **statement**
-- **row**
-- **mixed**
+- `statement`
+- `row`
+- `mixed`
 
 指定 `statement`，记录的内容是 `SQL` 语句原文，比如执行一条 `update T set update_time = now() where id = 1`，记录的内容如下。
 
