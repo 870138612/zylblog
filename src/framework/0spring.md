@@ -184,6 +184,94 @@ public OrderService(UserService userService2){
 
 `@Autowired`只能根据类型注入的，可以使用`@Qualifier("userService1")`指定名称。
 
+
+### SpringAOP怎么工作的？
+
+SpringAOP是通过动态代理机制，如果Bean实现了接口，就会采用JDK动态代理来生成该接口的代理对象（实现类），如果没有实现接口，则通过CGLIB来生成当前类的一个代理对象（父类）。
+
+AOP表示面向切面编程，是一个思想，AspectJ就是其中的一种实现方式，会在编译器对类进行增强，需要使用AspectJ提供的编译器，提供了例如`@Before`、`@After`、`@Around`等注解，而SpringAOP是采用动态代理的方式实现AOP，同样也使用了这些注解但是实现方式是完全不同的。
+
+### Spring为什么要使用三级缓存来解决循环依赖？
+
+Bean的创建生命周期
+
+1. 创建普通对象；
+2. 填充属性；
+3. 填充其他属性；
+4. 其他操作；
+5. 初始化后；
+6. 放入单例池。
+
+三级缓存，就是三个Map集合。
+
+**第一级缓存**：singletonObjects，它用来存放经过完整Bean生命周期过程的单例Bean对象；
+
+**第二级缓存**：earlySingletonObjects，它用来保存哪些没有经过完整Bean生命周期的单例Bean对象，用来保证不完整的bean也是单例；
+
+**第三级缓存**：singletonFactories，它保存的就是一个lambda表达式，它主要的作用就是bean出现循环依赖后，某一个bean到底会不会进行AOP操作。
+
+::: info 循环依赖为什么用三级缓存
+
+AService和BService相互依赖。
+
+如果采用以下方法：
+
+创建AService普通对象之后放入二级缓存，注入BService时发现没有，转而去创建BService对象，BService对象需要依赖注入AService对象，因此从二级缓存中拿去AService进行依赖注入，完成创建周期后将BService放入一级缓存中，返回AService的创建过程就能进行BService的依赖注入，之后AService也完成创建周期。
+
+**二级缓存就能解决普通对象的循环依赖问题，那三级缓存的作用？**
+
+比如，可能AService会进行AOP操作，会创建AServiceProxy代理对象（**正常情况是在属性注入之后进行AOP**），然后将代理对象放入单例池中，但是BService进行属性赋值，依赖注入的时候是把二级缓存中的AService的普通对象进行赋值，同时存在普通对象和代理对象违背了单例池规则。
+
+解决办法就是在AService创建普通对象之后存入一个Lamda表达式到三级缓存中。
+
+- 创建AService普通对象；
+
+- 放入Lambda表达式到三级缓存中；
+- 尝试注入BService发现没有；
+- 创建BService普通对象，尝试注入AService属性；
+- 发现一二级缓存都没有；
+- 执行三级缓存中的Lambda表达式返回AService普通对象或者代理对象；
+- 将返回的对象放入二级缓存中，称为早期Bean对象；
+- 将二级缓存中的AService对象或者AService代理对象注入到BService中；
+- BService完成创建周期放入一级缓存；
+- AService普通对象注入一级缓存中的BService完整对象；
+- 根据是否需要AOP决定最后放入单例池中的对象是普通对象还是代理对象。
+
+![image-20230619212929209](/markdown/image-20230619212929209.png)
+
+通过对注入属性添加`@Lazy`实现懒惰式加载，只有在调用方法用到属性的时候才会进行初始化，此时本类已经完成创建周期，因此不会出现循环依赖。
+
+:::
+
+### Spring框架中的Bean是线程安全的吗？
+
+Spring本身没有提供Bean的线程安全策略，也就是说Bean是线程不安全的。
+
+Bean有多种作用域：
+
+- **singleton**：容器中仅存在一个实例。
+
+- **prototype**：为每个Bean请求创建实例。不存在线程安全问题。
+- **request**：为每个request创建实例，请求完成之后失效。
+- **session**：每次session才会创建实例，会话断开后失效。
+- **global-session**：全局作用域。
+
+默认是**singleton**但是对于开发中大部分的Bean是无状态的，因此不需要保证线程安全。如果要保证线程安全可以将作用域改为**Prototype**，另外还能使用`ThreadLocal`解决线程安全问题。
+
+> 无状态表示这个实例没有属性对象，不能保存数据，是不变的类，例如：Controller、Service、Dao。
+
+### ApplicationContext和BeanFactory有什么区别？
+
+`BeanFactory`是Spring中非常核心的组件，表示Bean工厂，可以生成和维护Bean，而`ApplicationContext`继承了`BeanFactory`，所以`ApplicationContext`拥有`BeanFactory`的所有特点，也是一个Bean工厂，另外还继承了其他接口例如`EnvironmentCapable`、`MessageSourse`、`ApplicationEventPublisher`等接口，从而让`ApplicationContext`具有`BeanFactory`不具备的功能。
+
+### Spring容器的启动流程
+
+1. 创建Spring容器时会先进行扫描，得到所有的`BeanDefinition`对象，并放在一个Map中。
+2. 然后筛选出非懒加载的单例`BeanDefinition`进行创建Bean，对于多例Bean不需要在启动过程中取创建，而是每次获取的时候才会创建。
+3. 利用`BeanDefinition`创建Bean就是Bean的创建生命周期，包括了合并`BeanDefinition`、推断构造方法、实例化、属性填充、初始化前、初始化、初始化后等步骤，其中AOP发生在初始化后这个步骤。
+4. 单例Bean创建完成之后Spring发布一个容器启动事件。
+5. Spring启动结束。
+
 ## Spring事务
 
 ### 事务实现原理
@@ -254,93 +342,6 @@ public void test(){
 6、**异常类型错误**
 
 7、**没有被Spring管理**
-
-## SpringAOP怎么工作的？
-
-SpringAOP是通过动态代理机制，如果Bean实现了接口，就会采用JDK动态代理来生成该接口的代理对象（实现类），如果没有实现接口，则通过CGLIB来生成当前类的一个代理对象（父类）。
-
-AOP表示面向切面编程，是一个思想，AspectJ就是其中的一种实现方式，会在编译器对类进行增强，需要使用AspectJ提供的编译器，提供了例如`@Before`、`@After`、`@Around`等注解，而SpringAOP是采用动态代理的方式实现AOP，同样也使用了这些注解但是实现方式是完全不同的。
-
-## Spring为什么要使用三级缓存来解决循环依赖？
-
-Bean的创建生命周期
-
-1. 创建普通对象；
-2. 填充属性；
-3. 填充其他属性；
-4. 其他操作；
-5. 初始化后；
-6. 放入单例池。
-
-三级缓存，就是三个Map集合。
-
-**第一级缓存**：singletonObjects，它用来存放经过完整Bean生命周期过程的单例Bean对象；
-
-**第二级缓存**：earlySingletonObjects，它用来保存哪些没有经过完整Bean生命周期的单例Bean对象，用来保证不完整的bean也是单例；
-
-**第三级缓存**：singletonFactories，它保存的就是一个lambda表达式，它主要的作用就是bean出现循环依赖后，某一个bean到底会不会进行AOP操作。
-
-::: info 循环依赖为什么用三级缓存
-
-AService和BService相互依赖。
-
-如果采用以下方法：
-
-创建AService普通对象之后放入二级缓存，注入BService时发现没有，转而去创建BService对象，BService对象需要依赖注入AService对象，因此从二级缓存中拿去AService进行依赖注入，完成创建周期后将BService放入一级缓存中，返回AService的创建过程就能进行BService的依赖注入，之后AService也完成创建周期。
-
-**二级缓存就能解决普通对象的循环依赖问题，那三级缓存的作用？**
-
-比如，可能AService会进行AOP操作，会创建AServiceProxy代理对象（**正常情况是在属性注入之后进行AOP**），然后将代理对象放入单例池中，但是BService进行属性赋值，依赖注入的时候是把二级缓存中的AService的普通对象进行赋值，同时存在普通对象和代理对象违背了单例池规则。
-
-解决办法就是在AService创建普通对象之后存入一个Lamda表达式到三级缓存中。
-
-- 创建AService普通对象；
-
-- 放入Lambda表达式到三级缓存中；
-- 尝试注入BService发现没有；
-- 创建BService普通对象，尝试注入AService属性；
-- 发现一二级缓存都没有；
-- 执行三级缓存中的Lambda表达式返回AService普通对象或者代理对象；
-- 将返回的对象放入二级缓存中，称为早期Bean对象；
-- 将二级缓存中的AService对象或者AService代理对象注入到BService中；
-- BService完成创建周期放入一级缓存；
-- AService普通对象注入一级缓存中的BService完整对象；
-- 根据是否需要AOP决定最后放入单例池中的对象是普通对象还是代理对象。
-
-![image-20230619212929209](/markdown/image-20230619212929209.png)
-
-通过对注入属性添加`@Lazy`实现懒惰式加载，只有在调用方法用到属性的时候才会进行初始化，此时本类已经完成创建周期，因此不会出现循环依赖。
-
-:::
-
-## Spring框架中的Bean是线程安全的吗？
-
-Spring本身没有提供Bean的线程安全策略，也就是说Bean是线程不安全的。
-
-Bean有多种作用域：
-
-- **singleton**：容器中仅存在一个实例。
-
-- **prototype**：为每个Bean请求创建实例。不存在线程安全问题。
-- **request**：为每个request创建实例，请求完成之后失效。
-- **session**：每次session才会创建实例，会话断开后失效。
-- **global-session**：全局作用域。
-
-默认是**singleton**但是对于开发中大部分的Bean是无状态的，因此不需要保证线程安全。如果要保证线程安全可以将作用域改为**Prototype**，另外还能使用`ThreadLocal`解决线程安全问题。
-
-> 无状态表示这个实例没有属性对象，不能保存数据，是不变的类，例如：Controller、Service、Dao。
-
-## ApplicationContext和BeanFactory有什么区别？
-
-`BeanFactory`是Spring中非常核心的组件，表示Bean工厂，可以生成和维护Bean，而`ApplicationContext`继承了`BeanFactory`，所以`ApplicationContext`拥有`BeanFactory`的所有特点，也是一个Bean工厂，另外还继承了其他接口例如`EnvironmentCapable`、`MessageSourse`、`ApplicationEventPublisher`等接口，从而让`ApplicationContext`具有`BeanFactory`不具备的功能。
-
-## Spring容器的启动流程
-
-1. 创建Spring容器时会先进行扫描，得到所有的`BeanDefinition`对象，并放在一个Map中。
-2. 然后筛选出非懒加载的单例`BeanDefinition`进行创建Bean，对于多例Bean不需要在启动过程中取创建，而是每次获取的时候才会创建。
-3. 利用`BeanDefinition`创建Bean就是Bean的创建生命周期，包括了合并`BeanDefinition`、推断构造方法、实例化、属性填充、初始化前、初始化、初始化后等步骤，其中AOP发生在初始化后这个步骤。
-4. 单例Bean创建完成之后Spring发布一个容器启动事件。
-5. Spring启动结束。
 
 ## SpringMVC
 

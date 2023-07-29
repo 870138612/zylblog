@@ -14,7 +14,7 @@ timeline: false
 - <HopeIcon icon="jvm"/> [JVM](/java/4jvm)
 
 ### <HopeIcon icon="computer"/> 计算机基础
-- <HopeIcon icon="net"/> [计算机网络](/computer/1net)
+- <HopeIcon icon="net"/> [计算机网络](/computer/1net.md)
 - <HopeIcon icon="os"/> [操作系统](/computer/2os.md)
 - <HopeIcon icon="io"/> [I/O](/computer/3io.md)
 
