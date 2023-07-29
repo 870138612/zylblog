@@ -1,5 +1,5 @@
 ---
-title: Redis数据结构
+title: Redis 数据结构
 icon: page
 category:
   - 数据库

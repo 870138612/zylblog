@@ -1,5 +1,5 @@
 ---
-title: Redis集群
+title: Redis 集群
 icon: page
 category:
   - 数据库
