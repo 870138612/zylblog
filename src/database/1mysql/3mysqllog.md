@@ -34,11 +34,11 @@ tags:
 
 `InnoDB` 存储引擎为 `redo log` 的刷盘策略提供了 `innodb_flush_log_at_trx_commit` 参数，它支持三种策略：
 
-- **0**：设置为 0 的时候，表示每次事务提交时不进行刷盘操作。
-- **1**：设置为 1 的时候，表示每次事务提交时都将进行刷盘操作（默认值）。
-- **2**：设置为 2 的时候，表示每次事务提交时都只把 `redo log buffer` 内容写入 `page cache`。
+- `0`：设置为 `0` 的时候，表示每次事务提交时不进行刷盘操作。
+- `1`：设置为 `1` 的时候，表示每次事务提交时都将进行刷盘操作（默认值）。
+- `2`：设置为 `2` 的时候，表示每次事务提交时都只把 `redo log buffer` 内容写入 `page cache`。
 
-`innodb_flush_log_at_trx_commit` 参数默认为 1 ，也就是说当事务提交时会调用 `fsync` 对 redo log 进行刷盘。
+    `innodb_flush_log_at_trx_commit` 参数默认为 `1` ，也就是说当事务提交时会调用 `fsync` 对 `redo log` 进行刷盘。
 
 另外，`InnoDB` 存储引擎有一个后台线程，每隔 `1` 秒，就会把 `redo log buffer` 中的内容写到文件系统缓存（`page cache`），然后调用 `fsync` 刷盘。
 
@@ -133,14 +133,14 @@ tags:
 
 ![image-20230529172120404](/markdown/image-20230529172120404.png)
 
-- `write` 是把日志写入 page cache，不是数据持久化到磁盘，所以速度比较快。
+- `write` 是把日志写入 `page cache`，不是数据持久化到磁盘，所以速度比较快。
 - `fsync` 超时将数据持久化到磁盘的操作。
 
 `write` 和 `fsync` 的时机，可以由参数 `sync_binlog` 控制，默认是 `0`。
 
 为 `0` 的时候，表示每次提交事务都只 `write`，由系统自行判断什么时候执行`fsync`。
 
-虽然性能得到提升，但是机器宕机，`page cache` 里面的 binlog 会丢失。
+虽然性能得到提升，但是机器宕机，`page cache` 里面的 `binlog` 会丢失。
 
 为了安全起见，可以设置为`1`，表示每次提交事务都会执行 `fsync`，就如同 **`redo log` 日志刷盘流程** 一样。
 
@@ -182,7 +182,7 @@ tags:
 
 ![image-20230529173959416](/markdown/image-20230529173959416.png)
 
-再看一个场景，`redo log`设置`commit`阶段发生异常，那会不会回滚事务呢？
+再看一个场景，`redo log` 设置 `commit` 阶段发生异常，那会不会回滚事务呢？
 
 ![image-20230529174101634](/markdown/image-20230529174101634.png)
 
