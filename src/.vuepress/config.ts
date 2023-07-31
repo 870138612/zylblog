@@ -1,7 +1,8 @@
 import {defineUserConfig} from "vuepress";
 import theme from "./theme.js";
+import { searchPlugin } from "@vuepress/plugin-search";
 import {mdEnhance} from "vuepress-theme-hope";
-import {searchPlugin} from "@vuepress/plugin-search";
+
 
 export default defineUserConfig({
 
@@ -29,9 +30,6 @@ export default defineUserConfig({
     searchPlugin({
       locales: {
         "/": {
-          placeholder: "Search",
-        },
-        "/zh/": {
           placeholder: "搜索",
         },
       },
