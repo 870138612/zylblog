@@ -34,7 +34,7 @@ MySQL InnoDB 存储引擎的默认支持的隔离级别是 `REPEATABLE-READ`。
 
 标准的 SQL 隔离级别定义里，`REPEATABLE-READ` 是不可以防止幻读的，但是 InnoDB 实现的 `REPEATABLE-READ` 隔离级别其实是可以解决幻读问题发生的，主要有下面两种情况：
 
-- **快照读**：由 MVCC 机制来保证不出现幻读。
+- **快照读**：由 `MVCC` 机制来保证不出现幻读。
 
 - **当前读**：使用 Next-Key Lock 进行加锁来保证不出现幻读，Next-Key Lock 是行锁（Record Lock）和间隙锁（Gap Lock）的结合，行锁只能锁住已经存在的行，为了避免插入新行，需要依赖间隙锁
 
@@ -84,9 +84,9 @@ MySQL InnoDB 存储引擎的默认支持的隔离级别是 `REPEATABLE-READ`。
 
 主要有以下字段：
 
-- `m_low_limit_id`：目前出现过的最大的事务 id+1，即下一个将被分配的事务 id。大于等于这个 id 的数据版本均不可见
-- `m_up_limit_id`：活跃事务列表 `m_ids` 中最小的事务 id，如果 `m_ids` 为空，则 `m_up_limit_id` 为 `m_low_limit_id`。小于这个 id 的数据版本均可见
-- `m_ids`：`Read View` 创建时其他未提交的活跃事务 id 列表。创建 `Read View`时，将当前未提交事务 id 记录下来，后续即使它们修改了记录行的值，对于当前事务也是不可见的。`m_ids` 不包括当前事务自己和已提交的事务（正在内存中）
+- `m_low_limit_id`：目前出现过的最大的事务 id+1，即下一个将被分配的事务 id。大于等于这个 id 的数据版本均不可见。
+- `m_up_limit_id`：活跃事务列表 `m_ids` 中最小的事务 id，如果 `m_ids` 为空，则 `m_up_limit_id` 为 `m_low_limit_id`。小于这个 id 的数据版本均可见。
+- `m_ids`：`Read View` 创建时其他未提交的活跃事务 id 列表。创建 `Read View`时，将当前未提交事务 id 记录下来，后续即使它们修改了记录行的值，对于当前事务也是不可见的。`m_ids` 不包括当前事务自己和已提交的事务（正在内存中）。
 - `m_creator_trx_id`：创建该 `Read View` 的事务 id。
 
 ![image-20230529200011975](/markdown/image-20230529200011975.png)
@@ -123,8 +123,8 @@ InnoDB 存储引擎在 RR 隔离级别下通过 `MVCC` 和 `Next-key Lock` 来�
 
 **2、执行 `select...for update/lock in share mode、insert、update、delete` 等当前读**
 
-在当前读下，读取的都是最新的数据，如果其它事务有插入新的记录，并且刚好在当前事务查询范围内，就会产生幻读。InnoDB 使用**Next-key Lock**来防止这种情况。当执行当前读时，会锁定读取到的记录的同时，锁定它们的间隙，防止其它事务在查询范围内插入数据。
+在当前读下，读取的都是最新的数据，如果其它事务有插入新的记录，并且刚好在当前事务查询范围内，就会产生幻读。InnoDB 使用 **Next-key Lock** 来防止这种情况。当执行当前读时，会锁定读取到的记录的同时，锁定它们的间隙，防止其它事务在查询范围内插入数据。
 
 ☀️详见[MySQL锁](https://ylzhong.top/database/1mysql/1mysql.html#mysql-%E9%94%81)
 
-> **临键锁（Next-Key Lock）**：Record Lock+Gap Lock，锁定一个范围，包含记录本身，主要目的是为了解决幻读问题。记录锁只能锁住已经存在的记录，为了避免插入新记录，需要依赖间隙锁。
+> **临键锁（Next-key Lock）**：Record Lock + Gap Lock，锁定一个范围，包含记录本身，主要目的是为了解决幻读问题。记录锁只能锁住已经存在的记录，为了避免插入新记录，需要依赖间隙锁。
