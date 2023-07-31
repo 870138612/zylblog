@@ -12,7 +12,7 @@ tags:
 
 ## redo log 重做日志
 
-`redo log` 是重做日志，是 `InnoDB` 引擎独有的，让 `MySQL` 拥有了崩溃恢复的能力。
+`redo log` 是重做日志，是 InnoDB 引擎独有的，让 `MySQL` 拥有了崩溃恢复的能力。
 
 ![image-20230529154219243](/markdown/image-20230529154219243.png)
 
@@ -32,7 +32,7 @@ tags:
 
 ### 刷盘时机
 
-`InnoDB` 存储引擎为 `redo log` 的刷盘策略提供了 `innodb_flush_log_at_trx_commit` 参数，它支持三种策略：
+InnoDB 存储引擎为 `redo log` 的刷盘策略提供了 `innodb_flush_log_at_trx_commit` 参数，它支持三种策略：
 
 - `0`：设置为 `0` 的时候，表示每次事务提交时不进行刷盘操作。
 - `1`：设置为 `1` 的时候，表示每次事务提交时都将进行刷盘操作（默认值）。
@@ -40,7 +40,7 @@ tags:
 
     `innodb_flush_log_at_trx_commit` 参数默认为 `1` ，也就是说当事务提交时会调用 `fsync` 对 `redo log` 进行刷盘。
 
-另外，`InnoDB` 存储引擎有一个后台线程，每隔 `1` 秒，就会把 `redo log buffer` 中的内容写到文件系统缓存（`page cache`），然后调用 `fsync` 刷盘。
+另外，InnoDB 存储引擎有一个后台线程，每隔 `1` 秒，就会把 `redo log buffer` 中的内容写到文件系统缓存（`page cache`），然后调用 `fsync` 刷盘。
 
 ![image-20230529162523262](/markdown/image-20230529162523262.png)
 
@@ -89,7 +89,7 @@ tags:
 
 ## binlog 归档日志
 
-`redo log` 是物理日志，记录内容是“在某个数据页上做了什么修改”，属于 `InnoDB` 存储引擎。
+`redo log` 是物理日志，记录内容是“在某个数据页上做了什么修改”，属于 InnoDB 存储引擎。
 
 而 `binlog` 是逻辑日志，记录内容是语句的原始逻辑，属于 `MySQL Server` 层。
 
@@ -152,7 +152,7 @@ tags:
 
 ## 两阶段提交
 
-`redo log`（重做日志）让 `InnoDB` 存储引擎拥有了崩溃恢复能力。
+`redo log`（重做日志）让 InnoDB 存储引擎拥有了崩溃恢复能力。
 
 `binlog`（归档日志）保证了 `MySQL` 集群架构的数据一致性。
 
@@ -172,7 +172,7 @@ tags:
 
 ![image-20230529173719124](/markdown/image-20230529173719124.png)
 
-为了解决两份日志之间的逻辑一致问题，`InnoDB` 存储引擎使用两阶段提交方案。
+为了解决两份日志之间的逻辑一致问题，InnoDB 存储引擎使用两阶段提交方案。
 
 原理很简单，将 `redo log` 的写入拆成了两个步骤 `prepare` 和 `commit`，这就是两阶段提交。
 
@@ -192,7 +192,7 @@ tags:
 
 在 MySQL 中，恢复机制是通过 **回滚日志（`undo log`）** 实现的，所有事务进行的修改都会先记录到这个回滚日志中，然后再执行相关的操作。如果执行过程中遇到异常的话，我们直接利用 **回滚日志** 中的信息将数据回滚到修改之前的样子即可！并且，回滚日志会先于数据持久化到磁盘上。这样就保证了即使遇到数据库突然宕机等情况，当用户再次启动数据库的时候，数据库还能够通过查询回滚日志来回滚将之前未完成的事务。
 
-`MVCC` 的实现依赖于：**隐藏字段、`Read View`、`undo log`**。在内部实现中，`InnoDB` 通过数据行的 `DB_TRX_ID` 和 `Read View` 来判断数据的可见性，如不可见，则通过数据行的 `DB_ROLL_PTR` 找到 `undo log` 中的历史版本。每个事务读到的数据版本可能是不一样的，在同一个事务中，用户只能看到该事务创建 `Read View` 之前已经提交的修改和该事务本身做的修改。
+`MVCC` 的实现依赖于：**隐藏字段、`Read View`、`undo log`**。在内部实现中，InnoDB 通过数据行的 `DB_TRX_ID` 和 `Read View` 来判断数据的可见性，如不可见，则通过数据行的 `DB_ROLL_PTR` 找到 `undo log` 中的历史版本。每个事务读到的数据版本可能是不一样的，在同一个事务中，用户只能看到该事务创建 `Read View` 之前已经提交的修改和该事务本身做的修改。
 
 ☀️详见[事务隔离级别和MVCC](https://ylzhong.top/database/1mysql/4mysqlmvcc.html)。
 
