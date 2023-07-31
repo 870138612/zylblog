@@ -1,7 +1,7 @@
 import {defineUserConfig} from "vuepress";
 import theme from "./theme.js";
-import {searchProPlugin} from "vuepress-plugin-search-pro";
 import {mdEnhance} from "vuepress-theme-hope";
+import {searchPlugin} from "@vuepress/plugin-search";
 
 export default defineUserConfig({
 
@@ -26,9 +26,15 @@ export default defineUserConfig({
   theme,
   shouldPrefetch: false,
   plugins: [
-    searchProPlugin({
-      // // 索引全部内容
-      indexContent: true,
-    })
-  ]
+    searchPlugin({
+      locales: {
+        "/": {
+          placeholder: "Search",
+        },
+        "/zh/": {
+          placeholder: "搜索",
+        },
+      },
+    }),
+  ],
 });
