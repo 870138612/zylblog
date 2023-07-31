@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-63bcc623","path":"/tag/rabbitmq/","title":"RabbitMQ 标签","lang":"zh-CN","frontmatter":{"title":"RabbitMQ 标签","index":false,"feed":false,"sitemap":false,"blog":{"type":"category","name":"RabbitMQ","key":"tag"},"layout":"BlogCategory"},"headers":[],"git":{},"readingTime":{"minutes":0,"words":0},"filePathRelative":null,"excerpt":""}');export{e as data};
