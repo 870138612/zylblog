@@ -130,11 +130,11 @@ location /some/ {
 
 ```nginx
 server {
-    listen  81;	    
-    server_name  localhost;
+    listen 81;	    
+    server_name localhost;
     location ~ \.(css|js|png|jpg|gif|ico) {
         root  /home/static;
-        index  index.html index.htm;
+        index index.html index.htm;
     } 
     error_page   500 502 503 504  /50x.html;
     location = /50x.html {
@@ -205,9 +205,9 @@ proxy_buffering on;
 
 ```nginx
 location / {
-    proxy_buffers 16  4K;
-    proxy_buffer_size  2K;
-    proxy_pass  http://localhost:8080;
+    proxy_buffers 16 4K;
+    proxy_buffer_size 2K;
+    proxy_pass http://localhost:8080;
 }
 ```
 
@@ -231,9 +231,9 @@ location / {
 http {
     proxy_cache_path  /data/nginx/cache keys_zone=mycache:10m;
     server {
-        proxy_cache  mycache;
+        proxy_cache mycache;
         location / {
-        proxy_pass  http://localhost:8000;
+        proxy_pass http://localhost:8000;
     }
   }
 }
@@ -247,15 +247,15 @@ http {
 
 ```nginx
 upstream apps {
-    server  http://localhost:8080;
-    server  http://localhost:8081;
+    server http://localhost:8080;
+    server http://localhost:8081;
 }
 
 server {
     listen 80;
     server_name localhost;
     location / {
-        proxy_pass  http://apps;
+        proxy_pass http://apps;
     }
 }
 ```
@@ -310,7 +310,7 @@ upstream apps {
 - **权重方式**：在 server 服务器后面添加参数 `weight` 参数指定权重，权重越大，分得请求的概率越大，不写默认为 1。
 
 ```nginx
-server  http://localhost:8080  weight=3;
+server http://localhost:8080 weight=3;
 ```
 
 - **随机方式**：随机挑选 `N` 个服务器，在 `N` 个服务器中选择一台发送请求，默认是连接数最小的机器。
@@ -334,8 +334,8 @@ upstream apps {
 
 ```nginx
 upstream apps {
-    server  http://localhost:8080;
-    server  http://localhost:8081  max_fails=3  fail_timeout=30s;
+    server http://localhost:8080;
+    server http://localhost:8081 max_fails=3 fail_timeout=30s;
 }
 ```
 
@@ -343,19 +343,19 @@ upstream apps {
 
 ```nginx
 server {
-    listen  443 ssl;    #表示监听443端口即https
-    server_name  ylzhong.top; #域名
-    ssl_certificate  ./ylzhong.top_nginx/ylzhong.top_bundle.crt;   #证书文件路径
-    ssl_certificate_key  ./ylzhong.top_nginx/ylzhong.top.key;      #证书私钥文件路径
-    ssl_session_timeout  5m;   #5分钟session会话保持
-    ssl_protocols  TLSv1  TLSv1.1  TLSv1.2;
-    ssl_ciphers  ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
-    ssl_prefer_server_ciphers  on;
+    listen 443 ssl;    #表示监听443端口即https
+    server_name ylzhong.top; #域名
+    ssl_certificate ./ylzhong.top_nginx/ylzhong.top_bundle.crt;   #证书文件路径
+    ssl_certificate_key ./ylzhong.top_nginx/ylzhong.top.key;      #证书私钥文件路径
+    ssl_session_timeout 5m;   #5分钟session会话保持
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
+    ssl_prefer_server_ciphers on;
     location / {		
         root  /usr/share/nginx/html/dist;
-        index  index.html index.htm;
+        index index.html index.htm;
     }
-    error_page  500 502 503 504  /50x.html;
+    error_page 500 502 503 504  /50x.html;
     location = /50x.html {
         root  /usr/share/nginx/html;
     }
@@ -372,14 +372,14 @@ http {
 }
 
 stream {
-    upstream  backend-mysql {
-    server  localhost:3306;
+    upstream backend-mysql {
+    server localhost:3306;
     #定义连接池空闲连接的数量，可以避免打开频繁的打开和关闭连接，相当于线程池里的核心线程数
-    keepalive  8;
+    keepalive 8;
     }
     server {
-        listen  13306;
-        proxy_pass  backend-mysql;
+        listen 13306;
+        proxy_pass backend-mysql;
     #没有添加 http 字段
 	}
 }
@@ -394,7 +394,7 @@ stream {
 ```nginx
 server {
 	...
-	return  301  https://localhost:8000;
+	return 301 https://localhost:8000;
 	...
 }
 ```
