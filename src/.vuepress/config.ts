@@ -34,6 +34,7 @@ export default defineUserConfig({
           placeholder: "搜索",
         }
       },
+      maxSuggestions: 10
     }),
   ],
 });
