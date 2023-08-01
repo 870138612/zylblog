@@ -43,6 +43,7 @@ export default hopeTheme({
   },
 
   plugins: {
+
     blog: true,
     mdEnhance: {
       container: true,
