@@ -63,7 +63,7 @@ location /abc {
 ```nginx
 server{
     listen 80;
-    Server_name localhost;
+    server_name localhost;
     location / {
         proxy_pass http://localhost:8080/;
     }
@@ -136,7 +136,7 @@ server {
         root  /home/static;
         index index.html index.htm;
     } 
-    error_page   500 502 503 504  /50x.html;
+    error_page 500 502 503 504  /50x.html;
     location = /50x.html {
         root  /usr/share/nginx/html;
     }
@@ -179,7 +179,7 @@ Tomcat 主要用来处理 servlet 请求。处理像 css、js、图片这些静�
 
 启用缓冲之后，nginx 先将后端的请求响应（response）放入缓冲区中，等到整个响应完成再返回给客户端。
 
-![image-20230613163140106](/markdown/image-20230613163140106-1686645114236-1.png)
+![image-20230613163140106](/markdown/image-20230613163140106.png)
 
 客户端往往是用户网络，情况复杂，可能出现网络不稳定，速度很慢的情况。
 
@@ -221,8 +221,6 @@ location / {
 
 启用缓存后，nginx 将响应保存在磁盘中，返回给客户端的数据首先在缓存中取，这样相同的请求不用每次都发送给后端服务器，减少到后端请求的数量。
 
-![image-20230613164054684](/markdown/image-20230613164054684.png)
-
 通过 `proxy_cache_path` 指定缓存路径名称和大小。
 
 缓存区可以被多个 server 共享，使用 `proxy_cache` 指定缓存区。
@@ -233,9 +231,9 @@ http {
     server {
         proxy_cache mycache;
         location / {
-        proxy_pass http://localhost:8000;
+            proxy_pass http://localhost:8000;
+        }
     }
-  }
 }
 ```
 
@@ -262,9 +260,9 @@ server {
 
 ### 负载均衡策略
 
-负载均衡策略有：轮训，最小连接，ip_hash，hash，权重，随机。
+负载均衡策略有：轮询，最小连接，ip_hash，hash，权重，随机。
 
-- **轮训机制（round-robin）**：默认的负载均衡策略，以轮训方式分发请求。
+- **轮询机制（round-robin）**：默认的负载均衡策略，以轮询方式分发请求。
 - **最小连接（least-connected）**：将下一个请求分配给最小连接的服务器（较为空闲的服务器）。
 
 ```nginx
@@ -277,7 +275,7 @@ upstream apps {
 
 ::: info 注意
 
-使用轮训或者最小连接会让每一个客户端的请求分发到不同的服务器上，不能保证同一个客户端将始终定位到同一个服务器，因此不能**会话保持**。
+使用轮训或者最小连接会让每一个客户端的请求分发到不同的服务器上，不能保证同一个客户端将始终定位到同一个服务器，**因此不能会话保持**。
 
 :::
 
@@ -295,7 +293,7 @@ upstream apps {
 
 因此有了**一致性 hash 算法**。
 
-- **一致性hash算法**：通用 hash，允许用户自定义 hash，key 可以是配对的源 IP 地址和端口，也可以是 URI。
+- **一致性 hash 算法**：通用 hash，允许用户自定义 hash，key 可以是配对的源 IP 地址和端口，也可以是 URI。
 
 ```nginx
 upstream apps {	
@@ -364,7 +362,7 @@ server {
 
 ## TCP 反向代理
 
-http 反向代理使用 http 模块，TCP 反向代理使用 stream 模块。可以用来负载均衡连接 MySQL，Redis 等。
+Http 反向代理使用 `http` 模块，TCP 反向代理使用 `stream` 模块。可以用来负载均衡连接 MySQL，Redis 等。
 
 ```nginx
 http {
@@ -373,15 +371,15 @@ http {
 
 stream {
     upstream backend-mysql {
-    server localhost:3306;
-    #定义连接池空闲连接的数量，可以避免打开频繁的打开和关闭连接，相当于线程池里的核心线程数
-    keepalive 8;
+        server localhost:3306;
+        #定义连接池空闲连接的数量，可以避免打开频繁的打开和关闭连接，相当于线程池里的核心线程数
+        keepalive 8;
     }
     server {
         listen 13306;
         proxy_pass backend-mysql;
-    #没有添加 http 字段
-	}
+        #没有添加 http 字段
+    }
 }
 ```
 
@@ -393,9 +391,9 @@ stream {
 
 ```nginx
 server {
-	...
-	return 301 https://localhost:8000;
-	...
+    ...
+    return 301 https://localhost:8000;
+    ...
 }
 ```
 
