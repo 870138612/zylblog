@@ -49,7 +49,7 @@ AMQP，即Advanced Message Queuing Protocol，一个提供统一消息服务的�
 
 RPC 和消息队列都是分布式系统中重要的组件之一。
 
-- **从用途来看**：RPC 主要解决两个服务的远程通信问题，不需要了解底层网络的通信机制。通过 RPC 可以帮助我们调用远程计算机上某个服务的方法，这个过程就像调用本地方法一样简单。消息队列主要用来降低系统耦合性、实现任务异步、有效地进行流量削峰。
+- **从用途来看**：RPC 主要解决两个服务的远程通信问题，不需要了解底层网络的通信机制。通过 RPC 可以调用远程计算机上某个服务的方法，这个过程就像调用本地方法一样简单。消息队列主要用来降低系统耦合性、实现任务异步、有效地进行流量削峰。
 - **从通信方式来看**：RPC 是双向直接网络通讯，消息队列是单向引入中间载体的网络通讯。
 
 - **从架构上来看**：消息队列需要把消息存储起来，RPC 则没有这个要求，因为前面也说了 RPC 是双向直接网络通讯。
@@ -90,7 +90,7 @@ RabbitMQ 是采用 Erlang 语言实现 AMQP(Advanced Message Queuing Protocol，
 
 - RabbitMQ 在吞吐量方面虽然稍逊于 Kafka，但是由于它基于 Erlang 开发，所以并发能力很强，性能极其好，延时很低，达到微秒级。
 
-- Kafka 的特点其实很明显，就是仅仅提供较少的核心功能，但是提供超高的吞吐量，ms级的延迟，极高的可用性以及可靠性，而且分布式可以任意扩展。同时 Kafka 最好是支撑较少的 topic 
+- Kafka 的特点其实很明显，就是仅仅提供较少的核心功能，但是提供超高的吞吐量，ms 级的延迟，极高的可用性以及可靠性，而且分布式可以任意扩展。同时 Kafka 最好是支撑较少的 topic 
   数量即可，保证其超高吞吐量。Kafka 唯一的一点劣势是有可能消息重复消费，那么对数据准确性会造成极其轻微的影响，在大数据领域中以及日志采集中，这点轻微影响可以忽略，这个特性天然适合大数据实时计算以及日志收集。
 
 # RabbitMQ
@@ -118,7 +118,7 @@ RabbitMQ 整体上是一个生产者与消费者模型，主要负责接收、�
 
 ![image-20230616162759698](/markdown/image-20230616162759698.png)
 
-### Producer（生产者）和Consumer（消费者）
+### Producer（生产者）和 Consumer（消费者）
 
 - **Producer（生产者）**：生产消息的一方;
 - **Consumer（消费者）**：消费消息的一方。
@@ -171,7 +171,7 @@ fanout 类型的 Exchange 路由规则非常简单，它会把所有发送到该
 
 #### 2、direct（精确匹配）
 
-direct 类型的 Exchange 路由规则也很简单，它会把消息路由到**那些** `Bindingkey` 与 `RoutingKey` 完全匹配的 Queue 中。
+direct 类型的 Exchange 路由规则也很简单，它会把消息路由到**那些** `BindingKey` 与 `RoutingKey` 完全匹配的 Queue 中。
 
 > 可能匹配的队列有多个。
 
@@ -225,24 +225,24 @@ TTL 就是消息的存活时间，RabbitMQ 可以对队列和消息分别设置 
 
 ![image-20230616205428858](/markdown/image-20230616205428858.png)
 
-订单创建的时候在延时队列中添加库存解锁信息，信息过期的时候表明订单也就过期了，进入死信路由DLX，接着转发到解锁库存的队列中，在解锁前还需要检查订单是否支付（支付宝中采用最大努力交付，用户还可通过接口主动查询支付结果），没有支付则释放库存和取消订单（取消订单可以通过信息发送给相应的订单解锁队列）。
+订单创建的时候在延时队列中添加库存解锁信息，信息过期的时候表明订单也就过期了，进入死信路由 DLX，接着转发到解锁库存的队列中，在解锁前还需要检查订单是否支付（支付宝中采用最大努力交付，用户还可通过接口主动查询支付结果），没有支付则释放库存和取消订单（取消订单可以通过信息发送给相应的订单解锁队列）。
 
 ## RabbitMQ 消息怎么传输？
 
 由于 TCP 链接的创建和销毁开销较大，且并发数受系统资源限制，会造成性能瓶颈，所以 **RabbitMQ 使用信道的方式来传输数据**。
 
-信道（Channel）是生产者、消费者与 RabbitMQ 通信的渠道，**信道是建立在 TCP 链接上的虚拟链接**，且每条 TCP 链接上的信道数量没有限制。就是说 RabbitMQ 在一条 TCP 链接上建立成百上千个信道来达到多个线程处理，这个 TCP 被多个线程共享，每个信道在 RabbitMQ 都有唯一的 ID，保证了信道私有性，每个信道对应一个线程使用。
+信道（Channel）是生产者、消费者与 RabbitMQ 通信的信道，**信道是建立在 TCP 链接上的虚拟链接**，且每条 TCP 链接上的信道数量没有限制。就是说 RabbitMQ 在一条 TCP 链接上建立成百上千个信道来达到多个线程处理，这个 TCP 被多个线程共享，每个信道在 RabbitMQ 都有唯一的 ID，保证了信道私有性，每个信道对应一个线程使用。
 
 ![image-20230616211804679](/markdown/image-20230616211804679.png)
 
 **Broker**：中间件本身。接收和分发消息的应用，这里指的就是 RabbitMQ Server。
 
-**Virtual host**：虚拟主机。出于多租户和安全因素设计的，把 AMQP 的基本组件划分到一个虚拟的分组中，类似于网络中的 namespace 概念。当多个不同的用户使用同一个 RabbitMQ  
+**Virtual Host**：虚拟主机。出于多租户和安全因素设计的，把 AMQP 的基本组件划分到一个虚拟的分组中，类似于网络中的 namespace 概念。当多个不同的用户使用同一个 RabbitMQ  
 server 提供的服务时，可以划分出多个 vhost，每个用户在自己的 vhost 创建 exchange／queue 等。
 
 **Connection**：连接。publisher／consumer 和 Broker 之间的 TCP 连接。断开连接的操作只会在 client 端进行，Broker 不会断开连接，除非出现网络故障或 Broker 服务出现问题。
 
-**Channel**：渠道。如果每一次访问 RabbitMQ 都建立一个 Connection，在消息量大的时候建立 TCP 。
+**Channel**：信道。如果每一次访问 RabbitMQ 都建立一个 Connection，在消息量大的时候建立 TCP 。
 
 Connection 的开销会比较大且效率也较低。Channel 是在 Connection 内部建立的逻辑连接，如果应用程序支持多线程，通常每个  thread 创建单独的 Channel 进行通讯，AMQP method 包含了 Channel 
 Id 帮助客户端和 Message Broker 识别 Channel，所以 Channel 之间是完全隔离的。Channel 作为轻量级的 Connection 极大减少了操作系统建立 TCP Connection 的开销。
@@ -275,7 +275,7 @@ producer 端发送消息需要添加异常处理，防止发送途中 MQ 宕机�
 rabbitTemplate.setMandatory(true);//设置交换机处理失败消息的模式，如果不设置，默认会丢失消息，设置为true，则会执行returnMessage方法，将消息返回给生产者。
 rabbitTemplage.setReturnCallback(new RabbitTemplate.ReturnCallback() {
     @Override
-    public void returnMessage(Message message, int replyCode, String replyText, String exchange, String routingKey) {
+    public void returnMessage(Message message, int replyCode, String replyText, String exchange, String RoutingKey) {
         System.out.println("return 执行了");
     }
 });
@@ -287,9 +287,9 @@ ack 指 Acknowledge，确认，表示消费者收到消息后的确认方式。
 
 有 3 种确认方式：
 
-- 自动确认：acknowledge="none"；
-- 手动确认：acknowledge="manual"；
-- 根据异常情况确认：acknowledge="auto"。
+- 自动确认：acknowledge = `none`；
+- 手动确认：acknowledge = `manual`；
+- 根据异常情况确认：acknowledge = `auto`。
 
 其中自动确认是指一旦消息被 consumer 收到，则自动确认收到，并将相应的 message 从 RabbitMQ 缓存中移除，但在实际业务处理中，很可能消息接收到但是业务处理出现异常，那么该消息就会丢失。
 

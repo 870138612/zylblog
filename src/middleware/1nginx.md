@@ -121,7 +121,7 @@ location /some/ {
 }
 ```
 
-访问`http://localhost/some/page.html` 会被代理到 `http://localhost:8080/zh-cn/page.html`,`some` 路径消去。
+访问`http://localhost/some/page.html` 会被代理到 `http://localhost:8080/zh-cn/page.html`，`some` 路径消去。
 
 :::
 
@@ -398,7 +398,7 @@ server {
 
 重定向的地址如果写成 `localhost` 会造成重定向错误，会在本机中进行地址映射也就是IP地址 `127.0.0.1`，而不是服务器中。`301` 表示永久重定向。
 
-### 重写-rewrite
+### 重写 - rewrite
 
 ```nginx
 server {
