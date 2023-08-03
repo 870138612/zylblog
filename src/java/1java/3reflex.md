@@ -13,11 +13,11 @@ tag:
 <!-- more -->
 ### 反射的应用场景
 
-Spring/SpringBoot/Mybatis等框架中都大量使用了反射机制。
+Spring/SpringBoot/Mybatis 等框架中都大量使用了反射机制。
 
 框架中也使用了动态代理，动态代理就是依赖反射。
 
-JDK动态代理：
+JDK 动态代理：
 
 ```java
 public class DebugInvocationHandler implements InvocationHandler {
@@ -41,7 +41,7 @@ public class DebugInvocationHandler implements InvocationHandler {
 
 其中的 `Method` 就是反射类。
 
-SpringBoot中使用 `@Component` 就能声明一个Bean，原理就是基于反射获取到对应类上的注解，再做处理。
+SpringBoot 中使用 `@Component` 就能声明一个 Bean，原理就是基于反射获取到对应类上的注解，再做处理。
 
 ### 反射的优缺点
 
@@ -49,7 +49,7 @@ SpringBoot中使用 `@Component` 就能声明一个Bean，原理就是基于反�
 
 缺点：拥有分析操作类的能力，增加了安全隐患。
 
-### 反射获取Class对象
+### 反射获取 Class 对象
 
 1. 知道具体类的情况下：
 
@@ -76,7 +76,7 @@ Class clazz = t.getClass();
 ClassLoader.getSystemClassLoader().loadClass("com.zyl.Target");
 ```
 
-通过类加载器获取Class对象不会进行初始化，意味着静态代码块和静态对象不会得到执行。
+通过类加载器获取 Class 对象不会进行初始化，意味着静态代码块和静态对象不会得到执行。
 
 ### 获取方法并执行
 

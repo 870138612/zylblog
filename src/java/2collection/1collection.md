@@ -17,32 +17,32 @@ Java集合由两大接口派生而来，分别是用来存放单一元素的 `Co
 - `List` （顺序存储）存储的元素是有序的，可以重复；
 - `Set` （独一无二）存储的元素无序，不可重复；
 - `Queue` （排队）按特定的排队规则确定元素先后顺序，元素是有序的，可重复的；
-- `Map` （用key搜索）使用键值对存储，key是无序的，不可重复的，value是无序的，可重复的。
+- `Map` （用 key 搜索）使用键值对存储，key 是无序的，不可重复的，value 是无序的，可重复的。
 
 ### 集合框架底层数据结构
 
 **List**
 
-- `ArrayList` ： `Object[]` 数组；
-- `Vector` ： `Object[]` 数组；
-- `LinkedList` ：双向链表（JDK1.6之前为循环链表，JDK1.7取消）。
+- `ArrayList`：`Object[]` 数组；
+- `Vector`：`Object[]` 数组；
+- `LinkedList`：双向链表（JDK 1.6 之前为循环链表，JDK 1.7 取消）。
 
 **Set**
 
-- `HashSet` （无序，唯一）：基于 `HashMap` 实现，底层使用 `HashMap` 保存数据；
+- `HashSet`（无序，唯一）：基于 `HashMap` 实现，底层使用 `HashMap` 保存数据；
 - `LinkedHashMap` ：`LinkedHashSet` 是 `HashSet` 子类，内部都是通过 `LinkedHashMap` 实现；
-- `TreeSet` （有序，唯一）：红黑树（自平衡的排序二叉树）。
+- `TreeSet`（有序，唯一）：红黑树（自平衡的排序二叉树）。
 
 **Queue**
 
-- `PriorityQueue` ：`Object[]` 数组来实现二叉堆；
-- `ArrayQueue` ：`Object[]` 数组 + 双指针。
+- `PriorityQueue`：`Object[]` 数组来实现二叉堆；
+- `ArrayQueue`：`Object[]` 数组 + 双指针。
 
 **Map**
 
-- `HashMap` ：JDK1.8 之前 `HashMap` 由数组+链表组成的，数组是 `HashMap` 的主体，链表则是主要为了解决哈希冲突而存在。JDK1.8 以后由数组+链表/红黑树组成，当链表长度大于阈值（默认为8），数组长度大于等于64的时候会进行树化，转化为红黑树加快查找。
-- `LinkedHashMap` ：`LinkedHashMap` 继承自 `HashMap` ，底层是数组+链表/红黑树。`LinkedHashMap` 在上面结构的基础上，增加了一条双向链表，使得上面的结构可以保持键值对的插入顺序。同时通过对链表进行相应的操作，实现了访问顺序相关逻辑。
-- `Hashtable` ：数组+链表组成的，数组是 `Hashtable` 的主体，链表则是主要为了解决哈希冲突而存在
+- `HashMap` ：JDK 1.8 之前 `HashMap` 由数组 + 链表组成的，数组是 `HashMap` 的主体，链表则是主要为了解决哈希冲突而存在。JDK 1.8 以后由数组 + 链表/红黑树组成，当链表长度大于阈值（默认为 8），数组长度大于等于 64 的时候会进行树化，转化为红黑树加快查找。
+- `LinkedHashMap` ：`LinkedHashMap` 继承自 `HashMap` ，底层是数组 + 链表/红黑树。`LinkedHashMap` 在上面结构的基础上，增加了一条双向链表，使得上面的结构可以保持键值对的插入顺序。同时通过对链表进行相应的操作，实现了访问顺序相关逻辑。
+- `Hashtable` ：数组 + 链表组成的，数组是 `Hashtable` 的主体，链表则是主要为了解决哈希冲突而存在。
 
 ## List
 
@@ -55,17 +55,17 @@ Java集合由两大接口派生而来，分别是用来存放单一元素的 `Co
 - `ArrayList` 能插入 `null` ；
 - 超过容量之后触发扩容；
 - 扩容后大小为 `int newCapacity = oldCapacity + (oldCapacity >> 1);` ;
-- JDK1.8以无参数构造方法创建 `ArrayList` 时，实际上初始化赋值的是一个空数组。当真正对数组进行添加元素操作时，才真正分配容量。即向数组中添加第一个元素时，数组容量扩为 10。
-
+- JDK 1.8 以无参数构造方法创建 `ArrayList` 时，实际上初始化赋值的是一个空数组。当真正对数组进行添加元素操作时，才真正分配容量。即向数组中添加第一个元素时，数组容量扩为 10。
+- 在多线程下插入元素会出现数组越界的情况，插入操作是 `elementData[size++] = e`，如果两个线程都在数组的最后一个位置插入，则当中一个操作就会出现数组越界，因为检查数组是否已经满了和插入操作不是原子操作。
 ### ArryList 和 Vector 区别？
 
 - `ArrayList` 是 `List` 的主要实现类，底层用 `Object[]` 存储，适用于频繁查找的场景，线程不安全；
 - `Vector` 是 `List` 的古老实现类，底层用 `Object[]` 存储，线程安全。
 
-### ArrayList 与 LinkedList 区别?
+### ArrayList 与 LinkedList 区别？
 
 - 首先两者都不是线程安全的实现；
-- `ArrayList` 底层使用 `Object[]` 存储元素，`LinkedList` 底层使用双向链表存储数据（JDK1.6之前为循环链表，1.7取消循环）；
+- `ArrayList` 底层使用 `Object[]` 存储元素，`LinkedList` 底层使用双向链表存储数据（JDK 1.6 之前为循环链表，1.7 取消循环）；
 - `ArrayList` 实现了 `RandomAccess` 接口，可以随机访问，`LinkedList` 不支持随机访问；
 - 由于 `LinkedList` 内部包含前驱和后继，占用内存比 `ArrayList` 大。
 
@@ -104,7 +104,7 @@ Java集合由两大接口派生而来，分别是用来存放单一元素的 `Co
 
 - `ArrayDeque` 不支持存储 `null` 数据，但 `LinkedList` 支持；
 
-- `ArrayDeque` 是在JDK1.6才被引入的，而`LinkedList` 早在JDK1.2时就已经存在；
+- `ArrayDeque` 是在 JDK 1.6 才被引入的，而`LinkedList` 早在 JDK 1.2 时就已经存在；
 
 - `ArrayDeque` 插入时可能存在扩容过程, 不过均摊后的插入操作依然为 O(1)。虽然 `LinkedList` 不需要扩容，但是每次插入数据时均需要申请新的堆空间，均摊性能相比更慢。
 
@@ -165,5 +165,5 @@ void headSort(int R[], int n) {
 `ArrayBlockingQueue` 和 `LinkedBlockingQueue` 是Java并发包中常用的两种阻塞队列实现，它们都是线程安全的。不过，不过它们之间也存在下面这些区别：
 - 底层实现：`ArrayBlockingQueue` 基于数组实现，而 `LinkedBlockingQueue` 基于链表实现。
 - 是否有界：`ArrayBlockingQueue` 是有界队列，必须在创建时指定容量大小。`LinkedBlockingQueue` 创建时可以不指定容量大小，默认是 `Integer.MAX_VALUE`，也就是无界的。但也可以指定队列大小，从而成为有界的。
-- 锁是否分离：`ArrayBlockingQueue` 中的锁是没有分离的，即生产和消费用的是同一个锁；`LinkedBlockingQueue`中的锁是分离的，即生产用的是 `putLock`，消费是 `takeLock`，这样可以防止生产者和消费者线程之间的锁争夺。
+- 锁是否分离：`ArrayBlockingQueue` 中的锁是没有分离的，即生产和消费用的是同一个锁； `LinkedBlockingQueue` 中的锁是分离的，即生产用的是 `putLock`，消费是 `takeLock`，这样可以防止生产者和消费者线程之间的锁争夺。
 - 内存占用：`ArrayBlockingQueue` 需要提前分配数组内存，而 `LinkedBlockingQueue` 则是动态分配链表节点内存。这意味着 `ArrayBlockingQueue` 在创建时就会占用一定的内存空间，且往往申请的内存比实际所用的内存更大，而 `LinkedBlockingQueue` 则是根据元素的增加而逐渐占用内存空间。

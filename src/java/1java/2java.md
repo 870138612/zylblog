@@ -229,7 +229,7 @@ public final class String implements java.io.Serializable, Comparable<String>, C
 
 - `String` 类本身也被 `final` 修饰导致不能被继承，从而避免子类破坏 `String` 的不变性。
 
-### 字符串拼接用 "+" 还是 "StringBuilder"?
+### 字符串拼接用 "+" 还是 "StringBuilder"？
 
 `+` 和 `+=` 是Java中唯二为 `String` 重载过的运算符。
 
@@ -259,7 +259,7 @@ String str = new String("abc");
 
 ![image-20230515171640642](/markdown/image-20230515171640642.png)
 
-### String#intern 方法有什么作用?
+### String#intern 方法有什么作用？
 
 `String.intern()` 是一个本地方法，作用是将指定的字符串对象保存到字符串常量池中。
 
