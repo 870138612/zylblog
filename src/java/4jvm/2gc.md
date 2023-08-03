@@ -1,10 +1,10 @@
 ---
-title: JVM 垃圾回收
+title: JVM垃圾回收
 icon: page
 category:
   - Java
 tag:
-  - JVM 垃圾回收
+  - JVM垃圾回收
   - 八股
   - JVM
 ---

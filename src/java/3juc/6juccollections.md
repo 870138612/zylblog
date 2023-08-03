@@ -1,10 +1,10 @@
 ---
-title: JUC 常见并发容器
+title: JUC常见并发容器
 icon: page
 category:
   - Java
 tag:
-  - JUC 常见并发容器
+  - JUC常见并发容器
   - 八股
   - 并发编程
 ---

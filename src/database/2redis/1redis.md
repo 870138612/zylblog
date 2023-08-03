@@ -1,5 +1,5 @@
 ---
-title: Redis 基础二
+title: Redis基础二
 icon: page
 category:
   - 数据库

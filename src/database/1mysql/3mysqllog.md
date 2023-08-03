@@ -1,5 +1,5 @@
 ---
-title: MySQL 日志
+title: MySQL日志
 icon: page
 star: true
 category:

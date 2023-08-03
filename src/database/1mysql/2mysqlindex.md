@@ -1,10 +1,10 @@
 ---
-title: MySQL 索引
+title: MySQL索引
 icon: page
 category:
   - 数据库
 tag:
-  - MySQL 索引
+  - MySQL索引
   - 八股
   - MySQL
 ---

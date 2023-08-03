@@ -20,7 +20,7 @@ features:
 
   - title: Java
     icon: java
-    details: Java 基础、集合、并发编程、JVM
+    details: Java基础、集合、并发编程、JVM
     link: /java/
     
   - title: 计算机基础

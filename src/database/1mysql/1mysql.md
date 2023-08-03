@@ -1,10 +1,10 @@
 ---
-title: MySQL 基础
+title: MySQL基础
 icon: page
 category:
   - 数据库
 tag:
-  - MySQL 基础
+  - MySQL基础
   - 八股
   - MySQL
 ---

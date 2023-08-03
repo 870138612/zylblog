@@ -1,10 +1,10 @@
 ---
-title: synchronized 锁优化
+title: synchronized锁优化
 icon: page
 category:
   - Java
 tag:
-  - synchronized 锁优化
+  - synchronized锁优化
   - 八股
   - 并发编程
 ---

@@ -1,10 +1,10 @@
 ---
-title: Java 基础二
+title: Java基础二
 icon: page
 category:
   - Java
 tag:
-  - Java 基础
+  - Java基础
   - 八股 
 ---
 
@@ -145,7 +145,7 @@ hero.skill();//打印技能1，编译是否能通过看左边，执行结果看�
 
 - 都不能被实例化；
 - 都可以包含抽象方法；
-- 都可以有默认的实现方法（Java8可以用 `default` 关键字在接口中定义默认方法）。
+- 都可以有默认的实现方法（Java 8 可以用 `default` 关键字在接口中定义默认方法）。
 
 **不同点**
 
@@ -173,7 +173,7 @@ hero.skill();//打印技能1，编译是否能通过看左边，执行结果看�
 
 ## Object
 
-### ==和equals区别
+### == 和 equals 区别
 
 - 对于基本类型来说 `==` 是比较值；
 - 对于引用类型来说 `==` 是比较地址。
@@ -185,7 +185,7 @@ hero.skill();//打印技能1，编译是否能通过看左边，执行结果看�
 
 创建 `String` 类型的对象 `new String("abc")`，虚拟机会在字符串常量池中查找有没有相同值的对象，如果有则直接返回这个对象的引用，如果没有就创建一个 `String` 对象。
 
-### hashCode()作用
+### hashCode() 作用
 
 `hashCode()` 方法用来获哈希码，作用是确定在哈希表中的位置。
 
@@ -214,9 +214,9 @@ Java中的对象满足以下：
 - 少量数据使用 `String`，单线程下大量数据使用 `StringBuilder`，多线程下使用 `StringBuffer`。
 - `toString` 方法。`StringBuffer` 中保存了一个缓冲区 `toStringCache`。会保存之前 `toString` 的结果，只要在两次调用 `toString` 期间没有修改 `StringBuffer`，那么可以加快返回的速度，发生了修改，缓冲区就会被清空。`StringBuilder` 没有缓冲区，每次都是重新拷贝一次数组。
 
-### String为何不可变？
+### String 为何不可变？
 
-JDK8中的源码：
+JDK 8 中的源码：
 
 ```java
 public final class String implements java.io.Serializable, Comparable<String>, CharSequence {
@@ -229,7 +229,7 @@ public final class String implements java.io.Serializable, Comparable<String>, C
 
 - `String` 类本身也被 `final` 修饰导致不能被继承，从而避免子类破坏 `String` 的不变性。
 
-### 字符串拼接用"+" 还是"StringBuilder"?
+### 字符串拼接用 "+" 还是 "StringBuilder"?
 
 `+` 和 `+=` 是Java中唯二为 `String` 重载过的运算符。
 
@@ -243,7 +243,7 @@ public final class String implements java.io.Serializable, Comparable<String>, C
 
 :::
 
-### String s1 = new String("abc")这句话创建了几个字符串对象？
+### String s1 = new String("abc") 这句话创建了几个字符串对象？
 
 会创建1个或者2个字符串对象。
 
@@ -307,7 +307,7 @@ System.out.println(c == d);// true
 ```
 
 使用 `final` 修饰则看成常量，在编译期间就会优化放入字符串常量池中。
-## Java值传递
+## Java 值传递
 
 ### 形参和实参
 
@@ -326,7 +326,7 @@ void method(String str){
 - 值传递：方法接收的是实参的拷贝，会创建副本；
 - 引用传递：方法接收的直接是实参所引用对象在堆中的地址，不会创建副本，对形参的修改将会影响到实参。
 
-### Java只有值传递
+### Java 只有值传递
 
 ```java
 public static void main(String[] args) {

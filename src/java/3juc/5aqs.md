@@ -1,10 +1,10 @@
 ---
-title: AQS 抽象队列同步器
+title: AQS抽象队列同步器
 icon: page
 category:
   - Java
 tag:
-  - AQS 抽象队列同步器
+  - AQS抽象队列同步器
   - 八股
   - 并发编程
 ---

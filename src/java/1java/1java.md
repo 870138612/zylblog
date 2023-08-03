@@ -1,10 +1,10 @@
 ---
-title: Java 基础一
+title: Java基础一
 icon: page
 category:
   - Java
 tag:
-  - Java 基础
+  - Java基础
   - 八股 
 ---
 

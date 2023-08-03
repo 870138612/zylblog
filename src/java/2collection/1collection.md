@@ -1,10 +1,10 @@
 ---
-title: Java 集合一
+title: Java集合一
 icon: page
 category:
   - Java
 tag:
-  - Java 集合
+  - Java集合
   - 八股
 ---
 

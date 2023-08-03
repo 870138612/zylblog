@@ -1,10 +1,10 @@
 ---
-title: JVM 内存结构
+title: JVM内存结构
 icon: page
 category:
   - Java
 tag:
-  - JVM 内存结构
+  - JVM内存结构
   - 八股
   - JVM
 ---

@@ -8,7 +8,7 @@ article: false
 timeline: false
 ---
 ## <HopeIcon icon="java"/> Java
-- <HopeIcon icon="javabasic"/> [Java 基础](/java/1java)
+- <HopeIcon icon="javabasic"/> [Java基础](/java/1java)
 - <HopeIcon icon="jihe"/> [集合](/java/2collection)
 - <HopeIcon icon="juc"/> [并发编程](/java/3juc)
 - <HopeIcon icon="jvm"/> [JVM](/java/4jvm)
