@@ -132,7 +132,7 @@ COMMIT;
 
 **幻读**：读取到了一个原本没有的数据（新插入的数据）。
 
-> **READ-UNCOMMITTED、READ-COMMITTED、REPEATABLE-READ（通过MVCC和Next-Key Lock可解决幻读）**
+> **READ-UNCOMMITTED、READ-COMMITTED、REPEATABLE-READ（通过 MVCC 和 Next-Key Lock 可解决幻读）**
 
 ### 并发事务的控制方式有哪些？
 
@@ -185,7 +185,7 @@ InnoDB 支持三种行锁定方式：
 
 由于 MVCC 的存在，对于一般的 `SELECT` 语句，InnoDB 不会加任何锁。
 
-### MySQL怎样添加锁？
+### MySQL 怎样添加锁？
 
 加锁的基本单位是 Next-key Lock。
 
@@ -202,9 +202,9 @@ InnoDB 支持三种行锁定方式：
 
 - 当查询的记录「不存在」时，扫描到第一条不符合条件的二级索引记录，该二级索引的 Next-key Lock 会退化成间隙锁。因为不存在满足查询条件的记录，所以不会对主键索引加锁。
 
-非唯一索引和主键索引的范围查询的加锁规则不同之处在于：
+唯一索引和非唯一索引的范围查询的加锁规则不同之处在于：
 
-唯一索引在查询记录存在的时候，索引的 Next-key Lock 退化为间隙锁或者记录锁。
+唯一索引在查询记录符合条件的时候，索引的 Next-key Lock 退化为间隙锁（记录不存在）或者记录锁（记录存在）。
 
 非唯一索引范围查询，索引的 Next-key Lock 不会退化为间隙锁和记录锁。
 
