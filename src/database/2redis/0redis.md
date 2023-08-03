@@ -169,7 +169,7 @@ Write Behind Pattern 下 db 的写性能非常高，非常适合一些数据经�
 
 ## Redis 数据结构
 
-☀️详见[Redis数据结构](http://ylzhong.top/database/2redis/3redisdatastructures.html)
+☀️详见[Redis 数据结构](http://ylzhong.top/database/2redis/3redisdatastructures.html)
 
 ### Redis 常用的数据结构有哪些？
 
@@ -296,7 +296,7 @@ PFCOUNT PAGE_1:UV
 
 ## Redis 持久化
 
- ☀️详见[Redis持久化](http://ylzhong.top/database/2redis/4redispersistence.html)
+ ☀️详见[Redis 持久化](http://ylzhong.top/database/2redis/4redispersistence.html)
 
 ## Redis 线程模型
 

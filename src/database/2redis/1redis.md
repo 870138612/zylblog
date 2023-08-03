@@ -356,4 +356,4 @@ Redis 是典型的 CPU 密集型应用，不建议和其他多核 CPU 密集型�
 
 ## Redis集群
 
-☀️详见[Redis集群](https://ylzhong.top/database/2redis/5rediscluster.html)
+☀️详见[Redis 集群](https://ylzhong.top/database/2redis/5rediscluster.html)

@@ -1,10 +1,10 @@
 ---
-title: JVM重要参数
+title: JVM 重要参数
 icon: page
 category:
   - Java
 tag:
-  - JVM重要参数
+  - JVM 重要参数
   - 八股
 ---
 
