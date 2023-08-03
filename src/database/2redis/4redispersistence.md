@@ -6,6 +6,7 @@ category:
 tag:
   - Redis
   - 八股
+  - Redis持久化
 ---
 
 ## RDB 持久化

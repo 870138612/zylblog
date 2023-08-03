@@ -6,6 +6,7 @@ category:
 tag:
   - Redis
   - 八股
+  - Redis集群
 ---
 
 ## 主从集群
