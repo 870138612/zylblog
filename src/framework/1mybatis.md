@@ -79,7 +79,7 @@ MyBatis 将所有 xml 配置信息都封装到 All-In-One 重量级对象 Config
 物理分页就是对 SQL 进行改造：
 
 ```SQL
-select * from xxx --> select t.* from (select * from xxx) t limit 0,10
+select * from xxx --> select *from (select *from sys_role) t limit 0,10
 ```
 
 通过添加插件的方式进行分页：
