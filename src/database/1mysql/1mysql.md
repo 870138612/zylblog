@@ -25,7 +25,7 @@ tag:
 
 <!-- more -->
 
-## MySQL基础架构
+## MySQL 基础架构
 
 MySQL 主要由下面几个部分构成：
 
@@ -36,7 +36,7 @@ MySQL 主要由下面几个部分构成：
 - **执行器**：执行语句，然后从存储引擎返回数据。
 - **插件式存储引擎**：主要负责数据的存储和读取，采用的是插件式架构，支持 InnoDB，MyISAM，Memory 等多种存储引擎。
 
-## MySQL存储引擎
+## MySQL 存储引擎
 
 MySQL 5.5.5 之前，MyISAM 是 MySQL 的默认存储引擎。之后，InnoDB 是 MySQL 的默认存储引擎。
 
@@ -76,11 +76,6 @@ InnoDB 引擎中，其数据文件本身就是索引文件。相比 MyISAM，索
 
 InnoDB 的性能比 MyISAM 性能更好，InnoDB 读写支持并发，MyISAM 不支持并发。
 
-## SQL 在 MySQL 中的执行过程
-
-- MySQL 主要分为 Server 层和引擎层，Server 层主要包括连接器、查询缓存、分析器、优化器、执行器，同时还有一个日志模块（`binlog`），这个日志模块所有执行引擎都可以共用，`redo log` 只有 InnoDB 有。
-- 引擎层是插件式的，目前主要包括 MyISAM，InnoDB，Memory 等。查询语句的执行流程如下：权限校验（如果命中缓存）--->查询缓存--->分析器--->优化器--->权限校验--->执行器--->引擎
-- 更新语句执行流程如下：分析器---->权限校验---->执行器--->引擎---`redo log`(prepare 状态)--->`binlog`--->`redo log`(commit 状态)。
 
 ## MySQL 查询缓存
 
@@ -144,13 +139,13 @@ COMMIT;
 
 MySQL 中并发事务的控制方式有两种：**锁和 MVCC**。锁可以看做是悲观控制的模式，多版本并发控制是勒段控制的模式。
 
-### MySQL的隔离级别是基于锁实现的吗？
+### MySQL 的隔离级别是基于锁实现的吗？
 
 MySQL 的隔离级别基于锁和 MVCC 机制共同实现的。
 
 `SERIALIZABLE` 隔离级别是通过锁来实现的，`READ-COMMITTED` 和 `REPEATABLE-READ` 隔离级别是基于 MVCC 实现的。
 
-### MySQL的默认隔离级别是什么？
+### MySQL 的默认隔离级别是什么？
 
 MySQL InnoDB 存储引擎的默认支持的隔离级别是 `REPEATABLE-READ`（可重读）。
 
@@ -279,6 +274,12 @@ MySQL 提供了两个方法来处理 ip 地址：
 插入数据前，先用 `INET_ATON()` 把 ip 地址转为整型，显示数据时，使用 `INET_NTOA()` 把整型的 ip 地址转为地址显示即可。
 
 ## 执行计划
+
+### SQL 在 MySQL 中的执行过程
+
+- MySQL 主要分为 Server 层和引擎层，Server 层主要包括连接器、查询缓存、分析器、优化器、执行器，同时还有一个日志模块（`binlog`），这个日志模块所有执行引擎都可以共用，`redo log` 只有 InnoDB 有。
+- 引擎层是插件式的，目前主要包括 MyISAM，InnoDB，Memory 等。查询语句的执行流程如下：权限校验（如果命中缓存）--->查询缓存--->分析器--->优化器--->权限校验--->执行器--->引擎
+- 更新语句执行流程如下：分析器---->权限校验---->执行器--->引擎---`redo log`(prepare 状态)--->`binlog`--->`redo log`(commit 状态)。
 
 可以使用 `EXPLAIN` 命令来分析 SQL 的执行计划 。执行计划是指一条 SQL 语句在经过 MySQL 查询优化器的优化会后，具体的执行方式。
 
