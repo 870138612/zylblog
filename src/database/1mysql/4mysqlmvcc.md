@@ -105,7 +105,7 @@ MySQL InnoDB 存储引擎的默认支持的隔离级别是 `REPEATABLE-READ`。
 - 在 RC 隔离级别下的**每次** `select` 查询前都生成一个 `Read View`（m_ids 列表）；
 - 在 RR 隔离级别下只在事务开始后**第一次** `select` 数据前生成一个 `Read View`（m_ids 列表）。
 
-## MVCC下解决不可重复读问题
+## MVCC 下解决不可重复读问题
 
 虽然 RC 和 RR 都通过 `MVCC` 来读取快照数据，但由于 **生成 Read View 时机不同**，从而在 RR 级别下实现可重复读。
 
