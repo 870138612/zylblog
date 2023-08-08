@@ -1,6 +1,6 @@
 import {defineUserConfig} from "vuepress";
 import theme from "./theme.js";
-import {searchProPlugin} from "vuepress-plugin-search-pro";
+import { searchPlugin} from "@vuepress/plugin-search";
 import {mdEnhance, sitemap} from "vuepress-theme-hope";
 
 
@@ -27,23 +27,14 @@ export default defineUserConfig({
   theme,
   shouldPrefetch: false,
   plugins: [
-    searchProPlugin({
-      customFields: [
-        {
-          getter: (page) => page.frontmatter.category,
-          formatter: {
-            "/": "分类：$content",
-          },
-        },
-        {
-          getter: (page) => page.frontmatter.tag,
-          formatter: {
-            "/": "标签：$content",
-          },
-        },
-      ],
-      indexContent: true,
-      sortStrategy: "total",
+
+    searchPlugin({
+      locales: {
+        "/": {
+          placeholder: "搜索",
+        }
+      },
+      maxSuggestions: 10
     }),
   ],
 });

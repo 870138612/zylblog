@@ -149,7 +149,7 @@ Write Behind Pattern 下 db 的写性能非常高，非常适合一些数据经�
 
 **分布式锁**：通过 Redis 来做分布式锁是一种比较常见的方式。通常情况下，都是基于 Redisson 来实现分布式锁。（秒杀下更新数据库时使用分布式锁）
 
-☀️详见 [分布式锁](http://ylzhong.top/database/2redis/2lock.html)
+☀️详见[分布式锁](http://ylzhong.top/database/2redis/2lock.html)
 
 **限流**：一般是通过 Redis + Lua 脚本的方式来实现限流。（秒杀下一人一单占位使用Lua脚本）
 
@@ -169,7 +169,7 @@ Write Behind Pattern 下 db 的写性能非常高，非常适合一些数据经�
 
 ## Redis 数据结构
 
-☀️详见 [Redis 数据结构](http://ylzhong.top/database/2redis/3redisdatastructures.html)
+☀️详见[Redis 数据结构](http://ylzhong.top/database/2redis/3redisdatastructures.html)
 
 ### Redis 常用的数据结构有哪些？
 
@@ -296,7 +296,7 @@ PFCOUNT PAGE_1:UV
 
 ## Redis 持久化
 
- ☀️详见 [Redis 持久化](http://ylzhong.top/database/2redis/4redispersistence.html)
+ ☀️详见[Redis 持久化](http://ylzhong.top/database/2redis/4redispersistence.html)
 
 ## Redis 线程模型
 
@@ -316,7 +316,7 @@ Redis 基于 Reactor 模式设计开发了一套高效的事件处理模型，�
 
 虽然文件事件处理器以单线程方式运行，但通过 IO 多路复用程序来监听多个套接字，文件事件处理器既实现了高性能的网络通信模型，又可以很好地与 Redis 服务器中其他同样以单线程方式运行的模块进行对阶，这保持列 Redis 内部单线程设计的简单性。
 
-☀️详见 [IO 多路复用](https://ylzhong.top/computer/3io.html#io-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8-io-multiplexing)
+☀️详见[IO 多路复用](https://ylzhong.top/computer/3io.html#io-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8-io-multiplexing)
 
 :::
 
