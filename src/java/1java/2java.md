@@ -35,7 +35,7 @@ System.out.println(str1.equals(str3));//true
 ```
 
 
-☀️详见[String](https://ylzhong.top/java/1java/2java.html#string)
+☀️详见 [String](https://ylzhong.top/java/1java/2java.html#string)
 
 ### 如果没有声明构造方法，程序能正确执行吗？
 
@@ -151,7 +151,7 @@ hero.skill();//打印技能1，编译是否能通过看左边，执行结果看�
 
 - 接口强调行为的约束，实现某个接口就相当于有某个责任，必须实现对应的方法，继承则是强调复用，子类继承父类并不一定要重写父类方法；
 - 一个类只能 `extends` 一个类，但是能 `implements` 多个接口；
-- 接口中的成员变量只能是 `public static final` 类型，不能被修改而且必须有初始值，抽象类中的成员变量默认default，可以在子类中被重新定义，重新赋值。
+- 接口中的成员变量只能是 `public static final` 类型，不能被修改而且必须有初始值，抽象类中的成员变量默认 `default`，可以在子类中被重新定义，重新赋值。
 
 ### 浅拷贝，深拷贝，引用拷贝
 
@@ -198,12 +198,10 @@ hero.skill();//打印技能1，编译是否能通过看左边，执行结果看�
 Java中的对象满足以下：
 
 - Java中两个对象相同则 `HashCode` 必须相等；
-
 - `HashCode` 相同，但对象不一定相等；
-
 - 两个对象的 `HashCode` 不同则对象一定不同。
 
-重写 `equals()` 代表这个方法是用来比较两个对象是否相等，如果不重写 `HashCode()` 方法可能会导致判断是相等的两个对象但是 `HashCode` 不等，则HashMap这样的数据结构无法正常工作。
+重写 `equals()` 代表这个方法是用来比较两个对象是否相等，如果不重写 `HashCode()` 方法可能会导致判断是相等的两个对象但是 `HashCode` 不等，则 HashMap 这样的数据结构无法正常工作。
 
 ## String
 
@@ -226,18 +224,17 @@ public final class String implements java.io.Serializable, Comparable<String>, C
 ```
 
 - 保存字符串的数组是 `final` 修饰的，并且内部没有暴露能修改这个数组的方法；
-
 - `String` 类本身也被 `final` 修饰导致不能被继承，从而避免子类破坏 `String` 的不变性。
 
 ### 字符串拼接用 "+" 还是 "StringBuilder"？
 
-`+` 和 `+=` 是Java中唯二为 `String` 重载过的运算符。
+`+` 和 `+=` 是 Java 中唯二为 `String` 重载过的运算符。
 
-`String` 对象使用+进行拼接，实际就是通过 `StringBuilder` 调用 `append()` 方法，拼完之后调用 `toString()` 方法返回 `String` 对象。
+`String` 对象使用 `+` 进行拼接，实际就是通过 `StringBuilder` 调用 `append()` 方法，拼完之后调用 `toString()` 方法返回 `String` 对象。
 
 ::: info
 
-如果在循环内使用+进行拼接多个字符串，编译器不会复用 `StringBuilder`，而是每次循环都创建一个 `StringBuilder`。
+如果在循环内使用 `+` 进行拼接多个字符串，编译器不会复用 `StringBuilder`，而是每次循环都创建一个 `StringBuilder`。
 
 直接使用 `StringBuilder` 进行拼接就能解决这个问题。
 
@@ -253,9 +250,9 @@ String str = new String("abc");
 String str = new String("abc");
 ```
 
-如果字符串常量池中不存在 `"abc"` 的引用，则会在堆中创建2个字符串对象 `"abc"`。一个是在字符串常量池中创建的 `"abc"`，另外是new在堆中创建的对象。
+如果字符串常量池中不存在 `"abc"` 的引用，则会在堆中创建 2 个字符串对象 `"abc"`。一个是在字符串常量池中创建的 `"abc"`，另外是 `new` 在堆中创建的对象。
 
-如果字符串常量池中存在 `"abc"` 的引用，则会在堆中创建1个字符串对象 `"abc"`。也就是new在堆中创建的对象。
+如果字符串常量池中存在 `"abc"` 的引用，则会在堆中创建 1 个字符串对象 `"abc"`。也就是 `new` 在堆中创建的对象。
 
 ![image-20230515171640642](/markdown/image-20230515171640642.png)
 
@@ -321,7 +318,7 @@ void method(String str){
 }
 ```
 
-### 值传递&引用传递
+### 值传递 & 引用传递
 
 - 值传递：方法接收的是实参的拷贝，会创建副本；
 - 引用传递：方法接收的直接是实参所引用对象在堆中的地址，不会创建副本，对形参的修改将会影响到实参。

@@ -12,7 +12,7 @@ tag:
 
 ### 进程
 
-进程是程序的一次执行过程，启动main函数就相当于启动了一个JVM进程，而main函数所在的线程称为主线程。
+进程是程序的一次执行过程，启动 main 函数就相当于启动了一个 JVM 进程，而 main 函数所在的线程称为主线程。
 
 ### 线程
 
@@ -20,11 +20,11 @@ tag:
 <!-- more -->
 ## 从 JVM 角度说进程和线程之间的关系
 
-一个进程能有很多个线程，多个线程共享本进程的堆和方法区（1.8之后的元空间），每一个线程拥有自己的虚拟机栈，本地方法栈，程序计数器。
+一个进程能有很多个线程，多个线程共享本进程的堆和方法区（1.8 之后的元空间），每一个线程拥有自己的虚拟机栈，本地方法栈，程序计数器。
 
 ![image-20230517134427874](/markdown/image-20230616180622721.png)
 
-[**五分钟记住JVM内存结构**](https://www.bilibili.com/video/BV1Q64y1h7PT/?spm_id_from=333.337.search-card.all.click&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
+☀️详见 [**五分钟记住JVM内存结构**](https://www.bilibili.com/video/BV1Q64y1h7PT/?spm_id_from=333.337.search-card.all.click&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
 
 ###  程序计数器为什么是线程私有？
 

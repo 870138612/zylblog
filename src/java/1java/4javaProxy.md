@@ -16,7 +16,7 @@ tag:
 <!-- more -->
 ## 静态代理
 
-静态代理中，对方法的增强是手动完成的，非常不灵活，从JVM层面来说，静态代理在编译的时候就将接口、实现类、代理类变成一个个 `class` 文件。编译从 `.java` 变成 `.class`。
+静态代理中，对方法的增强是手动完成的，非常不灵活，从 JVM 层面来说，静态代理在编译的时候就将接口、实现类、代理类变成一个个 `class` 文件。编译从 `.java` 变成 `.class`。
 
 ::: tabs
 
@@ -115,7 +115,7 @@ public interface InvocationHandler {
 
 - `proxy`：动态生成的代理类；
 - `method`：与代理类对象调用的方法相对应；
-- `args`：当前method方法的参数。
+- `args`：当前 method 方法的参数。
 
 流程：通过 `proxy` 类的 `newInstance()` 创建代理对象调用方法，会实际调用实现 `InvocationHandler` 接口类的 `invoke()` 方法。
 
@@ -194,7 +194,7 @@ CGLIB 动态代理中 `MethodIntercepter` 接口和 `Enhancer` 类是核心。
 public interface MethodInterceptor
 extends Callback{
     // 拦截被代理类中的方法
-    public Object intercept(Object obj, java.lang.reflect.Method method, Object[] args,MethodProxy proxy) throws Throwable;
+    public Object intercept(Object obj, java.lang.reflect.Method method, Object[] args, MethodProxy proxy) throws Throwable;
 }
 ```
 

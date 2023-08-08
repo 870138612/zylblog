@@ -100,7 +100,7 @@ stream {
 
 ### Nginx 的负载均衡算法有哪些？
 
-☀️详见[Nginx 负载均衡](https://ylzhong.top/middleware/1nginx.html#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1)
+☀️详见 [Nginx 负载均衡](https://ylzhong.top/middleware/1nginx.html#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1)
 
 负载均衡策略有：轮训，最小连接，ip_hash，hash，权重，随机。
 
@@ -112,7 +112,7 @@ stream {
 
 ### Nginx 反向代理怎么配置的？反向代理跟正向代理的区别是什么？Nginx 可以配置正向代理吗？
 
-☀️详见[正向代理和反向代理](https://ylzhong.top/middleware/1nginx.html#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86)
+☀️详见 [正向代理和反向代理](https://ylzhong.top/middleware/1nginx.html#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86)
 
 - 反向代理通过在 `location` 里添加 `proxy_pass` 进行请求代理。
 
@@ -247,7 +247,7 @@ public PasswordEncoder passwordEncoder(){
 
 ### JWT（Token）如何生成的？
 
-☀️详见[15 分钟学会 JWT 的使用](https://www.bilibili.com/video/BV1cK4y197EM/?spm_id_from=333.788.recommend_more_video.1&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
+☀️详见 [15 分钟学会 JWT 的使用](https://www.bilibili.com/video/BV1cK4y197EM/?spm_id_from=333.788.recommend_more_video.1&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
 
 使用 JJWT 生成 JWT。
 
@@ -310,7 +310,7 @@ String signature = HMACSHA256(encodedString, secret);
 
 ### 缓存穿透，缓存雪崩，缓存击穿问题
 
-☀️详见[缓存穿透，缓存雪崩，缓存击穿](https://ylzhong.top/database/2redis/1redis.html#%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F-%E9%9B%AA%E5%B4%A9-%E5%87%BB%E7%A9%BF)
+☀️详见 [缓存穿透，缓存雪崩，缓存击穿](https://ylzhong.top/database/2redis/1redis.html#%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F-%E9%9B%AA%E5%B4%A9-%E5%87%BB%E7%A9%BF)
 
 - 缓存穿透：查询空数据，解决：缓存空数据并添加过期时间、布隆过滤器。
 - 缓存雪崩：大量的 key 失效，解决：添加随机过期时间。
@@ -378,7 +378,7 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 
 ![image-20230628225544890](/markdown/image-20230628225544890.png) 
 
-☀️详见[RabbitMQ](https://ylzhong.top/middleware/2mq.html)
+☀️详见 [RabbitMQ](https://ylzhong.top/middleware/2mq.html)
 
 ### 服务单一职责，独立部署，定时上架
 
@@ -415,11 +415,11 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 
 黑马点评为 B 站 Redis 课程中涉及到的项目，项目整体都是在介绍 Redis 的数据结构以及对应方法。
 
-☀️详见[黑马点评](https://www.bilibili.com/video/BV1cr4y1671t/?spm_id_from=333.337.search-card.all.click&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
+☀️详见 [黑马点评](https://www.bilibili.com/video/BV1cr4y1671t/?spm_id_from=333.337.search-card.all.click&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
 
 项目中同样包含登录部分，Session 共享问题，因此可以参考 SpringSecurity 的登录认证流程，Redis 存储用户数据。
 
-☀️详见[谷粒商城实现单点登录](https://ylzhong.top/note/0aboutprojects.html#%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)
+☀️详见 [谷粒商城实现单点登录](https://ylzhong.top/note/0aboutprojects.html#%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)
 
 ```
 小众点评                                                           2022.9-2022.12
@@ -436,7 +436,7 @@ springboot，mybatis，redis，nginx，docker
 
 Nginx 动静分离的好处参考谷粒商城项目。
 
-☀️详见[Nginx 动静分离](https://ylzhong.top/note/0aboutprojects.html#%E5%95%86%E5%9F%8E%E9%A1%B5%E9%9D%A2%E7%94%B1nginx%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB-%E8%AF%B7%E6%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1)。
+☀️详见 [Nginx 动静分离](https://ylzhong.top/note/0aboutprojects.html#%E5%95%86%E5%9F%8E%E9%A1%B5%E9%9D%A2%E7%94%B1nginx%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB-%E8%AF%B7%E6%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1)。
 
 ### Redis 实现用户登录，登录状态刷新
 
@@ -456,7 +456,7 @@ token 则直接放行，表示这个请求不需要用户验证。有 token 则�
 
 ### JWT（TOKEN）如何生成？
 
-☀️详见[JWT 如何生成？](https://ylzhong.top/note/0aboutprojects.html#jwt-token-%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90%E7%9A%84)
+☀️详见 [JWT 如何生成？](https://ylzhong.top/note/0aboutprojects.html#jwt-token-%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90%E7%9A%84)
 
 ### 点赞
 
@@ -534,7 +534,7 @@ token 则直接放行，表示这个请求不需要用户验证。有 token 则�
 
 Redission 中通过看门狗机制实现分布式锁的自动续期，保证在业务执行时不会因为时间到期而释放锁。
 
-☀️详见[分布式锁](https://ylzhong.top/database/2redis/2lock.html)
+☀️详见 [分布式锁](https://ylzhong.top/database/2redis/2lock.html)
 
 ### 如何保证消息可靠性？
 
@@ -643,7 +643,7 @@ RDB 是读取内存快照，AOF 可以看做命令日志文件。
 |  系统占用资源  |  高，大量 CPU 和内存消耗（创建快照时）   | 低，主要是磁盘 IO 资源，但是 AOF 重写时会占用大量 CPU 和内存资源 |
 |    使用场景    | 可以容忍数据部分不完整，追求更快的启动速度的场景 |            对数据完整性安全性要求较高的场景             |
 
-☀️详见[Redis 持久化](https://ylzhong.top/database/2redis/4redispersistence.html)
+☀️详见 [Redis 持久化](https://ylzhong.top/database/2redis/4redispersistence.html)
 
 ### Redis 的集群和哨兵机制的区别？
 
@@ -666,7 +666,7 @@ Redis 集群和哨兵都可以用来提高 Redis 实例的可扩展性和可用�
 
 Redis 集群用来提高 Redis 服务器的读写性能和可用性，而 Redis 哨兵只是用来提高 Redis 服务实例的可用性。通常情况下，使用 Redis 集群和哨兵结合方式会比只使用集群或者只使用哨兵的方式更加高效，可以大大提升 Redis 数据库的性能。
 
-☀️详见[Redis 集群](https://ylzhong.top/database/2redis/5rediscluster.html)
+☀️详见 [Redis 集群](https://ylzhong.top/database/2redis/5rediscluster.html)
 
 ### Redis 能做消息队列吗？
 

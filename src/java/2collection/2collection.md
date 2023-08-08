@@ -13,8 +13,8 @@ tag:
 
 - **线程是否安全**：`HashMap` 是非线程安全的，`Hashtable` 是线程安全的，内部方法使用 `synchronized` 修饰。
 - **效率**：由于不需要加锁，`HashMap` 的效率要稍微好点。
-- **是否能存储 Null Key 和 Value**：`HashMap` 能存储 `null` 的 key 和v alue，但是作为 `null` 的 key 只能有一个，`Hashtable` 不能有 `null` key 和 value。
-- **扩容**：`Hashtable` 默认初始大小是 11，扩容之后变为 2n+1。`HashMap` 默认大小是 16，当元素个数超过 `负载因子*表长` 时扩容，每次扩容变为原来的两倍。
+- **是否能存储 Null Key 和 Value**：`HashMap` 能存储 `null` 的 key 和 value，但是作为 `null` 的 key 只能有一个，`Hashtable` 不能有 `null` key 和 value。
+- **扩容**：`Hashtable` 默认初始大小是 11，扩容之后变为 2n+1。`HashMap` 默认大小是 16，当元素个数超过**负载因子*表长**时扩容，每次扩容变为原来的两倍。
 - **底层**：JDK 1.8 之后 `HashMap` 底层使用数组 + 链表/红黑树，特定条件链表转化为红黑树，`Hashtable` 则没有转化为红黑树的机制。
 
 <!-- more -->
@@ -43,7 +43,7 @@ static final int hash(Object key) {
 }
 ```
 
-#### JDK1.8 之后
+#### JDK 1.8 之后
 
 JDK 1.8 之后 `HashMap` 使用数组 + 链表/红黑树作为底层，当单个链表的长度**大于 8**（默认 8），数组长度**大于等于 64** 的时候就会触发树化，将链表转化为红黑树，以此减少查找时间。
 

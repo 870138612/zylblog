@@ -75,11 +75,11 @@ Java集合由两大接口派生而来，分别是用来存放单一元素的 `Co
 
 - `HashSet` 、`LinkedHashSet` 和 `TreeSet` 都是 `Set` 接口的实现类，都能保证元素唯一，并且都不是线程安全的。
 - `HashSet` 底层是哈希表， `LinkedHashSet` 底层是链表和哈希表，元素的插入满足队列特性，`TreeSet` 底层是红黑树，元素是有序的。
-- 根据应用场景不同，对元素顺序无要求则用 `HashSet` ，有要求使用 `TreeSet` ，需要满足FIFO使用 `LinkedHashSet` 。
+- 根据应用场景不同，对元素顺序无要求则用 `HashSet` ，有要求使用 `TreeSet` ，需要满足 FIFO 使用 `LinkedHashSet` 。
 
 ## Queue
 
-队列满足FIFO性质，`Queue` 因为容量问题导致操作失败后的处理方式不同分为两类方法；
+队列满足 FIFO 性质，`Queue` 因为容量问题导致操作失败后的处理方式不同分为两类方法；
 
 |   `Queue`    | 抛出异常  | 返回特殊值 |
 |:------------:|:---------:|:----------:|
@@ -162,8 +162,8 @@ void headSort(int R[], int n) {
 
 ### ArrayBlockingQueue 和 LinkedBlockingQueue 有什么区别？
 
-`ArrayBlockingQueue` 和 `LinkedBlockingQueue` 是Java并发包中常用的两种阻塞队列实现，它们都是线程安全的。不过，不过它们之间也存在下面这些区别：
+`ArrayBlockingQueue` 和 `LinkedBlockingQueue` 是 Java 并发包中常用的两种阻塞队列实现，它们都是线程安全的。不过，不过它们之间也存在下面这些区别：
 - 底层实现：`ArrayBlockingQueue` 基于数组实现，而 `LinkedBlockingQueue` 基于链表实现。
 - 是否有界：`ArrayBlockingQueue` 是有界队列，必须在创建时指定容量大小。`LinkedBlockingQueue` 创建时可以不指定容量大小，默认是 `Integer.MAX_VALUE`，也就是无界的。但也可以指定队列大小，从而成为有界的。
-- 锁是否分离：`ArrayBlockingQueue` 中的锁是没有分离的，即生产和消费用的是同一个锁； `LinkedBlockingQueue` 中的锁是分离的，即生产用的是 `putLock`，消费是 `takeLock`，这样可以防止生产者和消费者线程之间的锁争夺。
+- 锁是否分离：`ArrayBlockingQueue` 中的锁是没有分离的，即生产和消费用的是同一个锁；`LinkedBlockingQueue` 中的锁是分离的，即生产用的是 `putLock`，消费是 `takeLock`，这样可以防止生产者和消费者线程之间的锁争夺。
 - 内存占用：`ArrayBlockingQueue` 需要提前分配数组内存，而 `LinkedBlockingQueue` 则是动态分配链表节点内存。这意味着 `ArrayBlockingQueue` 在创建时就会占用一定的内存空间，且往往申请的内存比实际所用的内存更大，而 `LinkedBlockingQueue` 则是根据元素的增加而逐渐占用内存空间。

@@ -69,13 +69,18 @@ Java 有 8 种基本数据类型：
 
 装箱就是使用包装类的 `valueOf` 方法，拆箱就是使用 `xxValue` 方法。
 
-`Integer i=10` 等价于 `Integer i = Integer.valueOf(10)`，
+`Integer i = 10` 等价于 `Integer i = Integer.valueOf(10)`，
 
 `int n = i ` 等价于 `int n = i.intValue()`。
 
 ### 浮点数运算的时候会有精度丢失的风险？
 
 计算机组成原理第二章浮点加减法，具体从浮点数加减法的步骤说起。
+- 对阶；
+- 尾数求和；
+- 舍入；
+- 规格化；
+- 溢出判断。
 
 ### 如何解决浮点数运算的时候精度丢失问题？
 

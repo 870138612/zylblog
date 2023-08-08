@@ -39,8 +39,6 @@ public class DebugInvocationHandler implements InvocationHandler {
 }
 ```
 
-其中的 `Method` 就是反射类。
-
 SpringBoot 中使用 `@Component` 就能声明一个 Bean，原理就是基于反射获取到对应类上的注解，再做处理。
 
 ### 反射的优缺点
@@ -70,7 +68,7 @@ Target t = new Target();
 Class clazz = t.getClass();
 ```
 
-4. 通过类加载器 `xxxClassLoader.loadClasss()` 传入类路径获取：
+4. 通过类加载器 `xxxClassLoader.loadClass()` 传入类路径获取：
 
 ```java
 ClassLoader.getSystemClassLoader().loadClass("com.zyl.Target");
