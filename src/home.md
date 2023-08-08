@@ -36,6 +36,7 @@ timeline: false
 - <HopeIcon icon="biji1"/> [简历项目详解](/note/0aboutprojects.md)
 
 ## <HopeIcon icon="interview"/> 面经
+- <HopeIcon icon="duihua"/> [快手](kuaishouone.md)
 
 ## <HopeIcon icon="photo"/> 拍拍
 - <HopeIcon icon="picture"/> [2023.4-平潭](/photo/992023.4平潭.md)
