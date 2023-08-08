@@ -95,7 +95,7 @@ mfence: 全屏障（memory fence），即读写屏障，保证读写都串行化
 
 ```java
 public class Singleton{
-    private Singleton{}//构造方法私有
+    private Singleton(){}//构造方法私有
     
     private static volatile Singleton SINGLETON;//volatile修饰的singleton 保证可见性
     
@@ -103,7 +103,7 @@ public class Singleton{
         if(SINGLETON == null) {
             synchronized(Singleton.class) {//对类对象加锁
                 if(SINGLETON == null) {
-                    SINGLETON=new Singleton();
+                    SINGLETON = new Singleton();
                 }
             }
         }
@@ -112,7 +112,7 @@ public class Singleton{
 }
 ```
 
-`volatile` 是“轻量级” `synchronized`，保证了共享变量的“可见性”（JMM确保所有线程看到这个变量的值是一致的），当CPU写数据时，如果发现操作的变量是共享变量，即在其他CPU中也存在该变量的副本，**会发出信号通知其他CPU将该变量的缓存行置为无效状态，并且锁住缓存行**，因此当其他CPU
+`volatile` 是“轻量级” `synchronized`，保证了共享变量的“可见性”（JMM 确保所有线程看到这个变量的值是一致的），当 CPU 写数据时，如果发现操作的变量是共享变量，即在其他 CPU 中也存在该变量的副本，**会发出信号通知其他 CPU 将该变量的缓存行置为无效状态，并且锁住缓存行**，因此当其他 CPU 
 需要读取这个变量时，要等锁释放，并发现自己缓存行是无效的，那么它就会从内存重新读取。
 
 ## 乐观锁和悲观锁
@@ -121,40 +121,41 @@ public class Singleton{
 
 乐观锁总是假设最好的情况，即认为将要修改的数据并没有被其他线程修改，修改失败采用重复尝试的办法。
 
-验证数据是否被其他线程修改可通过版本号机制或者CAS算法。
+验证数据是否被其他线程修改可通过版本号机制或者 CAS 算法。
 
-在Java中 `java.util.concurrent.atomic` 包下面的原子变量类（比如 `AtomicInteger`、`LongAdder`）就是使用了乐观锁的一种实现方式 **CAS** 实现的。`AtomicInteger` 类主要利用CAS(compare and swap)
-+ `volatile` 和 `native` 方法来保证原子操作，从而避免 `synchronized` 的高开销，执行效率大为提升。
+在 Java 中 `java.util.concurrent.atomic` 包下面的原子变量类（比如 `AtomicInteger`、`LongAdder`）就是使用了乐观锁的一种实现方式 **CAS** 实现的。
+
+`AtomicInteger` 类主要利用 CAS(compare and swap) + `volatile` 和 `native` 方法来保证原子操作，从而避免 `synchronized` 的高开销，执行效率大为提升。
 
 ### 什么是悲观锁？
 
-悲观锁总是假设最坏的情况，认为共享资源总是会被其他线程修改了，所以在访问资源的时候采取加锁的方案，防止其他线程修改，像Java中 `synchronized` 和 `ReentrantLock` 等独占锁就是悲观锁思想的实现。
+悲观锁总是假设最坏的情况，认为共享资源总是会被其他线程修改了，所以在访问资源的时候采取加锁的方案，防止其他线程修改，像 Java 中 `synchronized` 和 `ReentrantLock` 等独占锁就是悲观锁思想的实现。
 
-高并发的场景下，激烈的锁竞争会造成线程阻塞，大量阻塞线程会导致系统的上下文切换，增加系统的性能开销。并且，悲观锁还可能会存在死锁问题，影响代码的正常运行。
+高并发的场景下，激烈的锁竞争会造成线程阻塞，大量阻塞线程会导致系统的上下文切换，增加系统的性能开销。并且悲观锁还可能会存在死锁问题，影响代码的正常运行。
 
 ### CAS
 
-CAS的全称是**Compare And Swap（比较与交换）**，用于实现乐观锁，被广泛应用于各大框架中。CAS的思想很简单，就是用一个预期值和要更新的变量值进行比较，两值相等才会进行更新。
+CAS 的全称是 **Compare And Swap（比较与交换）**，用于实现乐观锁，被广泛应用于各大框架中。CAS 的思想很简单，就是用一个预期值和要更新的变量值进行比较，两值相等才会进行更新。
 
-CAS是一个原子操作，底层依赖于一条 CPU 的原子指令。
+CAS 是一个原子操作，底层依赖于一条 CPU 的原子指令。
 
-CAS涉及到三个操作数：
+CAS 涉及到三个操作数：
 
-- **V**：要更新的变量值(Var)
-- **E**：预期值(Expected)
-- **N**：拟写入的新值(New)
+- **V**：要更新的变量值（Var）
+- **E**：预期值（Expected）
+- **N**：拟写入的新值（New）
 
 ### ABA 问题
 
-如果有一个线程将变量值A改为B，之后又有一个线程将B改为A，则第三个线程采用CAS进行修改的时候发现预期值A正确，则认为变量没有被修改，其实已经修改了两次。
+如果有一个线程将变量值 A 改为 B，之后又有一个线程将 B 改为 A，则第三个线程采用 CAS 进行修改的时候发现预期值 A 正确，则认为变量没有被修改，其实已经修改了两次。
 
-解决ABA问题就是添加版本号或者是时间戳。
+解决 ABA 问题就是添加版本号或者是时间戳。
 
 ### CAS 问题
 
-CAS经常会用到自旋操作来进行重试，也就是不成功就一直循环执行直到成功。如果长时间不成功，会给CPU带来非常大的执行开销。
+CAS 经常会用到自旋操作来进行重试，也就是不成功就一直循环执行直到成功。如果长时间不成功，会给CPU带来非常大的执行开销。
 
-CAS只对单个共享变量有效，当操作涉及跨多个共享变量时CAS无效。但是从JDK 1.5开始，提供了 `AtomicReference` 类来保证引用对象之间的原子性，可以把多个变量放在一个对象里来进行CAS操作。
+CAS 只对单个共享变量有效，当操作涉及跨多个共享变量时 CAS 无效。但是从 JDK 1.5 开始，提供了 `AtomicReference` 类来保证引用对象之间的原子性，可以把多个变量放在一个对象里来进行 CAS 操作。
 
 ## synchronized
 
@@ -162,7 +163,7 @@ CAS只对单个共享变量有效，当操作涉及跨多个共享变量时CAS�
 
 `synchronized` 是 Java 中的一个关键字，翻译成中文是同步的意思，主要解决的是多个线程之间访问资源的同步性，可以保证被它修饰的方法或者代码块在任意时刻只能有一个线程执行。
 
-早期版本中 `synchronized` 属于重量级锁，Java6之后对`synchronized` 做了优化。
+早期版本中 `synchronized` 属于重量级锁，Java 6 之后对`synchronized` 做了优化。
 
 ☀️详见 [synchronized 锁优化](https://ylzhong.top/java/3juc/4synchronizedlock.html)
 
@@ -201,7 +202,7 @@ synchronized(类.class) {
 
 :::
 
-`synchronized` 关键字加到 `static` 静态方法和 `synchronized(class)` 代码块上都是是给Class类上锁；
+`synchronized` 关键字加到 `static` 静态方法和 `synchronized(class)` 代码块上都是是给 Class 类上锁；
 
 `synchronized` 关键字加到实例方法上是给对象实例上锁。
 
@@ -211,17 +212,15 @@ synchronized(类.class) {
 
 `synchronized` 同步语句块的实现使用的是 `monitorenter` 和 `monitorexit` 指令，其中 `monitorenter` 指令指向同步代码块的开始位置，`monitorexit` 指令则指明同步代码块的结束位置。
 
-在执行 `monitorenter` 时，会尝试获取对象的锁，如果锁的计数器为0则表示锁可以被获取，获取后将锁计数器设为1。
+在执行 `monitorenter` 时，会尝试获取对象的锁，如果锁的计数器为 0 则表示锁可以被获取，获取后将锁计数器设为 1。
 
-对象锁的的拥有者线程才可以执行 `monitorexit` 指令来释放锁。在执行 `monitorexit` 指令后，将锁计数器设为0，表明锁被释放，其他线程可以尝试获取锁。
+对象锁的的拥有者线程才可以执行 `monitorexit` 指令来释放锁。在执行 `monitorexit` 指令后，将锁计数器设为 0，表明锁被释放，其他线程可以尝试获取锁。
 
 **修饰方法**
 
 `synchronized` 修饰的方法并没有 `monitorenter` 指令和 `monitorexit` 指令，取得代之的是 `ACC_SYNCHRONIZED` 标识，该标识指明了该方法是一个同步方法。JVM 通过该 `ACC_SYNCHRONIZED` 访问标志来辨别一个方法是否声明为同步方法，从而执行相应的同步调用。
 
-`synchronized` 同步语句块的实现使用的是 `monitorenter` 和 `monitorexit` 指令，其中 `monitorenter` 指令指向同步代码块的开始位置，`monitorexit` 指令则指明同步代码块的结束位置。
-
-两者本质都是对对象监视器**monitor**的获取。
+两者本质都是对对象监视器 **monitor** 的获取。
 
 ### synchronized 和 volatile 有什么区别？
 
