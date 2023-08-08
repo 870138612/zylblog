@@ -12,13 +12,13 @@ tags:
 
 ## redo log 重做日志
 
-`redo log` 是重做日志，是 InnoDB 引擎独有的，让 `MySQL` 拥有了崩溃恢复的能力。
+`redo log` 是重做日志，是 InnoDB 引擎独有的，让 MySQL 拥有了崩溃恢复的能力。
 
 ![image-20230529154219243](/markdown/image-20230529154219243.png)
 
 <!-- more -->
 
-`MySQL` 中以页为单位，查询记录的时候会从硬盘中将一页的数据加载，放入 `Buffer Pool` 中。
+MySQL 中以页为单位，查询记录的时候会从硬盘中将一页的数据加载，放入 `Buffer Pool` 中。
 
 后续的查找都是从 `Buffer Pool` 中查找。
 
@@ -50,7 +50,7 @@ InnoDB 存储引擎为 `redo log` 的刷盘策略提供了 `innodb_flush_log_at_
 
 ### 日志文件组
 
-硬盘上存储的 `redo log` 日志文件不只一个，而是以一个日志文件组的形式出现的，每个的 `redo` 日志文件大小都是一样的。
+硬盘上存储的 `redo log` 日志文件不只一个，而是以一个日志文件组的形式出现的，每个的 `redo log` 日志文件大小都是一样的。
 
 比如可以配置为一组 `4` 个文件，每个文件的大小是 `1GB`，整个 `redo log` 日志文件组可以记录 `4G` 的内容。
 
@@ -65,11 +65,11 @@ InnoDB 存储引擎为 `redo log` 的刷盘策略提供了 `innodb_flush_log_at_
 
 每次刷盘 `redo log` 记录到日志文件组中，`write pos` 位置就会后移更新。
 
-每次 `MySQL` 加载日志文件组恢复数据时，会清空加载过的 `redo log` 记录，并把 `checkpoint` 后移更新。
+每次 MySQL 加载日志文件组恢复数据时，会清空加载过的 `redo log` 记录，并把 `checkpoint` 后移更新。
 
 `write pos` 和 `checkpoint` 之间的还空着的部分可以用来写入新的 `redo log` 记录。
 
-如果 `write pos` 追上 `checkpoint` ，表示日志文件组满了，这时候不能再写入新的 `redo log` 记录，`MySQL` 得停下来，清空一些记录，把 `checkpoint` 推进一下。（循环链表）
+如果 `write pos` 追上 `checkpoint` ，表示日志文件组满了，这时候不能再写入新的 `redo log` 记录，MySQL 得停下来，清空一些记录，把 `checkpoint` 推进一下。（循环链表）
 
 ![redo log](/markdown/image-redologfile.png)
 
@@ -119,7 +119,7 @@ InnoDB 存储引擎为 `redo log` 的刷盘策略提供了 `innodb_flush_log_at_
 
 ![image-20230529170702610](/markdown/image-20230529170702610.png)
 
-`MySQL` 会判断这条 `SQL` 语句是否可能引起数据不一致，如果是，就用 `row` 格式，否则就用 `statement` 格式。
+MySQL 会判断这条 `SQL` 语句是否可能引起数据不一致，如果是，就用 `row` 格式，否则就用 `statement` 格式。
 
 ### 写入时机
 
@@ -154,7 +154,7 @@ InnoDB 存储引擎为 `redo log` 的刷盘策略提供了 `innodb_flush_log_at_
 
 `redo log`（重做日志）让 InnoDB 存储引擎拥有了崩溃恢复能力。
 
-`binlog`（归档日志）保证了 `MySQL` 集群架构的数据一致性。
+`binlog`（归档日志）保证了 MySQL 集群架构的数据一致性。
 
 虽然它们都属于持久化的保证，但是侧重点不同。
 
@@ -178,7 +178,7 @@ InnoDB 存储引擎为 `redo log` 的刷盘策略提供了 `innodb_flush_log_at_
 
 ![image-20230529173846546](/markdown/image-20230529173846546.png)
 
-使用两阶段提交后，写入 `binlog` 时发生异常也不会有影响，因为 `MySQL` 根据 `redo log` 日志恢复数据时，发现 `redo log` 还处于 `prepare` 阶段，并且没有对应 `binlog` 日志，就会回滚该事务。
+使用两阶段提交后，写入 `binlog` 时发生异常也不会有影响，因为 MySQL 根据 `redo log` 日志恢复数据时，发现 `redo log` 还处于 `prepare` 阶段，并且没有对应 `binlog` 日志，就会回滚该事务。
 
 ![image-20230529173959416](/markdown/image-20230529173959416.png)
 
@@ -186,11 +186,11 @@ InnoDB 存储引擎为 `redo log` 的刷盘策略提供了 `innodb_flush_log_at_
 
 ![image-20230529174101634](/markdown/image-20230529174101634.png)
 
-并不会回滚事务，它会执行上图框住的逻辑，虽然 `redo log` 是处于 `prepare` 阶段，但是能通过事务 `id` 找到对应的 `binlog` 日志，所以 `MySQL` 认为是完整的，就会提交事务恢复数据。
+并不会回滚事务，它会执行上图框住的逻辑，虽然 `redo log` 是处于 `prepare` 阶段，但是能通过事务 `id` 找到对应的 `binlog` 日志，所以 MySQL 认为是完整的，就会提交事务恢复数据。
 
 ## undo log 回滚日志
 
-在 MySQL 中，恢复机制是通过 **回滚日志（`undo log`）** 实现的，所有事务进行的修改都会先记录到这个回滚日志中，然后再执行相关的操作。如果执行过程中遇到异常的话，我们直接利用 **回滚日志** 中的信息将数据回滚到修改之前的样子即可！并且，回滚日志会先于数据持久化到磁盘上。这样就保证了即使遇到数据库突然宕机等情况，当用户再次启动数据库的时候，数据库还能够通过查询回滚日志来回滚将之前未完成的事务。
+在 MySQL 中，恢复机制是通过**回滚日志（`undo log`）** 实现的，所有事务进行的修改都会先记录到这个回滚日志中，然后再执行相关的操作。如果执行过程中遇到异常的话，直接利用**回滚日志**中的信息将数据回滚到修改之前的样子即可！并且，回滚日志会先于数据持久化到磁盘上。这样就保证了即使遇到数据库突然宕机等情况，当用户再次启动数据库的时候，数据库还能够通过查询回滚日志来回滚将之前未完成的事务。
 
 `MVCC` 的实现依赖于：**隐藏字段、`Read View`、`undo log`**。在内部实现中，InnoDB 通过数据行的 `DB_TRX_ID` 和 `Read View` 来判断数据的可见性，如不可见，则通过数据行的 `DB_ROLL_PTR` 找到 `undo log` 中的历史版本。每个事务读到的数据版本可能是不一样的，在同一个事务中，用户只能看到该事务创建 `Read View` 之前已经提交的修改和该事务本身做的修改。
 
@@ -200,6 +200,6 @@ InnoDB 存储引擎为 `redo log` 的刷盘策略提供了 `innodb_flush_log_at_
 
 MySQL InnoDB 引擎使用 **`redo log`(重做日志)** 保证事务的**持久性**，使用 **`undo log`(回滚日志)** 来保证事务的**原子性**。
 
-`MySQL` 数据库的**数据备份、主备、主主、主从**都离不开 `binlog`，需要依靠 `binlog` 来同步数据，保证数据一致性。
+MySQL 数据库的**数据备份、主备、主主、主从**都离不开 `binlog`，需要依靠 `binlog` 来同步数据，保证数据一致性。
 
 

@@ -153,7 +153,7 @@ Redis 中的 Set 类型是一种无序集合，集合中的元素没有先后顺
 
 **需要存放的数据不能重复的场景**
 
-- 举例：网站 UV 统计（数据量巨大的场景还是 `HyperLogLog`更适合一些）、文章点赞、动态点赞等场景。
+- 举例：网站 UV 统计（数据量巨大的场景还是 `HyperLogLog` 更适合一些）、文章点赞、动态点赞等场景。
 - 相关命令：`SCARD`（获取集合数量） 。
 
 **需要获取多个数据源交集、并集和差集的场景**
@@ -262,7 +262,7 @@ Geospatial index（地理空间索引，简称 GEO） 主要用于存储地理�
 | GEORADIUS key longitude latitude radius distance | 获取指定位置附近 distance 范围内的其他元素，支持 ASC(由近到远)、DESC（由远到近）、Count(数量) 等参数 |
 | GEORADIUSBYMEMBER key member radius distance     | 类似于 GEORADIUS 命令，只是参照的中心点是 GEO 中的元素       |
 
-GEO 中存储的地理位置信息的经纬度数据通过 GeoHash 算法转换成了一个整数，这个整数作为 Sorted Set 的 score(权重参数)使用。
+GEO 中存储的地理位置信息的经纬度数据通过 GeoHash 算法转换成了一个整数，这个整数作为 Sorted Set 的 score(权重参数) 使用。
 
 ### 应用场景
 
