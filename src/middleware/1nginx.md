@@ -69,16 +69,16 @@ server{
 
 访问 `80` 端口会被路由到本机的 `8080` 端口，但是在路由的时候会丢失 `Header`。
 
-### 设置代理请求 headers
+### 设置代理请求 Headers
 
-用户可以重新定义或追加 header 信息传递给后端服务器。
+用户可以重新定义或追加 Header 信息传递给后端服务器。
 
 ```nginx
 proxy_set_header Host $proxy_host;
 proxy_set_header Connection close;
 ```
 
-由于使用反向代理之后，后端无法获取用户的真实 IP，所以一般反向代理都会设置以下 header 信息。
+由于使用反向代理之后，后端无法获取用户的真实 IP，所以一般反向代理都会设置以下 Header 信息。
 
 ```nginx
 location /{
@@ -198,7 +198,7 @@ proxy_buffering on;
 
 `proxy_buffers` 设置每个连接读取响应的缓冲区的数量和大小。
 
-来自后端服务器响应的第一部分存储在单独的缓冲区中，大小通过 `proxy_buffer_size` 进行设置，此部分通常是相对较小的 headers，通常设置成小于默认值。
+来自后端服务器响应的第一部分存储在单独的缓冲区中，大小通过 `proxy_buffer_size` 进行设置，此部分通常是相对较小的 Headers，通常设置成小于默认值。
 
 ```nginx
 location / {
@@ -272,7 +272,7 @@ upstream apps {
 
 ::: info 注意
 
-使用轮训或者最小连接会让每一个客户端的请求分发到不同的服务器上，不能保证同一个客户端将始终定位到同一个服务器，**因此不能会话保持**。
+使用轮训或者最小连接会让每一个客户端的请求分发到不同的服务器上，不能保证同一个客户端将始终定位到同一个服务器，**因此不能会话保持 TCP 链接断开**。
 
 :::
 
@@ -334,11 +334,11 @@ upstream apps {
 }
 ```
 
-## Https 配置
+## HTTPS 配置
 
 ```nginx
 server {
-    listen 443 ssl;    #表示监听443端口即https
+    listen 443 ssl;    #表示监听443端口即HTTPS
     server_name ylzhong.top; #域名
     ssl_certificate ./ylzhong.top_nginx/ylzhong.top_bundle.crt;   #证书文件路径
     ssl_certificate_key ./ylzhong.top_nginx/ylzhong.top.key;      #证书私钥文件路径
