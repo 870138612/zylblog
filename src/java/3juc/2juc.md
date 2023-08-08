@@ -236,7 +236,7 @@ synchronized(类.class) {
 
 `ReentrantLock` 实现了 `Lock` 接口，是一个可重入且独占式的锁，和 `synchronized` 关键字类似。不过 `ReentrantLock` 更灵活、更强大，增加了轮询、超时、中断、公平锁和非公平锁等高级功能。
 
-`ReentrantLock` 里面有一个内部类 `Sync`，`Sync` 继承AQS（`AbstractQueuedSynchronizer`），添加锁和释放锁的大部分操作实际上都是在 `Sync` 中实现的。`Sync` 有公平锁 `FairSync` 和非公平锁两个子类，默认是非公平实现。
+`ReentrantLock` 里面有一个内部类 `Sync`，`Sync` 继承 AQS（`AbstractQueuedSynchronizer`），添加锁和释放锁的大部分操作实际上都是在 `Sync` 中实现的。`Sync` 有公平锁 `FairSync` 和非公平锁两个子类，默认是非公平实现。
 
 ☀️详见 [AQS 抽象队列同步器](https://ylzhong.top/java/3juc/5aqs.html)
 
@@ -251,36 +251,36 @@ synchronized(类.class) {
 
 以非公平实现为例。
 
- `NonfairSync` 继承自AQS。
+ `NonfairSync` 继承自 AQS。
 
 #### 加锁没有竞争流程
 
-通过CAS操作修改state值为1表示加锁，成功之后修改锁的Owner为线程自己。
+通过 CAS 操作修改 state 值为 1 表示加锁，成功之后修改锁的 Owner 为线程自己。
 
 ```java
 final void lock() {
-	if (compareAndSetState(0, 1))
-		setExclusiveOwnerThread(Thread.currentThread());
-	else
-		acquire(1);
+    if (compareAndSetState(0, 1))
+        setExclusiveOwnerThread(Thread.currentThread());
+    else
+        acquire(1);
 }
 ```
 
 #### 加锁有竞争流程
 
-- 有竞争时，Thread-1的CAS操作失败，则会进入 `acquire(1)` 方法，则会通过 `tryAcquire(arg)` 再次尝试加锁，如果还是失败则会创建Node节点对象放入到CLH等待队列中，队列中的第一个节点为哨兵节点，不存放信息。
+- 有竞争时，Thread-1 的 CAS 操作失败，则会进入 `acquire(1)` 方法，则会通过 `tryAcquire(arg)` 再次尝试加锁，如果还是失败则会创建 Node 节点对象放入到 CLH 等待队列中，队列中的第一个节点为哨兵节点，不存放信息。
 
 ```java
 public final void acquire(int arg) {
-	if (!tryAcquire(arg) &&
-		acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
-	selfInterrupt();
+    if (!tryAcquire(arg) &&
+        acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
+    selfInterrupt();
 }
 ```
 
 ![image-20230725154347412](/markdown/image-20230725154347412.png)
 
-- `acquireQueued()` 方法检查自己是不是首节点的后一个节点，如果是还会再次进行尝试加锁，如果加锁失败，则会修改前驱节点的 `waitStatus` 为-1，表示前驱节点有责任唤醒后继的节点。
+- `acquireQueued()` 方法检查自己是不是首节点的后一个节点，如果是还会再次进行尝试加锁，如果加锁失败，则会修改前驱节点的 `waitStatus` 为 -1，表示前驱节点有责任唤醒后继的节点。
 
 ```java
 final boolean acquireQueued(final Node node, int arg) {
@@ -306,7 +306,7 @@ final boolean acquireQueued(final Node node, int arg) {
 }
 ```
 
-- `shouldParkAfterFailedAcquire` 第一次执行的时候会修改前驱节点的 `waitSatus`，返回false，当前线程会再次进行加锁尝试，如果还是失败，第二次则会返回true并执行 `parkAndCheckInterrupt()`。Thread-1进入阻塞状态。
+- `shouldParkAfterFailedAcquire` 第一次执行的时候会修改前驱节点的 `waitSatus`，返回 false，当前线程会再次进行加锁尝试，如果还是失败，第二次则会返回 true 并执行 `parkAndCheckInterrupt()`。Thread-1 进入阻塞状态。
 
 ![image-20230725154314997](/markdown/image-20230725154314997.png)
 
@@ -316,7 +316,7 @@ final boolean acquireQueued(final Node node, int arg) {
 
 ![image-20230725155528080](/markdown/image-20230725155528080.png)
 
-- Thread-0释放锁，进入 `tryRelease` 流程，Owner线程改为null，state设置为0。
+- Thread-0 释放锁，进入 `tryRelease` 流程，Owner 线程改为 null，state 设置为 0。
 
 ![image-20230725155457446](/markdown/image-20230725155457446.png)
 
@@ -326,12 +326,12 @@ final boolean acquireQueued(final Node node, int arg) {
 
 #### 解锁竞争失败流程
 
-- 如果在将第一个阻塞队列节点中对应的线程 `unpark`，并且外部又来了一个竞争线程Thread-4。
+- 如果在将第一个阻塞队列节点中对应的线程 `unpark`，并且外部又来了一个竞争线程 Thread-4。
 - 则两者会竞争，竞争失败的会再次进入队列中等待。
 
 #### 可重入原理
 
-- 加锁时如果发现 `exclusiveOwnerThread` 线程是自己则表示重入，将 `state++`。解锁时如果 `state` 不是1则不会解锁，而是将 `state--`，当 `state` 为0时才会真正解开。
+- 加锁时如果发现 `exclusiveOwnerThread` 线程是自己则表示重入，将 `state++`。解锁时如果 `state` 不是 1 则不会解锁，而是将 `state--`，当 `state` 为 0 时才会真正解开。
 
 #### 可打断原理
 
@@ -345,13 +345,13 @@ if (shouldParkAfterFailedAcquire(p, node) &&
 
 #### 公平锁原理
 
-- 非公平锁中，外部的竞争线程不会检查AQS队列，直接进行抢占锁。
-- 公平锁中，外部的竞争线程会先检查AQS队列中是否有线程Node，没有才去竞争，有线程Node则表示已经有先来的线程排队等待。
+- 非公平锁中，外部的竞争线程不会检查 AQS 队列，直接进行抢占锁。
+- 公平锁中，外部的竞争线程会先检查 AQS 队列中是否有线程 Node，没有才去竞争，有线程 Node 则表示已经有先来的线程排队等待。
 
 ### synchronized 和 ReentrantLock 有什么区别？
 
 - 两者都是可重入锁，也就是线程可以再次获取自己的内部锁。
-- `synchronized` 依赖于JVM而 `ReentrantLock` 依赖于API。
+- `synchronized` 依赖于 JVM 而 `ReentrantLock` 依赖于 API。
 - `ReentrantLock` 比 `synchronized` 增加了一些高级功能：
   - 等待可中断：`ReentrantLock` 提供了一种能够中断等待锁的线程的机制，通过 `lock.lockInterruptibly()` 来实现这个机制。也就是说正在等待的线程可以选择放弃等待，改为处理其他事情。
   - 可实现公平锁: `ReentrantLock` 可以指定是公平锁还是非公平锁，而 `synchronized` 只能是非公平锁。
