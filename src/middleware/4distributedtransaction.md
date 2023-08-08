@@ -181,7 +181,7 @@ RocketMQ 是来自阿里巴巴的分布式消息中间件，事务消息设计�
 
 从 MQ Server 到 MQ 订阅方部分采用 ACK 确认机制，只要 MQ 订阅方没有返回 ACK 则会一直给他消费。
 
-☀️详见[RabbitMQ](https://ylzhong.top/middleware/2rabbitmq.html)
+☀️详见 [RabbitMQ](https://ylzhong.top/middleware/2rabbitmq.html)
 
 #### 总结
 

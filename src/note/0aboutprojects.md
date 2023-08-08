@@ -28,7 +28,7 @@ springcloud，springsecurity，springboot，mybatis，redis，rabbitmq，sentine
 商城页面由 Nginx 代理实现动静分离，请求负载均衡，拆分为网关，订单，购物车，秒杀等微服务。
 实现单点登录，商品缓存快速查询，订单创建幂等性。秒杀遵从服务单一职责，独立部署，定时上架，库存预热快速扣减，秒杀连接加密，恶意请求拦截，流量错峰，后端限流，队列削峰。
 ● 网关微服务实现集群状态下的负载均衡，使得来自同一个主域名的不同请求分发到对应的微服务。
-● Redis 存储 Token，SpringSecurity完成多微服务下的用户登录验证和状态刷新。
+● Redis 存储 Token，SpringSecurity 完成多微服务下的用户登录验证和状态刷新。
 ● SpringSchedule 定时任务上架秒杀商品。
 ● 前端限流，后端验证登录，Sentinel 框架熔断降级的流量错峰保证在秒杀高流量的情况下项目稳定。
 ● Redis 验证秒杀中的一人一单，信号量 Semaphore 实现库存的快速扣减，解决并发安全问题。
@@ -100,9 +100,9 @@ stream {
 
 ### Nginx 的负载均衡算法有哪些？
 
-☀️详见[Nginx 负载均衡](https://ylzhong.top/middleware/1nginx.html#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1)
+☀️详见 [Nginx 负载均衡](https://ylzhong.top/middleware/1nginx.html#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1)
 
-负载均衡策略有：轮训，最小连接，ip_hash，hash，权重，随机。
+负载均衡策略有：轮询，最小连接，ip_hash，hash，权重，随机。
 
 ### Nginx 动静分离
 
@@ -112,7 +112,7 @@ stream {
 
 ### Nginx 反向代理怎么配置的？反向代理跟正向代理的区别是什么？Nginx 可以配置正向代理吗？
 
-☀️详见[正向代理和反向代理](https://ylzhong.top/middleware/1nginx.html#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86)
+☀️详见 [正向代理和反向代理](https://ylzhong.top/middleware/1nginx.html#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86)
 
 - 反向代理通过在 `location` 里添加 `proxy_pass` 进行请求代理。
 
@@ -168,7 +168,7 @@ http {
 
 > 谷粒商城项目课程中使用 SpringSession 进行登录数据存储，后续自己改为 SpringSecurity 框架实现认证授权功能。
 
-在配置类中添加了 `jwtAuthenticationTokenFilter`（OncePerRequestFilter 的实现类，每次请求都会拦截），和 `UsernamePasswordAuthenticationFilter`（登录认证的过滤器，在配置中需要认证的请求都会被要求登录）。
+在配置类中添加了 `jwtAuthenticationTokenFilter`（`OncePerRequestFilter` 的实现类，每次请求都会拦截），和 `UsernamePasswordAuthenticationFilter`（登录认证的过滤器，在配置中需要认证的请求都会被要求登录）。
 
 其中**登录的密码查询**是需要自己去实现接口 `UserDetailsService`，并重写方法。
 
@@ -215,7 +215,8 @@ public PasswordEncoder passwordEncoder(){
 1. 用户提交用户名、密码被 `SecurityFilterChain` 中的 `UsernamePasswordAuthenticationFilter` 过滤器获取到， 封装为 `Authentication`，通常情况下是 `UsernamePasswordAuthenticationToken` 这个实现类。
 
 2. 然后过滤器将 `Authentication` 提交至认证管理器（`AuthenticationManager<<interface>>`，实现类为 `ProviderManager`，内部包含 `DaoAuthenticationProvider` 用来查找用户数据并认证）进行认证 `authenticationManager.authenticate`
-   (authenticationToken)，通过 `UserDetailsService` 实现类获取包含用户账号密码的 `UserDetails` 实现类 ，密码加密解密通过 `PasswordEncoder` 实现类 `BCryptPasswordEncoder` 完成，认证成功则返回 `Authentication`，否则返回空。通过 `.getPrincipal` 从 `Authentication` 中获取用户数据（`UserDetails` 的实现类）。
+   (authenticationToken)，通过 `UserDetailsService` 实现类获取包含用户账号密码的 `UserDetails` 实现类 ，返回的用户数据通过 `PasswordEncoder` 进行解密对比，认证成功则将用户数据设置到 `Authentication` 实现类中，密码加密解密通过 `PasswordEncoder` 实现类 
+   `BCryptPasswordEncoder` 完成，认证成功则返回 `Authentication`，否则返回空。通过 `.getPrincipal` 从 `Authentication` 中获取用户数据（`UserDetails` 的实现类）。
 3. 认证成功之后通过 userId 生成 JWT 返回给前端，封装用户部分数据保存到 Redis 中，Redis 数据的 key 是 `"LOGIN:"+userId`。
 
 4. `SecurityContextHolder` 安全上下文容器将第2步填充了信息的 `Authentication` ，通过 `SecurityContextHolder.getContext().setAuthentication(…)` 方法，设置到其中。
@@ -247,29 +248,29 @@ public PasswordEncoder passwordEncoder(){
 
 ### JWT（Token）如何生成的？
 
-☀️详见[15 分钟学会 JWT 的使用](https://www.bilibili.com/video/BV1cK4y197EM/?spm_id_from=333.788.recommend_more_video.1&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
+☀️详见 [15 分钟学会 JWT 的使用](https://www.bilibili.com/video/BV1cK4y197EM/?spm_id_from=333.788.recommend_more_video.1&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
 
 使用 JJWT 生成 JWT。
 
 JWT 由三个部分构成，用 `.` 拼接：
 
-- Header，包含类型和加密算法，此部分通过 BASE64 加密之后得到第一个部分（需要一个 key 作为秘钥）。
+- Header，包含类型和加密算法，此部分通过 BASE64 编码之后得到第一个部分（需要一个 key 作为秘钥）。
+    
+```json
+{
+  "typ":"JWT",
+  "alg":"HS256"
+}
+```
 
-  ```json
-  {
-    "typ":"JWT",
-    "alg":"HS256"
-  }
-  ```
+- Payload，载荷，用于存放主要信息，通过 BASE64 编码之后得到 Token 的第二个部分。
 
-- Payload，载荷，用于存放主要信息，通过 BASE64 加密之后得到 Token 的第二个部分。
-
-  ```json
-  {
-  	"sub":"123456",
-  	"name":"zyl"
-  }
-  ```
+```json
+{
+  "sub":"123456", 
+  "name":"zyl"
+}
+```
 
 - Signature，通过对 Header 和 Payload 进行再次加密得到的数据再通过 HS256 加盐得到最终的 Signature。
 
@@ -278,7 +279,9 @@ String encodedString = base64UrlEncode(header) + '.' + base64UrlEncode(payload);
 String signature = HMACSHA256(encodedString, secret);
 ```
 
-最后 HS256 加盐算法中的秘钥 `secret` 也可以通过 BASE64 加密获得。
+最后 HS256 加盐算法中的秘钥 `secret` 也可以通过 BASE64 编码获得。
+
+> BASE64 编码就是使用 64 个可打印的字符来表示二进制数据。
 
 ### 数据更新之后对缓存如何操作？缓存一致性解决办法？
 
@@ -310,7 +313,7 @@ String signature = HMACSHA256(encodedString, secret);
 
 ### 缓存穿透，缓存雪崩，缓存击穿问题
 
-☀️详见[缓存穿透，缓存雪崩，缓存击穿](https://ylzhong.top/database/2redis/1redis.html#%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F-%E9%9B%AA%E5%B4%A9-%E5%87%BB%E7%A9%BF)
+☀️详见 [缓存穿透，缓存雪崩，缓存击穿](https://ylzhong.top/database/2redis/1redis.html#%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F-%E9%9B%AA%E5%B4%A9-%E5%87%BB%E7%A9%BF)
 
 - 缓存穿透：查询空数据，解决：缓存空数据并添加过期时间、布隆过滤器。
 - 缓存雪崩：大量的 key 失效，解决：添加随机过期时间。
@@ -378,7 +381,7 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 
 ![image-20230628225544890](/markdown/image-20230628225544890.png) 
 
-☀️详见[RabbitMQ](https://ylzhong.top/middleware/2mq.html)
+☀️详见 [RabbitMQ](https://ylzhong.top/middleware/2mq.html)
 
 ### 服务单一职责，独立部署，定时上架
 
@@ -413,7 +416,7 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 
 黑马点评为 B 站 Redis 课程中涉及到的项目，项目整体都是在介绍 Redis 的数据结构以及对应方法。
 
-☀️详见[黑马点评](https://www.bilibili.com/video/BV1cr4y1671t/?spm_id_from=333.337.search-card.all.click&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
+☀️详见 [黑马点评](https://www.bilibili.com/video/BV1cr4y1671t/?spm_id_from=333.337.search-card.all.click&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
 
 <!-- more -->
 
@@ -421,7 +424,7 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 
 项目中同样包含登录部分，Session 共享问题，因此可以参考 SpringSecurity 的登录认证流程，Redis 存储用户数据。
 
-☀️详见[谷粒商城实现单点登录](https://ylzhong.top/note/0aboutprojects.html#%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)
+☀️详见 [谷粒商城实现单点登录](https://ylzhong.top/note/0aboutprojects.html#%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)
 
 ```
 小众点评                                                           2022.9-2022.12
@@ -438,7 +441,7 @@ springboot，mybatis，redis，nginx，docker
 
 Nginx 动静分离的好处参考谷粒商城项目。
 
-☀️详见[Nginx 动静分离](https://ylzhong.top/note/0aboutprojects.html#%E5%95%86%E5%9F%8E%E9%A1%B5%E9%9D%A2%E7%94%B1nginx%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB-%E8%AF%B7%E6%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1)。
+☀️详见 [Nginx 动静分离](https://ylzhong.top/note/0aboutprojects.html#%E5%95%86%E5%9F%8E%E9%A1%B5%E9%9D%A2%E7%94%B1nginx%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB-%E8%AF%B7%E6%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1)。
 
 ### Redis 实现用户登录，登录状态刷新
 
@@ -458,7 +461,7 @@ token 则直接放行，表示这个请求不需要用户验证。有 token 则�
 
 ### JWT（TOKEN）如何生成？
 
-☀️详见[JWT 如何生成？](https://ylzhong.top/note/0aboutprojects.html#jwt-token-%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90%E7%9A%84)
+☀️详见 [JWT 如何生成？](https://ylzhong.top/note/0aboutprojects.html#jwt-token-%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90%E7%9A%84)
 
 ### 点赞
 
@@ -536,7 +539,7 @@ token 则直接放行，表示这个请求不需要用户验证。有 token 则�
 
 Redission 中通过看门狗机制实现分布式锁的自动续期，保证在业务执行时不会因为时间到期而释放锁。
 
-☀️详见[分布式锁](https://ylzhong.top/database/2redis/2lock.html)
+☀️详见 [分布式锁](https://ylzhong.top/database/2redis/2lock.html)
 
 ### 如何保证消息可靠性？
 
@@ -645,7 +648,7 @@ RDB 是读取内存快照，AOF 可以看做命令日志文件。
 |  系统占用资源  |  高，大量 CPU 和内存消耗（创建快照时）   | 低，主要是磁盘 IO 资源，但是 AOF 重写时会占用大量 CPU 和内存资源 |
 |    使用场景    | 可以容忍数据部分不完整，追求更快的启动速度的场景 |            对数据完整性安全性要求较高的场景             |
 
-☀️详见[Redis 持久化](https://ylzhong.top/database/2redis/4redispersistence.html)
+☀️详见 [Redis 持久化](https://ylzhong.top/database/2redis/4redispersistence.html)
 
 ### Redis 的集群和哨兵机制的区别？
 
@@ -668,7 +671,7 @@ Redis 集群和哨兵都可以用来提高 Redis 实例的可扩展性和可用�
 
 Redis 集群用来提高 Redis 服务器的读写性能和可用性，而 Redis 哨兵只是用来提高 Redis 服务实例的可用性。通常情况下，使用 Redis 集群和哨兵结合方式会比只使用集群或者只使用哨兵的方式更加高效，可以大大提升 Redis 数据库的性能。
 
-☀️详见[Redis 集群](https://ylzhong.top/database/2redis/5rediscluster.html)
+☀️详见 [Redis 集群](https://ylzhong.top/database/2redis/5rediscluster.html)
 
 ### Redis 能做消息队列吗？
 
