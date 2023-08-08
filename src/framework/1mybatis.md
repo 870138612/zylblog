@@ -12,12 +12,11 @@ tag:
 
 - `${}`是 Properties 文件中的变量占位符，它可以用于标签属性值和 SQL 内部，**属于静态文本替换**，比如 `${driver}` 会被静态替换为 `com.mySQL.jdbc. Driver`。
 
-- `#{}`是 **SQL 的参数占位符**，MyBatis 会将 SQL 中的 `#{}` 替换为 `?`，在 SQL 执行前会使用 PreparedStatement 的参数设置方法，按序给 SQL 的? 号占位符设置参数值，比如 `ps.setInt(0, parameterValue)`，`#{item.name}` 的取值方式为使用反射从参数对象中获取 item 对象的 name 
-  属性值，相当于 `param.getItem().getName()`。可以有效防止 SQL 注入问题。
+- `#{}`是 **SQL 的参数占位符**，MyBatis 会将 SQL 中的 `#{}` 替换为 `?`，在 SQL 执行前会使用 `PreparedStatement` 的参数设置方法，按序给 SQL 的 `?` 号占位符设置参数值，比如 `ps.setInt(0, parameterValue)`，`#{item.name}` 的取值方式为使用反射从参数对象中获取 item 对象的 name 属性值，相当于 `param.getItem().getName()`。可以有效防止 SQL 注入问题。
 
 ### Dao 接口的工作原理是什么？Dao 接口里的方法，参数不同时，方法能重载吗？
 
-通常一个 xml 映射文件，都会写一个 Dao 接口与之对应。Dao 接口就是人们常说的 `Mapper` 接口，接口的全限名，就是映射文件中的 namespace 的值，接口的方法名，就是映射文件中 `MappedStatement` 的 id 值，接口方法内的参数，就是传递给 SQL 的参数。
+通常一个 xml 映射文件，都会写一个 Dao 接口与之对应。Dao 接口就是常说的 `Mapper` 接口，接口的全限名，就是映射文件中的 namespace 的值，接口的方法名，就是映射文件中 `MappedStatement` 的 id 值，接口方法内的参数，就是传递给 SQL 的参数。
 
 在 MyBatis 中，每一个 `<select>`、 `<insert>`、 `<update>`、 `<delete>` 标签，都会被解析为一个 `MappedStatement` 对象。
 
@@ -45,9 +44,9 @@ Dao 接口的工作原理是 JDK 动态代理，MyBatis 运行时会使用 JDK �
 
 ### MyBatis 的 xml 映射文件中，不同的 xml 映射文件，id 是否可以重复？
 
-不同的 xml 映射文件，如果配置了 namespace，那么 id可以重复；如果没有配置 namespace，那么 id 不能重复。
+不同的 xml 映射文件，如果配置了 namespace，id 可以重复；如果没有配置 namespace，id 不能重复。
 
-namespace+id 是作为 `Map<String,MappedStatement>` 的 key使用的，如果没有 namespace，就剩下 id，id 重复就会导致数据覆盖，有了 namespace，并且不同，则可以使用相同的 id，因为 key 不再重复。
+namespace + id 是作为 `Map<String,MappedStatement>` 的 key使用的，如果没有 namespace，就剩下 id，id 重复就会导致数据覆盖，有了 namespace，并且不同，则可以使用相同的 id，因为 key 不再重复。
 
 ### MyBatis 的 xml 映射文件和 MyBatis 内部数据结构的映射关系？
 

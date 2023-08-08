@@ -449,8 +449,8 @@ Nginx 动静分离的好处参考谷粒商城项目。
 登录时后端验证验证码成功之后，生成一个 JWT（Token）返回给前端，并存储为 String 类型到 Redis。如果没有查询到用户数据则默认注册。同样添加过期时间，表示免登录时间。
 
 拦截器通过实现接口 `HandlerInterceptor` 并重写方法 `preHandle`。在实现了 `WebMvcConfigurer` 的配置类中添加拦截器`registry.addInterceptor`。如果请求不携带 
-token 则直接放行，表示这个请求不需要用户验证。有 token 则去 Redis 中寻找，如果没有找到，则表示登录状态过期，需要重新登录。找到了则将对应的用户数据查询并封装放入 `ThreadLocal` 中，用来在这次会话中共享数据，为了防止线程复用导致后续的用户用到了之前数据，则在每次线程执行 `preHandle` 方法前都执行一次 `remove` 将 
-`ThreadLocal` 清除数据。
+token 则直接放行，表示这个请求不需要用户验证。有 token 则去 Redis 中寻找，如果没有找到，则表示登录状态过期，需要重新登录。找到了则将对应的用户数据查询并封装放入 `ThreadLocal` 中，用来在这次会话中共享数据，**为了防止线程复用导致后续的用户用到了之前数据，则在每次线程执行 `preHandle` 方法前都执行一次 `remove` 将 
+`ThreadLocal` 清除数据**。
 
 用户登录状态刷新可以在每次请求的时候获取正确的 Token，通过方法 `stringRedisTemplate.expire(key, LOGIN_USER_TTL, TimeUnit.SECONDS)` 刷新免登录时间。
 

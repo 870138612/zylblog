@@ -10,7 +10,7 @@ tag:
   - 八股
 ---
 
-## Spring是什么
+## Spring 是什么？
 
 Spring 是一个轻量级的控制反转（Ioc）和面向切面（AOP）的容器框架。
 
@@ -189,7 +189,7 @@ public OrderService(UserService userService2){
 
 ### SpringAOP 怎么工作的？
 
-SpringAOP 是通过动态代理机制，如果 Bean 实现了接口，就会采用 JDK 动态代理来生成该接口的代理对象（实现类），如果没有实现接口，则通过 CGLIB 来生成当前类的一个代理对象（父类）。
+SpringAOP 是通过动态代理机制，如果 Bean 实现了接口，就会采用 JDK 动态代理来生成该接口的代理对象（实现类），如果没有实现接口，则通过 CGLIB 来生成当前类的一个代理对象（代理类继承目标类，子类）。
 
 AOP 表示面向切面编程，是一个思想，AspectJ 就是其中的一种实现方式，会在编译器对类进行增强，需要使用 AspectJ 提供的编译器，提供了例如 `@Before`、`@After`、`@Around` 等注解，而 SpringAOP 是采用动态代理的方式实现 AOP，同样也使用了这些注解但是实现方式是完全不同的。
 
@@ -206,11 +206,11 @@ Bean 的创建生命周期
 
 三级缓存，就是三个 Map 集合。
 
-**第一级缓存**：singletonObjects，它用来存放经过完整 Bean 生命周期过程的单例 Bean 对象；
+**第一级缓存**：SingletonObjects，它用来存放经过完整 Bean 生命周期过程的单例 Bean 对象；
 
-**第二级缓存**：earlySingletonObjects，它用来保存哪些没有经过完整Bean生命周期的单例Bean对象，用来保证不完整的Bean也是单例；
+**第二级缓存**：EarlySingletonObjects，它用来保存哪些没有经过完整Bean生命周期的单例Bean对象，用来保证不完整的Bean也是单例；
 
-**第三级缓存**：singletonFactories，它保存的就是一个 lambda 表达式，它主要的作用就是 Bean 出现循环依赖后，某一个 Bean 到底会不会进行 AOP 操作。
+**第三级缓存**：SingletonFactories，它保存的就是一个 lambda 表达式，它主要的作用就是 Bean 出现循环依赖后，某一个 Bean 到底会不会进行 AOP 操作。
 
 ::: info 循环依赖为什么用三级缓存
 
@@ -312,16 +312,16 @@ class UserServiceProxy extends UserService{
 ```java
 @Transactional
 public void test(){
-	try {
-		System.out.println("Spring事务");//正常代码执行
-		int a=1/0;//异常代码  被捕获
-	}catch (Exception e){
-		System.out.println("出现异常");//这里并没有抛出异常，而是自己处理了 因此Spring无法感知
-	}
+    try {
+        System.out.println("Spring事务");//正常代码执行
+        int a = 1 / 0;//异常代码  被捕获
+    } catch(Exception e) {
+        System.out.println("出现异常");//这里并没有抛出异常，而是自己处理了 因此Spring无法感知
+    }
 }
 ```
 
-异常不能被Spring感知就不会执行`rollBack`。
+异常不能被 Spring 感知就不会执行 `rollBack`。
 
 2、**使用 `@Transactional` 修饰的方法不是 `public` 方法**
 
@@ -357,10 +357,10 @@ public void test(){
 
 **SpringMVC中的一次请求流程：**
 
-1. 客户端（浏览器）发送请求， `DispatcherServlet`拦截请求。
+1. 客户端（浏览器）发送请求， `DispatcherServlet` 拦截请求。
 2. `DispatcherServlet` 根据请求信息调用 `HandlerMapping` 。`HandlerMapping` 根据 uri 去匹配查找能处理的 `Handler`（也就是 `Controller` 控制器） ，并会将请求涉及到的拦截器和 `Handler` 一起封装。
-3. `DispatcherServlet` 调用 `HandlerAdapter`适配器执行 `Handler` 。
-4. `Handler` 完成对用户请求的处理后，会返回一个 `ModelAndView` 对象给`DispatcherServlet`，`ModelAndView` 包含了数据模型以及相应的视图的信息。`Model` 是返回的数据对象，`View` 是个逻辑上的 `View`。
+3. `DispatcherServlet` 调用 `HandlerAdapter` 适配器执行 `Handler` 。
+4. `Handler` 完成对用户请求的处理后，会返回一个 `ModelAndView` 对象给 `DispatcherServlet`，`ModelAndView` 包含了数据模型以及相应的视图的信息。`Model` 是返回的数据对象，`View` 是个逻辑上的 `View`。
 5. `ViewResolver` 会根据逻辑 `View` 查找实际的 `View`。
 6. `DispaterServlet` 把返回的 `Model` 传给 `View`（视图渲染）。
 7. 把 `View` 返回给请求者（浏览器）。
@@ -440,13 +440,13 @@ public @interface SpringBootApplication {
 
   > 此注解内部有 `@Import({AutoConfigurationImportSelector.class})` 注解，用来扫描项目中的自动配置类并将其返回为自动配置类的名字 `String[]` 给 Spring 容器进行加载。
 
-- `@ComponentScan`：Spring 容器会进行扫描，默认扫描路径就是这个类所在的包路径。
+- `@ComponentScan`：Spring 容器会进行扫描，默认扫描路径就是这个类所在的包路径。作用一：扫描含有 `@Component`，`@Controller`，`@Service` 和 `@Repository` 的类，并将其注入到 Spring 容器中。作用二：扫描含有 `@Configuration` 的类，并使其生效。
 
 ### SpringBoot 中的 spring.factories 文件有什么作用？
 
-spring.factories 是 SpringBoot SPI 实现的核心，SPI 机制表示扩展机制，所以 spring.factories 就是对 SpringBoot 进行扩展的，比如要添加 Listener，只需要在这个文件中添加类路径名。
+`spring.factories` 是 SpringBoot SPI 实现的核心，SPI 机制表示扩展机制，所以 `spring.factories` 就是对 SpringBoot 进行扩展的，比如要添加 Listener，只需要在这个文件中添加类路径名。
 
-SpringBoot 在启动的过程中，会找出项目中所有的 spring.factories 文件，从而向 Spring 容器中去添加各种 spring.factories 中指定的组件、配置类等，使得对 SpringBoot 的扩展的变得很容易。
+SpringBoot 在启动的过程中，会找出项目中所有的 `spring.factories` 文件，从而向 Spring 容器中去添加各种 `spring.factories` 中指定的组件、配置类等，使得对 SpringBoot 的扩展的变得很容易。
 
 ### SpringBoot 的启动流程
 
@@ -547,13 +547,13 @@ public class MyAutoConfiguration {
 }
 ```
 
-5. 新建 spring.factories 文件。
+5. 新建 `spring.factories` 文件。
 
-在 resources 文件夹下新建文件夹 META-INF/spring.factories，将上面的自定义配置类 MyAutoConfiguration的全路径名 + 类名配置到该文件中（遵循 spring.factories 的格式），这样随着项目的启动就可以实现自动装配。
+在 `resources` 文件夹下新建文件夹 `META-INF/spring.factories`，将上面的自定义配置类 MyAutoConfiguration的全路径名 + 类名配置到该文件中（遵循 `spring.factories` 的格式），这样随着项目的启动就可以实现自动装配。
 
 ```yaml
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.zyl.tomcat.bean.MyAutoConfiguration
 ```
 
-6. package install 进行打包，这样就能在其他项目中引用这个 starter。
+6. `package install` 进行打包，这样就能在其他项目中引用这个 starter。

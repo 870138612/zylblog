@@ -84,7 +84,7 @@ RabbitMQ 是采用 Erlang 语言实现 AMQP(Advanced Message Queuing Protocol，
 - **支持多种协议**：RabbitMQ 除了原生支持 AMQP 协议，还支持 STOMP、MQTT 等多种消息中间件协议。
 - **多语言客户端**：RabbitMQ 几乎支持所有常用语言，比如 Java、Python、Ruby、PHP、C#、JavaScript 等。
 - **易用的管理界面**：RabbitMQ 提供了一个易用的用户界面，使得用户可以监控和管理消息、集群中的节点等。
-- **插件机制**：RabbitMQ 提供了许多插件，以实现从多方面进行扩展，当然也可以编写自己的插件。
+- **插件机制**：RabbitMQ 提供了许多插件，以实现从多方面进行扩展。
 
 ### RabbitMQ 和 Kafka 区别
 
@@ -105,12 +105,12 @@ RabbitMQ 是使用 Erlang 编写的一个开源的消息队列，本身支持很
 
 - **可靠性**：RabbitMQ 使用一些机制保证可靠性，例如持久化、传输确认以及发布确认。
 - **灵活的路由**：在消息进入队列之前，通过交换器来路由消息。
-- **扩展性**：多个 RabbitMQ 节点可以组成一个集群，也可以根据实际业务情况动态地扩展 集群中节点。
+- **扩展性**：多个 RabbitMQ 节点可以组成一个集群，也可以根据实际业务情况动态地扩展集群中节点。
 - **高可用性**：队列可以在集群中的机器上设置镜像，使得在部分节点出现问题的情况下队 列仍然可用。
-- **多种协议**：RabbitMQ 除了原生支持 AMQP 协议，还支持 STOMP，MQTT 等多种消息 中间件协议。
+- **多种协议**：RabbitMQ 除了原生支持 AMQP 协议，还支持 STOMP，MQTT 等多种消息中间件协议。
 - **跨语言**：RabbitMQ 几乎支持所有常用语言，比如Java、Python、Ruby、PHP、C#、JavaScript 等。
-- **管理界面**：RabbitMQ 提供了一个易用的用户界面，使得用户可以监控和管理消息、集 群中的节点等。
-- **插件机制**：RabbitMQ 提供了许多插件 ， 以实现从多方面进行扩展，当然也可以编写自 己的插件。
+- **管理界面**：RabbitMQ 提供了一个易用的用户界面，使得用户可以监控和管理消息、集群中的节点等。
+- **插件机制**：RabbitMQ 提供了许多插件 ， 以实现从多方面进行扩展。
 
 ## RabbitMQ 组成
 
@@ -123,7 +123,8 @@ RabbitMQ 整体上是一个生产者与消费者模型，主要负责接收、�
 - **Producer（生产者）**：生产消息的一方;
 - **Consumer（消费者）**：消费消息的一方。
 
-消息一般由 2 部分组成：**消息头**和 **消息体**。消息体也可以称为 payLoad，消息体是不透明的，而消息头则由一系列的可选属性组成，这些属性包括 `routing-key`（路由键）、`priority`（相对于其他消息的优先权）、`delivery-mode`（指出该消息可能需要持久性存储）等。生产者把消息交由 RabbitMQ 后，RabbitMQ 会根据消息头把消息发送给感兴趣的 Consumer(消费者)。
+消息一般由 2 部分组成：**消息头**和 **消息体**。消息体也可以称为 payLoad，消息体是不透明的，而消息头则由一系列的可选属性组成，这些属性包括 `routing-key`（路由键）、`priority`（相对于其他消息的优先权）、`delivery-mode`（指出该消息可能需要持久性存储）等。生产者把消息交由 RabbitMQ 后，RabbitMQ 
+会根据消息头把消息发送给感兴趣的 Consumer（消费者）。
 
 ### Exchange（交换器）
 
@@ -242,14 +243,13 @@ server 提供的服务时，可以划分出多个 vhost，每个用户在自己�
 
 **Connection**：连接。publisher／consumer 和 Broker 之间的 TCP 连接。断开连接的操作只会在 client 端进行，Broker 不会断开连接，除非出现网络故障或 Broker 服务出现问题。
 
-**Channel**：信道。如果每一次访问 RabbitMQ 都建立一个 Connection，在消息量大的时候建立 TCP 。
+**Channel**：信道。每一次访问 RabbitMQ 都建立一个 Connection，在消息量大的时候建立 TCP 。
 
-Connection 的开销会比较大且效率也较低。Channel 是在 Connection 内部建立的逻辑连接，如果应用程序支持多线程，通常每个  thread 创建单独的 Channel 进行通讯，AMQP method 包含了 Channel 
-Id 帮助客户端和 Message Broker 识别 Channel，所以 Channel 之间是完全隔离的。Channel 作为轻量级的 Connection 极大减少了操作系统建立 TCP Connection 的开销。
+Connection 的开销会比较大且效率也较低。Channel 是在 Connection 内部建立的逻辑连接，如果应用程序支持多线程，通常每个 thread 创建单独的 Channel 进行通讯，AMQP method 包含了 Channel Id 帮助客户端和 Message Broker 识别 Channel，所以 Channel 之间是完全隔离的。Channel 作为轻量级的 Connection 极大减少了操作系统建立 TCP Connection 的开销。
 
 ## 如何保证消息的可靠性，防止消息丢失？
 
-- 生产者到 RabbitMQ：事务的 confirm 机制，事务和 confirm 机制不能同时存在。
+- 生产者到 RabbitMQ：事务或者 confirm 机制，事务和 confirm 机制不能同时存在。
 - RabbitMQ 自身：持久化、集群、普通模式、镜像模式。
 - RabbitMQ 到消费者：basicACK 机制、死信队列、消息补偿机制。
 
@@ -259,11 +259,11 @@ Id 帮助客户端和 Message Broker 识别 Channel，所以 Channel 之间是�
 
 **消息从 producer ——> exchange，会回调 `confirmCallback`** ，重写 confirm 方法有 3 个参数：
 
-- correlationData：相关配置信息；
+- `correlationData`：相关配置信息；
 
-- ack：exchange交换机是否成功收到信息，true成功，false失败；
+- `ack`：exchange 交换机是否成功收到信息，true成功，false失败；
 
-- cause：失败原因；
+- `cause`：失败原因；
 
 producer 端发送消息需要添加异常处理，防止发送途中 MQ 宕机。
 

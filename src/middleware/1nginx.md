@@ -359,7 +359,7 @@ server {
 
 ## TCP 反向代理
 
-Http 反向代理使用 `http` 模块，TCP 反向代理使用 `stream` 模块。可以用来负载均衡连接 MySQL，Redis 等。
+HTTP 反向代理使用 `http` 模块，TCP 反向代理使用 `stream` 模块。可以用来负载均衡连接 MySQL，Redis 等。
 
 ```nginx
 http {
@@ -382,7 +382,7 @@ stream {
 
 ## 重写
 
-### 重写 - return
+### 重写 - return，重定向
 
 **转发是服务端行为，重定向是客户端行为。**
 
@@ -396,7 +396,7 @@ server {
 
 重定向的地址如果写成 `localhost` 会造成重定向错误，会在本机中进行地址映射也就是IP地址 `127.0.0.1`，而不是服务器中。`301` 表示永久重定向。
 
-### 重写 - rewrite
+### 重写 - rewrite，转发
 
 ```nginx
 server {
