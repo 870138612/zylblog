@@ -368,7 +368,7 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 
 - 秒杀开始判断用户是否登录，登录的话进行合法性校验，包含当前所处时间是否处于秒杀时间，检验随机码是否正确（在秒杀开始时返回到前端的随机码，用于防止恶意请求），验证购买数量是否超额。
 
-- 合法性校验通过之后进行占位（防止一个用户并发秒杀），使用 `SETNX` 进行占位（原子操作），key 为 `userId+'_'+skuId`，同时还需要添加过期时间，过期时间为 `场次结束时间-当前时间`，让一个用户只能对同一个商品秒杀一次，**遵从请求的幂等性**。
+- 合法性校验通过之后进行占位（防止一个用户并发秒杀），使用 `SETNX` 进行占位（原子操作），key 为 `userId+'_'+skuId`，同时还需要添加过期时间，过期时间为**场次结束时间-当前时间**，让一个用户只能对同一个商品秒杀一次，**遵从请求的幂等性**。
 - `boolean b = semaphore.tryAcquire(num, 100, TimeUnit.MILLISECONDS)` 如果获取信号量成功则表示秒杀成功，将 **OrderSn**，**UserId**，**SkuId**，**SeckillSkuPrice**，**Num**，**PromotionSessionId** 封装发送到 RabbitMQ 
   的`order-event
   -exchange` 交换机，路由键为 `order.seckill.order`，返回 OrderSn 到前端，前端可以使用一个页面让用户选择收货地址。
@@ -414,13 +414,11 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 - **降级**：服务器压力剧增时，可以进行降级，就是将服务器停止服务，直接返回降级数据（前方拥堵，请稍后再试）。以上两者都是为了集群的大部分可用，防止整体崩溃，牺牲自己，用户最终的体验都是部分服务不可用。熔断是服务故障触发系统主动规则，降级是全局考虑，停止正常的服务，释放资源。
 - **限流**：对请求的 QPS 进行限制，使得请求不会超过服务器能接受的最大压力。
 
+## 黑马点评
+
 黑马点评为 B 站 Redis 课程中涉及到的项目，项目整体都是在介绍 Redis 的数据结构以及对应方法。
 
 ☀️详见 [黑马点评](https://www.bilibili.com/video/BV1cr4y1671t/?spm_id_from=333.337.search-card.all.click&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
-
-<!-- more -->
-
-## 黑马点评
 
 项目中同样包含登录部分，Session 共享问题，因此可以参考 SpringSecurity 的登录认证流程，Redis 存储用户数据。
 

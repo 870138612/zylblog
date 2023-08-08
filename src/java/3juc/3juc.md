@@ -141,9 +141,9 @@ RejectedExecutionHandler handler;//拒绝策略
 
 如果当前同时运行的线程数量达到最大线程数量并且队列也已经被放满了任务时，新来的任务将会被：
 
-- **`ThreadPoolExecutor.AbortPolicy`**：抛出 `RejectedExecutionException`来拒绝新任务的处理。
+- **`ThreadPoolExecutor.AbortPolicy`**：抛出 `RejectedExecutionException` 来拒绝新任务的处理。
 
-- **`ThreadPoolExecutor.CallerRunsPolicy`**：调用执行自己的线程运行任务，也就是直接在调用 `execute` 方法的线程中运行(`run` 方法)被拒绝的任务，如果执行程序已关闭，则会丢弃该任务。因此这种策略会降低对于新任务提交速度，影响程序的整体性能。如果您的应用程序可以承受此延迟并且你要求任何一个任务请求都要被执行的话，你可以选择这个策略。
+- **`ThreadPoolExecutor.CallerRunsPolicy`**：调用执行自己的线程运行任务，也就是直接在调用 `execute` 方法的线程中运行（`run` 方法）被拒绝的任务，如果执行程序已关闭，则会丢弃该任务。因此这种策略会降低对于新任务提交速度，影响程序的整体性能。如果应用程序可以承受此延迟并且要求任何一个任务请求都要被执行的话，以选择这个策略。
 
 - **`ThreadPoolExecutor.DiscardPolicy`**：不处理新任务，直接丢弃掉。
 
