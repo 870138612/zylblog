@@ -20,27 +20,27 @@ tag:
 
 ### 类加载器的加载规则
 
-JVM 启动的时候，并不会一次性加载所有的类，而是根据需要去动态加载。也就是说，大部分类在具体用到的时候才会去加载，这样对内存更加友好。
+JVM 启动的时候，并不会一次性加载所有的类，而是根据需要去动态加载。大部分类在具体用到的时候才会去加载，这样对内存更加友好。
 
 对于已经加载的类会被放在 `ClassLoader` 中。在类加载的时候，系统会首先判断当前类是否被加载过。已经被加载的类会直接返回，否则才会尝试加载。也就是说，对于一个类加载器来说，相同二进制名称的类只会被加载一次。
 
 ### 类加载器总结
 
-JVM中内置了三个`ClassLoader`：
+JVM 中内置了三个 `ClassLoader`：
 
-1. **`BootstrapClassLoader`(启动类加载器)**：最顶层的加载类，由 C++实现，通常表示为 null，并且没有父级，主要用来加载 JDK 内部的核心类库（ `%JAVA_HOME%/lib`目录下的 `rt.jar`、`resources.jar`、`charsets.jar`等 jar 包和类）以及被 `-Xbootclasspath`参数指定的路径下的所有类。
+1. **`BootstrapClassLoader`(启动类加载器)**：最顶层的加载类，由 C++ 实现，通常表示为 null，并且没有父级，主要用来加载 JDK 内部的核心类库（ `%JAVA_HOME%/lib`目录下的 `rt.jar`、`resources.jar`、`charsets.jar`等 jar 包和类）以及被 `-Xbootclasspath` 参数指定的路径下的所有类。
 2. **`ExtensionClassLoader`(扩展类加载器)**：主要负责加载 `%JRE_HOME%/lib/ext` 目录下的 jar 包和类以及被 `java.ext.dirs` 系统变量所指定的路径下的所有类。
 3. **`AppClassLoader`(应用程序类加载器)**：面向用户的加载器，负责加载当前应用 classpath 下的所有 jar 包和类。
 
-除了 `BootstrapClassLoader` 是 JVM 自身的一部分之外，其他所有的类加载器都是在 JVM 外部实现的，并且全都继承自 `ClassLoader`抽象类。这样做的好处是用户可以自定义类加载器，以便让应用程序自己决定如何去获取所需的类。
+除了 `BootstrapClassLoader` 是 JVM 自身的一部分之外，其他所有的类加载器都是在 JVM 外部实现的，并且全都继承自 `ClassLoader` 抽象类。这样做的好处是用户可以自定义类加载器，以便让应用程序自己决定如何去获取所需的类。
 
-每个 `ClassLoader` 可以通过`getParent()`获取其父 `ClassLoader`，如果获取到 `ClassLoader` 为`null`的话，那么该类是通过 `BootstrapClassLoader` 加载的。
+每个 `ClassLoader` 可以通过 `getParent()` 获取其父 `ClassLoader`，如果获取到 `ClassLoader` 为 `null` 的话，那么该类是通过 `BootstrapClassLoader` 加载的。
 
- **`ClassLoader` 为`null`就是 `BootstrapClassLoader` 加载的呢？** 这是因为`BootstrapClassLoader` 由 C++ 实现，由于这个 C++ 实现的类加载器在 Java 中是没有与之对应的类的，所以拿到的结果是 null。
+ **`ClassLoader` 为 `null` 就是 `BootstrapClassLoader` 加载的呢？** 这是因为`BootstrapClassLoader` 由 C++ 实现，由于这个 C++ 实现的类加载器在 Java 中是没有与之对应的类的，所以拿到的结果是 `null`。
 
 ### 自定义类加载器
 
-除了 `BootstrapClassLoader` 其他类加载器均由 Java 实现且全部继承自`java.lang.ClassLoader`。如果我们要自定义自己的类加载器，很明显需要继承 `ClassLoader`抽象类。
+除了 `BootstrapClassLoader` 其他类加载器均由 Java 实现且全部继承自 `java.lang.ClassLoader`。如果要自定义自己的类加载器，很明显需要继承 `ClassLoader` 抽象类。
 
 `ClassLoader` 类有两个关键的方法：
 
@@ -60,7 +60,7 @@ JVM中内置了三个`ClassLoader`：
 
 - `ClassLoader` 实例会在试图亲自查找类或资源之前，将搜索类或资源的任务委托给其父类加载器。
 
-下图展示的各种类加载器之间的层次关系被称为类加载器的“**双亲委派模型(Parents Delegation Model)**”。
+下图展示的各种类加载器之间的层次关系被称为类加载器的“**双亲委派模型（Parents Delegation Model）**”。
 
 ![230522202439](/markdown/230522202439.jpg)
 
@@ -70,13 +70,13 @@ JVM中内置了三个`ClassLoader`：
 
 ```java
 public abstract class ClassLoader {
-  ...
-  // 组合
-  private final ClassLoader parent;
-  protected ClassLoader(ClassLoader parent) {
-       this(checkCreateClassLoader(), parent);
-  }
-  ...
+    ...
+    // 组合
+    private final ClassLoader parent;
+    protected ClassLoader(ClassLoader parent) {
+        this(checkCreateClassLoader(), parent);
+    }
+    ...
 }
 ```
 

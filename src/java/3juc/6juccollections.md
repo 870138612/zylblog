@@ -14,7 +14,7 @@ JDK 提供的这些容器大部分在 `java.util.concurrent` 包中。
 - **`ConcurrentHashMap`**：线程安全的 `HashMap`
 - **`CopyOnWriteArrayList`**：线程安全的 `List`，在读多写少的场合性能非常好，远远好于 `Vector`。
 - **`ConcurrentLinkedQueue`**：高效的并发队列，使用链表实现。可以看做一个线程安全的 `LinkedList`，这是一个非阻塞队列。
-- **`BlockingQueue`**：这是一个接口，JDK内部通过链表、数组等方式实现了这个接口。表示阻塞队列，非常适合用于作为数据共享的通道。
+- **`BlockingQueue`**：这是一个接口，JDK 内部通过链表、数组等方式实现了这个接口。表示阻塞队列，非常适合用于作为数据共享的通道。
 - **`ConcurrentSkipListMap`**：跳表的实现，是一个Map，使用跳表的数据结构进行快速查找。
 
 <!-- more -->
@@ -25,13 +25,13 @@ JDK 提供的这些容器大部分在 `java.util.concurrent` 包中。
 
 ### CopyOnWriteArrayList 原理
 
-`CopyOnWriteArrayList` 类的所有可变操作（add，set等等）都是通过创建底层数组的新副本来实现的。当List需要被修改的时候，并不修改原有内容，而是对原有数据进行一次复制，将修改的内容写入副本。写完之后，再将修改完的副本替换原来的数据，这样就可以保证写操作不会影响读操作。
+`CopyOnWriteArrayList` 类的所有可变操作（`add`，`set` 等等）都是通过创建底层数组的新副本来实现的。当 List 需要被修改的时候，并不修改原有内容，而是对原有数据进行一次复制，将修改的内容写入副本。写完之后，再将修改完的副本替换原来的数据，这样就可以保证写操作不会影响读操作。
 
 ## ConcurrentLinkedQueue
 
-Java提供的线程安全的 `Queue` 可以分为**阻塞队列**和**非阻塞队列**，其中阻塞队列的典型例子是 `BlockingQueue`，非阻塞队列的典型例子是 `ConcurrentLinkedQueue`，使用链表作为其数据结构。**阻塞队列可以通过加锁来实现，非阻塞队列可以通过CAS操作实现线程安全**。
+Java 提供的线程安全的 `Queue` 可以分为**阻塞队列**和**非阻塞队列**，其中阻塞队列的典型例子是 `BlockingQueue`，非阻塞队列的典型例子是 `ConcurrentLinkedQueue`，使用链表作为其数据结构。**阻塞队列可以通过加锁来实现，非阻塞队列可以通过 CAS 操作实现线程安全**。
 
-`ConcurrentLinkedQueue` 使用CAS非阻塞算法来实现线程安全。
+`ConcurrentLinkedQueue` 使用 CAS 非阻塞算法来实现线程安全。
 
 `ConcurrentLinkedQueue` 适合在对性能要求相对较高，同时对队列的读写存在多个线程同时进行的场景，即如果对队列加锁的成本较高则适合使用无锁的 `ConcurrentLinkedQueue` 来替代。
 
@@ -43,17 +43,19 @@ Java提供的线程安全的 `Queue` 可以分为**阻塞队列**和**非阻塞�
 
 ### ArrayBlockingQueue
 
-`ArrayBlockingQueue` 是 `BlockingQueue` 接口的有界队列实现类，底层采用数组来实现。`ArrayBlockingQueue` 一旦创建，容量不能改变。其并发控制采用可重入锁 `ReentrantLock`，不管是插入操作还是读取操作，都需要获取到锁才能进行操作。当队列容量满时，尝试将元素放入队列将导致操作阻塞;尝试从一个空队列中取一个元素也会同样阻塞。默认是不公平实现的。
+`ArrayBlockingQueue` 是 `BlockingQueue` 接口的有界队列实现类，底层采用数组来实现。`ArrayBlockingQueue` 一旦创建，容量不能改变。其并发控制采用可重入锁 `ReentrantLock`，不管是插入操作还是读取操作，都需要获取到锁才能进行操作。当队列容量满时，尝试将元素放入队列将导致操作阻塞；
+尝试从一个空队列中取一个元素也会同样阻塞。默认是不公平实现的。
 
 ### LinkedBlockingQueue
 
-`LinkedBlockingQueue` 底层基于**单向链表**实现的阻塞队列，可以当做无界队列也可以当做有界队列来使用，同样满足FIFO的特性，与 `ArrayBlockingQueue` 相比起来具有更高的吞吐量，为了防止 `LinkedBlockingQueue` 容量迅速增，损耗大量内存。通常在创建 `LinkedBlockingQueue` 对象时指定其大小，如果未指定，容量等于 `Integer.MAX_VALUE`。
+`LinkedBlockingQueue` 底层基于**单向链表**实现的阻塞队列，可以当做无界队列也可以当做有界队列来使用，同样满足 FIFO 的特性，与 `ArrayBlockingQueue` 相比起来具有更高的吞吐量，为了防止 `LinkedBlockingQueue` 容量迅速增，损耗大量内存。通常在创建 `LinkedBlockingQueue` 
+对象时指定其大小，如果未指定，容量等于 `Integer.MAX_VALUE`。
 
 ### PriorityBlockingQueue
 
 `PriorityBlockingQueue` 是一个支持优先级的无界阻塞队列。默认情况下元素采用自然顺序进行排序，也可以通过自定义类实现 `compareTo()` 方法来指定元素排序规则，或者初始化时通过构造器参数 `Comparator` 来指定排序规则。
 
-简单地说，它就是 `PriorityQueue` 的线程安全版本。不可以插入 `null` 值，同时，插入队列的对象必须是可比较大小的（comparable），否则报 `ClassCastException` 异常。它的插入操作 `put` 方法不会阻塞，因为它是无界队列（`take` 方法在队列为空的时候会阻塞）。
+简单地说，它就是 `PriorityQueue` 的线程安全版本。不可以插入 `null` 值，同时，插入队列的对象必须是可比较大小的（`comparable`），否则报 `ClassCastException` 异常。它的插入操作 `put` 方法不会阻塞，因为它是无界队列（`take` 方法在队列为空的时候会阻塞）。
 
 ## ConcurrentSkipListMap
 

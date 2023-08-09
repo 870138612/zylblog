@@ -97,6 +97,6 @@ tag:
 
 1. 该类的所有实例对象都被 GC，也就是说堆中不存在该类的实例对象。
 2. 该类没有在其他任何地方被引用。
-3. 该类的类加载器的实例已经被GC。
+3. 该类的类加载器的实例已经被 GC。
 
-所以在 JVM 生命周期内，由 JVM 自带的类加载器（JDK 自带的 `BootstrapClassLoader`, `ExtClassLoader`, `AppClassLoader`）加载的类是不会被卸载的，但是自定义的类加载器加载的类是可能被卸载的。
+所以在 JVM 生命周期内，由 JVM 自带的类加载器（JDK 自带的 `BootstrapClassLoader`，`ExtClassLoader`，`AppClassLoader`）加载的类是不会被卸载的，但是自定义的类加载器加载的类是可能被卸载的。

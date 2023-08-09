@@ -98,7 +98,7 @@ Redis List 数据结构可以用来做消息队列，只是功能过于简单且
 
 Redis 中的 Hash 是一个 String 类型的 field-value（键值对） 的映射表，特别适合用于存储对象。
 
-Hash 类似于 JDK1.8 前的 `HashMap`，内部实现也差不多(数组 + 链表)。不过，Redis 的 Hash 做了更多优化。
+Hash 类似于 JDK 1.8 前的 `HashMap`，内部实现也差不多(数组 + 链表)。不过，Redis 的 Hash 做了更多优化。
 
 ![image-20230608172142206](/markdown/image-20230608172142206.png)
 

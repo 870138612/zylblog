@@ -110,7 +110,7 @@ Java集合由两大接口派生而来，分别是用来存放单一元素的 `Co
 
 ### PriorityQueue
 
-`PriorityQueue` 是在JDK1.5中被引入的, 其与 `Queue` 的区别在于元素出队顺序是与优先级相关的，即总是优先级最高的元素先出队。
+`PriorityQueue` 是在JDK 1.5中被引入的, 其与 `Queue` 的区别在于元素出队顺序是与优先级相关的，即总是优先级最高的元素先出队。
 
 - `PriorityQueue` 使用变长数组存储元素，使用二叉堆实现结构；
 - `PriorityQueue` 使用堆实现了在 `O(logn)` 的时间复杂度内插入和删除元素；

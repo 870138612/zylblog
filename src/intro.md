@@ -15,3 +15,4 @@ article: false
 
 终将美好，我们的春夏秋冬。
 
+> 使用主题 [vuepress-theme-hope](https://github.com/vuepress-theme-hope/vuepress-theme-hope)

@@ -149,7 +149,7 @@ JVM 具有四种类型的 GC 实现：
 
 ## 其他
 
-`-server` ：启用“ Server Hotspot VM”；此参数默认用于 64 位 JVM。
+`-server` ：启用“ Server HotSpot VM”；此参数默认用于 64 位 JVM。
 
 `-XX:+UseStringDeduplication`：*Java 8u20* 引入了这个 JVM 参数，通过创建太多相同 String 的实例来减少不必要的内存使用；这通过将重复 String 值减少为单个全局 `char []` 数组来优化堆内存。
 
