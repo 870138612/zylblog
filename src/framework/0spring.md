@@ -275,6 +275,7 @@ Bean 有多种作用域：
 4. 单例 Bean 创建完成之后 Spring 发布一个容器启动事件。
 5. Spring 启动结束。
 
+☀️详见 [手写SPRING源码](https://www.bilibili.com/video/BV1AM4y1c79v/?p=1&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
 
 ## Spring 事务
 
