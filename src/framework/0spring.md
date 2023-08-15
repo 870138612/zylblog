@@ -112,6 +112,8 @@ public class UserService implements InitializingBean {
 }
 ```
 
+> 此处的初始化概念不同于 JVM 中的初始化。
+
 ### 初始化后是什么？
 
 初始化后做的事情就是执行 AOP，生成代理对象，并将代理对象放入单例池中。
