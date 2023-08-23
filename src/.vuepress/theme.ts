@@ -4,7 +4,7 @@ import {zhSidebar} from "./sidebar/index.js";
 
 
 export default hopeTheme({
-  logo: "/logo.jpg",
+  logo: "/logo.png",
 
   author: {
     name: "ZYL1210",
