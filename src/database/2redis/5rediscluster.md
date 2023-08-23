@@ -180,3 +180,10 @@ Redis 分片集群具备自动的主从切换，不需要使用哨兵。
   - 利用 redis-cli 连接需要变成 master 的节点；
   - 执行 `cluster failover` 命令。
 
+## Redis 哨兵机制和集群有什么区别？
+
+Redis 集群有两种实现方式，分别是主从集群和 Redis Cluster。
+
+1. Redis 哨兵集群基于主从复制来实现的，可以实现读写分离，分担 Redis 读操作的压力，而 Redis Cluster 中的 slave 节点只是实现冷备份机制，只有在 master 宕机之后才会工作。
+2. Redis 哨兵集群无法在线扩容，所以并发压力受限于单个服务器资源的配置，Redis Cluster 提供了基于 slot 的数据分片机制，可以实现在线扩容，提升读写性能。
+3. Redis 哨兵集群是一主多从，而 Redis Cluster 是一个多主多从的机制。
