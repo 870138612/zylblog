@@ -1,6 +1,7 @@
 ---
-title: 快手
+title: 快手面经
 icon: duihua
+star: true
 category:
   - 面经
 tag:
