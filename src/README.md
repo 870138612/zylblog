@@ -4,7 +4,7 @@ title: 主页
 layout: BlogHome
 icon: discovery
 heroFullScreen: true
-bgImage: /home/img.png
+bgImage: /home/img.jpg
 heroText: 终将美好
 tagline: 我们的春夏秋冬
 projects:

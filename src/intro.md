@@ -1,6 +1,6 @@
 ---
 icon: aboutme
-cover: /home/aboutme.png
+cover: /home/aboutme.jpg
 editLink: false
 article: false
 ---
