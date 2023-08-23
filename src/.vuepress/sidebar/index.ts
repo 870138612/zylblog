@@ -61,6 +61,7 @@ export const zhSidebar = sidebar({
       prefix: "photo/",
       children: "structure",
     },
+    "friendLinks",
     "intro"
 
   ],

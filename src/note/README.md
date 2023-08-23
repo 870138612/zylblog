@@ -2,7 +2,7 @@
 title: 笔记
 icon: note 
 index: false
-cover: /home/202305122sdf05406.jpg
+cover: /home/202305122sdf05406.png
 pageInfo: false
 article: false
 timeline: false

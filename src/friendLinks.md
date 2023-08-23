@@ -1,6 +1,6 @@
 ---
 icon: youlian
-cover: /home/aboutme.jpg
+cover: /home/aboutme.png
 pageInfo: false
 article: false
 timeline: false

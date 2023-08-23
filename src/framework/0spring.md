@@ -245,6 +245,8 @@ AService 和 BService 相互依赖。
 
 通过对注入属性添加 `@Lazy` 实现懒惰式加载，只有在调用方法用到属性的时候才会进行初始化，此时本类已经完成创建周期，因此不会出现循环依赖。
 
+出现循环依赖本身就不应该出现，在 Spring 2.6.0 以及以后的版本会进行循环依赖检查，出现循环依赖则报错。
+
 :::
 
 ### Spring 框架中的 Bean 是线程安全的吗？
@@ -271,7 +273,7 @@ Bean 有多种作用域：
 
 ### Spring 容器的启动流程
 
-1. 创建 Spring 容器时会先进行扫描，得到所有的 `BeanDefinition` 对象，并放在一个 Map 中。
+1. 创建 Spring 容器时会先进行扫描，得到所有的 `BeanDefinition` 对象，并放在一个 Map 中，其中包含了 Bean 的作用范围 `Scope`。
 2. 然后筛选出非懒加载的单例 `BeanDefinition` 进行创建 Bean，对于多例 Bean 不需要在启动过程中取创建，而是每次获取的时候才会创建。
 3. 利用 `BeanDefinition` 创建 Bean 就是 Bean 的创建生命周期，包括了合并 `BeanDefinition`、推断构造方法、实例化、属性填充、初始化前、初始化、初始化后等步骤，其中 AOP 发生在初始化后这个步骤。
 4. 单例 Bean 创建完成之后 Spring 发布一个容器启动事件。
@@ -561,3 +563,29 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.zyl.tomcat.be
 ```
 
 6. `package install` 进行打包，这样就能在其他项目中引用这个 starter。
+
+### 自定义注解
+```java
+// 元注解，例如生命周期和作用目标
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+
+public @interface Component {
+    String value() default "";
+}
+
+```
+后续过程中如果要获得用注解标识的类的相关信息。
+
+```java
+// 根据全类名获取对应的字节码
+Class<?> clazz = classLoader.loadClass(className);
+
+if (clazz.isAnnotationPresent(Component.class)) {
+    Component componentAnnotation = clazz.getDeclaredAnnotation(Component.class);
+    // 获取注解中添加的 value 属性
+    String beanName = componentAnnotation.value();
+    //后续业务操作
+}
+
+```

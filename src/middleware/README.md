@@ -2,7 +2,7 @@
 title: 中间件云原生
 icon: middleware
 index: false
-cover: /home/202305122sdf05406.jpg
+cover: /home/202305122sdf05406.png
 pageInfo: false
 article: false
 timeline: false
