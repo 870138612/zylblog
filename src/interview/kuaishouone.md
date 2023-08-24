@@ -1,5 +1,5 @@
 ---
-title: 快手面经
+title: 快手-客户端开发
 icon: duihua
 star: true
 category:
@@ -18,8 +18,8 @@ tag:
 #### 对电商项目的优化
 
 - 更改了 JVM 中的老年代和新生代的内存分布，将秒杀的并发量提高。
-- 使用 `CompletableFuture` 对 SKU 数据进行异步查询，提高了查询速度。
-- 登录部分由原来的手动查询用户数据密码比对，改为了使用 `SpringSecurity` 进行登录认证，简化了开发步骤，另外使用 Redis 解决分布式下的用户数据共享。
+- 使用 CompletableFuture 对 SKU 数据进行异步查询，提高了查询速度。
+- 登录部分由原来的手动查询用户数据密码比对，改为了使用 SpringSecurity 进行登录认证，简化了开发步骤，另外使用 Redis 解决分布式下的用户数据共享。
 - 使用 Sentinel 限制后端并发数，熔断降级保证服务安全可用。
 
 ### 虚拟内存的概念
