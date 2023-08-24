@@ -320,7 +320,7 @@ final boolean acquireQueued(final Node node, int arg) {
 
 ![image-20230725155457446](/markdown/image-20230725155457446.png)
 
-- 此时当前队列不为空，且哨兵节点的 `waitStatus` 为-1，则将后继的节点 `unpark` 恢复运行，哨兵节点变成下一个节点，并设置工作线程为null，原来的哨兵节点丢弃，后续线程竞争加锁流程同上。
+- 此时当前队列不为空，且哨兵节点的 `waitStatus` 为-1，则将后继的节点 `unpark` 恢复运行，哨兵节点变成下一个节点，并设置工作线程为 null，原来的哨兵节点丢弃，后续线程竞争加锁流程同上。
 
 ![image-20230725160038069](/markdown/image-20230725160038069.png)
 
