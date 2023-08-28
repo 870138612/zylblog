@@ -5,7 +5,7 @@ category:
   - 数据库
 tag:
   - MySQL基础
-  - 八股
+  
   - MySQL
 ---
 

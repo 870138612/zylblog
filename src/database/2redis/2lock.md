@@ -5,7 +5,7 @@ category:
   - 数据库
 tag:
   - Redis
-  - 八股
+  
   - 分布式锁
 ---
 

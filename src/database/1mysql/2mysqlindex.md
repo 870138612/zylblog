@@ -5,7 +5,7 @@ category:
   - 数据库
 tag:
   - MySQL索引
-  - 八股
+  
   - MySQL
 ---
 ## 索引

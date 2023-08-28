@@ -6,7 +6,7 @@ category:
 tags:
   - MySQL日志
   - MySQL
-  - 八股
+  
 ---
 
 ## redo log 重做日志

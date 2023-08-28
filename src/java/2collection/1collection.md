@@ -5,7 +5,7 @@ category:
   - Java
 tag:
   - Java集合
-  - 八股
+  
 ---
 
 Java集合由两大接口派生而来，分别是用来存放单一元素的 `Collection` 和用来存放键值对的 `Map` 接口。对于 `Collection` 接口有三个子接口，分别是 `List`、`Set`、`Queue`。

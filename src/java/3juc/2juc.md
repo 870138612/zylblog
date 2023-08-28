@@ -5,7 +5,7 @@ category:
   - Java
 tag:
   - 并发编程
-  - 八股
+  
 ---
 
 ## Java 内存模型

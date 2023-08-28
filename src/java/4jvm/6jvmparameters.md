@@ -5,7 +5,7 @@ category:
   - Java
 tag:
   - JVM重要参数
-  - 八股
+  
 ---
 
 ## 堆内存相关

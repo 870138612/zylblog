@@ -5,7 +5,7 @@ category:
   - 中间件云原生
 tag:
   - Nginx
-  - 八股
+  
 ---
 
 ## 静态 Web 配置

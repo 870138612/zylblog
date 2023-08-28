@@ -5,7 +5,7 @@ category:
   - Java
 tag:
   - 单例模式
-  - 八股
+  
   - Java基础
 ---
 

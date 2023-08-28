@@ -6,7 +6,7 @@ category:
 tag:
   - 消息队列
   - RabbitMQ
-  - 八股
+  
 ---
 
 

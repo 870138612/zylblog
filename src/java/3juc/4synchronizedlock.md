@@ -5,7 +5,7 @@ category:
   - Java
 tag:
   - synchronized锁优化
-  - 八股
+  
   - 并发编程
 ---
 

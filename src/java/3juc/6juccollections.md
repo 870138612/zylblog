@@ -5,7 +5,7 @@ category:
   - Java
 tag:
   - JUC常见并发容器
-  - 八股
+  
   - 并发编程
 ---
 

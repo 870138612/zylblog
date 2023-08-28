@@ -5,7 +5,7 @@ category:
   - Java
 tag:
   - GC调优
-  - 八股
+  
   - JVM
 ---
 

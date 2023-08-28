@@ -5,7 +5,7 @@ category:
   - Java
 tag:
   - 类加载器
-  - 八股
+  
   - JVM
 ---
 ## 类加载器

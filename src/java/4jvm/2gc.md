@@ -5,7 +5,7 @@ category:
   - Java
 tag:
   - JVM垃圾回收
-  - 八股
+  
   - JVM
 ---
 

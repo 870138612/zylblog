@@ -36,7 +36,7 @@ springcloud，springsecurity，springboot，mybatis，redis，rabbitmq，sentine
 ● RabbitMQ 延时队列模拟订单过期，过期订单的解锁订单和解锁库存流程通过 RabbitMq 消息队列实现。
 ```
 
-> 为什么叫做恐龙商城？因为诚哥写的就是恐龙商城，哥们照抄的✨。
+> 为什么叫做恐龙商城？因为诚哥写的就是恐龙商城✨。
 
 下面逐句进行分析。
 

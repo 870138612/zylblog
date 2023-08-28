@@ -5,7 +5,7 @@ category:
   - Java
 tag:
   - JVM内存结构
-  - 八股
+  
   - JVM
 ---
 
