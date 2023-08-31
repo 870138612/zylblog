@@ -100,7 +100,7 @@ stream {
 
 ### Nginx 的负载均衡算法有哪些？
 
-☀️详见 [Nginx 负载均衡](https://ylzhong.top/middleware/1nginx.html#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1)
+☀️详见 [Nginx 负载均衡](https://ylzhong.top/discovery/middleware/1nginx.html#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1)
 
 负载均衡策略有：轮训，最小连接，ip_hash，hash，权重，随机。
 
@@ -112,7 +112,7 @@ stream {
 
 ### Nginx 反向代理怎么配置的？反向代理跟正向代理的区别是什么？Nginx 可以配置正向代理吗？
 
-☀️详见 [正向代理和反向代理](https://ylzhong.top/middleware/1nginx.html#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86)
+☀️详见 [正向代理和反向代理](https://ylzhong.top/discovery/middleware/1nginx.html#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86)
 
 - 反向代理通过在 `location` 里添加 `proxy_pass` 进行请求代理。
 
@@ -378,7 +378,7 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 
 ![image-20230628225544890](/markdown/image-20230628225544890.png) 
 
-☀️详见 [RabbitMQ](https://ylzhong.top/middleware/2mq.html)
+☀️详见 [RabbitMQ](https://ylzhong.top/discovery/middleware/2mq.html)
 
 ### 服务单一职责，独立部署，定时上架
 
@@ -419,7 +419,7 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 
 项目中同样包含登录部分，Session 共享问题，因此可以参考 SpringSecurity 的登录认证流程，Redis 存储用户数据。
 
-☀️详见 [谷粒商城实现单点登录](https://ylzhong.top/note/0aboutprojects.html#%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)
+☀️详见 [谷粒商城实现单点登录](https://ylzhong.top/note/1other/0aboutprojects.html#%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84)
 
 ```
 小众点评                                                           2022.9-2022.12
@@ -436,7 +436,7 @@ springboot，mybatis，redis，nginx，docker
 
 Nginx 动静分离的好处参考谷粒商城项目。
 
-☀️详见 [Nginx 动静分离](https://ylzhong.top/note/0aboutprojects.html#%E5%95%86%E5%9F%8E%E9%A1%B5%E9%9D%A2%E7%94%B1nginx%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB-%E8%AF%B7%E6%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1)。
+☀️详见 [Nginx 动静分离](https://ylzhong.top/discovery/middleware/1nginx.html#%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB)。
 
 ### Redis 实现用户登录，登录状态刷新
 
@@ -456,7 +456,7 @@ token 则直接放行，表示这个请求不需要用户验证。有 token 则�
 
 ### JWT（TOKEN）如何生成？
 
-☀️详见 [JWT 如何生成？](https://ylzhong.top/note/0aboutprojects.html#jwt-token-%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90%E7%9A%84)
+☀️详见 [JWT 如何生成？](https://ylzhong.top/note/1other/0aboutprojects.html#jwt-token-%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90%E7%9A%84)
 
 ### 点赞
 

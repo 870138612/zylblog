@@ -316,7 +316,7 @@ Redis 基于 Reactor 模式设计开发了一套高效的事件处理模型，�
 
 虽然文件事件处理器以单线程方式运行，但通过 IO 多路复用程序来监听多个套接字，文件事件处理器既实现了高性能的网络通信模型，又可以很好地与 Redis 服务器中其他同样以单线程方式运行的模块进行对阶，这保持列 Redis 内部单线程设计的简单性。
 
-☀️详见 [IO 多路复用](https://ylzhong.top/computer/3io.html#io-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8-io-multiplexing)
+☀️详见 [IO 多路复用](https://ylzhong.top/discovery/computer/3io.html#io-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8-io-multiplexing)
 
 :::
 

@@ -32,7 +32,7 @@ tag:
 
 分布式事务的解决办法之一就是 MQ 事务。
 
-☀️详见 [分布式事务](https://ylzhong.top/middleware/4distributedtransaction.html)
+☀️详见 [分布式事务](https://ylzhong.top/discovery/middleware/4distributedtransaction.html)
 
 ## 使用消息队列会带来哪些问题？
 
