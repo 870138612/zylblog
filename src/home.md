@@ -1,7 +1,7 @@
 ---
 title: 导航
 index: false
-icon: daohang
+icon: discovery
 cover: /202305122sdf05406.jpg
 pageInfo: false
 article: false
@@ -26,6 +26,7 @@ timeline: false
   - <HopeIcon icon="page"/> [synchronized锁优化](4synchronizedlock.md)
   - <HopeIcon icon="page"/> [AQS抽象队列同步器](5aqs.md)
   - <HopeIcon icon="page"/> [JUC常见并发容器](6juccollections.md)
+  
 - <HopeIcon icon="jvm"/> [JVM](/java/4jvm)
   - <HopeIcon icon="page"/> [JVM内存结构](1memory.md)
   - <HopeIcon icon="page"/> [JVM垃圾回收](2gc.md)
@@ -70,7 +71,7 @@ timeline: false
 - <HopeIcon icon="biji1"/> [简历项目详解](/note/0aboutprojects.md)
 
 ## <HopeIcon icon="interview"/> 面经
-- <HopeIcon icon="duihua"/> [快手-客户端开发](kuaishouone.md)
+- <HopeIcon icon="duihua"/> [快手-客户端开发-一二面](kuaishouone.md)
 
 ## <HopeIcon icon="photo"/> 拍拍
 - <HopeIcon icon="picture"/> [2023.4-平潭](/photo/992023.4平潭.md)
