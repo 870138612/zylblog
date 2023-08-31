@@ -157,7 +157,7 @@ RejectedExecutionHandler handler;//拒绝策略
 
 常见的阻塞队列：
 
-- 容量为 `Integer.MAX_VALUE` 的 `LinkedBlockingQueue`（无界队列）：`FixedThreadPool` 和 `SingleThreadExector` 。由于队列永远不会被放满，因此 **`FixedThreadPool` 和 `SingleThreadExector` 最多只能创建核心线程数的线程**。
+- `LinkedBlockingQueue`（无界队列）：最大容量为 `Integer.MAX_VALUE`，`FixedThreadPool` 和 `SingleThreadExector` 。由于队列永远不会被放满，因此 **`FixedThreadPool` 和 `SingleThreadExector` 最多只能创建核心线程数的线程**。
 
 - `SynchronousQueue`（同步队列）：`CachedThreadPool` 。`SynchronousQueue` 没有容量，不存储元素，目的是保证对于提交的任务，如果有空闲线程，则使用空闲线程来处理；否则新建一个线程来处理任务。也就是说 **`CachedThreadPool` 的最大线程数是 `Integer.
   MAX_VALUE`**，可以理解为线程数是可以无限扩展的，可能会创建大量线程，从而导致 OOM。
@@ -182,7 +182,7 @@ RejectedExecutionHandler handler;//拒绝策略
 
 **CPU 密集型任务（N + 1）**：N 表示 CPU 核心数，比 N 多 1 是为了处理线程偶然发生的缺页中断，或者是其他原因导致任务暂停带来的影响。
 
-**I/O 密集型任务（2N）**：系统大部分时间用来 IO 交互，而在处理 IO 的时候不会占用 CPU 资源，这时可将 CPU 资源交给其他任务，因此创建 N + N 个核心线程。
+**I/O 密集型任务（2N）**：系统大部分时间用来 IO 交互，而在处理 IO 的时候不会占用 CPU 资源，这时可将 CPU 资源交给其他任务，因此创建 N + N 个核心线程。当 IO 时线程会被阻塞，为了响应 CPU 计算请求，则应该创建较多的线程来处理请求。
 
 ## Future
 
@@ -234,6 +234,7 @@ FutureTask<String> task = new FutureTask<>(new Runnable() {
 Java 8 才被引入 `CompletableFuture` 类可以解决 `Future` 的这些缺陷。`CompletableFuture` 除了提供了更为好用和强大的 `Future` 特性之外，还提供了函数式编程、**异步任务编排组合**（可以将多个异步任务串联起来，组成一个完整的链式调用）等能力。该类创建任务时需要添加一个任务，和用来执行任务的线程池。
 
 ```java
+// executor 是线程池
 CompletableFuture<SkuInfoEntity> future1 = CompletableFuture.supplyAsync(() -> {
     //sku基本信息的获取  pms_sku_info
     SkuInfoEntity info = this.getById(skuId);

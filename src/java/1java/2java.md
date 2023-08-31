@@ -195,13 +195,13 @@ hero.skill();//打印技能1，编译是否能通过看左边，执行结果看�
 
 ### 为什么重写 equals() 时必须重写 hashCode() 方法？
 
-Java中的对象满足以下：
+Java 中的对象满足以下：
 
-- Java中两个对象相同则 `HashCode` 必须相等；
+- Java 中两个对象相同则 `HashCode` 必须相等；
 - `HashCode` 相同，但对象不一定相等；
 - 两个对象的 `HashCode` 不同则对象一定不同。
 
-重写 `equals()` 代表这个方法是用来比较两个对象是否相等，如果不重写 `HashCode()` 方法可能会导致判断是相等的两个对象但是 `HashCode` 不等，则 HashMap 这样的数据结构无法正常工作。
+重写 `equals()` 代表这个方法是用来比较两个对象是否相等，如果不重写 `hashCode()` 方法可能会导致判断是相等的两个对象但是 `HashCode` 不等，则 HashMap 这样的数据结构无法正常工作。
 
 ## String
 

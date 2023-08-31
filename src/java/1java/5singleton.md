@@ -43,8 +43,7 @@ public class Singleton{
 ### 饿汉式（静态代码块）
 
 ```java
-public 
-class Singleton{
+public class Singleton{
     private Singleton(){}
     private static Singleton singleton;
     //在静态代码块中创建单例对象

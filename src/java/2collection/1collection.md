@@ -10,6 +10,8 @@ tag:
 
 Java集合由两大接口派生而来，分别是用来存放单一元素的 `Collection` 和用来存放键值对的 `Map` 接口。对于 `Collection` 接口有三个子接口，分别是 `List`、`Set`、`Queue`。
 
+💡 `Map` 不是集合接口。
+
 <!-- more -->
 
 ### 说说 List，Set，Queue，Map 四者的区别？
@@ -117,7 +119,7 @@ Java集合由两大接口派生而来，分别是用来存放单一元素的 `Co
 - `PriorityQueue` 是线程不安全的，不支持存储 `null` 和 `non-comparable` 对象；
 - `PriorityQueue` 默认是小顶堆。
 
-**堆排序的伪代码（重要）**。
+**堆排序的伪代码（重要）元素下标从 1 开始**。
 
 ```java
 //调整函数 建立大顶堆

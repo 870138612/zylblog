@@ -233,7 +233,7 @@ public class T {
 @tab 方法拦截器
 
 ```java
-public class TProxy implements MethodInterceptor {
+public class DebugMethodInterceptor implements MethodInterceptor {
     @Override
     public Object intercept(Object o, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
         System.out.println("before method " + method.getName());
