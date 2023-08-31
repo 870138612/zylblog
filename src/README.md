@@ -3,6 +3,8 @@ home: true
 title: 主页
 layout: BlogHome
 icon: discovery
+bgImageStyle:
+  - 
 heroFullScreen: true
 bgImage: /home/img.jpg
 heroText: 秋色伤感 寒冬落雪 四季轮回 暖春将至
