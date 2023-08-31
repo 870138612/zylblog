@@ -17,27 +17,11 @@ timeline: false
 </div>
 
 <div class="catalog-display-container">
-  <AutoCatalog base='/computer' />
+  <AutoCatalog base='/discovery' />
 </div>
 
-<div class="catalog-display-container">
-  <AutoCatalog base='/middleware' />
-</div>
-
-<div class="catalog-display-container">
-  <AutoCatalog base='/framework' />
-</div>
 
 <div class="catalog-display-container">
   <AutoCatalog base='/note' />
 </div>
-
-<div class="catalog-display-container">
-  <AutoCatalog base='/interview' />
-</div>
-
-<div class="catalog-display-container">
-  <AutoCatalog base='/photo' />
-</div>
-
 

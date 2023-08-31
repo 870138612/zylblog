@@ -12,7 +12,7 @@ export default hopeTheme({
   },
   // pure: true,
   contributors: false,
-  iconAssets: "//at.alicdn.com/t/c/font_4062992_eng5vzatkhp.css",
+  iconAssets: "//at.alicdn.com/t/c/font_4062992_2o4ll6m8mo.css",
   docsDir: "src",
   repo: "https://github.com/870138612/870138612.github.io.git",
   //根据文件的名称进行排序

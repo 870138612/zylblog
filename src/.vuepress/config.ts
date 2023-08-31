@@ -6,6 +6,7 @@ import {blog, mdEnhance} from "vuepress-theme-hope";
 import {autoCatalogPlugin} from "vuepress-plugin-auto-catalog";
 import {RouteMeta} from "vue-router";
 
+
 export default defineUserConfig({
 
   base: "/",

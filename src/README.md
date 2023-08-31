@@ -2,7 +2,7 @@
 home: true
 title: 主页
 layout: BlogHome
-icon: discovery
+icon: home
 bgImageStyle:
   - 
 heroFullScreen: true
@@ -28,27 +28,27 @@ projects:
   - icon: middleware
     name: 中间件云原生
     desc:  Nginx、RabbitMQ、Docker、分布式事务
-    link: /middleware/
+    link: /discovery/middleware/
 
   - icon: framework
     name: 框架
     desc: Spring、Mybatis
-    link: /framework/
+    link: /discovery/framework/
 
   - icon: note
-    name: 笔记
+    name: 闲记
     desc: 日常记录
-    link: /note/
+    link: /note/1other/
     
   - icon: interview
     name: 面经
     desc: 秋招面经
-    link: /interview/
+    link: /note/2interview/
 
   - icon: photo
     name: 拍拍
     desc: 快门爱好者日常
-    link: /photo/
+    link: /note/3photo/
 
 ---
 
