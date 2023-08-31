@@ -7,10 +7,8 @@ pageInfo: false
 article: false
 timeline: false
 ---
-- <HopeIcon icon="page"/> [Java基础一](1java.md) 
-- <HopeIcon icon="page"/> [Java基础二](2java.md) 
-- <HopeIcon icon="page"/> [Java反射](3reflex.md)
-- <HopeIcon icon="page"/> [代理模式](4javaProxy.md)
-- <HopeIcon icon="page"/> [单例模式](5singleton.md)
+<div class="catalog-display-container">
+  <AutoCatalog  />
+</div>
 
 

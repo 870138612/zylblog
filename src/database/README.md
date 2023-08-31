@@ -7,5 +7,7 @@ pageInfo: false
 article: false
 timeline: false
 ---
-- <HopeIcon icon="mysql"/> [MySQL](1mysql)
-- <HopeIcon icon="redis"/> [Redis](2redis)
+<div class="catalog-display-container">
+  <AutoCatalog  />
+</div>
+

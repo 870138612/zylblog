@@ -7,5 +7,6 @@ pageInfo: false
 article: false
 timeline: false
 ---
-- <HopeIcon icon="spring"/> [Spring](0spring.md)
-- <HopeIcon icon="shujuku"/> [MyBatis](1mybatis.md)
+<div class="catalog-display-container">
+  <AutoCatalog  />
+</div>

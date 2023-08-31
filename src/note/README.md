@@ -7,6 +7,6 @@ pageInfo: false
 article: false
 timeline: false
 ---
-
-- <HopeIcon icon="biji1"/> [简历项目详解](0aboutprojects.md)
-
+<div class="catalog-display-container">
+  <AutoCatalog  />
+</div>

@@ -1,8 +1,10 @@
 import {defineUserConfig} from "vuepress";
 import theme from "./theme.js";
 import { searchPlugin} from "@vuepress/plugin-search";
-import {blog, mdEnhance, sitemap} from "vuepress-theme-hope";
-
+import {blog, mdEnhance} from "vuepress-theme-hope";
+// @ts-ignore
+import {autoCatalogPlugin} from "vuepress-plugin-auto-catalog";
+import {RouteMeta} from "vue-router";
 
 export default defineUserConfig({
 
@@ -17,6 +19,7 @@ export default defineUserConfig({
       'link', {rel: 'icon', href: '/assets/icon/favicon.ico'}
     ]
   ],
+
   locales: {
     "/": {
       lang: "zh-CN",
@@ -27,7 +30,16 @@ export default defineUserConfig({
   theme,
   shouldPrefetch: false,
   plugins: [
-
+    autoCatalogPlugin({
+      index:true,
+      locales:{
+        "/":{
+          title:" "
+        }
+      },
+      iconGetter:(page)=>page.frontmatter.icon,
+      orderGetter:(page)=>1
+    }),
     searchPlugin({
       locales: {
         "/": {

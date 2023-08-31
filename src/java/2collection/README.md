@@ -7,6 +7,7 @@ pageInfo: false
 article: false
 timeline: false
 ---
-- <HopeIcon icon="page"/> [Java集合一](1collection.md)
-- <HopeIcon icon="page"/> [Java集合二](2collection.md)
+<div class="catalog-display-container">
+  <AutoCatalog  />
+</div>
 
