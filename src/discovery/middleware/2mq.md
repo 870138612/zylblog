@@ -100,18 +100,8 @@ RabbitMQ 是一个在 AMQP（Advanced Message Queuing Protocol）基础上实现
 
 RabbitMQ 是使用 Erlang 编写的一个开源的消息队列，本身支持很多的协议：AMQP，XMPP，SMTP，STOMP，也正是如此，使的它变的非常重量级，更适合于企业级的开发。它同时实现了一个 Broker 构架，这意味着消息在发送给客户端时先在中心队列排队，对路由（Routing）、负载均衡（Load balance）或者数据持久化都有很好的支持。
 
-### RabbitMQ 特点
 
-- **可靠性**：RabbitMQ 使用一些机制保证可靠性，例如持久化、传输确认以及发布确认。
-- **灵活的路由**：在消息进入队列之前，通过交换器来路由消息。
-- **扩展性**：多个 RabbitMQ 节点可以组成一个集群，也可以根据实际业务情况动态地扩展集群中节点。
-- **高可用性**：队列可以在集群中的机器上设置镜像，使得在部分节点出现问题的情况下队 列仍然可用。
-- **多种协议**：RabbitMQ 除了原生支持 AMQP 协议，还支持 STOMP，MQTT 等多种消息中间件协议。
-- **跨语言**：RabbitMQ 几乎支持所有常用语言，比如Java、Python、Ruby、PHP、C#、JavaScript 等。
-- **管理界面**：RabbitMQ 提供了一个易用的用户界面，使得用户可以监控和管理消息、集群中的节点等。
-- **插件机制**：RabbitMQ 提供了许多插件 ， 以实现从多方面进行扩展。
-
-### RabbitMQ 组成
+## RabbitMQ 组成
 
 RabbitMQ 整体上是一个生产者与消费者模型，主要负责接收、存储和转发消息。从计算机术语层面来说，RabbitMQ 模型更像是一种交换器模型。
 
@@ -163,19 +153,19 @@ Queue（消息队列）用来保存消息直到发送给消费者。是消息的
 
 ![image-20230616165505506](/markdown/image-20230616165505506.png)
 
-### Exchange Types（交换器类型）
+## Exchange Types（交换器类型）
 
-#### 1、fanout（广播）
+### 1、fanout（广播）
 
 fanout 类型的 Exchange 路由规则非常简单，它会把所有发送到该 Exchange 的消息路由到所有与它绑定的Queue中，不需要做任何判断操作，所以 fanout 类型是所有的交换器类型里面速度最快的。fanout 类型常用来广播消息。
 
-#### 2、direct（精确匹配）
+### 2、direct（精确匹配）
 
 direct 类型的 Exchange 路由规则也很简单，它会把消息路由到**那些** `BindingKey` 与 `RoutingKey` 完全匹配的 Queue 中。
 
 > 可能匹配的队列有多个。
 
-#### 3、topic
+### 3、topic
 
 topic 类型的交换器在匹配规则上进行了扩展，它与 direct 类型的交换器相似，也是将消息路由到 `BindingKey` 和 `RoutingKey` 相匹配的队列中，但这里的匹配规则有些不同，它约定：
 
@@ -187,11 +177,11 @@ topic 类型的交换器在匹配规则上进行了扩展，它与 direct 类型
 
 ![image-20230616171738195](/markdown/image-20230616171738195.png)
 
-#### 4、headers
+### 4、headers
 
 headers 类型的交换器不依赖于路由键的匹配规则来路由消息，而是根据发送的消息内容中的 headers 属性进行匹配。
 
-### 说说 Broker 服务节点、Queue 队列、Exchange 交换器？
+## 说说 Broker 服务节点、Queue 队列、Exchange 交换器？
 
 **Broker**：可以看做 RabbitMQ 的服务节点。一般情况下一个 Broker 可以看做一个 RabbitMQ 服务器。
 
@@ -199,7 +189,7 @@ headers 类型的交换器不依赖于路由键的匹配规则来路由消息，
 
 **Exchange**：生产者将消息发送到交换器，由交换器将消息路由到一个或者多个队列中。当路由不到时，或返回给生产者或直接丢弃。
 
-### 什么是死信路由，如何产生的？
+## 什么是死信路由，如何产生的？
 
 DLX，全称为 `Dead-Letter-Exchange`，死信交换器，死信邮箱。当消息在一个队列中变成死信（`dead message`）之后，它能被重新被发送到另一个交换器中，这个交换器就是 DLX，绑定 DLX 的队列就称之为**死信队列**。
 
@@ -209,25 +199,25 @@ DLX，全称为 `Dead-Letter-Exchange`，死信交换器，死信邮箱。当消
 - 消息 TTL 过期。
 - 队列满了，无法再添加。
 
-### 什么是延迟队列？RabbitMQ 怎么实现延迟队列？
+## 什么是延迟队列？RabbitMQ 怎么实现延迟队列？
 
 延时队列指的是存储对应的延时消息，消息被发送给队列之后，并不会立刻让消费者得到消息，而是等待一段时间之后才会消费消息。
 
 RabbitMQ 本身没有延时队列，可以通过本身的队列特性，需要使用死信交换机和消息存活的 TTL。
 
-#### 消息的 TTL
+### 消息的 TTL
 
 TTL 就是消息的存活时间，RabbitMQ 可以对队列和消息分别设置 TTL。
 
 - 对队列设置 TTL，也可以为每一个消息单独设置 TTL，如果两个都设置了会选择较小值。通过 `expiration` 或者 `x-message-ttl` 属性来设置过期时间。
 
-### 模拟订单过期解锁库存
+## 模拟订单过期解锁库存
 
 ![image-20230616205428858](/markdown/image-20230616205428858.png)
 
 订单创建的时候在延时队列中添加库存解锁信息，信息过期的时候表明订单也就过期了，进入死信路由 DLX，接着转发到解锁库存的队列中，在解锁前还需要检查订单是否支付（支付宝中采用最大努力交付，用户还可通过接口主动查询支付结果），没有支付则释放库存和取消订单（取消订单可以通过信息发送给相应的订单解锁队列）。
 
-### RabbitMQ 消息怎么传输？
+## RabbitMQ 消息怎么传输？
 
 由于 TCP 链接的创建和销毁开销较大，且并发数受系统资源限制，会造成性能瓶颈，所以 **RabbitMQ 使用信道的方式来传输数据**。
 
@@ -246,7 +236,7 @@ server 提供的服务时，可以划分出多个 vhost，每个用户在自己�
 
 Connection 的开销会比较大且效率也较低。Channel 是在 Connection 内部建立的逻辑连接，如果应用程序支持多线程，通常每个 thread 创建单独的 Channel 进行通讯，AMQP method 包含了 Channel Id 帮助客户端和 Message Broker 识别 Channel，所以 Channel 之间是完全隔离的。Channel 作为轻量级的 Connection 极大减少了操作系统建立 TCP Connection 的开销。
 
-### 如何保证消息的可靠性，防止消息丢失？
+## 如何保证消息的可靠性，防止消息丢失？
 
 - 生产者到 RabbitMQ：事务或者 confirm 机制，事务和 confirm 机制不能同时存在。
 - RabbitMQ 自身：持久化、集群、普通模式、镜像模式。
@@ -254,7 +244,7 @@ Connection 的开销会比较大且效率也较低。Channel 是在 Connection �
 
 ![image-20230617224404357](/markdown/image-20230617224404357.png)
 
-#### confirmCallback
+### confirmCallback
 
 **消息从 producer ——> exchange，会回调 `confirmCallback`** ，重写 confirm 方法有 3 个参数：
 
@@ -266,7 +256,7 @@ Connection 的开销会比较大且效率也较低。Channel 是在 Connection �
 
 producer 端发送消息需要添加异常处理，防止发送途中 MQ 宕机。
 
-#### returnCallback
+### returnCallback
 
 **消息从 exchange ——> queue，当交换机到队列路由失败时才会执行 `returnCallback`** 。
 
@@ -280,7 +270,7 @@ rabbitTemplage.setReturnCallback(new RabbitTemplate.ReturnCallback() {
 });
 ```
 
-#### ack
+### ack
 
 ack 指 Acknowledge，确认，表示消费者收到消息后的确认方式。
 
@@ -294,11 +284,11 @@ ack 指 Acknowledge，确认，表示消费者收到消息后的确认方式。
 
 如果设置了手动确认模式，则在业务处理成功后，调用 `channel.basicAck()` 手动签收，如果出现异常，则调用 `channel.basicNack()` 方法，让其自动重新发送消息。
 
-### 如何保证 RabbitMQ 消息的顺序性？
+## 如何保证 RabbitMQ 消息的顺序性？
 
 一个 queue 是对应一个 consumer，然后这个 consumer 内部用内存队列做排队，然后分发给底层不同的 worker 来处理。
 
-### RabbitMQ 消息积压如何处理？
+## RabbitMQ 消息积压如何处理？
 
 消息生产太快，消费不过来，导致队列堆积很长，把服务器内存耗尽，这时 RabbitMQ 的处理能力很低下。
 总结起来解决方案大体包括：

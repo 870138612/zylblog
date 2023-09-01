@@ -253,7 +253,7 @@ public PasswordEncoder passwordEncoder(){
 
 JWT 由三个部分构成，用 `.` 拼接：
 
-- Header，包含类型和加密算法，此部分通过 BASE64 加密之后得到第一个部分（需要一个 key 作为秘钥）。
+- Header，包含类型和加密算法，此部分通过 BASE64 编码之后得到第一个部分（需要一个 key 作为秘钥）。
 
   ```json
   {
@@ -262,7 +262,7 @@ JWT 由三个部分构成，用 `.` 拼接：
   }
   ```
 
-- Payload，载荷，用于存放主要信息，通过 BASE64 加密之后得到 Token 的第二个部分。
+- Payload，载荷，用于存放主要信息，通过 BASE64 编码之后得到 Token 的第二个部分。
 
   ```json
   {
@@ -271,14 +271,14 @@ JWT 由三个部分构成，用 `.` 拼接：
   }
   ```
 
-- Signature，通过对 Header 和 Payload 进行再次加密得到的数据再通过 HS256 加盐得到最终的 Signature。
+- Signature，通过对 Header 和 Payload 进行相加得到的数据通过 HS256 加盐得到最终的 Signature。
 
 ```java
 String encodedString = base64UrlEncode(header) + '.' + base64UrlEncode(payload);
 String signature = HMACSHA256(encodedString, secret);
 ```
 
-最后 HS256 加盐算法中的秘钥 `secret` 也可以通过 BASE64 加密获得。
+最后 HS256 加盐算法中的秘钥 `secret` 也可以通过 BASE64 编码获得，保存在服务器端，用来验证传回的 jwt 正确性。
 
 ### 数据更新之后对缓存如何操作？缓存一致性解决办法？
 
@@ -496,7 +496,7 @@ token 则直接放行，表示这个请求不需要用户验证。有 token 则�
 
 ### 签到功能
 
-通过 BitMap 实现签到功能，很好的减少存储数据的大小，Redis 中使用 String 数据类型实现 BitMap，因此最大容量为 512MB。
+通过 BitMap 实现签到功能，很好的减少存储数据的大小，Redis 中使用 String 数据类型实现 Key，因此最大容量为 512MB。
 
 `SETBIT user1 0 1`，表示将 offset 为 0 的位置设置为 1，也就是第一天签到了则标记为 1，第二天签到则执行 `SETBIT user1 1 1`。通过 `BITCOUNT user1` 来查询出现1的个数。
 
