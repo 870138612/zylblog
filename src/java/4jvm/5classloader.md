@@ -30,7 +30,7 @@ JVM 中内置了三个 `ClassLoader`：
 
 1. **`BootstrapClassLoader`(启动类加载器)**：最顶层的加载类，由 C++ 实现，通常表示为 null，并且没有父级，主要用来加载 JDK 内部的核心类库（ `%JAVA_HOME%/lib`目录下的 `rt.jar`、`resources.jar`、`charsets.jar`等 jar 包和类）以及被 `-Xbootclasspath` 参数指定的路径下的所有类。
 2. **`ExtensionClassLoader`(扩展类加载器)**：主要负责加载 `%JRE_HOME%/lib/ext` 目录下的 jar 包和类以及被 `java.ext.dirs` 系统变量所指定的路径下的所有类。
-3. **`AppClassLoader`(应用程序类加载器)**：面向用户的加载器，负责加载当前应用 classpath 下的所有 jar 包和类。
+3. **`ApplicationClassLoader`(应用程序类加载器)**：面向用户的加载器，负责加载当前应用 classpath 下的所有 jar 包和类。
 
 除了 `BootstrapClassLoader` 是 JVM 自身的一部分之外，其他所有的类加载器都是在 JVM 外部实现的，并且全都继承自 `ClassLoader` 抽象类。这样做的好处是用户可以自定义类加载器，以便让应用程序自己决定如何去获取所需的类。
 

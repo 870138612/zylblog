@@ -29,7 +29,7 @@ String 是一种二进制安全的数据结构，可以用来存储任何类型�
 
 ![image-20230607205223121](/markdown/image-20230607205223121.png)
 
-Redis自己构建了一种 **简单动态字符串**（Simple Dynamic String，**SDS**）。相比于 C 的原生字符串，Redis 的 SDS 不光可以保存文本数据还可以保存二进制数据，并且获取字符串长度复杂度为 O(1)（C 字符串为 O(N)）,除此之外，Redis 的 SDS API 是安全的，不会造成缓冲区溢出。
+Redis 自己构建了一种**简单动态字符串**（Simple Dynamic String，**SDS**）。相比于 C 的原生字符串，Redis 的 SDS 不光可以保存文本数据还可以保存二进制数据，并且获取字符串长度复杂度为 O(1)（C 字符串为 O(N)）,除此之外，Redis 的 SDS API 是安全的，不会造成缓冲区溢出。
 
 ### 常用命令
 
@@ -117,7 +117,7 @@ Hash 类似于 JDK 1.8 前的 `HashMap`，内部实现也差不多(数组 + 链�
 | HLEN key                                  | 获取指定哈希表中字段的数量                               |
 | HINCRBY key field increment               | 对指定哈希中的指定字段做运算操作（正数为加，负数为减）   |
 
-> Hash数据结构添加需要三个参数，分别是hash的key、键、值，而String类型是两个参数。
+> Hash 数据结构添加需要三个参数，分别是 hash 的 key、键、值，而 String 类型是两个参数。
 
 ### 应用场景
 
@@ -254,15 +254,15 @@ Geospatial index（地理空间索引，简称 GEO） 主要用于存储地理�
 
 ### 常用命令
 
-| 命令                                             | 介绍                                                         |
-| ------------------------------------------------ | ------------------------------------------------------------ |
-| GEOADD key longitude1 latitude1 member1 ...      | 添加一个或多个元素对应的经纬度信息到 GEO 中                  |
-| GEOPOS key member1 member2 ...                   | 返回给定元素的经纬度信息                                     |
-| GEODIST key member1 member2 M/KM/FT/MI           | 返回两个给定元素之间的距离                                   |
-| GEORADIUS key longitude latitude radius distance | 获取指定位置附近 distance 范围内的其他元素，支持 ASC(由近到远)、DESC（由远到近）、Count(数量) 等参数 |
-| GEORADIUSBYMEMBER key member radius distance     | 类似于 GEORADIUS 命令，只是参照的中心点是 GEO 中的元素       |
+| 命令                                             | 介绍                                                               |
+| ------------------------------------------------ |------------------------------------------------------------------|
+| GEOADD key longitude1 latitude1 member1 ...      | 添加一个或多个元素对应的经纬度信息到 GEO 中                                         |
+| GEOPOS key member1 member2 ...                   | 返回给定元素的经纬度信息                                                     |
+| GEODIST key member1 member2 M/KM/FT/MI           | 返回两个给定元素之间的距离                                                    |
+| GEORADIUS key longitude latitude radius distance | 获取指定位置附近 distance 范围内的其他元素，支持 ASC（由近到远）、DESC（由远到近）、Count（数量）等参数 |
+| GEORADIUSBYMEMBER key member radius distance     | 类似于 GEORADIUS 命令，只是参照的中心点是 GEO 中的元素                              |
 
-GEO 中存储的地理位置信息的经纬度数据通过 GeoHash 算法转换成了一个整数，这个整数作为 Sorted Set 的 score(权重参数) 使用。
+GEO 中存储的地理位置信息的经纬度数据通过 GeoHash 算法转换成了一个整数，这个整数作为 Sorted Set 的 score（权重参数）使用。
 
 ### 应用场景
 

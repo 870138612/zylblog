@@ -225,7 +225,7 @@ AService 和 BService 相互依赖。
 
 **二级缓存就能解决普通对象的循环依赖问题，那三级缓存的作用？**
 
-比如，可能 AService 会进行 AOP 操作，会创建 AServiceProxy 代理对象（**正常情况是在属性注入之后进行AOP**），然后将代理对象放入单例池中，但是 BService 进行属性赋值，依赖注入的时候是把二级缓存中的 AService 的普通对象进行赋值，同时存在普通对象和代理对象违背了单例池规则。
+比如，可能 AService 会进行 AOP 操作，会创建 AServiceProxy 代理对象（**正常情况是在属性注入之后进行 AOP**），然后将代理对象放入单例池中，但是 BService 进行属性赋值，依赖注入的时候是把二级缓存中的 AService 的普通对象进行赋值，同时存在普通对象和代理对象违背了单例池规则。
 
 解决办法就是在 AService 创建普通对象之后存入一个 Lambda 表达式到三级缓存中。
 
@@ -245,7 +245,7 @@ AService 和 BService 相互依赖。
 
 通过对注入属性添加 `@Lazy` 实现懒惰式加载，只有在调用方法用到属性的时候才会进行初始化，此时本类已经完成创建周期，因此不会出现循环依赖。
 
-出现循环依赖本身就不应该出现，在 Spring 2.6.0 以及以后的版本会进行循环依赖检查，出现循环依赖则报错。
+出现循环依赖属于代码设计问题，在 Spring 2.6.0 以及以后的版本会进行循环依赖检查，出现循环依赖则报错。
 
 :::
 
@@ -268,8 +268,7 @@ Bean 有多种作用域：
 ### ApplicationContext 和 BeanFactory 有什么区别？
 
 `BeanFactory` 是 Spring 中非常核心的组件，表示 Bean 工厂，可以生成和维护 Bean，而 `ApplicationContext` 继承了 `BeanFactory`，所以 `ApplicationContext` 拥有 
-`BeanFactory` 的所有特点，也是一个 Bean 工厂，另外还继承了其他接口例如 `EnvironmentCapable`、`MessageSourse
-`、`ApplicationEventPublisher` 等接口，从而让 `ApplicationContext` 具有 `BeanFactory` 不具备的功能。
+`BeanFactory` 的所有特点，也是一个 Bean 工厂，另外还继承了其他接口例如 `EnvironmentCapable`、`MessageSourse`、`ApplicationEventPublisher` 等接口，从而让 `ApplicationContext` 具有 `BeanFactory` 不具备的功能。
 
 ### Spring 容器的启动流程
 
@@ -289,14 +288,14 @@ Bean 有多种作用域：
 
 ```java
 class UserServiceProxy extends UserService{
-	UserService target;
-	public void test(){
-		//@Transactional
+    UserService target;
+    public void test(){
+        //@Transactional
         //事务管理器新建一个数据库连接conn;ThreadLocal<Map,conn>
-		//conn.autocommit=false;//关闭自动提交
+        //conn.autocommit=false;//关闭自动提交
         //target.test();//执行数据库操作
         //没有出现异常则提交conn.commit();否则回滚conn.rollBack();
-	}
+    }
 }
 ```
 
@@ -444,7 +443,7 @@ public @interface SpringBootApplication {
 
 - `@EnableAutoConfiguration`：这个注解会负责进行自动配置类的导入，就是将项目中的自动配置类导入到 Spring 容器中，从而得到解析。
 
-  > 此注解内部有 `@Import({AutoConfigurationImportSelector.class})` 注解，用来扫描项目中的自动配置类并将其返回为自动配置类的名字 `String[]` 给 Spring 容器进行加载。
+  > 此注解内部有 `@Import({AutoConfigurationImportSelector.class})` 注解，用来扫描项目中的自动配置类（spring.factories 中配置的自动配置类）并将其返回为自动配置类的名字 `String[]` 给 Spring 容器进行加载。
 
 - `@ComponentScan`：Spring 容器会进行扫描，默认扫描路径就是这个类所在的包路径。作用一：扫描含有 `@Component`，`@Controller`，`@Service` 和 `@Repository` 的类，并将其注入到 Spring 容器中。作用二：扫描含有 `@Configuration` 的类，并使其生效。
 
