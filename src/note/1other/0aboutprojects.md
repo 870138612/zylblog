@@ -18,7 +18,7 @@ tag:
 
 ## 谷粒商城
 
-项目整体较为复杂，项目中可能会涉及到的疑问点参考诚哥的博客文章[秋招笔记整理](https://www.jcwang.top/2022/10/14/%E6%88%91%E7%9A%84%E7%A7%8B%E6%8B%9B%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/)。
+项目整体较为复杂，项目中可能会涉及到的疑问点参考诚哥的博客文章[秋招笔记整理](https://www.jcwang.top/2022/10/14/%E6%88%91%E7%9A%84%E7%A7%8B%E6%8B%9B%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/)。（貌似已经删除了）
 
 首先是简历部分：
 
@@ -581,7 +581,7 @@ Sorted Set 可以用来设计排行榜，如果文章的阅读量很多，使用
 
 针对热门文章的 UV 统计可以使用 HyperLogLog 实现，命令为 `PFADD key element` 添加元素，但是这个数据结构不会存储元素，仅仅会存储集合的个数，使用 `PFCOUNT` 返回集合个数。
 
-HyperLogLog 并不会精确计数，存在误差（0.81%）。
+HyperLogLog 并不会精确计数，存在误差（0.81%）。排名的话不用 ZSET 用啥呢？
 
 ### 秒杀包含什么？具体的测试流程是怎么样的？
 
@@ -611,7 +611,8 @@ HyperLogLog 并不会精确计数，存在误差（0.81%）。
 tcpdump tcp port 80 host 192.168.1.103
 ```
 
-使用 **ZipKin** 做链路追踪时发现查询 SKU 数据花费较长的时间，后续改为使用 `CompletableFuture` 进行异步查询减少了请求的时间。先查询 SKU 主体信息 `CompletableFuture.supplyAsync`，之后异步查询 `.thenAcceptAsync` SKU 的图片、介绍、规格参数、销售属性组合。
+使用 **ZipKin** 做链路追踪时发现查询 SKU 数据花费较长的时间，后续改为使用 `CompletableFuture` 进行异步查询减少了请求的时间。先查询 SKU 主体信息 `CompletableFuture.supplyAsync`，之后异步查询 `.thenAcceptAsync` SKU 的图片、介绍、规格参数、销售属性组合，`allof(...).get()` 
+之后将数据返回。（需要传入线程池）
 
 ### 创建线程的方法
 
