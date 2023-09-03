@@ -17,7 +17,7 @@ tags:
 
 `redo log` 通用格式：
 
-![img.png](/markdown/redolog.png)
+![img.png](/markdown/redolog.jpg)
 
 - **type** ：该条 redo 日志的类型。
 - **space ID** ：表空间 ID。
