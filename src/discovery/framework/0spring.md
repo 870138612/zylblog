@@ -270,6 +270,18 @@ Bean 有多种作用域：
 `BeanFactory` 是 Spring 中非常核心的组件，表示 Bean 工厂，可以生成和维护 Bean，而 `ApplicationContext` 继承了 `BeanFactory`，所以 `ApplicationContext` 拥有 
 `BeanFactory` 的所有特点，也是一个 Bean 工厂，另外还继承了其他接口例如 `EnvironmentCapable`、`MessageSourse`、`ApplicationEventPublisher` 等接口，从而让 `ApplicationContext` 具有 `BeanFactory` 不具备的功能。
 
+### Spring DI 方式
+
+DI 的三种常见注入方式为：注解注入、构造器注入、setter 注入。
+
+1. 注解注入：使用 `@Autowired` 或者 `@Resource` 注解实现注入，`@Autowired`：Spring 注解，默认是以 byType 的方式去匹配类型相同的 bean，可以结合 `@Qualifier` 注解根据 byName 方式匹配。`@Resource`
+：java 的注解，默认以 byName 的方式去匹配与属性名相同的 bean 的 id，如果没有找到就会以 byType 的方式查找。
+
+2. 构造器注入：使用有参构造器实现依赖注入，允许将应用组件实现为不可变的对象，确保依赖都不为空。由于添加了有参的构造函数，则无参的默认构造会失效，在依赖注入时必须要传入不为空的对象。之前如果有父类先初始化父类，然后自己的成员变量，最后才是构造方法，确保构造完成之后的对象是一个完全初始化的状态。同时构造器注入还避免了循环依赖，明确类的依赖关系。
+
+3. setter 注入：在构造器上面添加 `@Autowired` 就是 setter 注入。
+
+
 ### Spring 容器的启动流程
 
 1. 创建 Spring 容器时会先进行扫描，得到所有的 `BeanDefinition` 对象，并放在一个 Map 中，其中包含了 Bean 的作用范围 `Scope`。
@@ -280,9 +292,9 @@ Bean 有多种作用域：
 
 ☀️详见 [手写SPRING源码](https://www.bilibili.com/video/BV1AM4y1c79v/?p=1&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
 
-## Spring 事务
+### Spring 事务
 
-### 事务实现原理
+#### 事务实现原理
 
 事务 `Transactional` 本质也是通过代理对象调用普通对象的方法，并在前后做增强。
 
@@ -299,7 +311,7 @@ class UserServiceProxy extends UserService{
 }
 ```
 
-### Spring 事务传播机制
+#### Spring 事务传播机制
 
 多个事务方法相互调用的时候，事务包含以下的转播机制。
 
@@ -310,7 +322,7 @@ class UserServiceProxy extends UserService{
 - **NEVER**：从来不使用事务。
 - **NESTED**：如果存在事务则将当前事务嵌套进去，否则开启一个新的事务。
 
-### Spring 事务失效的原因
+#### Spring 事务失效的原因
 
 1、**方法异常没有抛出**
 
