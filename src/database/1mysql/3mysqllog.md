@@ -15,6 +15,17 @@ tags:
 
 ![image-20230529154219243](/markdown/image-20230529154219243.png)
 
+`redo log` 通用格式：
+
+![img.png](/markdown/redolog.png)
+
+- **type** ：该条 redo 日志的类型。
+- **space ID** ：表空间 ID。
+- **page number** ：页号。
+- **data** ：该条 `redo log` 的具体内容
+
+`redo log` 里本质上记录的就是在对某个表空间的某个数据页的某个偏移量的地方修改了几个字节的值，具体修改的值是什么，里面需要记录的就是**表空间号 + 数据页号 + 偏移量 + 修改几个字节的值 + 具体的值**（MLOG_8BYTE 类型）。
+
 <!-- more -->
 
 MySQL 中以页为单位，查询记录的时候会从硬盘中将一页的数据加载，放入 `Buffer Pool` 中。
