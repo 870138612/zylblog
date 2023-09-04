@@ -6,7 +6,7 @@ import {blog, mdEnhance} from "vuepress-theme-hope";
 import {autoCatalogPlugin} from "vuepress-plugin-auto-catalog";
 import {RouteMeta} from "vue-router";
 
-
+// @ts-ignore
 export default defineUserConfig({
 
   base: "/",
@@ -39,7 +39,7 @@ export default defineUserConfig({
         }
       },
       iconGetter:(page)=>page.frontmatter.icon,
-      orderGetter:(page)=>1
+      orderGetter:(page)=> 1
     }),
     searchPlugin({
       locales: {

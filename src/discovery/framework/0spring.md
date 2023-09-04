@@ -281,7 +281,6 @@ DI 的三种常见注入方式为：注解注入、构造器注入、setter 注�
 
 3. setter 注入：在构造器上面添加 `@Autowired` 就是 setter 注入。
 
-
 ### Spring 容器的启动流程
 
 1. 创建 Spring 容器时会先进行扫描，得到所有的 `BeanDefinition` 对象，并放在一个 Map 中，其中包含了 Bean 的作用范围 `Scope`。
