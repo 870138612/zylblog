@@ -3,12 +3,10 @@ home: true
 title: 主页
 layout: BlogHome
 icon: home
-bgImageStyle:
-  - 
 heroFullScreen: true
 bgImage: /home/img.jpg
-heroText: 秋色伤感 寒冬落雪 四季轮回 暖春将至
-tagline: 终将美好 我们的春夏秋冬
+heroText: 终将美好
+tagline: 我们的春夏秋冬
 projects:
   - icon: java
     name: Java
