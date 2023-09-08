@@ -240,10 +240,17 @@ synchronized(类.class) {
 - `volatile` 关键字主要用于解决变量在多个线程之间的可见性，而 `synchronized` 关键字解决的是多个线程之间访问资源的同步性。
 
 ### Lock 和 synchronized 有什么区别？
+
 - `synchronized` 是 Java 中的同步关键字，`Lock` 是 J.U.C 包中提供的接口，这个接口有很多实现类，其中就包括 `ReentrantLock` 重入锁
 - `synchronized` 可以通过修饰类、方法或者代码块来实现不同的粒度锁。`Lock` 则通过 `lock()` 和 `unlock()` 方法声明加锁和解锁的位置。
 - `Lock` 比 `synchronized` 的灵活性更高，`Lock` 可以自主决定什么时候加锁，什么时候释放锁，只需要调用 `lock()` 和 `unlock()` 这两个方法就行，同时 `Lock` 还 提供了非阻塞的竞争锁方法 `tryLock()` 方法，这个方法通过返回 true/false 来告诉当前线程是否已经有其他线程正在使用锁。
 - `synchronized` 引入了偏向锁、轻量级锁、重量级锁以及锁升级的方式来优化加锁的性能，而 `Lock` 中则用到了自旋锁的方式来实现性能优化。
+
+### wait 和 notify 为什么要在 synchronized 代码块中？
+1. `wait` 和 `notify` 用来实现多线程之间的协调，`wait` 表示让线程进入到阻塞状态，`notify` 表示让阻塞的线程唤醒。
+2. `wait` 和 `notify` 必然是成对出现的，如果一个线程被 `wait()` 方法阻塞，那么必然需要另外一个线程通过 `notify()` 方法来唤醒这个被阻塞的线程，从而实现多线程之间的通信。
+3. 在通过共享变量来实现多个线程通信的场景里面，参与通信的线程必须要竞争到这个共享变量的锁资源，才有资格对共享变量做修改，修改完成后就释放锁，那么其他的线程就可以再次来竞争同一个共享变量的锁来获取修改后的数据，从而完成线程之前的通信。
+4. 为了避免 `wait/notify` 的错误使用，JDK 强制要求把 `wait/notify` 写在同步代码块里面，否则会抛出 `IllegalMonitorStateException`。
 
 ## ReentrantLock
 

@@ -281,6 +281,11 @@ DI 的三种常见注入方式为：注解注入、构造器注入、setter 注�
 
 3. setter 注入：在构造器上面添加 `@Autowired` 就是 setter 注入。
 
+### Spring 中如果有两个相同 id 的 Bean 会报错吗？
+
+1. 在 XML 文件中配置 Bean 时不能有相同的 id，在 Spring 启动时会去验证 id 唯一性，报错发生在文件解析为 `BeanDefinition` 对象的时候。
+2. 在 Spring3.x 之后使用 @Bean 声明一个 Bean，此时如果有相同名字的 Bean，只会加载第一个。
+
 ### Spring 容器的启动流程
 
 1. 创建 Spring 容器时会先进行扫描，得到所有的 `BeanDefinition` 对象，并放在一个 Map 中，其中包含了 Bean 的作用范围 `Scope`。
@@ -291,9 +296,9 @@ DI 的三种常见注入方式为：注解注入、构造器注入、setter 注�
 
 ☀️详见 [手写SPRING源码](https://www.bilibili.com/video/BV1AM4y1c79v/?p=1&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
 
-### Spring 事务
+## Spring 事务
 
-#### 事务实现原理
+### 事务实现原理
 
 事务 `Transactional` 本质也是通过代理对象调用普通对象的方法，并在前后做增强。
 
@@ -310,7 +315,7 @@ class UserServiceProxy extends UserService{
 }
 ```
 
-#### Spring 事务传播机制
+### Spring 事务传播机制
 
 多个事务方法相互调用的时候，事务包含以下的转播机制。
 
@@ -321,7 +326,7 @@ class UserServiceProxy extends UserService{
 - **NEVER**：从来不使用事务。
 - **NESTED**：如果存在事务则将当前事务嵌套进去，否则开启一个新的事务。
 
-#### Spring 事务失效的原因
+### Spring 事务失效的原因
 
 1、**方法异常没有抛出**
 
@@ -496,10 +501,11 @@ SpringBoot 在启动的过程中，会找出项目中所有的 `spring.factories
 
 ### 自动装配原理
 
-- 判断自动装配开关是否打开。默认 `spring.boot.enableautoconfiguration=true`，可在 `application.properties` 或 `application.yml` 中设置。
-- 获取 `EnableAutoConfiguration` 注解中的 `exclude` 和 `excludeName`，排除部分类。
-- 获取需要自动装配的所有配置类，读取 `META-INF/spring.factories`。
-- 加载经过 `@ConditionalOnXXX` 筛选后的组件进行加载。
+1. 引入 Starter 启动依赖组件的时候，这个组件里面必须要包含 `@Configuration` 配置类，在这个配置类里面通过 `@Bean` 注解声明需要装配到 IOC 容器的 Bean 对象。
+2. 这个配置类是放在第三方的 jar 包里面，然后通过 SpringBoot 中的约定优于配置思想，把这个配置类的全路径放在 classpath:/META-INF/spring.factories 文件 中。这样 SpringBoot 就可以知道第三方 jar 包里面的配置类的位置，这个步骤主 要是用到了 Spring 里面的 `SpringFactoriesLoader` 来完成的。
+3. SpringBoot 拿到所第三方 jar 包里面声明的配置类以后，再通过 Spring 提供的 `ImportSelector` 接口，实现对这些配置类的动态加载。
+
+> ⚡ 可以再向 @EnableAutoConfiguration 这个注解部分进行延伸。
 
 ### 实现一个 Stater
 
