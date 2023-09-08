@@ -458,6 +458,16 @@ public @interface SpringBootApplication {
 
 - `@ComponentScan`：Spring 容器会进行扫描，默认扫描路径就是这个类所在的包路径。作用一：扫描含有 `@Component`，`@Controller`，`@Service` 和 `@Repository` 的类，并将其注入到 Spring 容器中。作用二：扫描含有 `@Configuration` 的类，并使其生效。
 
+### SpringBoot 的约定优于配置是什么意思？
+
+约定优于配置是一种软件设计的范式，它的核心思想是减少软件开发人员对于配置项的维护，从而让开发人员更加聚焦在业务逻辑上。
+
+SpringBoot 约定优于配置的体现有很多，例如：
+- SpringBootStarter 启动依赖，能帮助我们管理所有 jar 包版本。
+- SpringBoot 的自动装配机制中，通过扫描约定路径下的 spring.factories 文件来识别配置类，实现 Bean 的自动装配。
+- 如果当前的应用依赖了 SpringMVC 相关的 jar 包，则会自动内置 Tomcat 容器来运行 web 应用，不需要再去单独部署。
+- 默认加载的配置文件 application.properties。
+
 ### SpringBoot 中的 spring.factories 文件有什么作用？
 
 `spring.factories` 是 SpringBoot SPI 实现的核心，SPI 机制表示扩展机制，所以 `spring.factories` 就是对 SpringBoot 进行扩展的，比如要添加 Listener，只需要在这个文件中添加类路径名。

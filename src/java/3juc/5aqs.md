@@ -9,13 +9,14 @@ tag:
   - 并发编程
 ---
 
-AQS的全称为 `AbstractQueuedSynchronizer` ，翻译过来的意思就是抽象队列同步器。这个类在 `java.util.concurrent.locks` 包下面。
+AQS的全称为 `AbstractQueuedSynchronizer` ，抽象队列同步器。这个类在 `java.util.concurrent.locks` 包下面。
 
 <!-- more -->
 
 AQS 就是一个抽象类，主要用来构建锁和同步器。
 
-比如 `ReentrantLock`，`Semaphore`，其他的诸如 `ReentrantReadWriteLock`，`SynchronousQueue` 等等皆是基于 AQS 实现的。
+比如 `ReentrantLock`，`Semaphore`，其他的诸如 `ReentrantReadWriteLock`，`SynchronousQueue` 等等皆是基于 AQS 实现的。从本质上来说，AQS 提供了两种锁机制，分别是排它锁，和 共享锁。
+排它锁就是存在多线程竞争同一共享资源时，同一时刻只允许一个线程访问该共享资 源，也就是多个线程中只能有一个线程获得锁资源，比如 Lock 中的 `ReentrantLock` 重入锁实现就是用到了 AQS 中的排它锁功能。 共享锁也称为读锁，就是在同一时刻允许多个线程同时获得锁资源，比如 `CountDownLatch` 和 `Semaphore` 都是用到了 AQS 中的共享锁功能。
 
 ## AQS 原理
 

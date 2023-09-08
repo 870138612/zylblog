@@ -53,6 +53,15 @@ int totalNum = userNum + teacherNum;	// 3
 
 如果两个操作不满足上述条件的任意一个，则这两个操作就没有顺序保障，JVM 可以对这两个操作进行重排序。
 
+### fail-safe 和 fail-fast
+fail-safe 和 fail-fast 是多线程并发操作集合时的一种失败处理机制。
+
+**fail-fast** ： 表示快速失败，在集合遍历过程中，一旦发现容器中的数据被修改了，会
+立刻抛出 `ConcurrentModificationException` 异常，从而导致遍历失败，例如 `HashMap`。
+
+**fail-safe**，表示失败安全，也就是在这种机制下，出现集合元素的修改，不会抛出 `ConcurrentModificationException`。原因是采用安全失败机制的集合容器，在遍历时不是直接在集合内容上访问的，而是先复制原有集合内容，在拷贝的集合上进行遍历。由于迭代时是对原集合的拷贝进行遍历，所以在遍历过程中对原集合所作的修改并不能被迭代器检测到。常见的 
+fail-safe 方式遍历的容器有 `ConcurrentHashMap`，`CopyOnWriteArrayList`。
+
 ## 并发编程的三个特性
 
 **原子性：**
@@ -229,6 +238,12 @@ synchronized(类.class) {
 - `volatile` 关键字能保证数据的可见性，但不能保证数据的原子性。`synchronized` 关键字两者都能保证。
 
 - `volatile` 关键字主要用于解决变量在多个线程之间的可见性，而 `synchronized` 关键字解决的是多个线程之间访问资源的同步性。
+
+### Lock 和 synchronized 有什么区别？
+- `synchronized` 是 Java 中的同步关键字，`Lock` 是 J.U.C 包中提供的接口，这个接口有很多实现类，其中就包括 `ReentrantLock` 重入锁
+- `synchronized` 可以通过修饰类、方法或者代码块来实现不同的粒度锁。`Lock` 则通过 `lock()` 和 `unlock()` 方法声明加锁和解锁的位置。
+- `Lock` 比 `synchronized` 的灵活性更高，`Lock` 可以自主决定什么时候加锁，什么时候释放锁，只需要调用 `lock()` 和 `unlock()` 这两个方法就行，同时 `Lock` 还 提供了非阻塞的竞争锁方法 `tryLock()` 方法，这个方法通过返回 true/false 来告诉当前线程是否已经有其他线程正在使用锁。
+- `synchronized` 引入了偏向锁、轻量级锁、重量级锁以及锁升级的方式来优化加锁的性能，而 `Lock` 中则用到了自旋锁的方式来实现性能优化。
 
 ## ReentrantLock
 
