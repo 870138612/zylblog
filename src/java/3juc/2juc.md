@@ -24,7 +24,9 @@ JMM 是 Java 定义的并发编程相关的一组规范，除了抽象了线程�
 ### 什么是主内存？什么是本地内存？
 
 - 主内存：所有线程创建的对象实例都放在主内存中；
-- 本地内存：每个线程都有私有的本地内存来存储共享变量的副本，并且每一个线程只能访问自己的本地内存，无法访问其他线程的本地内存。本地内存是 JMM 抽象出的概念，存储了主内存中的变量副本。![jmm](/markdown/jmm.jpg)
+- 本地内存：每个线程都有私有的本地内存来存储共享变量的副本，并且每一个线程只能访问自己的本地内存，无法访问其他线程的本地内存。本地内存是 JMM 抽象出的概念，存储了主内存中的变量副本。
+
+![jmm](/markdown/jmm.jpg)
 
 ### Java 内存结构和 Java 内存模型的区别
 
@@ -48,7 +50,7 @@ int totalNum = userNum + teacherNum;	// 3
 1. 程序顺序规则：一个线程内，书写在前的操作 happens-before 于书写在后面的操作；
 2. 解锁规则：解锁 happens-before 加锁；
 3. volatile 变量规则：对于一个 `volatile` 变量的写操作 happens-before 后面对这个变量的读操作，也就是对这个变量的修改对其后的所有操作都可见；
-4. 传递规则：如果 A happens-before B，B happens-before C，则A happens-before C；
+4. 传递规则：如果 A happens-before B，B happens-before C，则 A happens-before C；
 5. 线程启动规则：Thread 对象的 `start()` 方法 happens-before 这个线程的每一个操作。
 
 如果两个操作不满足上述条件的任意一个，则这两个操作就没有顺序保障，JVM 可以对这两个操作进行重排序。
@@ -56,10 +58,10 @@ int totalNum = userNum + teacherNum;	// 3
 ### fail-safe 和 fail-fast
 fail-safe 和 fail-fast 是多线程并发操作集合时的一种失败处理机制。
 
-**fail-fast** ： 表示快速失败，在集合遍历过程中，一旦发现容器中的数据被修改了，会
+**fail-fast**：表示快速失败，在集合遍历过程中，一旦发现容器中的数据被修改了，会
 立刻抛出 `ConcurrentModificationException` 异常，从而导致遍历失败，例如 `HashMap`。
 
-**fail-safe**，表示失败安全，也就是在这种机制下，出现集合元素的修改，不会抛出 `ConcurrentModificationException`。原因是采用安全失败机制的集合容器，在遍历时不是直接在集合内容上访问的，而是先复制原有集合内容，在拷贝的集合上进行遍历。由于迭代时是对原集合的拷贝进行遍历，所以在遍历过程中对原集合所作的修改并不能被迭代器检测到。常见的 
+**fail-safe**：表示失败安全，也就是在这种机制下，出现集合元素的修改，不会抛出 `ConcurrentModificationException`。原因是采用安全失败机制的集合容器，在遍历时不是直接在集合内容上访问的，而是先复制原有集合内容，在拷贝的集合上进行遍历。由于迭代时是对原集合的拷贝进行遍历，所以在遍历过程中对原集合所作的修改并不能被迭代器检测到。常见的 
 fail-safe 方式遍历的容器有 `ConcurrentHashMap`，`CopyOnWriteArrayList`。
 
 ## 并发编程的三个特性
@@ -150,7 +152,7 @@ CAS 是一个原子操作，底层依赖于一条 CPU 的原子指令。
 
 CAS 涉及到三个操作数：
 
-- **V**：要更新的变量值（Var）
+- **V**：要更新的变量（Var）
 - **E**：预期值（Expected）
 - **N**：拟写入的新值（New）
 
@@ -172,7 +174,7 @@ CAS 只对单个共享变量有效，当操作涉及跨多个共享变量时 CAS
 
 `synchronized` 是 Java 中的一个关键字，翻译成中文是同步的意思，主要解决的是多个线程之间访问资源的同步性，可以保证被它修饰的方法或者代码块在任意时刻只能有一个线程执行。
 
-早期版本中 `synchronized` 属于重量级锁，Java 6 之后对`synchronized` 做了优化。
+早期版本中 `synchronized` 属于重量级锁，Java 6 之后对 `synchronized` 做了优化。
 
 ☀️详见 [synchronized 锁优化](https://ylzhong.top/java/3juc/4synchronizedlock.html)
 

@@ -382,7 +382,7 @@ public void test(){
 ![image-20230620221443613](/markdown/image-20230620221443613.png)
 
 
-**SpringMVC中的一次请求流程：**
+**SpringMVC 中的一次请求流程：**
 
 1. 客户端（浏览器）发送请求， `DispatcherServlet` 拦截请求。
 2. `DispatcherServlet` 根据请求信息调用 `HandlerMapping` 。`HandlerMapping` 根据 uri 去匹配查找能处理的 `Handler`（也就是 `Controller` 控制器） ，并会将请求涉及到的拦截器和 `Handler` 一起封装。

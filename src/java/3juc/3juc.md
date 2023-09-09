@@ -195,6 +195,12 @@ RejectedExecutionHandler handler;//拒绝策略
   - 线程池中 `submit()` 提供了一个 `Future` 的返回值，通过 `Future.get()` 方法获取线程执行的结果，当没有执行完时，此方法会一直阻塞，因此只要正常返回了，则表示线程已经执行完毕。
 
   - 还可以使用 `CountDownLatch` 设置计数器值为 1，在线程池运行代码块后面执行 `await()` 方法，在线程池内的任务执行最后调用 `countDown()` 方法，如果线程没有执行结束则 `await()` 方法会一直阻塞，运行结束则 `await()` 方法放行。
+
+### submit 和 execute 区别
+1. `execute` 是 `Executor` 接口的方法，`submit` 是 `ExecuteService` 接口的方法。
+2. `execute` 的入参是 `Runnable`，`submit` 的入参可以是 `Runnable`、`Callable`、`Runnable` 和一个返回值。
+3. `execute` 没有返回值，`submit` 有返回值。
+4. `execute` 会直接抛出异常，`submit` 会在获取结果的时候抛出异常，如果不获取结果，`submit` 不抛出异常。
   
 ## Future
 
@@ -240,14 +246,9 @@ FutureTask<String> task = new FutureTask<>(new Runnable() {
 `FutureTask` 相当于对 `Callable` 进行了封装，管理着任务执行的情况，存储了 `Callable` 的 `call` 方法的任务执行结果。
 
 ### 线程池中的线程异常了，是否能从线程池外部捕获异常？
+
 1. 如果是 `execute` 方法提交任务，则抛出异常，如果是 `submit` 提交任务，当调用 `get()` 方法获取 `FutureTask` 返回值时会抛出异常，否则不会抛出异常。
 2. 异常的线程会终止任务并移除。
-
-**submit 和 execute 区别：**
-1. `execute` 是 `Executor` 接口的方法，`submit` 是 `ExecuteService` 接口的方法。
-2. `execute` 的入参是 `Runnable`，`submit` 的入参可以是 `Runnable`、`Callable`、`Runnable` 和一个返回值。
-3. `execute` 没有返回值，`submit` 有返回值。
-4. `execute` 会直接抛出异常，`submit` 会在获取结果的时候抛出异常，如果不获取结果，`submit` 不抛出异常。
 
 ### CompletableFuture 类有什么用？
 
