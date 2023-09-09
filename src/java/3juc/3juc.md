@@ -184,10 +184,10 @@ RejectedExecutionHandler handler;//拒绝策略
 
 ### submit 和 execute 区别
 
-1. `execute` 是 `Executor` 接口的方法，`submit` 是 `ExecuteService` 接口的方法。
-2. `execute` 的入参是 `Runnable`，`submit` 的入参可以是 `Runnable`、`Callable`、`Runnable` 和一个返回值。
-3. `execute` 没有返回值，`submit` 有返回值。
-4. `execute` 会直接抛出异常，`submit` 会在获取结果的时候抛出异常，如果不获取结果，`submit` 不抛出异常。
+- `execute` 是 `Executor` 接口的方法，`submit` 是 `ExecuteService` 接口的方法。
+- `execute` 的入参是 `Runnable`，`submit` 的入参可以是 `Runnable`、`Callable`、`Runnable` 和一个返回值。
+- `execute` 没有返回值，`submit` 有返回值。
+- `execute` 会直接抛出异常，`submit` 会在获取结果的时候抛出异常，如果不获取结果，`submit` 不抛出异常。
   
 ## Future
 
@@ -199,9 +199,8 @@ RejectedExecutionHandler handler;//拒绝策略
 
 ### Callable 和 Future 有什么关系？
 
-`FutureTask` 提供了 `Future` 接口的基本实现，常用来封装 `Callable` 和 `Runnable`，具有取消任务、查看任务是否执行完成以及获取任务执行结果的方法。`ExecutorService.submit()` 方法返回的其实就是 `Future` 的实现类 `FutureTask`。
-
-`FutureTask` 有两个构造函数，可传入 `Callable` 或者 `Runnable` 对象。实际上，传入 `Runnable` 对象也会在方法内部转换为 `Callable` 对象。
+- `FutureTask` 提供了 `Future` 接口的基本实现，常用来封装 `Callable` 和 `Runnable`，具有取消任务、查看任务是否执行完成以及获取任务执行结果的方法。`ExecutorService.submit()` 方法返回的其实就是 `Future` 的实现类 `FutureTask`。
+- `FutureTask` 有两个构造函数，可传入 `Callable` 或者 `Runnable` 对象。实际上，传入 `Runnable` 对象也会在方法内部转换为 `Callable` 对象。
 
 :::tabs 
 

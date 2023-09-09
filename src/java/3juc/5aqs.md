@@ -67,7 +67,6 @@ semaphore.release();
 `Semaphore` 是共享锁的一种实现，它默认构造 AQS 的 `state` 值为 `permits`，可以将 `permits` 的值理解为许可证的数量，只有拿到许可证的线程才能执行。
 
 - **P 操作**：调用 `semaphore.acquire()`，线程尝试获取许可证，如果 `state > 0` 的话，则表示可以获取成功。如果获取成功的话，使用 CAS 操作去修改 `state` 的值 `state = state - 1`。如果 `state <= 0` 的话，则表示许可证数量不足。此时会创建一个 Node 节点加入阻塞队列，挂起当前线程。
-
 - **V 操作**：调用 `semaphore.release()` ，线程尝试释放许可证，并使用 CAS 操作去修改 `state` 的值 `state = state + 1`。释放许可证成功之后，同时会唤醒同步队列中的一个线程。被唤醒的线程会重新尝试去修改 `state` 的值 `state = state - 1`，如果 `state > 0` 
   则获取令牌成功，否则重新进入阻塞队列，挂起线程。
 
@@ -114,32 +113,3 @@ CountDownLatch countDownLatch = new CountDownLatch(2);
 `CyclicBarrier` 内部通过一个 `count` 变量作为计数器，`count` 的初始值为 `parties` 属性的初始化值，每当一个线程到了栅栏，就将计数器减 1，并将自身阻塞。如果 `count` 值为 0 了，表示最后一个线程到达栅栏，此时才会将栅栏放开，让所有线程继续执行下去。
 
 使用 `await()` 方法告诉 `CyclicBarrier` 已经到达了屏障，然后当前线程被阻塞。当 `count` 值为 0 则会将被阻塞的线程唤醒。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
