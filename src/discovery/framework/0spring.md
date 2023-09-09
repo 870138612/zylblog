@@ -368,6 +368,11 @@ public void test(){
 
 7、**没有被 Spring 管理**
 
+### 同一个类中方法 A 中调用 B，事务会生效吗？
+
+- 在同一个类中，如果在方法 A 中调用方法 B，无论 B 有没有添加 `@Transactional` 注解，A 事务都会生效，因为 B 中的异常会被 A 捕获从而导致事务回滚，但是 B 事务不会生效。
+- 如果 A 没有添加 `@Transactional` 注解，在 A 中调用添加了注解的 B 方法，属于 `this` 调用，B 事务不会生效。
+
 ## SpringMVC
 
 ### SpringMVC 处理请求的底层原理
