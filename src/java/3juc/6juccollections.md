@@ -43,13 +43,12 @@ Java 提供的线程安全的 `Queue` 可以分为**阻塞队列**和**非阻塞
 
 ### ArrayBlockingQueue
 
-`ArrayBlockingQueue` 是 `BlockingQueue` 接口的有界队列实现类，底层采用数组来实现。`ArrayBlockingQueue` 一旦创建，容量不能改变。其并发控制采用可重入锁 `ReentrantLock`，不管是插入操作还是读取操作，都需要获取到锁才能进行操作。当队列容量满时，尝试将元素放入队列将导致操作阻塞；
-尝试从一个空队列中取一个元素也会同样阻塞。默认是不公平实现的。
+`ArrayBlockingQueue` 是 `BlockingQueue` 接口的有界队列实现类，底层采用数组来实现。`ArrayBlockingQueue` 一旦创建，容量不能改变。其并发控制采用可重入锁 `ReentrantLock`，不管是插入操作还是读取操作，都需要获取到锁才能进行操作，获取元素和放入元素使用同一把锁。当队列容量满时，尝试将元素放入队列将导致操作阻塞；尝试从一个空队列中取一个元素也会同样阻塞。默认是不公平实现的。
 
 ### LinkedBlockingQueue
 
 `LinkedBlockingQueue` 底层基于**单向链表**实现的阻塞队列，可以当做无界队列也可以当做有界队列来使用，同样满足 FIFO 的特性，与 `ArrayBlockingQueue` 相比起来具有更高的吞吐量，为了防止 `LinkedBlockingQueue` 容量迅速增，损耗大量内存。通常在创建 `LinkedBlockingQueue` 
-对象时指定其大小，如果未指定，容量等于 `Integer.MAX_VALUE`。
+对象时指定其大小，如果未指定，容量等于 `Integer.MAX_VALUE`。锁是分离的，即生产用的是 `putLock`，消费是 `takeLock`，这样可以防止生产者和消费者线程之间的锁争夺。
 
 ### PriorityBlockingQueue
 
