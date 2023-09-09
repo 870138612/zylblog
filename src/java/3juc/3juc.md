@@ -93,11 +93,8 @@ ThreadLocalMap getMap(Thread t) {
 不同类型的 `ThreadPoolExecutor`:
 
 - **`FixedThreadPool`**：该方法返回一个固定线程数量的线程池。该线程池中的线程数量始终不变。当有一个新的任务提交时，线程池中若有空闲线程，则立即执行。若没有，则新的任务会被暂存在一个任务队列中，待有线程空闲时，便处理在任务队列中的任务。**核心线程数为 n，最大线程数为 n**。
-
 - **`SingleThreadExecutor`**： 该方法返回一个只有一个线程的线程池。若多余一个任务被提交到该线程池，任务会被保存在一个任务队列中，待线程空闲，按先入先出的顺序执行队列中的任务。**核心线程数为 1，最大线程数为 1。**
-
 - **`CachedThreadPool`**： 该方法返回一个可根据实际情况调整线程数量的线程池。线程池的线程数量不确定，但若有空闲线程可以复用，则会优先使用可复用的线程。若所有线程均在工作，又有新的任务提交，则会创建新的线程处理任务。所有线程在当前任务执行完毕后，将返回线程池进行复用。**核心线程数为 0，最大线程数为 `Integer.MAX_VALUE`**。
-
 - **`ScheduledThreadPool`**：该返回一个用来在给定的延迟后运行任务或者定期执行任务的线程池。**核心线程数为 n，最大线程数为`Integer.MAX_VALUE`**。
 
 
@@ -144,11 +141,8 @@ RejectedExecutionHandler handler;//拒绝策略
 如果当前同时运行的线程数量达到最大线程数量并且队列也已经被放满了任务时，新来的任务将会被：
 
 - **`ThreadPoolExecutor.AbortPolicy`**：抛出 `RejectedExecutionException` 来拒绝新任务的处理。
-
 - **`ThreadPoolExecutor.CallerRunsPolicy`**：调用执行自己的线程运行任务，也就是直接在调用 `execute` 方法的线程中运行（`run` 方法）被拒绝的任务，如果执行程序已关闭，则会丢弃该任务。因此这种策略会降低对于新任务提交速度，影响程序的整体性能。如果应用程序可以承受此延迟并且要求任何一个任务请求都要被执行的话，以选择这个策略。
-
 - **`ThreadPoolExecutor.DiscardPolicy`**：不处理新任务，直接丢弃掉。
-
 - **`ThreadPoolExecutor.DiscardOldestPolicy`**： 此策略将丢弃最早的未处理的任务请求。
 
 ### 线程池中常用的阻塞队列有哪些？
@@ -158,10 +152,8 @@ RejectedExecutionHandler handler;//拒绝策略
 常见的阻塞队列：
 
 - `LinkedBlockingQueue`（无界队列）：最大容量为 `Integer.MAX_VALUE`，`FixedThreadPool` 和 `SingleThreadExector` 。由于队列永远不会被放满，因此 **`FixedThreadPool` 和 `SingleThreadExector` 最多只能创建核心线程数的线程**。
-
 - `SynchronousQueue`（同步队列）：`CachedThreadPool` 。`SynchronousQueue` 没有容量，不存储元素，目的是保证对于提交的任务，如果有空闲线程，则使用空闲线程来处理；否则新建一个线程来处理任务。也就是说 **`CachedThreadPool` 的最大线程数是 `Integer.
   MAX_VALUE`**，可以理解为线程数是可以无限扩展的，可能会创建大量线程，从而导致 OOM。
-
 - `DelayedWorkQueue`（延迟阻塞队列）：`ScheduledThreadPool` 和 `SingleThreadScheduledExecutor`。`DelayedWorkQueue` 
   的内部元素并不是按照放入的时间排序，而是会按照延迟的时间长短对任务进行排序，内部采用的是“堆”的数据结构，可以保证每次出队的任务都是当前队列中执行时间最靠前的。`DelayedWorkQueue` 添加元素满了之后会自动扩容原来容量的 1/2，即永远不会阻塞，最大扩容可达 `Integer.MAX_VALUE`，可以看做是一个放不满的队列，所以 
   **`ScheduledThreadPool` 最多只能创建核心线程数的线程**。
@@ -171,11 +163,8 @@ RejectedExecutionHandler handler;//拒绝策略
 ### 线程池处理任务的流程了解吗？
 
 - 如果当前运行的线程数小于核心线程数，那么就会新建一个线程来执行任务。
-
 - 如果当前运行的线程数等于或大于核心线程数，但是小于最大线程数，那么就把该任务放入到任务队列里等待执行。
-
 - 如果向任务队列投放任务失败（任务队列已经满了），但是当前运行的线程数是小于最大线程数的，就新建一个线程来执行任务。
-
 - 如果当前运行的线程数已经等同于最大线程数了，新建线程将会使当前运行的线程超出最大线程数，那么当前任务会被拒绝，饱和策略会调用 `RejectedExecutionHandler.rejectedExecution()` 方法。
 
 ### 如何设定线程池的大小？
@@ -187,16 +176,14 @@ RejectedExecutionHandler handler;//拒绝策略
 ### 线程池如何知道一个线程已经执行完毕
 
 - 线程执行的本质就是使用一个新的线程执行 `run()` 方法。
-
 - 如果想在线程池外部来获取线程池内部的任务执行状态，有以下方法：
   - 线程池提供了一个 `isTerminated()` 方法，可以判断线程池的运行状态，可以循环判断 `isTerminated()` 方法的返回结果来了解线程池的运行状态，一旦线 程池的运行状态是 `Terminated`，意味着线程池中的所有任务都已经执行完了。想要通过这个方法获取状态的前提是，程序中主动调用了线程池的 `shutdown()` 
-    方法。在实际业务中，一般不会主动去关闭线程池，因此这个方法在实用性和灵活性方面都不是很好。
-  
+    方法。在实际业务中，一般不会主动去关闭线程池，因此这个方法在实用性和灵活性方面都不是很好。 
   - 线程池中 `submit()` 提供了一个 `Future` 的返回值，通过 `Future.get()` 方法获取线程执行的结果，当没有执行完时，此方法会一直阻塞，因此只要正常返回了，则表示线程已经执行完毕。
-
   - 还可以使用 `CountDownLatch` 设置计数器值为 1，在线程池运行代码块后面执行 `await()` 方法，在线程池内的任务执行最后调用 `countDown()` 方法，如果线程没有执行结束则 `await()` 方法会一直阻塞，运行结束则 `await()` 方法放行。
 
 ### submit 和 execute 区别
+
 1. `execute` 是 `Executor` 接口的方法，`submit` 是 `ExecuteService` 接口的方法。
 2. `execute` 的入参是 `Runnable`，`submit` 的入参可以是 `Runnable`、`Callable`、`Runnable` 和一个返回值。
 3. `execute` 没有返回值，`submit` 有返回值。
