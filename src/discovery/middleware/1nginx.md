@@ -1,6 +1,7 @@
 ---
 title: Nginx
 icon: nginx
+date: 2023-06-11
 category:
   - 中间件云原生
 tag:

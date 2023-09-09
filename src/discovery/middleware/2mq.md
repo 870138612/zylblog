@@ -1,6 +1,7 @@
 ---
 title: RabbitMQ
 icon: mq
+date: 2023-06-14
 category:
   - 中间件云原生
 tag:

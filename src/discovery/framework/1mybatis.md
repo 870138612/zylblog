@@ -1,5 +1,6 @@
 ---
 title: MyBatis
+date: 2023-07-15
 icon: shujuku
 category:
   - 框架
