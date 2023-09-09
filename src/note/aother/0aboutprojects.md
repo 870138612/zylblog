@@ -1,7 +1,7 @@
 ---
 title: 简历项目详解
 icon: biji1
-date: 2023-08-10
+date: 2023-07-28
 star: 1
 category:
   - 笔记
