@@ -60,21 +60,13 @@ public class Test {
 
 ## Spring 中的设计模式
 
-**工厂设计模式**：Spring 使用工厂模式通过 `BeanFactory`、`ApplicationContext` 创建 Bean 对象。
-
-**代理设计模式**：Spring AOP 功能的实现。
-
-**单例设计模式**：Spring 中的 Bean 默认都是单例的。
-
-**模板方法模式**：Spring 中 `jdbcTemplate`、`hibernateTemplate` 等以 Template 结尾的对数据库操作的类，它们就使用到了模板模式。
-
-**观察者模式**：各种监听器就是使用观察者模式。
-
-**适配器模式**：Spring AOP 的增强或通知（Advice）使用到了适配器模式、Spring MVC 中也是用到了适配器模式适配 `Controller`。
-
-**包装器设计模式**：构造数据库查询条件的 `Wrapper` 就是包装器模式。
-
-。。。
+- **工厂设计模式**：Spring 使用工厂模式通过 `BeanFactory`、`ApplicationContext` 创建 Bean 对象。
+- **代理设计模式**：Spring AOP 功能的实现。
+- **单例设计模式**：Spring 中的 Bean 默认都是单例的。
+- **模板方法模式**：Spring 中 `jdbcTemplate`、`hibernateTemplate` 等以 Template 结尾的对数据库操作的类，它们就使用到了模板模式。
+- **观察者模式**：各种监听器就是使用观察者模式。
+- **适配器模式**：Spring AOP 的增强或通知（Advice）使用到了适配器模式、Spring MVC 中也是用到了适配器模式适配 `Controller`。
+- **包装器设计模式**：构造数据库查询条件的 `Wrapper` 就是包装器模式。
 
 ## Spring 中 Bean 创建的生命周期
 
@@ -217,6 +209,8 @@ Bean 的创建生命周期
 
 ::: info 循环依赖为什么用三级缓存
 
+⁉️ 正确性未知
+
 AService 和 BService 相互依赖。
 
 如果采用以下方法：
@@ -262,7 +256,7 @@ Bean 有多种作用域：
 - **session**：每次 session 才会创建实例，会话断开后失效。
 - **global-session**：全局作用域。
 
-默认是 **singleton** 但是对于开发中大部分的 Bean 是无状态的，因此不需要保证线程安全。如果要保证线程安全可以将作用域改为 **Prototype**，另外还能使用 `ThreadLocal` 解决线程安全问题。
+默认是 **singleton** 但是对于开发中大部分的 Bean 是无状态的，因此不需要保证线程安全。如果要保证线程安全可以将作用域改为 **prototype**，另外还能使用 `ThreadLocal` 解决线程安全问题。
 
 > 无状态表示这个实例没有属性对象，不能保存数据，是不变的类，例如：Controller、Service、Dao。
 
@@ -475,9 +469,9 @@ public @interface SpringBootApplication {
 
 SpringBoot 约定优于配置的体现有很多，例如：
 - SpringBootStarter 启动依赖，能帮助我们管理所有 jar 包版本。
-- SpringBoot 的自动装配机制中，通过扫描约定路径下的 spring.factories 文件来识别配置类，实现 Bean 的自动装配。
+- SpringBoot 的自动装配机制中，通过扫描约定路径下的 `spring.factories` 文件来识别配置类，实现 Bean 的自动装配。
 - 如果当前的应用依赖了 SpringMVC 相关的 jar 包，则会自动内置 Tomcat 容器来运行 web 应用，不需要再去单独部署。
-- 默认加载的配置文件 application.properties。
+- 默认加载的配置文件 `application.properties`。
 
 ### SpringBoot 中的 spring.factories 文件有什么作用？
 
@@ -508,7 +502,7 @@ SpringBoot 在启动的过程中，会找出项目中所有的 `spring.factories
 ### 自动装配原理
 
 1. 引入 Starter 启动依赖组件的时候，这个组件里面必须要包含 `@Configuration` 配置类，在这个配置类里面通过 `@Bean` 注解声明需要装配到 IOC 容器的 Bean 对象。
-2. 这个配置类是放在第三方的 jar 包里面，然后通过 SpringBoot 中的约定优于配置思想，把这个配置类的全路径放在 classpath:/META-INF/spring.factories 文件 中。这样 SpringBoot 就可以知道第三方 jar 包里面的配置类的位置，这个步骤主 要是用到了 Spring 里面的 `SpringFactoriesLoader` 来完成的。
+2. 这个配置类是放在第三方的 jar 包里面，然后通过 SpringBoot 中的约定优于配置思想，把这个配置类的全路径放在 `classpath:/META-INF/spring.factories` 文件 中。这样 SpringBoot 就可以知道第三方 jar 包里面的配置类的位置，这个步骤主 要是用到了 Spring 里面的 `SpringFactoriesLoader` 来完成的。
 3. SpringBoot 拿到所第三方 jar 包里面声明的配置类以后，再通过 Spring 提供的 `ImportSelector` 接口，实现对这些配置类的动态加载。
 
 > ⚡ 可以再向 @EnableAutoConfiguration 这个注解部分进行延伸。

@@ -52,7 +52,6 @@ RPC 和消息队列都是分布式系统中重要的组件之一。
 
 - **从用途来看**：RPC 主要解决两个服务的远程通信问题，不需要了解底层网络的通信机制。通过 RPC 可以调用远程计算机上某个服务的方法，这个过程就像调用本地方法一样简单。消息队列主要用来降低系统耦合性、实现任务异步、有效地进行流量削峰。
 - **从通信方式来看**：RPC 是双向直接网络通讯，消息队列是单向引入中间载体的网络通讯。
-
 - **从架构上来看**：消息队列需要把消息存储起来，RPC 则没有这个要求，因为前面也说了 RPC 是双向直接网络通讯。
 - **从请求处理的时效性来看**：通过 RPC 发出的调用一般会立即被处理，存放在消息队列中的消息并不一定会立即被处理。
 
@@ -90,7 +89,6 @@ RabbitMQ 是采用 Erlang 语言实现 AMQP(Advanced Message Queuing Protocol，
 ### RabbitMQ 和 Kafka 区别
 
 - RabbitMQ 在吞吐量方面虽然稍逊于 Kafka，但是由于它基于 Erlang 开发，所以并发能力很强，性能极其好，延时很低，达到微秒级。
-
 - Kafka 的特点其实很明显，就是仅仅提供较少的核心功能，但是提供超高的吞吐量，ms 级的延迟，极高的可用性以及可靠性，而且分布式可以任意扩展。同时 Kafka 最好是支撑较少的 topic 
   数量即可，保证其超高吞吐量。Kafka 唯一的一点劣势是有可能消息重复消费，那么对数据准确性会造成极其轻微的影响，在大数据领域中以及日志采集中，这点轻微影响可以忽略，这个特性天然适合大数据实时计算以及日志收集。
 
@@ -226,14 +224,11 @@ TTL 就是消息的存活时间，RabbitMQ 可以对队列和消息分别设置 
 
 ![image-20230616211804679](/markdown/image-20230616211804679.png)
 
-**Broker**：中间件本身。接收和分发消息的应用，这里指的就是 RabbitMQ Server。
-
-**Virtual Host**：虚拟主机。出于多租户和安全因素设计的，把 AMQP 的基本组件划分到一个虚拟的分组中，类似于网络中的 namespace 概念。当多个不同的用户使用同一个 RabbitMQ  
+- **Broker**：中间件本身。接收和分发消息的应用，这里指的就是 RabbitMQ Server。
+- **Virtual Host**：虚拟主机。出于多租户和安全因素设计的，把 AMQP 的基本组件划分到一个虚拟的分组中，类似于网络中的 namespace 概念。当多个不同的用户使用同一个 RabbitMQ  
 server 提供的服务时，可以划分出多个 vhost，每个用户在自己的 vhost 创建 exchange／queue 等。
-
-**Connection**：连接。publisher／consumer 和 Broker 之间的 TCP 连接。断开连接的操作只会在 client 端进行，Broker 不会断开连接，除非出现网络故障或 Broker 服务出现问题。
-
-**Channel**：信道。每一次访问 RabbitMQ 都建立一个 Connection，在消息量大的时候建立 TCP 。
+- **Connection**：连接。publisher／consumer 和 Broker 之间的 TCP 连接。断开连接的操作只会在 client 端进行，Broker 不会断开连接，除非出现网络故障或 Broker 服务出现问题。
+- **Channel**：信道。每一次访问 RabbitMQ 都建立一个 Connection，在消息量大的时候建立 TCP 。
 
 Connection 的开销会比较大且效率也较低。Channel 是在 Connection 内部建立的逻辑连接，如果应用程序支持多线程，通常每个 thread 创建单独的 Channel 进行通讯，AMQP method 包含了 Channel Id 帮助客户端和 Message Broker 识别 Channel，所以 Channel 之间是完全隔离的。Channel 作为轻量级的 Connection 极大减少了操作系统建立 TCP Connection 的开销。
 

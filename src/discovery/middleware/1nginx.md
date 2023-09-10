@@ -92,13 +92,10 @@ location /{
 
 常用的变量值：
 
-`$host`：nginx 主机 IP；
-
-`$http_host`：nginx 主机 IP 和端口；
-
-`$proxy_host`：`localhost:8080`，`proxy_pass` 里面配置的主机名和端口；
-
-`$remote_addr`：用户的真实 IP，也就是客户端 IP。
+- `$host`：nginx 主机 IP；
+- `$http_host`：nginx 主机 IP 和端口；
+- `$proxy_host`：`localhost:8080`，`proxy_pass` 里面配置的主机名和端口；
+- `$remote_addr`：用户的真实 IP，也就是客户端 IP。
 
 ::: info proxy_pass说明
 
@@ -110,7 +107,7 @@ location /some/ {
 }
 ```
 
-访问`http://localhost/some/page.html` 会被代理到 `http://localhost:8080/some/page.html`。
+访问 `http://localhost/some/page.html` 会被代理到 `http://localhost:8080/some/page.html`。
 
 - 如果 `proxy_pass` 的地址包括 URI，那么 location 将不会被追加到转发地址中。
 
@@ -146,14 +143,10 @@ server {
 ### 修饰符
 
 `location` 可以使用正则表达式。包括：
-
-`=`：等于，严格匹配，优先级最高；
-
-`^~`：前缀匹配，表示普通匹配字符，如果匹配成功，不再匹配其他 `location`，优先级第二；
-
-`~`：正则匹配，区分大小写，优先级第三；
-
-`~*`：正则匹配，不区分大小写，优先级第三。
+- `=`：等于，严格匹配，优先级最高；
+- `^~`：前缀匹配，表示普通匹配字符，如果匹配成功，不再匹配其他 `location`，优先级第二；
+- `~`：正则匹配，区分大小写，优先级第三；
+- `~*`：正则匹配，不区分大小写，优先级第三。
 
 不写修饰符：优先级最低。
 
