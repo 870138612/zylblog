@@ -11,7 +11,7 @@ tag:
 
 Redis 共有 5 种基本数据结构：String（字符串）、List（列表）、Set（集合）、Hash（散列）、Zset（有序集合）。
 
-这 5 种数据结构是直接提供给用户使用的，是数据的保存形式，其底层实现主要依赖这 8 种数据结构：简单动态字符串（SDS）、LinkedList（双向链表）、Hash Table（哈希表）、SkipList（跳跃表）、Intset（整数集合）、ZipList（压缩列表）、QuickList（快速列表）。
+简单动态字符串（SDS）、LinkedList（双向链表）、Dict（哈希表/字典）、SkipList（跳跃表）、Intset（整数集合）、ZipList（压缩列表）、QuickList（快速列表）。
 
 <!-- more -->
 
@@ -19,7 +19,7 @@ Redis 基本数据结构的底层数据结构实现如下：
 
 | String | List                         | Hash                | Set             | Zset              |
 | :----- | :--------------------------- | :------------------ | :-------------- | :---------------- |
-| SDS    | LinkedList/ZipList/QuickList | Hash Table、ZipList | ZipList、Intset | ZipList、SkipList |
+| SDS    | LinkedList/ZipList/QuickList | Dict、ZipList | Dict、Intset | ZipList、SkipList |
 
 ## String（字符串）
 
@@ -158,8 +158,8 @@ Redis 中的 Set 类型是一种无序集合，集合中的元素没有先后顺
 
 **需要获取多个数据源交集、并集和差集的场景**
 
-- 举例：共同好友(交集)、共同粉丝(交集)、共同关注(交集)、好友推荐（差集）、音乐推荐（差集）、订阅号推荐（差集+交集） 等场景。
-- 相关命令：`SINTER`（交集）、`SINTERSTORE` （交集）、`SUNION` （并集）、`SUNIONSTORE`（并集）、`SDIFF`（差集）、`SDIFFSTORE` （差集）。
+- 举例：共同好友（交集）、共同粉丝（交集）、共同关注（交集）、好友推荐（差集）、音乐推荐（差集）、订阅号推荐（差集+交集）等场景。
+- 相关命令：`SINTER`（交集）、`SINTERSTORE`（交集）、`SUNION`（并集）、`SUNIONSTORE`（并集）、`SDIFF`（差集）、`SDIFFSTORE`（差集）。
 
 **需要随机获取数据源中的元素的场景**
 

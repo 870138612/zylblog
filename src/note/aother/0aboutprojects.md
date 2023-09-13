@@ -1,6 +1,7 @@
 ---
 title: 简历项目详解
 icon: biji1
+date: 2023-07-28
 star: 1
 category:
   - 笔记
@@ -141,15 +142,10 @@ http {
 ### 分微服务的原则是什么？
 
 1. **单一职责原则**：每个微服务应该只负责一个特定的业务功能。例如网关微服务只用来做请求转发，秒杀微服务只做秒杀，即使因为高流量导致秒杀微服务宕机也不会影响到正常的订单微服务。
-
 2. **业务领域驱动划分**：根据应用程序的业务需求和领域知识来对服务进行划分。同上，每一个微服务需要做的业务清晰明了。
-
 3. **最小可行服务**：在进行微服务划分时，应该尽量保持服务的粒度足够小，以降低系统复杂性和提高灵活性。拆分成微服务之后，各个微服务之间的调用变得更加灵活。
-
 4. **高内聚低耦合**：微服务划分应该追求高内聚低耦合的原则。各个微服务之间的耦合度应该尽可能的小。
-
 5. **数据自治原则**：每个微服务应该对其所使用的数据有完全的控制权。每一个微服务都对自己所属的数据库架构有完全控制权。
-
 6. **技术多样性**：微服务架构允许使用不同的技术栈来实现不同的服务。
 
 ### 单点登录怎么实现的？
@@ -159,9 +155,7 @@ http {
 首先需要考虑用户的数据应该存储在哪。
 
 - 如果使用 session 保存用户数据则会导致其他的服务器无法获取用户数据。
-
 - 如果使用 cookie 存储用户数据，由于 cookie 存储在客户端，容易篡改，不安全。
-
 - 采用 Nginx 的 hash 一致性负载均衡算法，让所有来源相同的请求定位到同一个服务器，但是如果服务器宕机，则数据会丢失，不可行。
 
 本项目使用 `Redis` 进行用户数据统一存储。添加依赖之后将 session 存储方式改为 redis。
@@ -213,11 +207,9 @@ public PasswordEncoder passwordEncoder(){
 ### SpringSecurity 认证整体流程
 
 1. 用户提交用户名、密码被 `SecurityFilterChain` 中的 `UsernamePasswordAuthenticationFilter` 过滤器获取到， 封装为 `Authentication`，通常情况下是 `UsernamePasswordAuthenticationToken` 这个实现类。
-
 2. 然后过滤器将 `Authentication` 提交至认证管理器（`AuthenticationManager<<interface>>`，实现类为 `ProviderManager`，内部包含 `DaoAuthenticationProvider` 用来查找用户数据并认证）进行认证 `authenticationManager.authenticate`
    (authenticationToken)，通过 `UserDetailsService` 实现类获取包含用户账号密码的 `UserDetails` 实现类 ，密码加密解密通过 `PasswordEncoder` 实现类 `BCryptPasswordEncoder` 完成，认证成功则返回 `Authentication`，否则返回空。通过 `.getPrincipal` 从 `Authentication` 中获取用户数据（`UserDetails` 的实现类）。
 3. 认证成功之后通过 userId 生成 JWT 返回给前端，封装用户部分数据保存到 Redis 中，Redis 数据的 key 是 `"LOGIN:"+userId`。
-
 4. `SecurityContextHolder` 安全上下文容器将第2步填充了信息的 `Authentication` ，通过 `SecurityContextHolder.getContext().setAuthentication(…)` 方法，设置到其中。
 
 `SecurityContextHolder` 可以看成一个 `ThreadLocal` 用来在一次会话中共享数据。
@@ -287,7 +279,6 @@ String signature = HMACSHA256(encodedString, secret);
 缓存一致性的解决方案有 **双写模式** 和 **失效模式**。
 
 - **双写模式**：对数据库进行数据修改之后，会接着把新数据写入 Redis。
-
 - **失效模式**：对数据库进行数据修改之后，会让旧的缓存数据失效，`SpringCache` 中的 `@CacheEvict` 执行缓存失效。
 
 双写模式下如果有两个数据同时写数据库，执行流程：1 修改数据库，2 修改数据库，2 更新缓存，1 更新缓存，这样会导致现在的缓存数据是 1 修改的数据，并不是后执行的 2 修改的数据，存在暂时脏数据问题，需要等到缓存失效之后才能得到最新的正确数据。
@@ -360,11 +351,8 @@ Long execute = template.execute(new DefaultRedisScript<Long>(script, Long.class)
 ### 秒杀的流程是啥样的？
 
 - 秒杀开始前通过 `@Scheduled` 进行定时上架商品，查询近期的秒杀场次，保存至 Redis 用于后续秒杀的时间和场次合法性校验，查询 SKU 信息保存至 Redis 加速查询，同时通过 UUID 生成随机码保存到 SKU 详情数据。
-
 - 秒杀商品的信号量 key 为 `SKU_STOCK_SEMAPHORE + Token`，Token 是生成的 SKU 随机码，通过 `semaphore.trySetPermits(seckillSkuVo.getSeckillCount())` 设置对应 SKU 信号量的许可证数量（秒杀库存数量）。
-
 - 秒杀开始判断用户是否登录，登录的话进行合法性校验，包含当前所处时间是否处于秒杀时间，检验随机码是否正确（在秒杀开始时返回到前端的随机码，用于防止恶意请求），验证购买数量是否超额。
-
 - 合法性校验通过之后进行占位（防止一个用户并发秒杀），使用 `SETNX` 进行占位（原子操作），key 为 `userId+'_'+skuId`，同时还需要添加过期时间，过期时间为**场次结束时间-当前时间**，让一个用户只能对同一个商品秒杀一次，**遵从请求的幂等性**。
 - `boolean b = semaphore.tryAcquire(num, 100, TimeUnit.MILLISECONDS)` 如果获取信号量成功则表示秒杀成功，将 **OrderSn**，**UserId**，**SkuId**，**SeckillSkuPrice**，**Num**，**PromotionSessionId** 封装发送到 RabbitMQ 
   的`order-event
@@ -446,7 +434,7 @@ Nginx 动静分离的好处参考谷粒商城项目。
 
 登录时后端验证验证码成功之后，生成一个 JWT（Token）返回给前端，并存储为 String 类型到 Redis。如果没有查询到用户数据则默认注册。同样添加过期时间，表示免登录时间。
 
-拦截器通过实现接口 `HandlerInterceptor` 并重写方法 `preHandle`。在实现了 `WebMvcConfigurer` 的配置类中添加拦截器`registry.addInterceptor`。如果请求不携带 
+拦截器通过实现接口 `HandlerInterceptor` 并重写方法 `preHandle`。在实现了 `WebMvcConfigurer` 的配置类中添加拦截器 `registry.addInterceptor`。如果请求不携带 
 token 则直接放行，表示这个请求不需要用户验证。有 token 则去 Redis 中寻找，如果没有找到，则表示登录状态过期，需要重新登录。找到了则将对应的用户数据查询并封装放入 `ThreadLocal` 中，用来在这次会话中共享数据，**为了防止线程复用导致后续的用户用到了之前数据，则在每次线程执行 `preHandle` 方法前都执行一次 `remove` 将 
 `ThreadLocal` 清除数据**。
 

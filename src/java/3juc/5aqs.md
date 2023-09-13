@@ -9,13 +9,14 @@ tag:
   - 并发编程
 ---
 
-AQS的全称为 `AbstractQueuedSynchronizer` ，翻译过来的意思就是抽象队列同步器。这个类在 `java.util.concurrent.locks` 包下面。
+AQS的全称为 `AbstractQueuedSynchronizer` ，抽象队列同步器。这个类在 `java.util.concurrent.locks` 包下面。
 
 <!-- more -->
 
 AQS 就是一个抽象类，主要用来构建锁和同步器。
 
-比如 `ReentrantLock`，`Semaphore`，其他的诸如 `ReentrantReadWriteLock`，`SynchronousQueue` 等等皆是基于 AQS 实现的。
+比如 `ReentrantLock`，`Semaphore`，其他的诸如 `ReentrantReadWriteLock`，`SynchronousQueue` 等等皆是基于 AQS 实现的。从本质上来说，AQS 提供了两种锁机制，分别是排它锁，和 共享锁。
+排它锁就是存在多线程竞争同一共享资源时，同一时刻只允许一个线程访问该共享资 源，也就是多个线程中只能有一个线程获得锁资源，比如 Lock 中的 `ReentrantLock` 重入锁实现就是用到了 AQS 中的排它锁功能。 共享锁也称为读锁，就是在同一时刻允许多个线程同时获得锁资源，比如 `CountDownLatch` 和 `Semaphore` 都是用到了 AQS 中的共享锁功能。
 
 ## AQS 原理
 
@@ -34,7 +35,7 @@ AQS 的核心原理图如下：
 
 ![518153216](/markdown/518153216.jpg)
 
-**AQS使用 `int` 成员变量 `state` 表示同步状态，通过内置的线程等待队列来完成获取资源线程的排队工作。**
+**AQS 使用 `int` 成员变量 `state` 表示同步状态，通过内置的线程等待队列来完成获取资源线程的排队工作。**
 
 `state` 变量由 `volatile` 修饰，用于展示当前临界资源的获锁情况，保证可见性和有序性。
 
@@ -66,7 +67,6 @@ semaphore.release();
 `Semaphore` 是共享锁的一种实现，它默认构造 AQS 的 `state` 值为 `permits`，可以将 `permits` 的值理解为许可证的数量，只有拿到许可证的线程才能执行。
 
 - **P 操作**：调用 `semaphore.acquire()`，线程尝试获取许可证，如果 `state > 0` 的话，则表示可以获取成功。如果获取成功的话，使用 CAS 操作去修改 `state` 的值 `state = state - 1`。如果 `state <= 0` 的话，则表示许可证数量不足。此时会创建一个 Node 节点加入阻塞队列，挂起当前线程。
-
 - **V 操作**：调用 `semaphore.release()` ，线程尝试释放许可证，并使用 CAS 操作去修改 `state` 的值 `state = state + 1`。释放许可证成功之后，同时会唤醒同步队列中的一个线程。被唤醒的线程会重新尝试去修改 `state` 的值 `state = state - 1`，如果 `state > 0` 
   则获取令牌成功，否则重新进入阻塞队列，挂起线程。
 
@@ -113,32 +113,3 @@ CountDownLatch countDownLatch = new CountDownLatch(2);
 `CyclicBarrier` 内部通过一个 `count` 变量作为计数器，`count` 的初始值为 `parties` 属性的初始化值，每当一个线程到了栅栏，就将计数器减 1，并将自身阻塞。如果 `count` 值为 0 了，表示最后一个线程到达栅栏，此时才会将栅栏放开，让所有线程继续执行下去。
 
 使用 `await()` 方法告诉 `CyclicBarrier` 已经到达了屏障，然后当前线程被阻塞。当 `count` 值为 0 则会将被阻塞的线程唤醒。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

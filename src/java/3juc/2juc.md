@@ -24,7 +24,9 @@ JMM 是 Java 定义的并发编程相关的一组规范，除了抽象了线程�
 ### 什么是主内存？什么是本地内存？
 
 - 主内存：所有线程创建的对象实例都放在主内存中；
-- 本地内存：每个线程都有私有的本地内存来存储共享变量的副本，并且每一个线程只能访问自己的本地内存，无法访问其他线程的本地内存。本地内存是 JMM 抽象出的概念，存储了主内存中的变量副本。![jmm](/markdown/jmm.jpg)
+- 本地内存：每个线程都有私有的本地内存来存储共享变量的副本，并且每一个线程只能访问自己的本地内存，无法访问其他线程的本地内存。本地内存是 JMM 抽象出的概念，存储了主内存中的变量副本。
+
+![jmm](/markdown/jmm.jpg)
 
 ### Java 内存结构和 Java 内存模型的区别
 
@@ -48,10 +50,19 @@ int totalNum = userNum + teacherNum;	// 3
 1. 程序顺序规则：一个线程内，书写在前的操作 happens-before 于书写在后面的操作；
 2. 解锁规则：解锁 happens-before 加锁；
 3. volatile 变量规则：对于一个 `volatile` 变量的写操作 happens-before 后面对这个变量的读操作，也就是对这个变量的修改对其后的所有操作都可见；
-4. 传递规则：如果 A happens-before B，B happens-before C，则A happens-before C；
+4. 传递规则：如果 A happens-before B，B happens-before C，则 A happens-before C；
 5. 线程启动规则：Thread 对象的 `start()` 方法 happens-before 这个线程的每一个操作。
 
 如果两个操作不满足上述条件的任意一个，则这两个操作就没有顺序保障，JVM 可以对这两个操作进行重排序。
+
+### fail-safe 和 fail-fast
+fail-safe 和 fail-fast 是多线程并发操作集合时的一种失败处理机制。
+
+**fail-fast**：表示快速失败，在集合遍历过程中，一旦发现容器中的数据被修改了，会
+立刻抛出 `ConcurrentModificationException` 异常，从而导致遍历失败，例如 `HashMap`。
+
+**fail-safe**：表示失败安全，也就是在这种机制下，出现集合元素的修改，不会抛出 `ConcurrentModificationException`。原因是采用安全失败机制的集合容器，在遍历时不是直接在集合内容上访问的，而是先复制原有集合内容，在拷贝的集合上进行遍历。由于迭代时是对原集合的拷贝进行遍历，所以在遍历过程中对原集合所作的修改并不能被迭代器检测到。常见的 
+fail-safe 方式遍历的容器有 `ConcurrentHashMap`，`CopyOnWriteArrayList`。
 
 ## 并发编程的三个特性
 
@@ -141,7 +152,7 @@ CAS 是一个原子操作，底层依赖于一条 CPU 的原子指令。
 
 CAS 涉及到三个操作数：
 
-- **V**：要更新的变量值（Var）
+- **V**：要更新的变量（Var）
 - **E**：预期值（Expected）
 - **N**：拟写入的新值（New）
 
@@ -163,7 +174,7 @@ CAS 只对单个共享变量有效，当操作涉及跨多个共享变量时 CAS
 
 `synchronized` 是 Java 中的一个关键字，翻译成中文是同步的意思，主要解决的是多个线程之间访问资源的同步性，可以保证被它修饰的方法或者代码块在任意时刻只能有一个线程执行。
 
-早期版本中 `synchronized` 属于重量级锁，Java 6 之后对`synchronized` 做了优化。
+早期版本中 `synchronized` 属于重量级锁，Java 6 之后对 `synchronized` 做了优化。
 
 ☀️详见 [synchronized 锁优化](https://ylzhong.top/java/3juc/4synchronizedlock.html)
 
@@ -225,10 +236,21 @@ synchronized(类.class) {
 ### synchronized 和 volatile 有什么区别？
 
 - `volatile` 关键字是线程同步的轻量级实现，所以 `volatile` 性能肯定比 `synchronized` 关键字要好 。但是 `volatile` 关键字只能用于变量而 `synchronized` 关键字可以修饰方法以及代码块 。
-
 - `volatile` 关键字能保证数据的可见性，但不能保证数据的原子性。`synchronized` 关键字两者都能保证。
-
 - `volatile` 关键字主要用于解决变量在多个线程之间的可见性，而 `synchronized` 关键字解决的是多个线程之间访问资源的同步性。
+
+### Lock 和 synchronized 有什么区别？
+
+- `synchronized` 是 Java 中的同步关键字，`Lock` 是 J.U.C 包中提供的接口，这个接口有很多实现类，其中就包括 `ReentrantLock` 重入锁
+- `synchronized` 可以通过修饰类、方法或者代码块来实现不同的粒度锁。`Lock` 则通过 `lock()` 和 `unlock()` 方法声明加锁和解锁的位置。
+- `Lock` 比 `synchronized` 的灵活性更高，`Lock` 可以自主决定什么时候加锁，什么时候释放锁，只需要调用 `lock()` 和 `unlock()` 这两个方法就行，同时 `Lock` 还 提供了非阻塞的竞争锁方法 `tryLock()` 方法，这个方法通过返回 true/false 来告诉当前线程是否已经有其他线程正在使用锁。
+- `synchronized` 引入了偏向锁、轻量级锁、重量级锁以及锁升级的方式来优化加锁的性能，而 `Lock` 中则用到了自旋锁的方式来实现性能优化。
+
+### wait 和 notify 为什么要在 synchronized 代码块中？
+1. `wait` 和 `notify` 用来实现多线程之间的协调，`wait` 表示让线程进入到阻塞状态，`notify` 表示让阻塞的线程唤醒。
+2. `wait` 和 `notify` 必然是成对出现的，如果一个线程被 `wait()` 方法阻塞，那么必然需要另外一个线程通过 `notify()` 方法来唤醒这个被阻塞的线程，从而实现多线程之间的通信。
+3. 在通过共享变量来实现多个线程通信的场景里面，参与通信的线程必须要竞争到这个共享变量的锁资源，才有资格对共享变量做修改，修改完成后就释放锁，那么其他的线程就可以再次来竞争同一个共享变量的锁来获取修改后的数据，从而完成线程之前的通信。
+4. 为了避免 `wait/notify` 的错误使用，JDK 强制要求把 `wait/notify` 写在同步代码块里面，否则会抛出 `IllegalMonitorStateException`。
 
 ## ReentrantLock
 
@@ -243,7 +265,6 @@ synchronized(类.class) {
 ### 公平锁和非公平锁有什么区别？
 
 - **公平锁**：锁被释放之后，先申请的线程先得到锁。性能较差一些，因为公平锁为了保证时间上的绝对顺序，上下文切换更频繁。
-
 - **非公平锁**：锁被释放之后，后申请的线程可能会先获取到锁，是随机或者按照其他优先级排序的。性能更好，但可能会导致某些线程永远无法获取到锁。
 
 

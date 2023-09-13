@@ -1,6 +1,7 @@
 ---
 title: Spring
 icon: spring
+date: 2023-07-13
 category:
   - 框架
 tag:
@@ -59,21 +60,13 @@ public class Test {
 
 ## Spring 中的设计模式
 
-**工厂设计模式**：Spring 使用工厂模式通过 `BeanFactory`、`ApplicationContext` 创建 Bean 对象。
-
-**代理设计模式**：Spring AOP 功能的实现。
-
-**单例设计模式**：Spring 中的 Bean 默认都是单例的。
-
-**模板方法模式**：Spring 中 `jdbcTemplate`、`hibernateTemplate` 等以 Template 结尾的对数据库操作的类，它们就使用到了模板模式。
-
-**观察者模式**：各种监听器就是使用观察者模式。
-
-**适配器模式**：Spring AOP 的增强或通知（Advice）使用到了适配器模式、Spring MVC 中也是用到了适配器模式适配 `Controller`。
-
-**包装器设计模式**：构造数据库查询条件的 `Wrapper` 就是包装器模式。
-
-。。。
+- **工厂设计模式**：Spring 使用工厂模式通过 `BeanFactory`、`ApplicationContext` 创建 Bean 对象。
+- **代理设计模式**：Spring AOP 功能的实现。
+- **单例设计模式**：Spring 中的 Bean 默认都是单例的。
+- **模板方法模式**：Spring 中 `jdbcTemplate`、`hibernateTemplate` 等以 Template 结尾的对数据库操作的类，它们就使用到了模板模式。
+- **观察者模式**：各种监听器就是使用观察者模式。
+- **适配器模式**：Spring AOP 的增强或通知（Advice）使用到了适配器模式、Spring MVC 中也是用到了适配器模式适配 `Controller`。
+- **包装器设计模式**：构造数据库查询条件的 `Wrapper` 就是包装器模式。
 
 ## Spring 中 Bean 创建的生命周期
 
@@ -216,6 +209,8 @@ Bean 的创建生命周期
 
 ::: info 循环依赖为什么用三级缓存
 
+⁉️ 正确性未知
+
 AService 和 BService 相互依赖。
 
 如果采用以下方法：
@@ -261,7 +256,7 @@ Bean 有多种作用域：
 - **session**：每次 session 才会创建实例，会话断开后失效。
 - **global-session**：全局作用域。
 
-默认是 **singleton** 但是对于开发中大部分的 Bean 是无状态的，因此不需要保证线程安全。如果要保证线程安全可以将作用域改为 **Prototype**，另外还能使用 `ThreadLocal` 解决线程安全问题。
+默认是 **singleton** 但是对于开发中大部分的 Bean 是无状态的，因此不需要保证线程安全。如果要保证线程安全可以将作用域改为 **prototype**，另外还能使用 `ThreadLocal` 解决线程安全问题。
 
 > 无状态表示这个实例没有属性对象，不能保存数据，是不变的类，例如：Controller、Service、Dao。
 
@@ -281,6 +276,11 @@ DI 的三种常见注入方式为：注解注入、构造器注入、setter 注�
 
 3. setter 注入：在构造器上面添加 `@Autowired` 就是 setter 注入。
 
+### Spring 中如果有两个相同 id 的 Bean 会报错吗？
+
+1. 在 XML 文件中配置 Bean 时不能有相同的 id，在 Spring 启动时会去验证 id 唯一性，报错发生在文件解析为 `BeanDefinition` 对象的时候。
+2. 在 Spring3.x 之后使用 @Bean 声明一个 Bean，此时如果有相同名字的 Bean，只会加载第一个。
+
 ### Spring 容器的启动流程
 
 1. 创建 Spring 容器时会先进行扫描，得到所有的 `BeanDefinition` 对象，并放在一个 Map 中，其中包含了 Bean 的作用范围 `Scope`。
@@ -291,9 +291,9 @@ DI 的三种常见注入方式为：注解注入、构造器注入、setter 注�
 
 ☀️详见 [手写SPRING源码](https://www.bilibili.com/video/BV1AM4y1c79v/?p=1&vd_source=90bb400ad92a9344bb4c2ca0d7921be7)
 
-### Spring 事务
+## Spring 事务
 
-#### 事务实现原理
+### 事务实现原理
 
 事务 `Transactional` 本质也是通过代理对象调用普通对象的方法，并在前后做增强。
 
@@ -310,7 +310,7 @@ class UserServiceProxy extends UserService{
 }
 ```
 
-#### Spring 事务传播机制
+### Spring 事务传播机制
 
 多个事务方法相互调用的时候，事务包含以下的转播机制。
 
@@ -321,7 +321,7 @@ class UserServiceProxy extends UserService{
 - **NEVER**：从来不使用事务。
 - **NESTED**：如果存在事务则将当前事务嵌套进去，否则开启一个新的事务。
 
-#### Spring 事务失效的原因
+### Spring 事务失效的原因
 
 1、**方法异常没有抛出**
 
@@ -362,6 +362,11 @@ public void test(){
 
 7、**没有被 Spring 管理**
 
+### 同一个类中方法 A 中调用 B，事务会生效吗？
+
+- 在同一个类中，如果在方法 A 中调用方法 B，无论 B 有没有添加 `@Transactional` 注解，A 事务都会生效，因为 B 中的异常会被 A 捕获从而导致事务回滚，但是 B 事务不会生效。
+- 如果 A 没有添加 `@Transactional` 注解，在 A 中调用添加了注解的 B 方法，属于 `this` 调用，B 事务不会生效。
+
 ## SpringMVC
 
 ### SpringMVC 处理请求的底层原理
@@ -371,7 +376,7 @@ public void test(){
 ![image-20230620221443613](/markdown/image-20230620221443613.png)
 
 
-**SpringMVC中的一次请求流程：**
+**SpringMVC 中的一次请求流程：**
 
 1. 客户端（浏览器）发送请求， `DispatcherServlet` 拦截请求。
 2. `DispatcherServlet` 根据请求信息调用 `HandlerMapping` 。`HandlerMapping` 根据 uri 去匹配查找能处理的 `Handler`（也就是 `Controller` 控制器） ，并会将请求涉及到的拦截器和 `Handler` 一起封装。
@@ -458,6 +463,16 @@ public @interface SpringBootApplication {
 
 - `@ComponentScan`：Spring 容器会进行扫描，默认扫描路径就是这个类所在的包路径。作用一：扫描含有 `@Component`，`@Controller`，`@Service` 和 `@Repository` 的类，并将其注入到 Spring 容器中。作用二：扫描含有 `@Configuration` 的类，并使其生效。
 
+### SpringBoot 的约定优于配置是什么意思？
+
+约定优于配置是一种软件设计的范式，它的核心思想是减少软件开发人员对于配置项的维护，从而让开发人员更加聚焦在业务逻辑上。
+
+SpringBoot 约定优于配置的体现有很多，例如：
+- SpringBootStarter 启动依赖，能帮助我们管理所有 jar 包版本。
+- SpringBoot 的自动装配机制中，通过扫描约定路径下的 `spring.factories` 文件来识别配置类，实现 Bean 的自动装配。
+- 如果当前的应用依赖了 SpringMVC 相关的 jar 包，则会自动内置 Tomcat 容器来运行 web 应用，不需要再去单独部署。
+- 默认加载的配置文件 `application.properties`。
+
 ### SpringBoot 中的 spring.factories 文件有什么作用？
 
 `spring.factories` 是 SpringBoot SPI 实现的核心，SPI 机制表示扩展机制，所以 `spring.factories` 就是对 SpringBoot 进行扩展的，比如要添加 Listener，只需要在这个文件中添加类路径名。
@@ -486,10 +501,11 @@ SpringBoot 在启动的过程中，会找出项目中所有的 `spring.factories
 
 ### 自动装配原理
 
-- 判断自动装配开关是否打开。默认 `spring.boot.enableautoconfiguration=true`，可在 `application.properties` 或 `application.yml` 中设置。
-- 获取 `EnableAutoConfiguration` 注解中的 `exclude` 和 `excludeName`，排除部分类。
-- 获取需要自动装配的所有配置类，读取 `META-INF/spring.factories`。
-- 加载经过 `@ConditionalOnXXX` 筛选后的组件进行加载。
+1. 引入 Starter 启动依赖组件的时候，这个组件里面必须要包含 `@Configuration` 配置类，在这个配置类里面通过 `@Bean` 注解声明需要装配到 IOC 容器的 Bean 对象。
+2. 这个配置类是放在第三方的 jar 包里面，然后通过 SpringBoot 中的约定优于配置思想，把这个配置类的全路径放在 `classpath:/META-INF/spring.factories` 文件 中。这样 SpringBoot 就可以知道第三方 jar 包里面的配置类的位置，这个步骤主 要是用到了 Spring 里面的 `SpringFactoriesLoader` 来完成的。
+3. SpringBoot 拿到所第三方 jar 包里面声明的配置类以后，再通过 Spring 提供的 `ImportSelector` 接口，实现对这些配置类的动态加载。
+
+> ⚡ 可以再向 @EnableAutoConfiguration 这个注解部分进行延伸。
 
 ### 实现一个 Stater
 
