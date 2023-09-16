@@ -241,7 +241,7 @@ synchronized(类.class) {
 
 ### Lock 和 synchronized 有什么区别？
 
-- `synchronized` 是 Java 中的同步关键字，`Lock` 是 J.U.C 包中提供的接口，这个接口有很多实现类，其中就包括 `ReentrantLock` 重入锁
+- `synchronized` 是 Java 中的同步关键字，`Lock` 是 J.U.C 包中提供的接口，这个接口有很多实现类，其中就包括 `ReentrantLock` 重入锁。
 - `synchronized` 可以通过修饰类、方法或者代码块来实现不同的粒度锁。`Lock` 则通过 `lock()` 和 `unlock()` 方法声明加锁和解锁的位置。
 - `Lock` 比 `synchronized` 的灵活性更高，`Lock` 可以自主决定什么时候加锁，什么时候释放锁，只需要调用 `lock()` 和 `unlock()` 这两个方法就行，同时 `Lock` 还 提供了非阻塞的竞争锁方法 `tryLock()` 方法，这个方法通过返回 true/false 来告诉当前线程是否已经有其他线程正在使用锁。
 - `synchronized` 引入了偏向锁、轻量级锁、重量级锁以及锁升级的方式来优化加锁的性能，而 `Lock` 中则用到了自旋锁的方式来实现性能优化。
