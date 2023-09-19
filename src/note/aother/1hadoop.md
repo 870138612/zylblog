@@ -1,0 +1,47 @@
+---
+title: Hadoop知识点总结
+icon: biji1
+date: 2023-09-19
+star: 1
+category:
+  - 笔记
+tag:
+  - 大数据
+  - Hadoop
+---
+
+### MapperReduce 详细的工作流程
+
+1. 在客户端执行 submit() 方法之前，先会获取待读取文件的信息。
+2. 将 job 提交给 yarn，这时候会带上三个信息过去。（文件的切片信息，jar，job.xml)
+3. yarn 会通过切片信息去计算需要启动的 maptask 数量，然后启动 maptask。
+4. maptask 会调用 InPutFormat() 方法去 HDFS 上面读取文件，InputFormat() 会再去调用 RecordRead() 方法将数据以行首字母的偏移量作为 key，一行数据作为 value 传给 mapper() 方法。
+5. mapper 方法做完处理之后，将数据转移到分区方法中，对数据进行标注之后，发送到环形缓冲区。
+6. 环形缓冲区的大小默认是 100M，达到 80% 将会发生溢写。
+7. 在溢写之前会做一个排序动作，排序的规则是按照 key 进行字典排序，排序的手段是快速排序。
+8. 溢写会产生出大量的溢写文件，会再次调用 merge() 方法，使用归并排序，默认十个溢写文件构成一个大文件。
+9. 也可以对溢写文件进行一个 localReduce，也就是 combiner 的操作，但前提是 combiner 的结果不能对最终结果产生影响。
+10. 等待所有的 maptask 执行完毕之后，会启动一定数量的 reducetask。
+11. reducetask 会在 map 端拉取数据，数据会先加载到内存中，内存不够会写入磁盘，等待所有的数据拉去完毕之后，将这些数据再次进行一次归并操作。
+12. 归并之后的文件会再进行一次分组操作，然后将数据以组为单位发送给 reduce() 方法。
+13. reduce() 方法会做一些逻辑判断，最终调用 OutputFormat() 方法，OutputFormat() 会调用 RecordWrite() 方法将数据以 KV 的形式写出到 HDFS 上。
+
+### HDFS 分布式存储工作机制
+
+- HDFS 是一个文件存储系统，他的 meta 信息以及目录结构是存储在 NameNode 中，文件是以 block 的形式存储在 DataNode 中，通过与 NameNode 交互，可以实现读写操作。
+- 读操作
+  - 客户端先带着读取路径向 NameNode 发送读取请求。
+  - NameNode 接收到读取请求之后，判断是否有权限，读取文件是否存在等，如果都通过，则发送给客户端部分或者全部的 DataNode 节点位置。
+  - 客户端得到文件位置之后，调用 read() 方法，去读取数据。
+  - 在读取之后先进行一个 checksum 的操作，去判断以下校验和是否正确，正确则读取，否则则去下一个存放 block 块的 DataNode 节点上读取。
+  - 读取完成 DataNode 这次发送过来的所有 block 块之后，再去询问是否有 block 块，如果有则直接读取，没有则调用 close() 方法，将读取的所有文件合并成一个大文件。
+- 写操作
+  - 客户端带着路径向 NameNode 发送写请求。
+  - NameNode 会判断是否有权限，写入路径的父路径是否存在，如果都通过则将请求返回给客户端。
+  - 客户端会将文件进行切分，然后上传 block。
+  - NameNode 会根据 DataNode 的存储空间还有机架感知原理等返回该 block 块要存储的 DataNode 的位置 ABC。
+  - 客户端会去 ABC 三个 DataNode 节点上建立 pipeline A-B B-C 然后 C 建立完成之后会将结果返回给 B ，B 返回给 A，A 返回给客户端。
+  - 开始往 A 写入，一次进行流水线复制。
+  - 写入完成之后再去依次写入其他 block 块。
+  - 都写入完成之后则将写入完成的信息返回给 NameNode。
+  - NameNode 存储该文件的各个 block 块的原数据信息。
