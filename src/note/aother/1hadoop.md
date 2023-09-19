@@ -45,3 +45,35 @@ tag:
   - 写入完成之后再去依次写入其他 block 块。
   - 都写入完成之后则将写入完成的信息返回给 NameNode。
   - NameNode 存储该文件的各个 block 块的原数据信息。
+
+### yarn 资源调度工作机制
+
+1. 客户端向 ResourceManager 提交作业。
+2. ResourceManager 会去 NodeManager 中开启一个 container 来运行 ApplicationMaster。
+3. ApplicationMaster 向 ResourceManager 注册自己。
+4. 申请相应数量的 container 来运行 task 任务。
+5. container 会先进行初始化操作，初始化完成 ApplicationMaster 会通知对应的 NodeManager 开启 container。
+6. NodeManager 开启 container。
+7. container 在运行期间会向 ApplicationMaster 汇报自己的进度，状态信息，并与其保持心跳。
+8. 等待应用执行完毕，ApplicationMaster 向 ResourceManager 注销自己，并允许回收自己的资源。
+
+### Hadoop 的组成
+1. HDFS
+   - 管理者 NameNode 文件元数据存储
+   - 工作者 DataNode 存储具体数据
+   - 辅助管理者 SecondaryNameNode 辅助 NameNode 合并文件
+2. MapReduce 海量数据分析计算框架
+3. Yarn
+   - 管理者 ResourceManager 整个集群的资源管理者 
+   - 工作者 NodeManager 单个节点的管理者
+
+### MapperReduce 的 Shuffle 过程
+- Shuffle 过程就是 mapper 之后，reduce 之前做的事情。
+- mapper() 方法之后将数据发送到分区中，给数据标记好分区，将数据发送到环形缓冲区。
+- 环形缓冲区的大小默认是 100M，达到 80% 会进行溢写。
+- 溢写之前会进行排序，排序的规则是字典排序，使用快速排序。
+- 溢写产生很多溢写文件，默认达到 10 个会进行合并，合并时采用归并排序。
+- 也可以进行 container 局部聚合的操作，前提是局部聚合的结果不会对最终的结果产生影响。
+- 等到所有 maptask 运行完毕，启动一定数量的 reducetask，告知 reducetask 读取数据的范围（也就是分区）。
+- reducetask 发送拉去线程，去 map 端拉去数据，数据线存储到内存中，内存放不下就放入磁盘中，数据拉去完毕之后进行归并排序。
+- 最后对数据进行分组，以组为单位发送到 reduce() 方法中。
