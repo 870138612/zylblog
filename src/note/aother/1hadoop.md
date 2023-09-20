@@ -68,6 +68,7 @@ tag:
    - 工作者 NodeManager 单个节点的管理者
 
 ### MapperReduce 的 Shuffle 过程
+
 - Shuffle 过程就是 mapper 之后，reduce 之前做的事情。
 - mapper() 方法之后将数据发送到分区中，给数据标记好分区，将数据发送到环形缓冲区。
 - 环形缓冲区的大小默认是 100M，达到 80% 会进行溢写。
@@ -77,3 +78,9 @@ tag:
 - 等到所有 maptask 运行完毕，启动一定数量的 reducetask，告知 reducetask 读取数据的范围（也就是分区）。
 - reducetask 发送拉去线程，去 map 端拉去数据，数据线存储到内存中，内存放不下就放入磁盘中，数据拉去完毕之后进行归并排序。
 - 最后对数据进行分组，以组为单位发送到 reduce() 方法中。
+
+### Hadoop 的垃圾回收机制
+- HDFS 的回收站必须是开启的，一般设置生存时间为 7 天，超过之后就会真正删除。
+- Hadoop NameNode 配置的垃圾回收器是 G1。
+
+### 
