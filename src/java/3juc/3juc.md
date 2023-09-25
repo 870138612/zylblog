@@ -244,22 +244,36 @@ Java 8 才被引入 `CompletableFuture` 类可以解决 `Future` 的这些缺陷
 
 ```java
 // executor 是线程池
-CompletableFuture<SkuInfoEntity> future1 = CompletableFuture.supplyAsync(() -> {
-    //sku基本信息的获取  pms_sku_info
-    SkuInfoEntity info = this.getById(skuId);
+SkuItemVo skuItemVo = new SkuItemVo();
+
+CompletableFuture<SkuInfoEntity> infoFuture = CompletableFuture.supplyAsync(() -> {
+    //1 sku基本信息获取  pms_sku_info
+    //采用异步编排加快查询速度
+    SkuInfoEntity info = getById(skuId);
     skuItemVo.setInfo(info);
     return info;
-}, executor);
-CompletableFuture<SkuInfoEntity> future2 = future1.thenAcceptAsync(() -> {
-    //业务代码2，需要future1完成之后才能执行
-}, executor);
-CompletableFuture<SkuInfoEntity> future3 = CompletableFuture.supplyAsync(() -> {
-    //业务代码
-}, executor);
-CompletableFuture<SkuInfoEntity> future4 = CompletableFuture.supplyAsync(() -> {
-    //业务代码
-}, executor);
-//多个任务等待异步完成
-CompletableFuture.allOf(future1,future2,future3,future4).get();
+}, threadPoolExecutor);
+
+CompletableFuture<Void> saleAttrFuture = infoFuture.thenAcceptAsync((res) -> {
+    //3 获取spu的销售属性组合
+    List<SkuItemVo.SkuItemSaleAttrVo> saleAttrVos = skuSaleAttrValueService.getSaleAttrsBySpuId(res.getSpuId());
+    skuItemVo.setSaleAttr(saleAttrVos);
+}, threadPoolExecutor);
+
+CompletableFuture<Void> descFuture = infoFuture.thenAcceptAsync((res) -> {
+    //4 获取 spu的介绍
+    SpuInfoDescEntity spuInfoDescEntity = spuInfoDescService.getById(res.getSpuId());
+    skuItemVo.setDesp(spuInfoDescEntity);
+}, threadPoolExecutor);
+
+CompletableFuture<Void> baseAttrFuture = infoFuture.thenAcceptAsync(res -> {
+    //5 获取规格参数信息
+    List<SkuItemVo.SpuItemAttrGroupVo> attrGroupVos = attrGroupService.getAttrGroupWithAttrsBySpuId(res.getSpuId(), res.getCatalogId());
+    skuItemVo.setGroupAttrs(attrGroupVos);
+}, threadPoolExecutor);
+
+//等待所有任务都完成之后返回结果  get方法会在allof结束之后执行 说明所有的future都已经执行完了
+
+CompletableFuture.allOf(saleAttrFuture, descFuture, baseAttrFuture, imagesFuture,seckillInfoFuture).get();
 ```
 
