@@ -31,7 +31,7 @@ JMM 是 Java 定义的并发编程相关的一组规范，除了抽象了线程�
 ### Java 内存结构和 Java 内存模型的区别
 
 - Java 内存结构和运行时区域有关，定义了 JVM 在运行时如何分区存储数据，例如堆主要用来存放对象实例。
-- JMM 和 Java 的并发编程有关，抽象了线程和内存之间的关系，规定了 Java 源代码到 CPU 可执行指令这个转化过程要遵循哪些并发相关的原则和规范，目的主要是简化多线程编程，增强程序的可移植性
+- JMM 和 Java 的并发编程有关，抽象了线程和内存之间的关系，规定了 Java 源代码到 CPU 可执行指令这个转化过程要遵循哪些并发相关的原则和规范，目的主要是简化多线程编程，增强程序的可移植性。
 
 ### happens-before
 
@@ -58,8 +58,7 @@ int totalNum = userNum + teacherNum;	// 3
 ### fail-safe 和 fail-fast
 fail-safe 和 fail-fast 是多线程并发操作集合时的一种失败处理机制。
 
-**fail-fast**：表示快速失败，在集合遍历过程中，一旦发现容器中的数据被修改了，会
-立刻抛出 `ConcurrentModificationException` 异常，从而导致遍历失败，例如 `HashMap`。
+**fail-fast**：表示快速失败，在集合遍历过程中，一旦发现容器中的数据被修改了，会立刻抛出 `ConcurrentModificationException` 异常，从而导致遍历失败，例如 `HashMap`。
 
 **fail-safe**：表示失败安全，也就是在这种机制下，出现集合元素的修改，不会抛出 `ConcurrentModificationException`。原因是采用安全失败机制的集合容器，在遍历时不是直接在集合内容上访问的，而是先复制原有集合内容，在拷贝的集合上进行遍历。由于迭代时是对原集合的拷贝进行遍历，所以在遍历过程中对原集合所作的修改并不能被迭代器检测到。常见的 
 fail-safe 方式遍历的容器有 `ConcurrentHashMap`，`CopyOnWriteArrayList`。
@@ -258,7 +257,7 @@ synchronized(类.class) {
 
 `ReentrantLock` 实现了 `Lock` 接口，是一个可重入且独占式的锁，和 `synchronized` 关键字类似。不过 `ReentrantLock` 更灵活、更强大，增加了轮询、超时、中断、公平锁和非公平锁等高级功能。
 
-`ReentrantLock` 里面有一个内部类 `Sync`，`Sync` 继承 AQS（`AbstractQueuedSynchronizer`），添加锁和释放锁的大部分操作实际上都是在 `Sync` 中实现的。`Sync` 有公平锁 `FairSync` 和非公平锁两个子类，默认是非公平实现。
+`ReentrantLock` 里面有一个内部类 `Sync`，`Sync` 继承 AQS（`AbstractQueuedSynchronizer`），添加锁和释放锁的大部分操作实际上都是在 `Sync` 中实现的。`Sync` 有公平锁 `FairSync` 和非公平锁 `NoFairSync` 两个子类，默认是非公平实现。
 
 ☀️详见 [AQS 抽象队列同步器](https://ylzhong.top/java/3juc/5aqs.html)
 
@@ -375,13 +374,13 @@ if (shouldParkAfterFailedAcquire(p, node) &&
 - `synchronized` 依赖于 JVM 而 `ReentrantLock` 依赖于 API。
 - `ReentrantLock` 比 `synchronized` 增加了一些高级功能：
   - 等待可中断：`ReentrantLock` 提供了一种能够中断等待锁的线程的机制，通过 `lock.lockInterruptibly()` 来实现这个机制。也就是说正在等待的线程可以选择放弃等待，改为处理其他事情。
-  - 可实现公平锁: `ReentrantLock` 可以指定是公平锁还是非公平锁，而 `synchronized` 只能是非公平锁。
-  - 可实现选择性通知（锁可以绑定多个条件）: `synchronized` 关键字与 `wait()` 和 `notify()` / `notifyAll()` 方法相结合可以实现等待/通知机制。`ReentrantLock` 也可以实现，但是需要借助于 `Condition` 接口与 `newCondition()` 方法。
+  - 可实现公平锁：`ReentrantLock` 可以指定是公平锁还是非公平锁，而 `synchronized` 只能是非公平锁。
+  - 可实现选择性通知（锁可以绑定多个条件）：`synchronized` 关键字与 `wait()` 和 `notify()` / `notifyAll()` 方法相结合可以实现等待/通知机制。`ReentrantLock` 也可以实现，但是需要借助于 `Condition` 接口与 `newCondition()` 方法。
 
 ### 可中断锁和不可中断锁有什么区别？
 
 - **可中断锁**：获取锁的过程中可以被中断，不需要一直等到获取锁之后 才能进行其他逻辑处理。`ReentrantLock` 就属于是可中断锁。
-- **不可中断锁**：一旦线程申请了锁，就只能等到拿到锁以后才能进行其他的逻辑处理。 `synchronized` 就属于是不可中断锁。
+- **不可中断锁**：一旦线程申请了锁，就只能等到拿到锁以后才能进行其他的逻辑处理。`synchronized` 就属于是不可中断锁。
 
 
 
