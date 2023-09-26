@@ -366,4 +366,4 @@ Java中通过实现 `Serializable` 接口实现序列化功能。
 private static final long serialVersionUID = 1905122041950251207L;
 ```
 
-`serialVersionUID` 用来给JVM识别的，并不会被序列化。
+`serialVersionUID` 用来给 JVM 识别的，并不会被序列化。
