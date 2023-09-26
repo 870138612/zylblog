@@ -276,7 +276,7 @@ config set active-defrag-cycle-max 50
 
 Cache Aside Pattern（旁路缓存模式）是最常用的一致性方案，读数据时先查找缓存，命中直接返回，如果没有命中则去查找数据库并将数据写入缓存，返回数据。
 
-Cache Aside Pattern遇到数据更新时，先更新DB，然后直接删除cache。
+Cache Aside Pattern 遇到数据更新时，先更新 DB，然后直接删除 cache。
 
 如果数据更新成功，而删除缓存失败的话，有以下解决办法：
 

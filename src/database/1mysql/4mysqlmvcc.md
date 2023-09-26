@@ -76,7 +76,7 @@ MySQL InnoDB 存储引擎的默认支持的隔离级别是 `REPEATABLE-READ`。
 
 - `DB_TRX_ID（6字节）`：表示最后一次插入或更新该行的事务 id。此外，`delete` 操作在内部被视为更新，只不过会在记录头 `Record header` 中的 `deleted_flag` 字段将其标记为已删除；
 
-- `DB_ROLL_PTR（7字节）` 回滚指针，指向该行的 `undo log` 。如果该行未被更新，则为空；
+- `DB_ROLL_PTR（7字节）`： 回滚指针，指向该行的 `undo log` 。如果该行未被更新，则为空；
 
 - `DB_ROW_ID（6字节）`：如果没有设置主键且该表没有唯一非空索引时，InnoDB 会使用该 id 来生成聚簇索引。
 

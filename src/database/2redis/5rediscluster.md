@@ -36,7 +36,7 @@ slaveof <master ip><masterport>  //关联从节点
 ::: info 如何判断是不是第一次主从同步？
 
 - `Replication Id`：简称 **replid**，是数据集的标记，id 一致表示是同一个数据集。每一个 master 都有唯一的 **replid**，slave 则会继承 master 节点的 **replid**。
-- `offset`：偏移量，随着记录在 `repl_baklog` 中的数据增多而逐渐增大，slave 完成同步时也会记录当前同步的 `offset`。如果 slave 的 `offset` 小于master的 `offset`，说明 slave 数据落后于 master，需要更新。类似于版本号。
+- `offset`：偏移量，随着记录在 `repl_baklog` 中的数据增多而逐渐增大，slave 完成同步时也会记录当前同步的 `offset`。如果 slave 的 `offset` 小于 master 的 `offset`，说明 slave 数据落后于 master，需要更新，类似于版本号。
 
 因此 slave 做数据同步，必须向 master 声明自己的 `Replication Id` 和 `offset`，master 才能判断需要更新哪些数据。
 
