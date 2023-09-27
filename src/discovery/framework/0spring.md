@@ -458,7 +458,7 @@ public @interface SpringBootApplication {
 }
 ```
 
-添加了`@SpringBootApplication`，相当于添加了 `@SpringBootConfiguration`、`@EnableAutoConfiguration`、`@ComponentScan` 三个注解。
+`@SpringBootApplication` 相当于 `@SpringBootConfiguration`、`@EnableAutoConfiguration`、`@ComponentScan` 三个注解。
 
 - `@SpringBootConfiguration`：相当于注解 `@Configuration` 表示这是一个配置类。
 
@@ -507,7 +507,7 @@ SpringBoot 在启动的过程中，会找出项目中所有的 `spring.factories
 ### 自动装配原理
 
 1. 引入 Starter 启动依赖组件的时候，这个组件里面必须要包含 `@Configuration` 配置类，在这个配置类里面通过 `@Bean` 注解声明需要装配到 IOC 容器的 Bean 对象。
-2. 这个配置类是放在第三方的 jar 包里面，然后通过 SpringBoot 中的约定优于配置思想，把这个配置类的全路径放在 `classpath:/META-INF/spring.factories` 文件 中。这样 SpringBoot 就可以知道第三方 jar 包里面的配置类的位置，这个步骤主 要是用到了 Spring 里面的 `SpringFactoriesLoader` 来完成的。
+2. 这个配置类是放在第三方的 jar 包里面，然后通过 SpringBoot 中的约定优于配置思想，把这个配置类的全路径放在 `classpath:/META-INF/spring.factories` 文件 中。这样 SpringBoot 就可以知道第三方 jar 包里面的配置类的位置，这个步骤主要是用到了 Spring 里面的 `SpringFactoriesLoader` 来完成的。
 3. SpringBoot 拿到所第三方 jar 包里面声明的配置类以后，再通过 Spring 提供的 `ImportSelector` 接口，实现对这些配置类的动态加载。
 
 > ⚡ 可以再向 @EnableAutoConfiguration 这个注解部分进行延伸。

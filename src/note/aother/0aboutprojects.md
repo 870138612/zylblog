@@ -270,13 +270,13 @@ String encodedString = base64UrlEncode(header) + '.' + base64UrlEncode(payload);
 String signature = HMACSHA256(encodedString, secret);
 ```
 
-最后 HS256 加盐算法中的秘钥 `secret` 也可以通过 BASE64 编码获得，保存在服务器端，用来验证传回的 jwt 正确性。
+最后 HS256 加盐算法中的秘钥 `secret` 也可以通过 BASE64 编码获得，保存在服务器端，用来验证传回的 JWT 正确性。
 
 ### 数据更新之后对缓存如何操作？缓存一致性解决办法？
 
 项目中使用 SpringCache 作为缓存框架。使用 `@Cacheable` 快速添加返回结果到缓存。
 
-缓存一致性的解决方案有 **双写模式** 和 **失效模式**。
+缓存一致性的解决方案有**双写模式**和**失效模式**。
 
 - **双写模式**：对数据库进行数据修改之后，会接着把新数据写入 Redis。
 - **失效模式**：对数据库进行数据修改之后，会让旧的缓存数据失效，`SpringCache` 中的 `@CacheEvict` 执行缓存失效。
