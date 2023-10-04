@@ -16,7 +16,7 @@ projects:
   - icon: computer
     name: 计算机基础
     desc: 计算机网络、操作系统、IO
-    link: /computer/
+    link: /discovery/computer/
     
   - icon: database
     name: 数据库
@@ -36,17 +36,17 @@ projects:
   - icon: note
     name: 闲记
     desc: 日常记录
-    link: /note/1other/
+    link: /note/aother/
     
   - icon: interview
     name: 面经
     desc: 秋招面经
-    link: /note/2interview/
+    link: /note/binterview/
 
   - icon: photo
     name: 拍拍
     desc: 快门爱好者日常
-    link: /note/3photo/
+    link: /note/cphoto/
 
 ---
 
