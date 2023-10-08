@@ -197,7 +197,7 @@ hero.skill();//打印技能1，编译是否能通过看左边，执行结果看�
 
 `hashCode()` 定义在 `Object` 类中，所以所有的对象都有这个方法。`hashCode()` 是本地方法，也就是通过C或者是C++实现的。
 
-`HashMap` 通过计算 `Hash` 值使得查找元素的时间复杂度为1，数据结构散列表。
+`HashMap` 通过计算 `Hash` 值使得查找元素的时间复杂度为 1，数据结构散列表。
 
 ### 为什么重写 equals() 时必须重写 hashCode() 方法？
 
@@ -248,7 +248,7 @@ public final class String implements java.io.Serializable, Comparable<String>, C
 
 ### String s1 = new String("abc") 这句话创建了几个字符串对象？
 
-会创建1个或者2个字符串对象。
+会创建 1 个或者 2 个字符串对象。
 
 String str = new String("abc");
 
@@ -354,7 +354,7 @@ array为引用类型，但是不称为引用传递，案例中仍然是值传递
 - **序列化**：将数据结构或对象转换成二进制字节流的过程；
 - **反序列化**：将在序列化过程中所生成的二进制字节流转换成数据结构或者对象的过程。
 
-序列化协议属于TCP/IP中的应用层。
+序列化协议属于 TCP/IP 中的应用层。
 
 Java中通过实现 `Serializable` 接口实现序列化功能。
 
