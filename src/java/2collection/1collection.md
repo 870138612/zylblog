@@ -106,7 +106,7 @@ Java集合由两大接口派生而来，分别是用来存放单一元素的 `Co
 
 - `ArrayDeque` 不支持存储 `null` 数据，但 `LinkedList` 支持；
 
-- `ArrayDeque` 是在 JDK 1.6 才被引入的，而`LinkedList` 早在 JDK 1.2 时就已经存在；
+- `ArrayDeque` 是在 JDK 1.6 才被引入的，而 `LinkedList` 早在 JDK 1.2 时就已经存在；
 
 - `ArrayDeque` 插入时可能存在扩容过程, 不过均摊后的插入操作依然为 O(1)。虽然 `LinkedList` 不需要扩容，但是每次插入数据时均需要申请新的堆空间，均摊性能相比更慢。
 
