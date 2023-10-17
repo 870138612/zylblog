@@ -51,13 +51,13 @@ export default hopeTheme({
       align: true,
       card: true
     },
-    comment: {
-      provider: "Giscus",
-      lazyLoading: false,
-      repo: "870138612/zyl",
-      repoId: "R_kgDOJw1i1g",
-      category:"Announcements",
-      categoryId:"DIC_kwDOJw1i1s4CXSr9"
-    },
+    // comment: {
+    //   provider: "Giscus",
+    //   lazyLoading: false,
+    //   repo: "870138612/zyl",
+    //   repoId: "R_kgDOJw1i1g",
+    //   category:"Announcements",
+    //   categoryId:"DIC_kwDOJw1i1s4CXSr9"
+    // },
   },
 });
