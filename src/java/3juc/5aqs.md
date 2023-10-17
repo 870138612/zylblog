@@ -9,7 +9,7 @@ tag:
   - 并发编程
 ---
 
-AQS的全称为 `AbstractQueuedSynchronizer` ，抽象队列同步器。这个类在 `java.util.concurrent.locks` 包下面。
+AQS 的全称为 `AbstractQueuedSynchronizer` ，抽象队列同步器。这个类在 `java.util.concurrent.locks` 包下面。
 
 <!-- more -->
 
