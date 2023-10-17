@@ -48,7 +48,7 @@ InnoDB 存储引擎为 `redo log` 的刷盘策略提供了 `innodb_flush_log_at_
 - `1`：设置为 `1` 的时候，表示每次事务提交时都将进行刷盘操作（默认值）。
 - `2`：设置为 `2` 的时候，表示每次事务提交时都只把 `redo log buffer` 内容写入 `page cache`。
 
-    `innodb_flush_log_at_trx_commit` 参数默认为 `1` ，也就是说当事务提交时会调用 `fsync` 对 `redo log` 进行刷盘。
+`innodb_flush_log_at_trx_commit` 参数默认为 `1` ，也就是说当事务提交时会调用 `fsync` 对 `redo log` 进行刷盘。
 
 另外，InnoDB 存储引擎有一个后台线程，每隔 `1` 秒，就会把 `redo log buffer` 中的内容写到文件系统缓存（`page cache`），然后调用 `fsync` 刷盘。
 

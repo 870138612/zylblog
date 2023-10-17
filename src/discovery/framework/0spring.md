@@ -488,19 +488,14 @@ SpringBoot 在启动的过程中，会找出项目中所有的 `spring.factories
 
 1. **加载主要配置类**：
    Spring Boot 的入口是一个主要的配置类，通常是带有 `@SpringBootApplication` 注解的类。在启动过程中，Spring Boot 首先会加载这个配置类。
-
 2. **创建 Spring 应用上下文**：
    Spring Boot 使用 Spring 的核心容器，即应用上下文（`Application Context`）来管理和组织组件。在启动过程中，Spring Boot 会创建一个根应用上下文，并将主要配置类加载到这个应用上下文中。
-
 3. **执行自动配置**：
    Spring Boot 的核心功能之一是自动配置（`Auto-Configuration`），它通过条件化配置来根据应用的依赖和配置来自动装配和配置各种功能和组件。在启动过程中，Spring Boot 会根据配置和类路径上的依赖，自动配置各种功能，如数据库连接、Web MVC、安全性等。
-
 4. **执行启动器（Starters）**：
    Spring Boot 提供了一系列的启动器，它们是一组预配置的依赖关系，可以快速启动特定类型的应用。启动器通过自动配置和依赖管理来简化应用的搭建和配置。在启动过程中，Spring Boot 会根据应用的类型和配置，自动加载适当的启动器。
-
 5. **启动 Web 容器**：
    如果应用是一个 Web 应用，Spring Boot 会自动启动一个嵌入式的 Web 容器（如 Tomcat、Jetty 等），并将应用部署到该容器中。
-
 6. **运行应用**：
    一切就绪后，Spring Boot 会开始运行应用。它会触发各种生命周期事件，调用初始化方法、执行业务逻辑等。
 
