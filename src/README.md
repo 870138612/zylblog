@@ -34,19 +34,9 @@ projects:
     link: /discovery/framework/
 
   - icon: note
-    name: 闲记
-    desc: 日常记录
-    link: /note/aother/
-    
-  - icon: interview
-    name: 面经
-    desc: 秋招面经
-    link: /note/binterview/
-
-  - icon: photo
-    name: 拍拍
-    desc: 快门爱好者日常
-    link: /note/cphoto/
+    name: 笔记
+    desc: 学习笔记，面经
+    link: /note/
 
 ---
 

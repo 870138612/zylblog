@@ -20,7 +20,6 @@ timeline: false
   <AutoCatalog base='/discovery' />
 </div>
 
-
 <div class="catalog-display-container">
   <AutoCatalog base='/note' />
 </div>
