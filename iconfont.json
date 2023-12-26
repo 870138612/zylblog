@@ -1,0 +1,331 @@
+{
+  "id": "4062992",
+  "name": "zylblog",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3868258",
+      "name": "场景管理",
+      "font_class": "changjing",
+      "unicode": "eb61",
+      "unicode_decimal": 60257
+    },
+    {
+      "icon_id": "24656840",
+      "name": "笔记本、笔记",
+      "font_class": "xianji",
+      "unicode": "e6bf",
+      "unicode_decimal": 59071
+    },
+    {
+      "icon_id": "648756",
+      "name": "笔记",
+      "font_class": "biji1",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "21841996",
+      "name": "标签",
+      "font_class": "tag",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "15378732",
+      "name": "rabbitmq",
+      "font_class": "rabbitmq1",
+      "unicode": "ec75",
+      "unicode_decimal": 60533
+    },
+    {
+      "icon_id": "16314762",
+      "name": "分布式",
+      "font_class": "fenbushi",
+      "unicode": "e6b0",
+      "unicode_decimal": 59056
+    },
+    {
+      "icon_id": "3876424",
+      "name": "docker",
+      "font_class": "docker",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "13533520",
+      "name": "mse 微服务引擎",
+      "font_class": "nacos",
+      "unicode": "e667",
+      "unicode_decimal": 58983
+    },
+    {
+      "icon_id": "15042891",
+      "name": "熔断器",
+      "font_class": "sentinel",
+      "unicode": "e681",
+      "unicode_decimal": 59009
+    },
+    {
+      "icon_id": "348601",
+      "name": "linux",
+      "font_class": "linux",
+      "unicode": "eb39",
+      "unicode_decimal": 60217
+    },
+    {
+      "icon_id": "21053808",
+      "name": "操作系统",
+      "font_class": "os",
+      "unicode": "e687",
+      "unicode_decimal": 59015
+    },
+    {
+      "icon_id": "26393487",
+      "name": "icon_交换",
+      "font_class": "io",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "1305046",
+      "name": "网络系统",
+      "font_class": "net",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "13972530",
+      "name": "计算机开发",
+      "font_class": "computer",
+      "unicode": "e691",
+      "unicode_decimal": 59025
+    },
+    {
+      "icon_id": "21163419",
+      "name": "集合",
+      "font_class": "jihe",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    },
+    {
+      "icon_id": "251023",
+      "name": "评价星星",
+      "font_class": "star",
+      "unicode": "e6d5",
+      "unicode_decimal": 59093
+    },
+    {
+      "icon_id": "24043660",
+      "name": "文章列表",
+      "font_class": "articlelist",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "11372711",
+      "name": "图片",
+      "font_class": "picture",
+      "unicode": "e8ba",
+      "unicode_decimal": 59578
+    },
+    {
+      "icon_id": "6399123",
+      "name": "好友",
+      "font_class": "youlian",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "19234637",
+      "name": "时间线",
+      "font_class": "timeline",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "316143",
+      "name": "plane",
+      "font_class": "daohang",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "8361764",
+      "name": "对话",
+      "font_class": "duihua",
+      "unicode": "e6bd",
+      "unicode_decimal": 59069
+    },
+    {
+      "icon_id": "869802",
+      "name": "java",
+      "font_class": "javabasic",
+      "unicode": "e746",
+      "unicode_decimal": 59206
+    },
+    {
+      "icon_id": "7131618",
+      "name": "mongodb",
+      "font_class": "mongodb",
+      "unicode": "e66c",
+      "unicode_decimal": 58988
+    },
+    {
+      "icon_id": "21053782",
+      "name": "Nginx",
+      "font_class": "nginx",
+      "unicode": "e683",
+      "unicode_decimal": 59011
+    },
+    {
+      "icon_id": "6176602",
+      "name": "中间件",
+      "font_class": "middleware",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "24591518",
+      "name": "意见反馈、记笔记",
+      "font_class": "biji",
+      "unicode": "e6b5",
+      "unicode_decimal": 59061
+    },
+    {
+      "icon_id": "1447730",
+      "name": "页面",
+      "font_class": "page",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "9752796",
+      "name": "基础",
+      "font_class": "jichu",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "12796380",
+      "name": "服务器",
+      "font_class": "jvm",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "28410640",
+      "name": "数据统计（上升）",
+      "font_class": "juc",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "16078701",
+      "name": "框架管理1",
+      "font_class": "framework",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
+      "icon_id": "1111734",
+      "name": "ask_fill",
+      "font_class": "interview",
+      "unicode": "e7c9",
+      "unicode_decimal": 59337
+    },
+    {
+      "icon_id": "18451255",
+      "name": "笔记本，记录，通讯录",
+      "font_class": "note",
+      "unicode": "e71f",
+      "unicode_decimal": 59167
+    },
+    {
+      "icon_id": "3977828",
+      "name": "数据库",
+      "font_class": "shujuku",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "13592702",
+      "name": "mq 消息队列MQ",
+      "font_class": "mq",
+      "unicode": "e6f0",
+      "unicode_decimal": 59120
+    },
+    {
+      "icon_id": "15378745",
+      "name": "redis",
+      "font_class": "redis",
+      "unicode": "ec7c",
+      "unicode_decimal": 60540
+    },
+    {
+      "icon_id": "21053781",
+      "name": "MySQL",
+      "font_class": "database",
+      "unicode": "e682",
+      "unicode_decimal": 59010
+    },
+    {
+      "icon_id": "11992918",
+      "name": "java",
+      "font_class": "java",
+      "unicode": "e6e0",
+      "unicode_decimal": 59104
+    },
+    {
+      "icon_id": "677578",
+      "name": "关于我们",
+      "font_class": "aboutme",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "9626859",
+      "name": "发现",
+      "font_class": "discovery",
+      "unicode": "e86c",
+      "unicode_decimal": 59500
+    },
+    {
+      "icon_id": "982337",
+      "name": "主页",
+      "font_class": "home",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "1172635",
+      "name": "分类",
+      "font_class": "fenlei",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "1240",
+      "name": "图片",
+      "font_class": "photo",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "5961392",
+      "name": "mysql",
+      "font_class": "mysql",
+      "unicode": "ec6d",
+      "unicode_decimal": 60525
+    },
+    {
+      "icon_id": "20113952",
+      "name": "bxl-spring-boot",
+      "font_class": "spring",
+      "unicode": "e6fe",
+      "unicode_decimal": 59134
+    }
+  ]
+}
