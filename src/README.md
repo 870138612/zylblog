@@ -35,7 +35,7 @@ projects:
 
   - icon: note
     name: 笔记
-    desc: 学习笔记，面经
+    desc: 学习笔记，面经，拍拍
     link: /note/
 
 ---
