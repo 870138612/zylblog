@@ -1,6 +1,7 @@
 ---
 title: 税友集团-Java开发-一面
 icon: duihua
+date: 2023-09-16
 star: true
 category:
   - 面经
@@ -29,4 +30,4 @@ tag:
 - happens-before是什么？
 - ThreadLocal内部实现原理
 - 线程池的主要参数，任务队列有哪些？
-- 
+
