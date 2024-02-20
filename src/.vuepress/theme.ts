@@ -22,7 +22,7 @@ export default hopeTheme({
   navbar: zhNavbar,
   // sidebar
   sidebar: zhSidebar,
-  footer: "<a href=\"https://beian.miit.gov.cn/\">皖ICP备2023007292号</a>",
+  footer: "终将美好，我们的春夏秋冬。",
   copyright: "Copyright © 2023-present Liang",
   displayFooter: true,
   pageInfo: [
