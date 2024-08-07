@@ -31,7 +31,7 @@ export const zhSidebar = sidebar({
       prefix: "note/",
       children: "structure",
     },
-    "friendLinks",
+
     "intro"
 
   ],

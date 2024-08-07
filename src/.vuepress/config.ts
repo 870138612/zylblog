@@ -12,6 +12,7 @@ export default defineUserConfig({
   base: "/",
   head: [
     ["meta", {name: "robots", content: "all"}],
+    ["meta", {"http-equiv": "Pragma", content: "no-cache"}],
     ["meta", {"http-equiv": "Expires", content: "0"}],
     // 设置 favor.ico，.vuepress/public 下
     [
@@ -22,8 +23,8 @@ export default defineUserConfig({
   locales: {
     "/": {
       lang: "zh-CN",
-      title: "LIANG",
-      description: "LiangBlog",
+      title: "Zzz",
+      description: "Zzz",
     },
   },
   theme,

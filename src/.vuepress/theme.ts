@@ -7,7 +7,7 @@ export default hopeTheme({
   logo: "/logo.png",
 
   author: {
-    name: "ZYL1210",
+    name: "Zzz",
     url: "https://ylzhong.top",
   },
   // pure: true,
