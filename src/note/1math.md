@@ -2,6 +2,10 @@
 title: 高等数学
 icon: page
 cover: /home/sky.jpg
+category:
+  - 高等数学
+tag:
+  - 高等数学
 ---
 
 ## 高等数学
