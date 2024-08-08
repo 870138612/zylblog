@@ -1,5 +1,5 @@
-# Algolia-Crawler-Verif: C3EDB9C1C3084079
 
-User-agent: *
-Allow: /
-SiteMap: http://ylzhong.top/sitemap.xml
+User-agent:*
+Disallow:
+
+Sitemap: https://vuepress-theme-hope-docs-demo.netlify.app/sitemap.xml
