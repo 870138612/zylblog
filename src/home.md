@@ -8,19 +8,4 @@ article: false
 timeline: false
 ---
 
-<div class="catalog-display-container">
-  <AutoCatalog base='/java' />
-</div>
-
-<div class="catalog-display-container">
-  <AutoCatalog base='/database' />
-</div>
-
-<div class="catalog-display-container">
-  <AutoCatalog base='/discovery' />
-</div>
-
-<div class="catalog-display-container">
-  <AutoCatalog base='/note' />
-</div>
 

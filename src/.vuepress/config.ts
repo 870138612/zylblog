@@ -1,14 +1,7 @@
-import {defineUserConfig} from "vuepress";
+import { defineUserConfig } from "vuepress";
 import theme from "./theme.js";
-import { searchPlugin} from "@vuepress/plugin-search";
-import {blog, mdEnhance} from "vuepress-theme-hope";
-// @ts-ignore
-import {autoCatalogPlugin} from "vuepress-plugin-auto-catalog";
-import {RouteMeta} from "vue-router";
 
-// @ts-ignore
 export default defineUserConfig({
-
   base: "/",
   head: [
     ["meta", {name: "robots", content: "all"}],
@@ -19,7 +12,6 @@ export default defineUserConfig({
       'link', {rel: 'icon', href: '/assets/icon/favicon.ico'}
     ]
   ],
-
   locales: {
     "/": {
       lang: "zh-CN",
@@ -28,25 +20,7 @@ export default defineUserConfig({
     },
   },
   theme,
-  shouldPrefetch: false,
-  plugins: [
-    autoCatalogPlugin({
-      index:true,
-      locales:{
-        "/":{
-          title:" "
-        }
-      },
-      iconGetter:(page)=>page.frontmatter.icon,
-      orderGetter:(page)=> 1
-    }),
-    searchPlugin({
-      locales: {
-        "/": {
-          placeholder: "标题搜索",
-        }
-      },
-      maxSuggestions: 10
-    }),
-  ],
+
+  // Enable it with pwa
+  // shouldPrefetch: false,
 });

@@ -1,6 +1,5 @@
 
-node_modules
-.cache
-.temp
-dist
-/.idea/dictionaries/zyl.xml
+node_modules/
+src/.vuepress/.cache/
+src/.vuepress/.temp/
+src/.vuepress/dist/

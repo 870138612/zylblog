@@ -7,6 +7,6 @@ pageInfo: false
 article: false
 timeline: false
 ---
-<div class="catalog-display-container">
-  <AutoCatalog  />
-</div>
+
+<Catalog />
+
