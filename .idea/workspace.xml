@@ -4,337 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/note/math.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy-docs.yml" beforeDir="false" />
+    <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="对项目进行重构，删除笔记，添加高等数学笔记">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/870138612.github.io.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/config.ts.1270e3d5.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/navbar/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/navbar/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/demo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/demo_index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/iconfont.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/iconfont.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/iconfont.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/iconfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/iconfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/iconfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/linklog/jcwang.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/03600.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/0514172706.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/0518153127.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/0dc4579c639a435f80fd674dec7bb0c1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/130.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/19982315297a4559bc67e8b0c6e0a979.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/20230512205406.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/202305122sdf05406.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/20230528193150.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/20230528193723.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/20230528193809.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/20230528193851.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/20230528193912.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/20230528194112.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/20230528194206.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/20230528194238.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/20230528194354.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/20230528194438.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/20230528194630.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/20230528194640.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/20230703001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/20230725162004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/202517.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/230522202439.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/2da4b827e2cf40db9882d297bd55a10f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/3192518.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/34a8fdf60dda423eabfa6b18d7234f50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/38df0b249b8b4c968a4bfcb03fd08876.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/518153216.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/81cca10883ad49cf9ffab44f793a2c95.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/9b73d0d63a874ab7a973e913d166363e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/a484a8b98ffb41499634561eee84df82.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/e00d04767ba1449ba2c52561c8804a00.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/f2040152102e4b24b23aaf02a026bd3d.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/favicon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/fbd172792b794bf8af6529f3235e0e1d.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/fdb69fc9437d4845baf53fdcb3d15cb3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230512205324691.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230513213019295.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230514210704461.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230515171640642.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230517140544893.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230520203719818.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230520203743377.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230520203801684.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230520203818307.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230520204024801.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230520204132639.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230525171149797.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230525201956470.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230526202855576.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230526202917798.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230529154219243.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230529162226606.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230529162523262.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230529162900611.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230529165800826.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230529170202703.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230529170702610.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230529172120404.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230529173603129.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230529173719124.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230529173846546.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230529173959416.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230529174101634.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230529200011975.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230607180554413.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230607180709994.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230607181734750.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230607181753345.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230607195001297.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230607205223121.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230608171725873.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230608172142206.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230608172937070.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230608173432109.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230608173918450.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230608175823735.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230609155812203.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230612161757013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230612170144401-1686563235858-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230612171754994-1686563235859-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230612172041553-1686563235859-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230612174320037-1686563235859-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230612174507826-1686563235859-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230612182613067.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230613150948601.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230613151142088.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230613163140106.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230613175233575.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230614114418512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230614201247430.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230614201542373.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230614202838546.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230615205528295.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230615212644155.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230616154303334.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230616154739983.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230616162759698.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230616163557422.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230616165505506.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230616171738195.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230616173111947.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230616174109050.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230616180622721.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230616205428858.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230616211804679.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230617224404357.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230619153337460.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230619212929209.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230620221443613.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230620223832571.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230628213424542.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230628214754324.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230628222659062.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230628225544890.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230630165509583.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230702160233816.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230725154314997.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230725154347412.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230725155457446.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230725155528080.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230725160038069.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230725163829029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230725164807737.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230725170812915.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-20230725170840800.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-202307272029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-2nf.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-aio.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-ioduolu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-mysqllocks.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-redologfile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-sigio.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-softandhardlink.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/image-tcpfour.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/jmm.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/markdown/redolog.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/sitemap.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/sidebar/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/sidebar/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/styles/config.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/styles/config.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/styles/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/styles/palette.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/styles/palette.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/theme.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/compact/components/Catalog.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/compact/components/Catalog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/compact/components/Catalog.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/compact/styles/catalog.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/ArtPlayer.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/ArtPlayer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/ArtPlayer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/AudioPlayer.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/AudioPlayer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/AudioPlayer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/BackToTop.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/BackToTop.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/BackToTop.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/Badge.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/Badge.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/Badge.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/BiliBili.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/BiliBili.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/BiliBili.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/CodePen.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/CodePen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/CodePen.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/FontIcon.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/FontIcon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/FontIcon.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/Notice.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/Notice.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/Notice.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/PDF.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/PDF.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/PDF.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/Replit.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/Replit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/Replit.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/Share.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/Share.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/Share.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/SiteInfo.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/SiteInfo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/SiteInfo.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/StackBlitz.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/StackBlitz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/StackBlitz.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/VidStack.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/VidStack.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/VidStack.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/VideoPlayer.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/VideoPlayer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/VideoPlayer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/XiGua.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/XiGua.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/XiGua.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/YouTube.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/YouTube.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/components/YouTube.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/getLink-dfca07b4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/getLink-dfca07b4.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/icons-efab7685.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/icons-efab7685.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/iframeAllow-c79e5aae.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/iframeAllow-c79e5aae.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/shared.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/shared.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/shared.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/size-88488c76.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/size-88488c76.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/size-daba93c1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/size-daba93c1.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/art-player.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/audio-player.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/back-to-top.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/badge.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/bili-bili.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/code-pen.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/font-icon.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/notice.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/pdf.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/repl-it.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/share-service.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/site-info.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/sr-only.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/stack-blitz.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/video-player.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/vidstack.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/xi-gua.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/styles/youtube.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/vueuse.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/vueuse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/client/vueuse.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/node/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/node/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/lib/node/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/vuepress-plugin-components/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/1mysql/0database.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/1mysql/1mysql.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/1mysql/2mysqlindex.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/1mysql/3mysqllog.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/1mysql/4mysqlmvcc.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/1mysql/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/2redis/0redis.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/2redis/1redis.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/2redis/2lock.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/2redis/3redisdatastructures.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/2redis/4redispersistence.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/2redis/5rediscluster.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/2redis/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/computer/1net.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/computer/2os.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/computer/3io.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/computer/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/framework/0spring.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/framework/1mybatis.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/framework/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/middleware/1nginx.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/middleware/2mq.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/middleware/3docker.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/middleware/4distributedtransaction.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/middleware/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/home.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/1java/1java.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/1java/2java.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/1java/3reflex.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/1java/4javaProxy.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/1java/5singleton.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/1java/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/2collection/1collection.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/2collection/2collection.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/2collection/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/3juc/1juc.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/3juc/2juc.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/3juc/3juc.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/3juc/4synchronizedlock.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/3juc/5aqs.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/3juc/6juccollections.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/3juc/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/4jvm/1memory.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/4jvm/2gc.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/4jvm/3classfilestructure.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/4jvm/4classloadprocess.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/4jvm/5classloader.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/4jvm/6jvmparameters.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/4jvm/7gcoptimize.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/4jvm/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/note/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/aother/0aboutprojects.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/aother/1hadoop.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/aother/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/binterview/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/binterview/dewu.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/binterview/futu.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/binterview/kuaishouone.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/binterview/shuiyou.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/binterview/tongcheng.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/cphoto/992023.4平潭.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/cphoto/README.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -342,6 +13,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="ZYL1210 &lt;870138612@qq.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -403,11 +79,39 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1723126261808</updated>
-      <workItem from="1723126263497" duration="1240000" />
+      <workItem from="1723126263497" duration="1975000" />
     </task>
+    <task id="LOCAL-00001" summary="对项目进行重构，删除笔记，添加高等数学笔记">
+      <created>1723127884273</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1723127884273</updated>
+    </task>
+    <task id="LOCAL-00002" summary="对项目进行重构，删除笔记，添加高等数学笔记">
+      <created>1723128031859</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1723128031859</updated>
+    </task>
+    <task id="LOCAL-00003" summary="对项目进行重构，删除笔记，添加高等数学笔记">
+      <created>1723128105830</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1723128105830</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="对项目进行重构，删除笔记，添加高等数学笔记" />
+    <option name="LAST_COMMIT_MESSAGE" value="对项目进行重构，删除笔记，添加高等数学笔记" />
   </component>
 </project>
