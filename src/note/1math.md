@@ -1,7 +1,7 @@
 ---
 title: 高等数学
 icon: page
-cover: /home/202305122sdf05406.jpg
+cover: /home/sky.jpg
 ---
 
 ### 泰勒公式
@@ -35,7 +35,6 @@ $$
 $$
 $$
 \frac{1}{1+x}=1-x+x^2-x^3...  
-
 $$
 
 ### 导数公式
