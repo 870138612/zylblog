@@ -4,74 +4,143 @@ icon: page
 cover: /home/sky.jpg
 ---
 
-### 泰勒公式
+## 高等数学
+
+### 数列极限与连续
+
+- 若$\lim{f(x)}$存在，$\lim{g(x)}$不存在，则$\lim{[f(x)}\pm{g(x)}]$必不存在.
+- 若$\lim{f(x)}$不存在，$\lim{g(x)}$不存在，则$\lim{[f(x)}\pm{g(x)}]$不一定存在.
+- 若$\lim{f(x)}=A\not=0$，$\lim{f(x)g(x)}=A\lim{g(x)}$，即乘除法中非零因子可以先提出.
+
+
+
+- 泰勒公式
 
 $$
-sinx = x - \frac{x^3}{6} + o(x^3)  
+\sin x = x -\frac{x^3}{6} + o(x^3)
 $$
 $$
-arcsinx = x + \frac{x^3}{6} + o(x^3)  
+\arcsin x = x+\frac{x^3}{6}+o(x^3)
 $$
 $$
-cosx = 1 - \frac{x^2}{2} + \frac{x^4}{24} + o(x^4)  
+\cos x =1-\frac{x^2}{2}+\frac{x^4}{24}+o(x^4)
 $$
 $$
-tanx = x + \frac{x^3}{3} + o(x^3)  
+\tan x=x+\frac{x^3}{3}+o(x^3)
 $$
 $$
-arctanx = x - \frac{x^3}{3} + o(x^3)  
+\arctan x=x-\frac{x^3}{3}+o(x^3)
 $$
 $$
-ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} + o(x^3)  
+\ln(1+x) =x-\frac{x^2}{2}+\frac{x^3}{3}+o(x^3)
 $$
 $$
-e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + o(x^3)  
+e ^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+o(x^3)
 $$
 $$
-(1+x)^a = 1 + ax + \frac{a(a-1)}{2!} x^2 + o(x^2)  
+(1+x)^a=1+ax+\frac{a(a-1)}{2!}x^2+o(x^2)
 $$
 $$
-\frac{1}{1-x} = 1 + x + x^2 + x^3...  
+\frac{1}{1-x}=1+x+x^2+x^3...
 $$
 $$
-\frac{1}{1+x} = 1 - x + x^2 - x^3...  
+\frac{1}{1+x}=1-x+x^2-x^3...
 $$
 
-### 导数公式
+### 数列极限
+
+- 等比数列前$n$项的和$S_n=\begin{cases} na_1 &r=1\\ \frac{a_1(1-r^n)}{1-r} & r\not=1\end{cases}$.
+- $\sqrt{ab} \le {\frac{a+b}{2}} \le\sqrt{\frac{a^2+b^2+c^2}{2}},(a,b\ge0)$.
+
+### 一元函数微分学
+
+- 若$f(x)$是可导的偶函数，则$f'(x)$是奇函数.
+- 若$f(x)$是可导的奇函数，则$f'(x)$是偶函数.
+- 若$f(x)$是可导的周期为$T$的周期函数，则$f'(x)$是以周期为$T$的周期函数.
+
+::: info 墙外抢救
+
+- $f(x)=(x+1)(x-1)|(x+1)(x-1)(x-2)|$，判断不可导点.
+
+    - 让绝对值内的值等于0，求出对应的点，再计算绝对值外值等于0的点，若有重合则不属于不可导点，此点被抢救.
+
+    - 绝对值内$f(x)$为0的点：$x=-1$，$x=1$，$x=2$，在绝对值外$f(x)$为0的点$x=-1$，$x=1$，存在重合的$x=-1$，$x=1$，因此不可导点只有一个$x=2$.
+
+
+:::   
+
+- 基本求导公式
 
 $$
-sin'x = cosx  
+\sin'x=cosx
 $$
 $$
-cos'x = -sinx  
+\cos'x=-sinx
 $$
 $$
-tan'x = sec^2x  
+\tan'x=sec^2x
 $$
 $$
-cot'x = -csc^2x  
+\cot'x=-csc^2x
 $$
 $$
-arcsin'x = \frac{1}{\sqrt{1-x^2}}  
+\arcsin'x=\frac{1}{\sqrt{1-x^2}}
 $$
 $$
-arccos'x = -\frac{1}{\sqrt{1-x^2}}  
+\arccos'x=-\frac{1}{\sqrt{1-x^2}}
 $$
 $$
-arctan'x = \frac{1}{1+x^2}  
+\arctan'x=\frac{1}{1+x^2}
 $$
 $$
-arccot'x = -\frac{1}{1+x^2}  
+\arccot 'x=-\frac{1}{1+x^2}
 $$
 $$
-sec'x = secx \cdot{tanx}  
+\sec'x=secx\cdot{tanx}
 $$
 $$
-csc'x = -cscx \cdot{cotx}  
+\csc'x=-cscx\cdot{cotx}
 $$
 $$
-ln'(x + \sqrt{x^2+1}) = \frac{1}{\sqrt{x^2+1}}  
+\ln'(x+\sqrt{x^2+1})=\frac{1}{\sqrt{x^2+1}}
 $$
 $$
-ln'(x + \sqrt{x^2-1}) = \frac{1}{\sqrt{x^2-1}}
+\ln'(x+\sqrt{x^2-1})=\frac{1}{\sqrt{x^2-1}}
+$$
+
+- 反函数的导数
+    - 设$y=f(x)$为单调，可导函数，且$f'(x)\not=0$，则存在反函数$x=\varphi(y)$，且$\frac{dx}{dy}=\frac{1}{\frac{dy}{dx}}$，即$\varphi'=\frac{1}{f'(x)}$.
+    - 记$f'(x)=y'_x$，$\varphi'(y)=x'_y$，则
+
+$$
+y''_{xx}=-\frac{x'_{yy}}{(x'_y)^3}
+$$
+
+
+
+- 参数方程确定的函数的导数
+    - 设函数$y=y(x)$由参数方程为$\begin{cases}x=\varphi(t)\\y=\psi(t) \end{cases}$确定，$t$是参数，$\varphi(t)$，$\psi(t)$均可导，$\varphi'(x)\not=0$则
+
+$$
+\frac{dy}{dx}=\frac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{\varphi'(x)}{\varphi'(t)}
+$$
+
+- 若$\varphi$，$\psi$二阶均可导，$\varphi'(x)\not=0$则
+
+$$
+\frac{d^2y}{dx^2}=\frac{d(\frac{dy}{dx})}{dx}=
+\frac{d(\frac{dy}{dx})/dt}{dx/dt}=
+\frac{\psi''(t)\varphi'(t)-\psi'(t)\varphi''(t)}{[\varphi'(t)]^3}
+$$
+
+- 莱布尼茨公式
+    - 设$u=u(x)$，$v=v(x)$均$n$阶导，则
+
+$$
+(uv)^{(n)}=u^{(n)}v+
+$$
+
+
+$$
+
 $$
