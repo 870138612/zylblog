@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="添加调色板" />
+    <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="更新math1.md">
+      <change afterPath="$PROJECT_DIR$/src/.vuepress/public/discoverybackground/ocean1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.vuepress/public/discoverybackground/ocean2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.vuepress/public/discoverybackground/ocean3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.vuepress/public/discoverybackground/ocean4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/discovery/1datastrcture/1math.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/discovery/1datastrcture/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/discovery/2computerorganization/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/discovery/3operatingsystem/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/discovery/4network/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/discovery/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.vuepress/public/home/img.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/public/home/img.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.vuepress/sidebar/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/sidebar/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.vuepress/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/theme.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,26 +45,34 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Administrator/Desktop/docs/src/.vuepress/public&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.web.browsers&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\WebStorm 2023.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Administrator/Desktop/docs/src/.vuepress/public/discoverybackground",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.web.browsers",
+    "ts.external.directory.path": "D:\\WebStorm 2023.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\docs\src\.vuepress\public\discoverybackground" />
       <recent name="C:\Users\Administrator\Desktop\docs\src\.vuepress\public" />
+      <recent name="C:\Users\Administrator\Desktop\docs\src\discovery\1datastrcture" />
+      <recent name="C:\Users\Administrator\Desktop\docs\src\discovery\operatingsystem" />
+      <recent name="C:\Users\Administrator\Desktop\docs\src\discovery\computerorganization" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\docs\src\.vuepress\public\home" />
+      <recent name="C:\Users\Administrator\Desktop\docs\src\discovery" />
     </key>
   </component>
   <component name="RunManager">
@@ -80,6 +103,7 @@
       <workItem from="1723126263497" duration="2299000" />
       <workItem from="1723128639428" duration="243000" />
       <workItem from="1723199198753" duration="712000" />
+      <workItem from="1723223898579" duration="2183000" />
     </task>
     <task id="LOCAL-00001" summary="对项目进行重构，删除笔记，添加高等数学笔记">
       <created>1723127884273</created>
@@ -123,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1723199315750</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="更新math1.md">
+      <created>1723223915034</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1723223915034</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +187,7 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="对项目进行重构，删除笔记，添加高等数学笔记" />
     <MESSAGE value="添加调色板" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加调色板" />
+    <MESSAGE value="更新math1.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新math1.md" />
   </component>
 </project>
