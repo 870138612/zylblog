@@ -1,10 +1,14 @@
 ---
 title: 高等数学
+star:true
 icon: page
 cover: /home/sky.jpg
+- category
+    - 高等数学
+- tag
+    - 高等数学
 ---
 
-## 高等数学
 
 ### 数列极限与连续
 
