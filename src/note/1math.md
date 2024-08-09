@@ -1,14 +1,14 @@
 ---
 title: 高等数学
+star: true
 icon: page
 cover: /home/sky.jpg
 category:
-  - 高等数学
-tag:
-  - 高等数学
+    - 高等数学
+tag: 
+    - 高等数学
 ---
 
-## 高等数学
 
 ### 数列极限与连续
 
@@ -76,16 +76,16 @@ $$
 - 基本求导公式
 
 $$
-\sin'x=cosx
+\sin'x=\cos x
 $$
 $$
-\cos'x=-sinx
+\cos'x=-\sin x
 $$
 $$
-\tan'x=sec^2x
+\tan'x=\sec^2x
 $$
 $$
-\cot'x=-csc^2x
+\csc'x=-\csc^2x
 $$
 $$
 \arcsin'x=\frac{1}{\sqrt{1-x^2}}
@@ -97,10 +97,10 @@ $$
 \arctan'x=\frac{1}{1+x^2}
 $$
 $$
-\sec'x=secx\cdot{tanx}
+\sec'x=\sec x\cdot{\tan x}
 $$
 $$
-\cot'x=-cscx\cdot{cotx}
+\cot'x=-\csc x\cdot{\cot x}
 $$
 $$
 \ln'(x+\sqrt{x^2+1})=\frac{1}{\sqrt{x^2+1}}
@@ -123,13 +123,13 @@ $$
     - 设函数$y=y(x)$由参数方程为$\begin{cases}x=\varphi(t)\\y=\psi(t) \end{cases}$确定，$t$是参数，$\varphi(t)$，$\psi(t)$均可导，$\varphi'(x)\not=0$则
 
 $$
-\frac{dy}{dx}=\frac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{\varphi'(x)}{\varphi'(t)}
+\frac{dy}{dx}=\frac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{\psi'(t)}{\varphi'(t)}
 $$
 
 - 若$\varphi$，$\psi$二阶均可导，$\varphi'(x)\not=0$则
 
 $$
-\frac{d^2y}{dx^2}=\frac{d(\frac{dy}{dx})}{dx}=
+\frac{d^2y}{dx^2}=
 \frac{d(\frac{dy}{dx})/dt}{dx/dt}=
 \frac{\psi''(t)\varphi'(t)-\psi'(t)\varphi''(t)}{[\varphi'(t)]^3}
 $$
