@@ -17,40 +17,40 @@ cover: /home/sky.jpg
 - 泰勒公式
 
 $$
-\sin x = x -\cfrac{x^3}{6} + o(x^3)
+\sin x = x -\frac{x^3}{6} + o(x^3)
 $$
 $$
-\arcsin x = x+\cfrac{x^3}{6}+o(x^3)
+\arcsin x = x+\frac{x^3}{6}+o(x^3)
 $$
 $$
-\cos x =1-\cfrac{x^2}{2}+\cfrac{x^4}{24}+o(x^4)
+\cos x =1-\frac{x^2}{2}+\frac{x^4}{24}+o(x^4)
 $$
 $$
-\tan x=x+\cfrac{x^3}{3}+o(x^3)
+\tan x=x+\frac{x^3}{3}+o(x^3)
 $$
 $$
-\arctan x=x-\cfrac{x^3}{3}+o(x^3)
+\arctan x=x-\frac{x^3}{3}+o(x^3)
 $$
 $$
-\ln(1+x) =x-\cfrac{x^2}{2}+\cfrac{x^3}{3}+o(x^3)
+\ln(1+x) =x-\frac{x^2}{2}+\frac{x^3}{3}+o(x^3)
 $$
 $$
-e ^x=1+x+\cfrac{x^2}{2!}+\cfrac{x^3}{3!}+o(x^3)
+e ^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+o(x^3)
 $$
 $$
-(1+x)^a=1+ax+\cfrac{a(a-1)}{2!}x^2+o(x^2)
+(1+x)^a=1+ax+\frac{a(a-1)}{2!}x^2+o(x^2)
 $$
 $$
-\cfrac{1}{1-x}=1+x+x^2+x^3...
+\frac{1}{1-x}=1+x+x^2+x^3...
 $$
 $$
-\cfrac{1}{1+x}=1-x+x^2-x^3...
+\frac{1}{1+x}=1-x+x^2-x^3...
 $$
 
 ### 数列极限
 
-- 等比数列前$n$项的和$S_n=\begin{cases} na_1 &r=1\\ \cfrac{a_1(1-r^n)}{1-r} & r\not=1\end{cases}$.
-- $\sqrt{ab} \le {\cfrac{a+b}{2}} \le\sqrt{\cfrac{a^2+b^2}{2}},(a,b\ge0)$.
+- 等比数列前$n$项的和$S_n=\begin{cases} na_1 &r=1\\ \frac{a_1(1-r^n)}{1-r} & r\not=1\end{cases}$.
+- $\sqrt{ab} \le {\frac{a+b}{2}} \le\sqrt{\frac{a^2+b^2}{2}},(a,b\ge0)$.
 
 ### 一元函数微分学
 
@@ -84,13 +84,13 @@ $$
 \cot'x=-csc^2x
 $$
 $$
-\arcsin'x=\cfrac{1}{\sqrt{1-x^2}}
+\arcsin'x=\frac{1}{\sqrt{1-x^2}}
 $$
 $$
-\arccos'x=-\cfrac{1}{\sqrt{1-x^2}}
+\arccos'x=-\frac{1}{\sqrt{1-x^2}}
 $$
 $$
-\arctan'x=\cfrac{1}{1+x^2}
+\arctan'x=\frac{1}{1+x^2}
 $$
 $$
 \sec'x=secx\cdot{tanx}
@@ -99,18 +99,18 @@ $$
 \cot'x=-cscx\cdot{cotx}
 $$
 $$
-\ln'(x+\sqrt{x^2+1})=\cfrac{1}{\sqrt{x^2+1}}
+\ln'(x+\sqrt{x^2+1})=\frac{1}{\sqrt{x^2+1}}
 $$
 $$
-\ln'(x+\sqrt{x^2-1})=\cfrac{1}{\sqrt{x^2-1}}
+\ln'(x+\sqrt{x^2-1})=\frac{1}{\sqrt{x^2-1}}
 $$
 
 - 反函数的导数
-    - 设$y=f(x)$为单调，可导函数，且$f'(x)\not=0$，则存在反函数$x=\varphi(y)$，且$\cfrac{dx}{dy}=\cfrac{1}{\cfrac{dy}{dx}}$，即$\varphi'=\cfrac{1}{f'(x)}$.
+    - 设$y=f(x)$为单调，可导函数，且$f'(x)\not=0$，则存在反函数$x=\varphi(y)$，且$\frac{dx}{dy}=\frac{1}{\frac{dy}{dx}}$，即$\varphi'=\frac{1}{f'(x)}$.
     - 记$f'(x)=y'_x$，$\varphi'(y)=x'_y$，则
 
 $$
-y''_{xx}=-\cfrac{x'_{yy}}{(x'_y)^3}
+y''_{xx}=-\frac{x'_{yy}}{(x'_y)^3}
 $$
 
 
@@ -119,15 +119,15 @@ $$
     - 设函数$y=y(x)$由参数方程为$\begin{cases}x=\varphi(t)\\y=\psi(t) \end{cases}$确定，$t$是参数，$\varphi(t)$，$\psi(t)$均可导，$\varphi'(x)\not=0$则
 
 $$
-\cfrac{dy}{dx}=\cfrac{\frac{dy}{dt}}{\frac{dx}{dt}}=\cfrac{\varphi'(x)}{\varphi'(t)}
+\frac{dy}{dx}=\frac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{\varphi'(x)}{\varphi'(t)}
 $$
 
 - 若$\varphi$，$\psi$二阶均可导，$\varphi'(x)\not=0$则
 
 $$
-\cfrac{d^2y}{dx^2}=\cfrac{d(\cfrac{dy}{dx})}{dx}=
-\cfrac{d(\cfrac{dy}{dx})/dt}{dx/dt}=
-\cfrac{\psi''(t)\varphi'(t)-\psi'(t)\varphi''(t)}{[\varphi'(t)]^3}
+\frac{d^2y}{dx^2}=\frac{d(\frac{dy}{dx})}{dx}=
+\frac{d(\frac{dy}{dx})/dt}{dx/dt}=
+\frac{\psi''(t)\varphi'(t)-\psi'(t)\varphi''(t)}{[\varphi'(t)]^3}
 $$
 
 - 莱布尼茨公式
