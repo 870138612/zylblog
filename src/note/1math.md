@@ -85,7 +85,7 @@ $$
 \tan'x=\sec^2x
 $$
 $$
-\cot'x=-\csc^2x
+\csc'x=-\csc^2x
 $$
 $$
 \arcsin'x=\frac{1}{\sqrt{1-x^2}}
