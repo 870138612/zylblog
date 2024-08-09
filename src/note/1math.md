@@ -100,7 +100,7 @@ $$
 \sec'x=\sec x\cdot{\tan x}
 $$
 $$
-\cot'x=-\csc x\cdot{\cot x}
+\csc'x=-\csc x\cdot{\cot x}
 $$
 $$
 \ln'(x+\sqrt{x^2+1})=\frac{1}{\sqrt{x^2+1}}
