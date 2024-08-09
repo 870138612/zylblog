@@ -3,6 +3,8 @@ icon: aboutme
 cover: /home/aboutme.jpg
 editLink: false
 article: false
+order: 99
+
 ---
 
 # 关于

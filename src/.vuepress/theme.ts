@@ -2,20 +2,12 @@ import { hopeTheme } from "vuepress-theme-hope";
 
 import {zhNavbar} from "./navbar/index.js";
 import {zhSidebar} from "./sidebar/index.js";
-import { catalogPlugin } from '@vuepress/plugin-catalog'
 
 
-export default hopeTheme({
+export default hopeTheme(
+    {
 
-  extendsPage: (page) => {
-    // 在 routeMeta 中设置目录信息
-    page.routeMeta = {
-      // 目录标题
-      title: page.title,
-      icon: page.icon
-      // ... 其他信息
-    }
-  },
+
   hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
 
   logo: "/logo.png",
@@ -61,6 +53,7 @@ export default hopeTheme({
     },
 
   plugins: {
+
 
     blog: true,
     mdEnhance: {
