@@ -1,6 +1,6 @@
 ---
 title: 高等数学
-star:true
+star: true
 icon: page
 cover: /home/sky.jpg
 - category
