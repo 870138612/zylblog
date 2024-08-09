@@ -3,9 +3,9 @@ title: 高等数学
 star: true
 icon: page
 cover: /home/sky.jpg
-- category
+category:
     - 高等数学
-- tag
+tag: 
     - 高等数学
 ---
 
