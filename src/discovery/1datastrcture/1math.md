@@ -2,7 +2,7 @@
 title: 高等数学
 star: true
 icon: page
-cover: /home/sky.jpg
+cover: /discoverybackground/ocean3.jpg
 category:
     - 高等数学
 tag: 

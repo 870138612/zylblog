@@ -1,7 +1,8 @@
 ---
 title: 操作系统
-icon: net 
+icon: os 
 index: false
+order: 3
 cover: /discoverybackground/ocean4.jpg
 pageInfo: false
 article: false
