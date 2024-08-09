@@ -81,7 +81,7 @@ $$
 \tan'x=\sec^2x
 $$
 $$
-\cot'x=-\ csc^2x
+\cot'x=-\csc^2x
 $$
 $$
 \arcsin'x=\frac{1}{\sqrt{1-x^2}}
@@ -93,10 +93,10 @@ $$
 \arctan'x=\frac{1}{1+x^2}
 $$
 $$
-\sec'x=secx\cdot{tanx}
+\sec'x=\sec x\cdot{\tan x}
 $$
 $$
-\cot'x=-cscx\cdot{cotx}
+\cot'x=-\csc x\cdot{\cot x}
 $$
 $$
 \ln'(x+\sqrt{x^2+1})=\frac{1}{\sqrt{x^2+1}}
