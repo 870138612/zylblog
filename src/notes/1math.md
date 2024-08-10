@@ -159,4 +159,12 @@ $$
 - 费马定理：设$f(x)$在点$x_0$处满足$\begin{cases}可导\\ 取极值 \end{cases}$，则$f'(x)=0$.
 - 罗尔定理：设$f(x)$满足$\begin{cases}在[a,b] 上连续 \\ 在(a,b)上可导 \\f(a)=f(b) \end{cases}$，则存在$\xi \in(a,b)$，使得$f'(\xi)=0$.
 - 设$f(x)$在$(a,b)$内可导，$\lim_{x\rightarrow a^+} {f(x)}=\lim_{x \to b^-}{f(x)}=A$，则在$(a,b)$内至少存在一点$\xi$，使$f'(\xi)=0$.
+- 使用罗尔定理需要构造辅助函数$F(x)$.
+    - 见到$f'(x)+f(x)\varphi' (x)$，令$F(x)=f(x)e^{\varphi(x)}$.
+    - 见到 $f'(x)+f(x)$，令$F(x)=f(x)e^x$.
+    - 见到$f'(x)-f(x)$，令$F(x)=f(x)e^{-x}$.
+    - 见到$f'(x)+kf(x)$，令$F(x)=f(x)e^{kx}$.
+    - $(uv)''=u''v+2u'v'+uv''$.
+    - 见到$f(x)f'(x)$，令$F(x)=f^2(x)$. 
+    - 见到 $[f'(x)]^2+f(x)f''(x)$，令$F(x)=f(x)f'(x)$.
 - 

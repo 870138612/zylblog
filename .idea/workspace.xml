@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="修改背景图片">
-      <change afterPath="$PROJECT_DIR$/src/discovery/2computerorganization/1math.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/sidebar/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/sidebar/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/theme.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/1datastrcture/1math.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/discovery/1datastrcture/1math.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/2computerorganization/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/discovery/2computerorganization/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/3operatingsystem/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/discovery/3operatingsystem/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/discovery/4network/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/discovery/4network/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/1math.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/notes/1math.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/notes/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +103,7 @@
       <workItem from="1723128639428" duration="243000" />
       <workItem from="1723199198753" duration="712000" />
       <workItem from="1723223898579" duration="3085000" />
-      <workItem from="1723229356160" duration="1252000" />
+      <workItem from="1723229356160" duration="1796000" />
     </task>
     <task id="LOCAL-00001" summary="对项目进行重构，删除笔记，添加高等数学笔记">
       <created>1723127884273</created>
@@ -171,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1723226131516</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="修改背景图片">
+      <created>1723231008241</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1723231008241</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
