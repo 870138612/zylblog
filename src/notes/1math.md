@@ -55,6 +55,7 @@ $$
 - 等比数列前$n$项的和$S_n=\begin{cases} na_1 &r=1\\ \frac{a_1(1-r^n)}{1-r} & r\not=1\end{cases}$.
 - $\sqrt{ab} \le {\frac{a+b}{2}} \le\sqrt{\frac{a^2+b^2}{2}},(a,b\ge0)$.
 - 当$0<x<\frac{\pi}{4}$时，$x<\tan x<\frac{4}{\pi}x$.
+- 当$0<x<\frac{\pi}{2}$，$\sin x>\frac{2}{\pi}x$.
 
 ### 一元函数微分学
 
