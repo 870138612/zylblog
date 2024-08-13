@@ -217,5 +217,5 @@ $$
 \int_{a}^{b}f(x)dx=f(\xi)(b-a)
 $$
 
-
-
+- 若$x=x_{0}\in I$是$f(x)$唯一的可去间断点，则$F(x)=\int_{a}^{x}f(t)dt$在$x_{0}$处可导，且$F'(x_{0})=\lim_{x\rightarrow x_{0}}f(x)$.
+- 
