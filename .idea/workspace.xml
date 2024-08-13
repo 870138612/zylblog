@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="添加数学笔记">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="添加数学笔记" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,6 +111,7 @@
       <workItem from="1723478000329" duration="620000" />
       <workItem from="1723555904422" duration="23000" />
       <workItem from="1723558817924" duration="173000" />
+      <workItem from="1723564011954" duration="491000" />
     </task>
     <task id="LOCAL-00001" summary="对项目进行重构，删除笔记，添加高等数学笔记">
       <created>1723127884273</created>
@@ -219,7 +218,21 @@
       <option name="project" value="LOCAL" />
       <updated>1723558911041</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="添加数学笔记">
+      <created>1723564018233</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1723564018233</updated>
+    </task>
+    <task id="LOCAL-00017" summary="添加数学笔记">
+      <created>1723564503943</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1723564503943</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
