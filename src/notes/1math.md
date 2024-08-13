@@ -109,7 +109,7 @@ $$
 $$
 
 - 反函数的导数
-    - 设$y=f(x)$为单调，可导函数，且$f'(x)\not=0$，则存在反函数$x=\varphi(y)$，且$\frac{dx}{dy}=\frac{1}{\frac{dy}{dx}}$，即$\varphi'=\frac{1}{f'(x)}$.
+    - 设$y=f(x)$为单调，可导函数，且$f'(x)\not=0$，则存在反函数$x=\varphi(y)$，且$\frac{dx}{dy}=\frac{1}{\frac{dy}{dx}}$，即$\varphi'(y)=\frac{1}{f'(x)}$.
     - 记$f'(x)=y'_x$，$\varphi'(y)=x'_y$，则
 
 $$
