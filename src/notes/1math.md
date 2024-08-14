@@ -227,5 +227,16 @@ $$
 \begin{cases}F'_-(x_0)=\lim_{x\rightarrow x_0^-}f(x), \\F'_+(x_0)=\lim_{x\rightarrow x_0^+}f(x), \end{cases}
 $$
 
-- 
+- 两个重要结论
+
+$$
+\int_{0}^{1}\frac{1}{x^p}dx\begin{cases}收敛，0<p<1 \\
+发散，p \ge1\end{cases}\\
+\int_{1}^{+\infty}\frac{1}{x^p}dx\begin{cases} 收敛，p>1\\
+发散，p\le1\end{cases}\\
+当(ax+b)>k>0时，\int_{1}^{+\infty}\frac{1}{(ax+b)^p}dx依然满足\begin{cases}收敛，p>1\\
+发散，p\le1\end{cases}
+$$
+
+
 
