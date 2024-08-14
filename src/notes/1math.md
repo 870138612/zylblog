@@ -238,5 +238,17 @@ $$
 发散，p\le1\end{cases}
 $$
 
+- 当$f(x)$为奇函数，且$\int_{-\infty}^{+\infty}f(x)dx$收敛时
+
+$$
+\int_{-\infty}^{+\infty}f(x)dx=2\int_{0}^{+\infty}f(x)dx
+$$
+
+- 当$f(x)$为偶函数，且$\int_{-\infty}^{+\infty}f(x)dx$收敛时
+
+$$
+\int_{-\infty}^{+\infty}f(x)dx=0
+$$
+
 
 
