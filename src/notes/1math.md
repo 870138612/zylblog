@@ -267,6 +267,14 @@ $$
 $$
 
 $$
+\int \frac{1}{a^2+x^2}dx = \frac{1}{a}\arctan \frac{x}{a}+C(a>0)
+$$
+
+$$
+\int \frac{1}{\sqrt{a^2-x^2}}dx = \arcsin\frac{x}{a}+C(a>0)
+$$
+
+$$
 \int \sec xdx= \ln|\sec x +\tan x|+C\\
 $$
 
@@ -298,4 +306,29 @@ $$
 \int \cot^2xdx = -\cot x-x+C
 $$
 
-- 
+- 分部积分法，适用于对$\int vdu$积分较为容易的情景
+
+$$
+\int udv= uv - \int vdu\\
+反 对 幂 三 指\\
+
+u\leftarrow   \rightarrow v
+$$
+
+:::info 表格法求不定积分
+
+求$\int(x^2+x)e^xdx$
+
+作两行表格，第一行写$u$(易于求导的变量)，第二行写$v$(易于求原函数的变量)
+
+|  |  |  | |  |
+| :-: | :--: | :-: | :-: | :-: |
+| $x^2+x$ | $2x+1$ | 2 | 0 | 求导 |
+| $e^x$ | $e^x$ | $e^x$ | $e^x$ | 求原函数 |
+
+从第一列开始，与右下角项进行相乘，采用加减交替的形式算总和。
+$$
+∫(x2+x)exdx\int(x^2+x)e^xdx\\
+=(X^2+x)e^x-(2x+1)e^x+2e^x+C
+$$
+:::

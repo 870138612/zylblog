@@ -114,7 +114,9 @@
       <workItem from="1723478000329" duration="620000" />
       <workItem from="1723555904422" duration="23000" />
       <workItem from="1723558817924" duration="173000" />
-      <workItem from="1723564011954" duration="1035000" />
+      <workItem from="1723564011954" duration="2225000" />
+      <workItem from="1723653173600" duration="783000" />
+      <workItem from="1723733372023" duration="300000" />
     </task>
     <task id="LOCAL-00001" summary="对项目进行重构，删除笔记，添加高等数学笔记">
       <created>1723127884273</created>
@@ -242,7 +244,35 @@
       <option name="project" value="LOCAL" />
       <updated>1723565052619</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="添加数学笔记">
+      <created>1723566120536</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1723566120536</updated>
+    </task>
+    <task id="LOCAL-00020" summary="添加数学笔记">
+      <created>1723653216524</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1723653216524</updated>
+    </task>
+    <task id="LOCAL-00021" summary="添加数学笔记">
+      <created>1723653362715</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1723653362715</updated>
+    </task>
+    <task id="LOCAL-00022" summary="添加数学笔记">
+      <created>1723733672302</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1723733672302</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
