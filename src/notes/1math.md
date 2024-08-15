@@ -86,7 +86,7 @@ $$
 \tan'x=\sec^2x
 $$
 $$
-\csc'x=-\csc^2x
+\cot'x=-\csc^2x
 $$
 $$
 \arcsin'x=\frac{1}{\sqrt{1-x^2}}
@@ -250,5 +250,52 @@ $$
 \int_{-\infty}^{+\infty}f(x)dx=0
 $$
 
+### 一元函数积分学的计算
 
+- 基本积分公式
 
+$$
+\int a^xdx= \frac{a^x}{\ln a}+C\\
+$$
+
+$$
+\int \tan x dx= -\ln |\cos x|+C\\
+$$
+
+$$
+\int \cot x dx= \ln|\sin x| + C\\
+$$
+
+$$
+\int \sec xdx= \ln|\sec x +\tan x|+C\\
+$$
+
+$$
+\int \csc dx= \ln|\csc x -\cot x|+C\\
+$$
+
+$$
+\int \sec x \tan xdx= \sec x+C\\
+$$
+
+$$
+\int \csc x \cot x dx = -\csc x+C\\
+$$
+
+$$
+\int \frac{1}{x^2-a^2}dx = \frac{1}{2a}\ln{|\frac{x-a}{x+a}|}+C
+$$
+
+$$
+\int \sqrt{a^2-x^2}dx = \frac{a^2}{2}\arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}+C
+$$
+
+$$
+\int \tan^2xdx =\tan x -x +C
+$$
+
+$$
+\int \cot^2xdx = -\cot x-x+C
+$$
+
+- 
