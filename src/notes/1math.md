@@ -343,9 +343,31 @@ $$
 \frac{4x^2-6x-1}{(x+1)(2x-1)^2}\\
 =\frac{A}{x+1}+\frac{B}{2x-1}+\frac{C}{(2x-1)^2}\\
 将右边进行合并\\
-4x^2-6x-1=(4A+2B)x^2+(-4A+B+C)+(A-B+C)\\
-由于系数相同，因此A=1,B=0,C=-2\\
+4x^2-6x-1\equiv(4A+2B)x^2 + (-4A+B+C)x + (A-B+C)\\
+由于系数相同，因此 A=1，B=0，C=-2\\
 \int\frac{4x^2-6x-1}{(x+1)(2x-1)^2}dx=\\
 \frac{1}{x+1}-\frac{2}{(2x-1)^2}，最后求积分
 $$
 :::                              
+
+- 定积分的区间再现公式，令$x=a+b-t$可证
+
+$$
+\int_{a}^{b}f(x)dx =\int_{a}^{b}f(a+b-x)dx
+$$
+
+- 点火公式
+
+$$
+\int_{0}^{\frac{\pi}{2}}\sin^8x dx=\frac{7}{8} \cdot \frac{5}{6} \cdot \frac{3}{4} \cdot \frac{1}{2} \cdot \frac{\pi}{2}，n为偶数\\
+\int_{0}^{\frac{\pi}{2}}\sin^9x dx=\frac{8}{9} \cdot \frac{6}{7} \cdot \frac{4}{5} \cdot \frac{2}{3} \cdot 1，n为奇数
+$$
+
+-  使用换元法，遇到根号，需要注意开根号之后的正负问题
+
+$$
+\int_{0}^{1}\arcsin\sqrt{1-x^2}dx \xrightarrow{x=\cos t} 
+\int_{-\frac{\pi}{2}}^{0}\arcsin(-\sin t)\cdot (-\sin t)dt=1\\
+根号内的值一定为正值，在换元之后，上下限发生变化，\\|\sin t|是正值，则|\sin t|=-\sin t
+$$
+
