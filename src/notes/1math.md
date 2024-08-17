@@ -20,33 +20,24 @@ tag:
 - 泰勒公式
 
 $$
-\sin x = x -\frac{x^3}{6} + o(x^3)
-$$
-$$
-\arcsin x = x+\frac{x^3}{6}+o(x^3)
-$$
-$$
-\cos x =1-\frac{x^2}{2}+\frac{x^4}{24}+o(x^4)
-$$
-$$
-\tan x=x+\frac{x^3}{3}+o(x^3)
-$$
-$$
-\arctan x=x-\frac{x^3}{3}+o(x^3)
-$$
-$$
-\ln(1+x) =x-\frac{x^2}{2}+\frac{x^3}{3}+o(x^3)
-$$
-$$
-e ^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+o(x^3)
-$$
-$$
-(1+x)^a=1+ax+\frac{a(a-1)}{2!}x^2+o(x^2)
-$$
-$$
-\frac{1}{1-x}=1+x+x^2+x^3...
-$$
-$$
+\sin x = x -\frac{x^3}{6} + o(x^3)\\\\
+
+\arcsin x = x+\frac{x^3}{6}+o(x^3)\\\\
+
+\cos x =1-\frac{x^2}{2}+\frac{x^4}{24}+o(x^4)\\\\
+
+\tan x=x+\frac{x^3}{3}+o(x^3)\\\\
+
+\arctan x=x-\frac{x^3}{3}+o(x^3)\\\\
+
+\ln(1+x) =x-\frac{x^2}{2}+\frac{x^3}{3}+o(x^3)\\\\
+
+e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+o(x^3)\\\\
+
+(1+x)^a=1+ax+\frac{a(a-1)}{2!}x^2+o(x^2)\\\\
+
+\frac{1}{1-x}=1+x+x^2+x^3...\\\\
+
 \frac{1}{1+x}=1-x+x^2-x^3...
 $$
 
@@ -77,36 +68,26 @@ $$
 - 基本求导公式
 
 $$
-\sin'x=\cos x
-$$
-$$
-\cos'x=-\sin x
-$$
-$$
-\tan'x=\sec^2x
-$$
-$$
-\cot'x=-\csc^2x
-$$
-$$
-\arcsin'x=\frac{1}{\sqrt{1-x^2}}
-$$
-$$
-\arccos'x=-\frac{1}{\sqrt{1-x^2}}
-$$
-$$
-\arctan'x=\frac{1}{1+x^2}
-$$
-$$
-\sec'x=\sec x\cdot{\tan x}
-$$
-$$
-\csc'x=-\csc x\cdot{\cot x}
-$$
-$$
-\ln'(x+\sqrt{x^2+1})=\frac{1}{\sqrt{x^2+1}}
-$$
-$$
+\sin'x=\cos x\\\\
+
+\cos'x=-\sin x\\\\
+
+\tan'x=\sec^2x\\\\
+
+\cot'x=-\csc^2x\\\\
+
+\arcsin'x=\frac{1}{\sqrt{1-x^2}}\\\\
+
+\arccos'x=-\frac{1}{\sqrt{1-x^2}}\\\\
+
+\arctan'x=\frac{1}{1+x^2}\\\\
+
+\sec'x=\sec x\cdot{\tan x}\\\\
+
+\csc'x=-\csc x\cdot{\cot x}\\\\
+
+\ln'(x+\sqrt{x^2+1})=\frac{1}{\sqrt{x^2+1}}\\\\
+
 \ln'(x+\sqrt{x^2-1})=\frac{1}{\sqrt{x^2-1}}
 $$
 
@@ -255,54 +236,30 @@ $$
 - 基本积分公式
 
 $$
-\int a^xdx= \frac{a^x}{\ln a}+C\\
-$$
+\int a^xdx= \frac{a^x}{\ln a}+C\\\\
 
-$$
-\int \tan x dx= -\ln |\cos x|+C\\
-$$
+\int \tan x dx= -\ln |\cos x|+C\\\\
 
-$$
-\int \cot x dx= \ln|\sin x| + C\\
-$$
+\int \cot x dx= \ln|\sin x| + C\\\\
 
-$$
-\int \frac{1}{a^2+x^2}dx = \frac{1}{a}\arctan \frac{x}{a}+C(a>0)
-$$
+\int \frac{1}{a^2+x^2}dx = \frac{1}{a}\arctan \frac{x}{a}+C(a>0)\\\\
 
-$$
-\int \frac{1}{\sqrt{a^2-x^2}}dx = \arcsin\frac{x}{a}+C(a>0)
-$$
+\int \frac{1}{\sqrt{a^2-x^2}}dx = \arcsin\frac{x}{a}+C(a>0)\\\\
 
-$$
-\int \sec xdx= \ln|\sec x +\tan x|+C\\
-$$
+\int \sec xdx= \ln|\sec x +\tan x|+C\\\\
 
-$$
-\int \csc dx= \ln|\csc x -\cot x|+C\\
-$$
+\int \csc dx= \ln|\csc x -\cot x|+C\\\\
 
-$$
-\int \sec x \tan xdx= \sec x+C\\
-$$
+\int \sec x \tan xdx= \sec x+C\\\\
 
-$$
-\int \csc x \cot x dx = -\csc x+C\\
-$$
+\int \csc x \cot x dx = -\csc x+C\\\\
 
-$$
-\int \frac{1}{x^2-a^2}dx = \frac{1}{2a}\ln{|\frac{x-a}{x+a}|}+C
-$$
+\int \frac{1}{x^2-a^2}dx = \frac{1}{2a}\ln{|\frac{x-a}{x+a}|}+C\\\\
 
-$$
-\int \sqrt{a^2-x^2}dx = \frac{a^2}{2}\arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}+C
-$$
+\int \sqrt{a^2-x^2}dx = \frac{a^2}{2}\arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}+C\\\\
 
-$$
-\int \tan^2xdx =\tan x -x +C
-$$
+\int \tan^2xdx =\tan x -x +C \\\\
 
-$$
 \int \cot^2xdx = -\cot x-x+C
 $$
 
@@ -321,7 +278,7 @@ $$
 
 作两行表格，第一行写$u$(易于求导的变量)，第二行写$v$(易于求原函数的变量)
 
-|  |  |  | |  |
+| - | - | - | - | - |
 | :-: | :--: | :-: | :-: | :-: |
 | $x^2+x$ | $2x+1$ | 2 | 0 | 求导 |
 | $e^x$ | $e^x$ | $e^x$ | $e^x$ | 求原函数 |
@@ -369,5 +326,29 @@ $$
 \int_{0}^{1}\arcsin\sqrt{1-x^2}dx \xrightarrow{x=\cos t} 
 \int_{-\frac{\pi}{2}}^{0}\arcsin(-\sin t)\cdot (-\sin t)dt=1\\
 根号内的值一定为正值，在换元之后，上下限发生变化，\\|\sin t|是正值，则|\sin t|=-\sin t
+$$
+
+- 设$f(x)$在$[0,1]$上连续，则
+
+$$
+\int_0^\pi xf(\sin x)dx = \frac{\pi}{2}\int_0^\pi f(\sin x)dx
+$$
+
+- 变限积分的求导
+
+$$
+F'(x)=\frac{d}{dx}[\int_{\varphi_1(x)}^{\varphi_2(x)}f(t)dt]\\
+=f[\varphi_2(x)]\varphi_2'(x)-f[\varphi_1(x)]\varphi_1'(x)
+$$
+
+- 变限积分重要结论
+
+$$
+f(x)为可积的奇函数=>\begin{cases}\int_0^xf(t)dt、\int_0^xf(t)dt+C皆为偶函数\\
+\int_a^xf(t)dt为偶函数(a \not = 0)\end{cases}\\ \\
+f(x)为可积的偶函数=>\begin{cases}\int_0^xf(t)dt为奇函数\\
+\int_a^xf(t)(a\not = 0)\begin{cases}若\int_a^xf(t)dt = \int_0^xf(t)dt，为奇函数\\
+若\int_a^xf(t)dt \not =  \int_0^xf(t)dt，为非奇非偶函数
+\end{cases}\end{cases}
 $$
 
