@@ -205,16 +205,18 @@ $$
     - 若$x=x_{0}\in I$是$f(x)$唯一的跳跃间断点，则$F(x)=\int_{a}^{x}f(t)dt$在$x_{0}$处不可导，且
 
 $$
-\begin{cases}F'_-(x_0)=\lim_{x\rightarrow x_0^-}f(x), \\F'_+(x_0)=\lim_{x\rightarrow x_0^+}f(x), \end{cases}
+\begin{cases}F'_-(x_0)=\lim_{x\rightarrow x_0^-}f(x), 
+\\\\
+F'_+(x_0)=\lim_{x\rightarrow x_0^+}f(x), \end{cases}
 $$
 
 - 两个重要结论
 
 $$
 \int_{0}^{1}\frac{1}{x^p}dx\begin{cases}收敛，0<p<1 \\
-发散，p \ge1\end{cases}\\
+发散，p \ge1\end{cases}\\\\
 \int_{1}^{+\infty}\frac{1}{x^p}dx\begin{cases} 收敛，p>1\\
-发散，p\le1\end{cases}\\
+发散，p\le1\end{cases}\\\\
 当(ax+b)>k>0时，\int_{1}^{+\infty}\frac{1}{(ax+b)^p}dx依然满足\begin{cases}收敛，p>1\\
 发散，p\le1\end{cases}
 $$
@@ -253,6 +255,10 @@ $$
 \int \sec x \tan xdx= \sec x+C\\\\
 
 \int \csc x \cot x dx = -\csc x+C\\\\
+
+\int{\frac{1}{\sqrt{x^2+a^2}}}dx = \ln(x+\sqrt{x^2+a^2})+C\\\\
+
+\int{\frac{1}{\sqrt{x^2-a^2}}}dx = \ln|x+\sqrt{x^2-a^2}|+C(|x|>|a|)\\\\
 
 \int \frac{1}{x^2-a^2}dx = \frac{1}{2a}\ln{|\frac{x-a}{x+a}|}+C\\\\
 
@@ -344,11 +350,20 @@ $$
 - 变限积分重要结论
 
 $$
-f(x)为可积的奇函数=>\begin{cases}\int_0^xf(t)dt、\int_0^xf(t)dt+C皆为偶函数\\
-\int_a^xf(t)dt为偶函数(a \not = 0)\end{cases}\\ \\
-f(x)为可积的偶函数=>\begin{cases}\int_0^xf(t)dt为奇函数\\
-\int_a^xf(t)(a\not = 0)\begin{cases}若\int_a^xf(t)dt = \int_0^xf(t)dt，为奇函数\\
-若\int_a^xf(t)dt \not =  \int_0^xf(t)dt，为非奇非偶函数
-\end{cases}\end{cases}
+f(x)为可积的奇函数\Rightarrow\begin{cases}\int_0^xf(t)dt、\int_0^xf(t)dt+C皆为偶函数
+\\\\
+\int_a^xf(t)dt为偶函数(a \not = 0)\end{cases}
+\\\\
+f(x)为可积的偶函数\Rightarrow\begin{cases}\int_0^xf(t)dt为奇函数
+\\\\
+\int_a^xf(t)(a\not = 0)\begin{cases}若\int_a^xf(t)dt = \int_0^xf(t)dt，为奇函数
+\\若\int_a^xf(t)dt \not =  \int_0^xf(t)dt，为非奇非偶函数
+\end{cases}\end{cases}\\\\
+f(x)是可积且以T为周期的周期函数，
+则\int_0^xf(t)dt是以T为周期的周期函数\Leftrightarrow \int_0^Tf(x)dx=0\\\\
+连续的奇函数的一切原函数都是偶函数\\
+连续的偶函数的原函数中只有一个原函数为奇函数
 $$
 
+- 反常积分计算时，注意识别奇点（端点，内部）
+    - 例如$\int_0^2f(x)dx$的奇点为x=1，则应该拆分为$\int_0^1f(x)dx+\int_1^2f(x)dx$
