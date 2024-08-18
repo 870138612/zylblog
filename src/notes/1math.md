@@ -235,7 +235,7 @@ $$
 
 ### 一元函数积分学的计算
 
-- 基本积分公式
+- 基本积分公式，计算原函数记得加$C$
 
 $$
 \int a^xdx= \frac{a^x}{\ln a}+C\\\\
@@ -326,7 +326,7 @@ $$
 \int_{0}^{\frac{\pi}{2}}\sin^9x dx=\frac{8}{9} \cdot \frac{6}{7} \cdot \frac{4}{5} \cdot \frac{2}{3} \cdot 1，n为奇数
 $$
 
--  使用换元法，遇到根号，需要注意开根号之后的正负问题
+-  使用换元法，遇到根号，需要注意开根号之后的正负问题，最后求得原函数记得换回去
 
 $$
 \int_{0}^{1}\arcsin\sqrt{1-x^2}dx \xrightarrow{x=\cos t} 
@@ -362,8 +362,19 @@ f(x)为可积的偶函数\Rightarrow\begin{cases}\int_0^xf(t)dt为奇函数
 f(x)是可积且以T为周期的周期函数，
 则\int_0^xf(t)dt是以T为周期的周期函数\Leftrightarrow \int_0^Tf(x)dx=0\\\\
 连续的奇函数的一切原函数都是偶函数\\
-连续的偶函数的原函数中只有一个原函数为奇函数
+连续的偶函数的原函数中只有一个原函数为奇函数
 $$
 
 - 反常积分计算时，注意识别奇点（端点，内部）
     - 例如$\int_0^2f(x)dx$的奇点为x=1，则应该拆分为$\int_0^1f(x)dx+\int_1^2f(x)dx$
+- $\Gamma$函数
+
+$$
+\Gamma(a)=\int_0^{+\infty}x^{a-1}e^{-x}dx \xrightarrow{x=t^2}2\int_0^{+\infty}t^{2a-1}e^{-t^2}dt
+\\\\
+\Gamma(n+1)=n!
+\\ \Gamma(\frac{5}{2})=\frac{3}{2}\cdot\frac{1}{2}\cdot \Gamma(\frac{1}{2})
+\\ \Gamma(\frac{1}{2})=\frac{3}{4}\sqrt{\pi}
+$$
+
+- 
