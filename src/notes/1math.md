@@ -20,24 +20,33 @@ tag:
 - 泰勒公式
 
 $$
-\sin x = x -\frac{x^3}{6} + o(x^3)\\\\
-
-\arcsin x = x+\frac{x^3}{6}+o(x^3)\\\\
-
-\cos x =1-\frac{x^2}{2}+\frac{x^4}{24}+o(x^4)\\\\
-
-\tan x=x+\frac{x^3}{3}+o(x^3)\\\\
-
-\arctan x=x-\frac{x^3}{3}+o(x^3)\\\\
-
-\ln(1+x) =x-\frac{x^2}{2}+\frac{x^3}{3}+o(x^3)\\\\
-
-e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+o(x^3)\\\\
-
-(1+x)^a=1+ax+\frac{a(a-1)}{2!}x^2+o(x^2)\\\\
-
-\frac{1}{1-x}=1+x+x^2+x^3...\\\\
-
+\sin x = x -\frac{x^3}{6} + o(x^3)
+$$
+$$
+\arcsin x = x+\frac{x^3}{6}+o(x^3)
+$$
+$$
+\cos x =1-\frac{x^2}{2}+\frac{x^4}{24}+o(x^4)
+$$
+$$
+\tan x=x+\frac{x^3}{3}+o(x^3)
+$$
+$$
+\arctan x=x-\frac{x^3}{3}+o(x^3)
+$$
+$$
+\ln(1+x) =x-\frac{x^2}{2}+\frac{x^3}{3}+o(x^3)
+$$
+$$
+e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+o(x^3)
+$$
+$$
+(1+x)^a=1+ax+\frac{a(a-1)}{2!}x^2+o(x^2)
+$$
+$$
+\frac{1}{1-x}=1+x+x^2+x^3...
+$$
+$$
 \frac{1}{1+x}=1-x+x^2-x^3...
 $$
 
@@ -68,26 +77,36 @@ $$
 - 基本求导公式
 
 $$
-\sin'x=\cos x\\\\
-
-\cos'x=-\sin x\\\\
-
-\tan'x=\sec^2x\\\\
-
-\cot'x=-\csc^2x\\\\
-
-\arcsin'x=\frac{1}{\sqrt{1-x^2}}\\\\
-
-\arccos'x=-\frac{1}{\sqrt{1-x^2}}\\\\
-
-\arctan'x=\frac{1}{1+x^2}\\\\
-
-\sec'x=\sec x\cdot{\tan x}\\\\
-
-\csc'x=-\csc x\cdot{\cot x}\\\\
-
-\ln'(x+\sqrt{x^2+1})=\frac{1}{\sqrt{x^2+1}}\\\\
-
+\sin'x=\cos x
+$$
+$$
+\cos'x=-\sin x
+$$
+$$
+\tan'x=\sec^2x
+$$
+$$
+\cot'x=-\csc^2x
+$$
+$$
+\arcsin'x=\frac{1}{\sqrt{1-x^2}}
+$$
+$$
+\arccos'x=-\frac{1}{\sqrt{1-x^2}}
+$$
+$$
+\arctan'x=\frac{1}{1+x^2}
+$$
+$$
+\sec'x=\sec x\cdot{\tan x}
+$$
+$$
+\csc'x=-\csc x\cdot{\cot x}
+$$
+$$
+\ln'(x+\sqrt{x^2+1})=\frac{1}{\sqrt{x^2+1}}
+$$
+$$
 \ln'(x+\sqrt{x^2-1})=\frac{1}{\sqrt{x^2-1}}
 $$
 
@@ -214,9 +233,13 @@ $$
 
 $$
 \int_{0}^{1}\frac{1}{x^p}dx\begin{cases}收敛，0<p<1 \\
-发散，p \ge1\end{cases}\\\\
+发散，p \ge1\end{cases}
+$$
+$$
 \int_{1}^{+\infty}\frac{1}{x^p}dx\begin{cases} 收敛，p>1\\
-发散，p\le1\end{cases}\\\\
+发散，p\le1\end{cases}
+$$
+$$
 当(ax+b)>k>0时，\int_{1}^{+\infty}\frac{1}{(ax+b)^p}dx依然满足\begin{cases}收敛，p>1\\
 发散，p\le1\end{cases}
 $$
@@ -238,34 +261,48 @@ $$
 - 基本积分公式，计算原函数记得加$C$
 
 $$
-\int a^xdx= \frac{a^x}{\ln a}+C\\\\
-
-\int \tan x dx= -\ln |\cos x|+C\\\\
-
-\int \cot x dx= \ln|\sin x| + C\\\\
-
-\int \frac{1}{a^2+x^2}dx = \frac{1}{a}\arctan \frac{x}{a}+C(a>0)\\\\
-
-\int \frac{1}{\sqrt{a^2-x^2}}dx = \arcsin\frac{x}{a}+C(a>0)\\\\
-
-\int \sec xdx= \ln|\sec x +\tan x|+C\\\\
-
-\int \csc dx= \ln|\csc x -\cot x|+C\\\\
-
-\int \sec x \tan xdx= \sec x+C\\\\
-
-\int \csc x \cot x dx = -\csc x+C\\\\
-
-\int{\frac{1}{\sqrt{x^2+a^2}}}dx = \ln(x+\sqrt{x^2+a^2})+C\\\\
-
-\int{\frac{1}{\sqrt{x^2-a^2}}}dx = \ln|x+\sqrt{x^2-a^2}|+C(|x|>|a|)\\\\
-
-\int \frac{1}{x^2-a^2}dx = \frac{1}{2a}\ln{|\frac{x-a}{x+a}|}+C\\\\
-
-\int \sqrt{a^2-x^2}dx = \frac{a^2}{2}\arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}+C\\\\
-
-\int \tan^2xdx =\tan x -x +C \\\\
-
+\int a^xdx= \frac{a^x}{\ln a}+C
+$$
+$$
+\int \tan x dx= -\ln |\cos x|+C
+$$
+$$
+\int \cot x dx= \ln|\sin x| + C
+$$
+$$
+\int \frac{1}{a^2+x^2}dx = \frac{1}{a}\arctan \frac{x}{a}+C(a>0)
+$$
+$$
+\int \frac{1}{\sqrt{a^2-x^2}}dx = \arcsin\frac{x}{a}+C(a>0)
+$$
+$$
+\int \sec xdx= \ln|\sec x +\tan x|+C
+$$
+$$
+\int \csc dx= \ln|\csc x -\cot x|+C
+$$
+$$
+\int \sec x \tan xdx= \sec x+C
+$$
+$$
+\int \csc x \cot x dx = -\csc x+C
+$$
+$$
+\int{\frac{1}{\sqrt{x^2+a^2}}}dx = \ln(x+\sqrt{x^2+a^2})+C
+$$
+$$
+\int{\frac{1}{\sqrt{x^2-a^2}}}dx = \ln|x+\sqrt{x^2-a^2}|+C(|x|>|a|)
+$$
+$$
+\int \frac{1}{x^2-a^2}dx = \frac{1}{2a}\ln{|\frac{x-a}{x+a}|}+C
+$$
+$$
+\int \sqrt{a^2-x^2}dx = \frac{a^2}{2}\arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}+C
+$$
+$$
+\int \tan^2xdx =\tan x -x +C
+$$
+$$
 \int \cot^2xdx = -\cot x-x+C
 $$
 
@@ -304,9 +341,13 @@ $$
 求\int\frac{4x^2-6x-1}{(x+1)(2x-1)^2}dx\\
 先将被积函数分解为最简有理分式之和\\
 \frac{4x^2-6x-1}{(x+1)(2x-1)^2}\\
-=\frac{A}{x+1}+\frac{B}{2x-1}+\frac{C}{(2x-1)^2}\\
+=\frac{A}{x+1}+\frac{B}{2x-1}+\frac{C}{(2x-1)^2}
+$$
+$$
 将右边进行合并\\
-4x^2-6x-1\equiv(4A+2B)x^2 + (-4A+B+C)x + (A-B+C)\\
+4x^2-6x-1\equiv(4A+2B)x^2 + (-4A+B+C)x + (A-B+C)
+$$
+$$
 由于系数相同，因此 A=1，B=0，C=-2\\
 \int\frac{4x^2-6x-1}{(x+1)(2x-1)^2}dx=\\
 \frac{1}{x+1}-\frac{2}{(2x-1)^2}，最后求积分
@@ -323,6 +364,8 @@ $$
 
 $$
 \int_{0}^{\frac{\pi}{2}}\sin^8x dx=\frac{7}{8} \cdot \frac{5}{6} \cdot \frac{3}{4} \cdot \frac{1}{2} \cdot \frac{\pi}{2}，n为偶数\\
+$$
+$$
 \int_{0}^{\frac{\pi}{2}}\sin^9x dx=\frac{8}{9} \cdot \frac{6}{7} \cdot \frac{4}{5} \cdot \frac{2}{3} \cdot 1，n为奇数
 $$
 
@@ -351,16 +394,21 @@ $$
 
 $$
 f(x)为可积的奇函数\Rightarrow\begin{cases}\int_0^xf(t)dt、\int_0^xf(t)dt+C皆为偶函数
-\\\\
+\\
 \int_a^xf(t)dt为偶函数(a \not = 0)\end{cases}
-\\\\
+$$
+$$
 f(x)为可积的偶函数\Rightarrow\begin{cases}\int_0^xf(t)dt为奇函数
-\\\\
+\\
 \int_a^xf(t)(a\not = 0)\begin{cases}若\int_a^xf(t)dt = \int_0^xf(t)dt，为奇函数
 \\若\int_a^xf(t)dt \not =  \int_0^xf(t)dt，为非奇非偶函数
-\end{cases}\end{cases}\\\\
+\end{cases}\end{cases}
+$$
+$$
 f(x)是可积且以T为周期的周期函数，
-则\int_0^xf(t)dt是以T为周期的周期函数\Leftrightarrow \int_0^Tf(x)dx=0\\\\
+则\int_0^xf(t)dt是以T为周期的周期函数\Leftrightarrow \int_0^Tf(x)dx=0
+$$
+$$
 连续的奇函数的一切原函数都是偶函数\\
 连续的偶函数的原函数中只有一个原函数为奇函数
 $$
@@ -371,10 +419,15 @@ $$
 
 $$
 \Gamma(a)=\int_0^{+\infty}x^{a-1}e^{-x}dx \xrightarrow{x=t^2}2\int_0^{+\infty}t^{2a-1}e^{-t^2}dt
-\\\\
+$$
+$$
 \Gamma(n+1)=n!
-\\ \Gamma(\frac{5}{2})=\frac{3}{2}\cdot\frac{1}{2}\cdot \Gamma(\frac{1}{2})
-\\ \Gamma(\frac{1}{2})=\frac{3}{4}\sqrt{\pi}
+$$
+$$
+\Gamma(\frac{5}{2})=\frac{3}{2}\cdot\frac{1}{2}\cdot \Gamma(\frac{1}{2})
+$$
+$$
+\Gamma(\frac{1}{2})=\frac{3}{4}\sqrt{\pi}
 $$
 
 - 
