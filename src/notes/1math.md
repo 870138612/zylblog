@@ -405,7 +405,7 @@ f(x)为可积的偶函数\Rightarrow\begin{cases}\int_0^xf(t)dt为奇函数
 \end{cases}\end{cases}
 $$
 $$
-f(x)是可积且以T为周期的周期函数，
+f(x)是可积且以T为周期的周期函数，\\
 则\int_0^xf(t)dt是以T为周期的周期函数\Leftrightarrow \int_0^Tf(x)dx=0
 $$
 $$
