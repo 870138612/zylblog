@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="添加数学笔记">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notes/1math.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/notes/1math.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +39,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Administrator/Desktop/docs/src/discovery/2computerorganization&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -117,6 +117,11 @@
       <workItem from="1723564011954" duration="2225000" />
       <workItem from="1723653173600" duration="783000" />
       <workItem from="1723733372023" duration="300000" />
+      <workItem from="1723823647903" duration="1745000" />
+      <workItem from="1723915485531" duration="1200000" />
+      <workItem from="1724000038525" duration="11000" />
+      <workItem from="1724082303979" duration="47000" />
+      <workItem from="1724082365082" duration="53000" />
     </task>
     <task id="LOCAL-00001" summary="对项目进行重构，删除笔记，添加高等数学笔记">
       <created>1723127884273</created>
@@ -272,7 +277,49 @@
       <option name="project" value="LOCAL" />
       <updated>1723733672302</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="添加数学笔记">
+      <created>1723824187321</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1723824187321</updated>
+    </task>
+    <task id="LOCAL-00024" summary="添加数学笔记">
+      <created>1723834853229</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1723834853229</updated>
+    </task>
+    <task id="LOCAL-00025" summary="添加数学笔记">
+      <created>1723915489694</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1723915489694</updated>
+    </task>
+    <task id="LOCAL-00026" summary="添加数学笔记">
+      <created>1723918290569</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1723918290569</updated>
+    </task>
+    <task id="LOCAL-00027" summary="添加数学笔记">
+      <created>1724000043614</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1724000043614</updated>
+    </task>
+    <task id="LOCAL-00028" summary="添加数学笔记">
+      <created>1724082326171</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1724082326171</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
