@@ -17,37 +17,37 @@ tag:
 - 若$\lim{f(x)}$不存在，$\lim{g(x)}$不存在，则$\lim{[f(x)}\pm{g(x)}]$不一定存在.
 - 若$\lim{f(x)}=A\not=0$，$\lim{f(x)g(x)}=A\lim{g(x)}$，即乘除法中非零因子可以先提出.
 
-- 泰勒公式
+- 泰勒展开式，当$x\rightarrow 0$时，可进行等价无穷小替换，消去高阶无穷小.
 
 $$
-\sin x = x -\frac{x^3}{6} + o(x^3)
+\sin x = x -\frac{x^3}{6} + ...,-\infty<x<+\infty
 $$
 $$
-\arcsin x = x+\frac{x^3}{6}+o(x^3)
+\arcsin x = x+\frac{x^3}{6}+...
 $$
 $$
-\cos x =1-\frac{x^2}{2}+\frac{x^4}{24}+o(x^4)
+\cos x =1-\frac{x^2}{2}+\frac{x^4}{24}+...,-\infty<x<+\infty
 $$
 $$
-\tan x=x+\frac{x^3}{3}+o(x^3)
+\tan x=x+\frac{x^3}{3}+...
 $$
 $$
-\arctan x=x-\frac{x^3}{3}+o(x^3)
+\arctan x=x-\frac{x^3}{3}+...
 $$
 $$
-\ln(1+x) =x-\frac{x^2}{2}+\frac{x^3}{3}+o(x^3)
+\ln(1+x) =x-\frac{x^2}{2}+\frac{x^3}{3}+...,-1<x\le1
 $$
 $$
-e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+o(x^3)
+e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+...,-\infty<x<+\infty
 $$
 $$
 (1+x)^a=1+ax+\frac{a(a-1)}{2!}x^2+o(x^2)
 $$
 $$
-\frac{1}{1-x}=1+x+x^2+x^3...
+\frac{1}{1-x}=1+x+x^2+x^3...,-1<x<1
 $$
 $$
-\frac{1}{1+x}=1-x+x^2-x^3...
+\frac{1}{1+x}=1-x+x^2-x^3...,-1<x<1
 $$
 
 ### 数列极限
