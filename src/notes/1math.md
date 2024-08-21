@@ -41,7 +41,12 @@ $$
 e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+...,-\infty<x<+\infty
 $$
 $$
-(1+x)^a=1+ax+\frac{a(a-1)}{2!}x^2+o(x^2)
+(1+x)^a=1+ax+\frac{a(a-1)}{2!}x^2+...,
+\begin{cases}x\in(-1,1),a\le1\\
+x \in (1,1],-1<a<0\\
+x \in [-1,1],a>0,a\notin \rm{N}_+\\
+x \in \rm{R},a\in \rm{N}_+
+\end{cases}
 $$
 $$
 \frac{1}{1-x}=1+x+x^2+x^3...,-1<x<1
