@@ -441,7 +441,9 @@ $$
 - 曲线$r=r_1(\theta)$与$r=r_2(\theta)$与两射线$\theta=\alpha$与$\theta=\beta(0<\beta-\alpha\le2\pi)$围成的扇形面积
 
 $$
-S=\frac{1}{2}\int_{\alpha}^{\beta}|r_1^2(\theta)-r_2^2(\theta)|d\theta \\
+S=\frac{1}{2}\int_{\alpha}^{\beta}|r_1^2(\theta)-r_2^2(\theta)|d\theta 
+$$
+$$
 S=\frac{1}{2}\int_{开始角度}^{结束角度}|外圈^2-内圈^2|d\theta 
 $$
 
