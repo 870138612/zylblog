@@ -460,4 +460,32 @@ V_y=2\pi \int_a^bx|y(x)|dx\\
 其中,2\pi x近似为圆柱壳的截面周长,|y(x)|dx为圆柱壳的竖截面长方形面积.
 $$
 
-- 设$x\in[a,b]$，函数$f(x)$在$[a,b]$上的平均值为$\overline{y}=\frac{1}{b-a}\int_{a}^{b}y(x)dx$
+- 设$x\in[a,b]$，函数$f(x)$在$[a,b]$上的平均值为$\overline{y}=\frac{1}{b-a}\int_{a}^{b}y(x)dx$.
+- 设平面$D=\{(x,y)|0\le y\le f(x),a\le x\le b \}$，则形心坐标
+
+$$
+\overline{x}=\frac{\int_a^bxf(x)dx}{\int_a^bf(x)dx}
+$$
+
+$$
+\overline y=\frac{\frac{1}{2}\int_a^bf^2(x)dx}{\int_a^bf(x)dx}
+$$
+
+- 若平面光滑曲线由直接坐标方程$y=y(x)$给出，则弧长
+
+$$
+s=\int_a^b\sqrt{1+[y'(x)]^2}dx
+$$
+
+- 若平面光滑曲线由参数方程$\begin{cases}x=x(t)\\ y=y(t) \end{cases}$给出，则弧长
+
+$$
+s=\int_\alpha^\beta \sqrt{[x'(t)]^2+[y'(t)]^2}dt
+$$
+
+- 若平面光滑曲线由极值坐标方程$r=r(\theta)(\alpha\le\theta\le\beta)$给出，则弧长
+
+$$
+s=\int_\alpha^\beta\sqrt{[r(\theta)]^2+[r'(\theta)]^2}d\theta
+$$
+
