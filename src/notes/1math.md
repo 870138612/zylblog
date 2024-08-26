@@ -460,3 +460,4 @@ V_y=2\pi \int_a^bx|y(x)|dx\\
 其中,2\pi x近似为圆柱壳的截面周长,|y(x)|dx为圆柱壳的竖截面长方形面积.
 $$
 
+- 设$x\in[a,b]$，函数$f(x)$在$[a,b]$上的平均值为$\overline{y}=\frac{1}{b-a}\int_{a}^{b}y(x)dx$
