@@ -374,12 +374,11 @@ $$
 \int_{0}^{\frac{\pi}{2}}\sin^9x dx=\frac{8}{9} \cdot \frac{6}{7} \cdot \frac{4}{5} \cdot \frac{2}{3} \cdot 1，n为奇数
 $$
 
--  使用换元法，遇到根号，需要注意开根号之后的正负问题，最后求得原函数记得换回去
+-  使用换元法，遇到根号，需要注意开根号之后的正负问题，最后求得原函数记得换回去，下例根号内的值一定为正值，在换元之后，上下限发生变化，$|\sin t|$是正值，则$|\sin t|=-\sin t$
 
 $$
 \int_{0}^{1}\arcsin\sqrt{1-x^2}dx \xrightarrow{x=\cos t} 
 \int_{-\frac{\pi}{2}}^{0}\arcsin(-\sin t)\cdot (-\sin t)dt=1\\
-根号内的值一定为正值，在换元之后，上下限发生变化，\\|\sin t|是正值，则|\sin t|=-\sin t
 $$
 
 - 设$f(x)$在$[0,1]$上连续，则
@@ -397,7 +396,7 @@ $$
 
 - 变限积分重要结论
     - f(x)为可积的奇函数$\Rightarrow\begin{cases}\int_0^xf(t)dt、\int_0^xf(t)dt+C皆为偶函数\\ \int_a^xf(t)dt为偶函数(a \not = 0)\end{cases}$.
-    - f(x)为可积的偶函数$\Rightarrow\begin{cases}\int_0^xf(t)dt为奇函数\\ \int_a^xf(t)(a\not = 0)\begin{cases} 若 \int_a^xf(t)dt = \int_0^xf(t)dt，为奇函数 \\ 若\int_a^xf(t)dt \not = \int_0^xf(t)dt，为非奇非偶函数\end{cases}\end{cases}$
+    - f(x)为可积的偶函数$\Rightarrow\begin{cases}\int_0^xf(t)dt为奇函数\\ \int_a^xf(t)(a\not = 0)\begin{cases} 若 \int_a^xf(t)dt = \int_0^xf(t)dt，为奇函数 \\ 若\int_a^xf(t)dt \not = \int_0^xf(t)dt，为非奇非偶函数\end{cases}\end{cases}$.
     - f(x)是可积且以T为周期的周期函数，则$\int_0^xf(t)dt$是以$T$为周期的周期函数$\Leftrightarrow \int_0^Tf(x)dx=0$.
     - 连续的奇函数的一切原函数都是偶函数,连续的偶函数的原函数中只有一个原函数为奇函数.
 
