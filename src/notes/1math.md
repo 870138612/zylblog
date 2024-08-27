@@ -20,28 +20,28 @@ tag:
 - 泰勒展开式，当$x\rightarrow 0$时，可进行等价无穷小替换，消去高阶无穷小.
 
 $$
-\sin x = x -\cfrac{x^3}{6} + ...,-\infty<x<+\infty
+\sin x = x -\frac{x^3}{6} + ...,-\infty<x<+\infty
 $$
 $$
-\arcsin x = x+\cfrac{x^3}{6}+...
+\arcsin x = x+\frac{x^3}{6}+...
 $$
 $$
-\cos x =1-\cfrac{x^2}{2}+\cfrac{x^4}{24}+...,-\infty<x<+\infty
+\cos x =1-\frac{x^2}{2}+\frac{x^4}{24}+...,-\infty<x<+\infty
 $$
 $$
-\tan x=x+\cfrac{x^3}{3}+...
+\tan x=x+\frac{x^3}{3}+...
 $$
 $$
-\arctan x=x-\cfrac{x^3}{3}+...
+\arctan x=x-\frac{x^3}{3}+...
 $$
 $$
-\ln(1+x) =x-\cfrac{x^2}{2}+\cfrac{x^3}{3}+...,-1<x\le1
+\ln(1+x) =x-\frac{x^2}{2}+\frac{x^3}{3}+...,-1<x\le1
 $$
 $$
-e^x=1+x+\cfrac{x^2}{2!}+\cfrac{x^3}{3!}+...,-\infty<x<+\infty
+e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+...,-\infty<x<+\infty
 $$
 $$
-(1+x)^a=1+ax+\cfrac{a(a-1)}{2!}x^2+...,
+(1+x)^a=1+ax+\frac{a(a-1)}{2!}x^2+...,
 \begin{cases}x\in(-1,1),a\le1\\
 x \in (1,1],-1<a<0\\
 x \in [-1,1],a>0,a\notin \rm{N}_+\\
@@ -49,18 +49,18 @@ x \in \rm{R},a\in \rm{N}_+
 \end{cases}
 $$
 $$
-\cfrac{1}{1-x}=1+x+x^2+x^3...,-1<x<1
+\frac{1}{1-x}=1+x+x^2+x^3...,-1<x<1
 $$
 $$
-\cfrac{1}{1+x}=1-x+x^2-x^3...,-1<x<1
+\frac{1}{1+x}=1-x+x^2-x^3...,-1<x<1
 $$
 
 ### 数列极限
 
-- 等比数列前$n$项的和$S_n=\begin{cases} na_1 &r=1\\ \cfrac{a_1(1-r^n)}{1-r} & r\not=1\end{cases}$.
-- $\sqrt{ab} \le {\cfrac{a+b}{2}} \le\sqrt{\cfrac{a^2+b^2}{2}},(a,b\ge0)$.
-- 当$0<x<\cfrac{\pi}{4}$时，$x<\tan x<\cfrac{4}{\pi}x$.
-- 当$0<x<\cfrac{\pi}{2}$，$\sin x>\cfrac{2}{\pi}x$.
+- 等比数列前$n$项的和$S_n=\begin{cases} na_1 &r=1\\ \frac{a_1(1-r^n)}{1-r} & r\not=1\end{cases}$.
+- $\sqrt{ab} \le {\frac{a+b}{2}} \le\sqrt{\frac{a^2+b^2}{2}},(a,b\ge0)$.
+- 当$0<x<\frac{\pi}{4}$时，$x<\tan x<\frac{4}{\pi}x$.
+- 当$0<x<\frac{\pi}{2}$，$\sin x>\frac{2}{\pi}x$.
 
 ### 一元函数微分学
 
@@ -92,13 +92,13 @@ $$
 \cot'x=-\csc^2x
 $$
 $$
-\arcsin'x=\cfrac{1}{\sqrt{1-x^2}}
+\arcsin'x=\frac{1}{\sqrt{1-x^2}}
 $$
 $$
-\arccos'x=-\cfrac{1}{\sqrt{1-x^2}}
+\arccos'x=-\frac{1}{\sqrt{1-x^2}}
 $$
 $$
-\arctan'x=\cfrac{1}{1+x^2}
+\arctan'x=\frac{1}{1+x^2}
 $$
 $$
 \sec'x=\sec x\cdot{\tan x}
@@ -107,18 +107,18 @@ $$
 \csc'x=-\csc x\cdot{\cot x}
 $$
 $$
-\ln'(x+\sqrt{x^2+1})=\cfrac{1}{\sqrt{x^2+1}}
+\ln'(x+\sqrt{x^2+1})=\frac{1}{\sqrt{x^2+1}}
 $$
 $$
-\ln'(x+\sqrt{x^2-1})=\cfrac{1}{\sqrt{x^2-1}}
+\ln'(x+\sqrt{x^2-1})=\frac{1}{\sqrt{x^2-1}}
 $$
 
 - 反函数的导数
-    - 设$y=f(x)$为单调，可导函数，且$f'(x)\not=0$，则存在反函数$x=\varphi(y)$，且$\cfrac{dx}{dy}=\cfrac{1}{\cfrac{dy}{dx}}$，即$\varphi'(y)=\cfrac{1}{f'(x)}$.
+    - 设$y=f(x)$为单调，可导函数，且$f'(x)\not=0$，则存在反函数$x=\varphi(y)$，且$\frac{dx}{dy}=\frac{1}{\frac{dy}{dx}}$，即$\varphi'(y)=\frac{1}{f'(x)}$.
     - 记$f'(x)=y'_x$，$\varphi'(y)=x'_y$，则
 
 $$
-y''_{xx}=-\cfrac{x'_{yy}}{(x'_y)^3}
+y''_{xx}=-\frac{x'_{yy}}{(x'_y)^3}
 $$
 
 
@@ -126,15 +126,15 @@ $$
     - 设函数$y=y(x)$由参数方程为$\begin{cases}x=\varphi(t)\\y=\psi(t) \end{cases}$确定，$t$是参数，$\varphi(t)$，$\psi(t)$均可导，$\varphi'(x)\not=0$则
 
 $$
-\cfrac{dy}{dx}=\cfrac{\cfrac{dy}{dt}}{\cfrac{dx}{dt}}=\cfrac{\psi'(t)}{\varphi'(t)}
+\frac{dy}{dx}=\frac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{\psi'(t)}{\varphi'(t)}
 $$
 
 - 若$\varphi$，$\psi$二阶均可导，$\varphi'(x)\not=0$则
 
 $$
-\cfrac{d^2y}{dx^2}=
-\cfrac{d(\cfrac{dy}{dx})/dt}{dx/dt}=
-\cfrac{\psi''(t)\varphi'(t)-\psi'(t)\varphi''(t)}{[\varphi'(t)]^3}
+\frac{d^2y}{dx^2}=
+\frac{d(\frac{dy}{dx})/dt}{dx/dt}=
+\frac{\psi''(t)\varphi'(t)-\psi'(t)\varphi''(t)}{[\varphi'(t)]^3}
 $$
 
 - 莱布尼茨公式
@@ -146,7 +146,7 @@ $$
 
 - 曲率公式
 $$
-K=\cfrac{|y''|}{(1+y'^2)^\cfrac{3}{2}}
+K=\frac{|y''|}{(1+y'^2)^\frac{3}{2}}
 $$
 
 ### 一元函数微分学应用-几何应用
@@ -183,14 +183,14 @@ $$
 - 带拉格朗日余项的$n$阶泰勒公式
 
 $$
-f(x)=f(x_0)+f'(x_0)(x-x_0)+...+\cfrac{1}{n!}f^{(n)}(x-x_0)^n \\
-+\cfrac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}
+f(x)=f(x_0)+f'(x_0)(x-x_0)+...+\frac{1}{n!}f^{(n)}(x-x_0)^n \\
++\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}
 $$
 
 - 柯西中值定理，条件同上
 
 $$
-\cfrac{f(b)-f(a)}{g(b)-g(a)}=\cfrac{f'(\xi)}{g'(\eta)}
+\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\eta)}
 $$
 
 - 若$f(x)$在区间$I$上$n$阶可导，且$f^{(n)}(x)\not= 0$，即$f^{(n)}(x) = 0$无实根，于是$f(x)=0$至多有$n$个实根.
@@ -235,15 +235,15 @@ $$
 - 两个重要结论
 
 $$
-\int_{0}^{1}\cfrac{1}{x^p}dx\begin{cases}收敛，0<p<1 \\
+\int_{0}^{1}\frac{1}{x^p}dx\begin{cases}收敛，0<p<1 \\
 发散，p \ge1\end{cases}
 $$
 $$
-\int_{1}^{+\infty}\cfrac{1}{x^p}dx\begin{cases} 收敛，p>1\\
+\int_{1}^{+\infty}\frac{1}{x^p}dx\begin{cases} 收敛，p>1\\
 发散，p\le1\end{cases}
 $$
 $$
-当(ax+b)>k>0时，\int_{1}^{+\infty}\cfrac{1}{(ax+b)^p}dx依然满足\begin{cases}收敛，p>1\\
+当(ax+b)>k>0时，\int_{1}^{+\infty}\frac{1}{(ax+b)^p}dx依然满足\begin{cases}收敛，p>1\\
 发散，p\le1\end{cases}
 $$
 
@@ -264,7 +264,7 @@ $$
 - 基本积分公式，计算原函数记得加$C$
 
 $$
-\int a^xdx= \cfrac{a^x}{\ln a}+C
+\int a^xdx= \frac{a^x}{\ln a}+C
 $$
 $$
 \int \tan x dx= -\ln |\cos x|+C
@@ -273,10 +273,10 @@ $$
 \int \cot x dx= \ln|\sin x| + C
 $$
 $$
-\int \cfrac{1}{a^2+x^2}dx = \cfrac{1}{a}\arctan \cfrac{x}{a}+C(a>0)
+\int \frac{1}{a^2+x^2}dx = \frac{1}{a}\arctan \frac{x}{a}+C(a>0)
 $$
 $$
-\int \cfrac{1}{\sqrt{a^2-x^2}}dx = \arcsin\cfrac{x}{a}+C(a>0)
+\int \frac{1}{\sqrt{a^2-x^2}}dx = \arcsin\frac{x}{a}+C(a>0)
 $$
 $$
 \int \sec xdx= \ln|\sec x +\tan x|+C
@@ -291,16 +291,16 @@ $$
 \int \csc x \cot x dx = -\csc x+C
 $$
 $$
-\int{\cfrac{1}{\sqrt{x^2+a^2}}}dx = \ln(x+\sqrt{x^2+a^2})+C
+\int{\frac{1}{\sqrt{x^2+a^2}}}dx = \ln(x+\sqrt{x^2+a^2})+C
 $$
 $$
-\int{\cfrac{1}{\sqrt{x^2-a^2}}}dx = \ln|x+\sqrt{x^2-a^2}|+C(|x|>|a|)
+\int{\frac{1}{\sqrt{x^2-a^2}}}dx = \ln|x+\sqrt{x^2-a^2}|+C(|x|>|a|)
 $$
 $$
-\int \cfrac{1}{x^2-a^2}dx = \cfrac{1}{2a}\ln{|\cfrac{x-a}{x+a}|}+C
+\int \frac{1}{x^2-a^2}dx = \frac{1}{2a}\ln{|\frac{x-a}{x+a}|}+C
 $$
 $$
-\int \sqrt{a^2-x^2}dx = \cfrac{a^2}{2}\arcsin\cfrac{x}{a}+\cfrac{x}{2}\sqrt{a^2-x^2}+C
+\int \sqrt{a^2-x^2}dx = \frac{a^2}{2}\arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}+C
 $$
 $$
 \int \tan^2xdx =\tan x -x +C
@@ -342,14 +342,14 @@ $$
 :::info 有理函数积分的计算
 
 $$
-\int\cfrac{4x^2-6x-1}{(x+1)(2x-1)^2}dx
+\int\frac{4x^2-6x-1}{(x+1)(2x-1)^2}dx
 $$
 - 先将被积函数分解为最简有理分式之和
 $$
-\cfrac{4x^2-6x-1}{(x+1)(2x-1)^2}
+\frac{4x^2-6x-1}{(x+1)(2x-1)^2}
 $$
 $$
-=\cfrac{A}{x+1}+\cfrac{B}{2x-1}+\cfrac{C}{(2x-1)^2}
+=\frac{A}{x+1}+\frac{B}{2x-1}+\frac{C}{(2x-1)^2}
 $$
 
 - 将右边进行合并
@@ -361,10 +361,10 @@ $$
 A=1，B=0，C=-2
 $$
 $$
-\int\cfrac{4x^2-6x-1}{(x+1)(2x-1)^2}dx=
+\int\frac{4x^2-6x-1}{(x+1)(2x-1)^2}dx=
 $$
 $$
-\cfrac{1}{x+1}-\cfrac{2}{(2x-1)^2}
+\frac{1}{x+1}-\frac{2}{(2x-1)^2}
 $$
 - 最后求积分
 :::                              
@@ -378,29 +378,29 @@ $$
 - 点火公式
 
 $$
-\int_{0}^{\cfrac{\pi}{2}}\sin^8x dx=\cfrac{7}{8} \cdot \cfrac{5}{6} \cdot \cfrac{3}{4} \cdot \cfrac{1}{2} \cdot \cfrac{\pi}{2}，n为偶数\\
+\int_{0}^{\frac{\pi}{2}}\sin^8x dx=\frac{7}{8} \cdot \frac{5}{6} \cdot \frac{3}{4} \cdot \frac{1}{2} \cdot \frac{\pi}{2}，n为偶数\\
 $$
 $$
-\int_{0}^{\cfrac{\pi}{2}}\sin^9x dx=\cfrac{8}{9} \cdot \cfrac{6}{7} \cdot \cfrac{4}{5} \cdot \cfrac{2}{3} \cdot 1，n为奇数
+\int_{0}^{\frac{\pi}{2}}\sin^9x dx=\frac{8}{9} \cdot \frac{6}{7} \cdot \frac{4}{5} \cdot \frac{2}{3} \cdot 1，n为奇数
 $$
 
 -  使用换元法，遇到根号，需要注意开根号之后的正负问题，最后求得原函数记得换回去，下例根号内的值一定为正值，在换元之后，上下限发生变化，$|\sin t|$是正值，则$|\sin t|=-\sin t$
 
 $$
 \int_{0}^{1}\arcsin\sqrt{1-x^2}dx \xrightarrow{x=\cos t} 
-\int_{-\cfrac{\pi}{2}}^{0}\arcsin(-\sin t)\cdot (-\sin t)dt=1\\
+\int_{-\frac{\pi}{2}}^{0}\arcsin(-\sin t)\cdot (-\sin t)dt=1\\
 $$
 
 - 设$f(x)$在$[0,1]$上连续，则
 
 $$
-\int_0^\pi xf(\sin x)dx = \cfrac{\pi}{2}\int_0^\pi f(\sin x)dx
+\int_0^\pi xf(\sin x)dx = \frac{\pi}{2}\int_0^\pi f(\sin x)dx
 $$
 
 - 变限积分的求导
 
 $$
-F'(x)=\cfrac{d}{dx}[\int_{\varphi_1(x)}^{\varphi_2(x)}f(t)dt]\\
+F'(x)=\frac{d}{dx}[\int_{\varphi_1(x)}^{\varphi_2(x)}f(t)dt]\\
 =f[\varphi_2(x)]\varphi_2'(x)-f[\varphi_1(x)]\varphi_1'(x)
 $$
 
@@ -423,10 +423,10 @@ $$
 \Gamma(n+1)=n!
 $$
 $$
-\Gamma(\cfrac{5}{2})=\cfrac{3}{2}\cdot\cfrac{1}{2}\cdot \Gamma(\cfrac{1}{2})
+\Gamma(\frac{5}{2})=\frac{3}{2}\cdot\frac{1}{2}\cdot \Gamma(\frac{1}{2})
 $$
 $$
-\Gamma(\cfrac{1}{2})=\cfrac{3}{4}\sqrt{\pi}
+\Gamma(\frac{1}{2})=\frac{3}{4}\sqrt{\pi}
 $$
 
 ### 一元函数积分学的几何应用
@@ -434,10 +434,10 @@ $$
 - 曲线$r=r_1(\theta)$与$r=r_2(\theta)$与两射线$\theta=\alpha$与$\theta=\beta(0<\beta-\alpha\le2\pi)$围成的扇形面积
 
 $$
-S=\cfrac{1}{2}\int_{\alpha}^{\beta}|r_1^2(\theta)-r_2^2(\theta)|d\theta 
+S=\frac{1}{2}\int_{\alpha}^{\beta}|r_1^2(\theta)-r_2^2(\theta)|d\theta 
 $$
 $$
-S=\cfrac{1}{2}\int_{开始角度}^{结束角度}|外圈^2-内圈^2|d\theta 
+S=\frac{1}{2}\int_{开始角度}^{结束角度}|外圈^2-内圈^2|d\theta 
 $$
 
 - 曲线$y=y(x)$与$x=a$，$x=b(a < b)$及$x$轴围成的曲边梯形绕$x$轴旋转一周所得到的旋转体体积，其中$dx$为柱形的高，$\pi y^2(x)$为柱形的截面积.
@@ -456,17 +456,17 @@ $$
 - 设$x\in[a,b]$，函数$f(x)$在$[a,b]$上的平均值为
 
 $$
-\overline{y}=\cfrac{1}{b-a}\int_{a}^{b}y(x)dx
+\overline{y}=\frac{1}{b-a}\int_{a}^{b}y(x)dx
 $$
 
 - 设平面$D=\{(x,y)|0\le y\le f(x),a\le x\le b \}$，则形心坐标
 
 $$
-\overline{x}=\cfrac{\int_a^bxf(x)dx}{\int_a^bf(x)dx}
+\overline{x}=\frac{\int_a^bxf(x)dx}{\int_a^bf(x)dx}
 $$
 
 $$
-\overline y=\cfrac{\cfrac{1}{2}\int_a^bf^2(x)dx}{\int_a^bf(x)dx}
+\overline y=\frac{\frac{1}{2}\int_a^bf^2(x)dx}{\int_a^bf(x)dx}
 $$
 
 - 若平面光滑曲线由直接坐标方程$y=y(x)$给出，则弧长
