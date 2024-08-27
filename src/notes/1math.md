@@ -446,11 +446,10 @@ $$
 V_x=\int_a^b\pi y^2(x)dx
 $$
 
-- 曲线$y=y(x)$与$x=a$，$x=b(0\le a < b)$及$x$轴围成的曲边梯形绕$y$轴旋转一周所得到的旋转体体积.
+- 曲线$y=y(x)$与$x=a$，$x=b(0\le a < b)$及$x$轴围成的曲边梯形绕$y$轴旋转一周所得到的旋转体体积，其中$2\pi x$近似为圆柱壳的截面周长，$|y(x)|dx$为圆柱壳的竖截面长方形面积.
 
 $$
-V_y=2\pi \int_a^bx|y(x)|dx\\
-其中,2\pi x近似为圆柱壳的截面周长,|y(x)|dx为圆柱壳的竖截面长方形面积.
+V_y=2\pi \int_a^bx|y(x)|dx\\
 $$
 
 - 设$x\in[a,b]$，函数$f(x)$在$[a,b]$上的平均值为
@@ -485,5 +484,23 @@ $$
 
 $$
 s=\int_\alpha^\beta\sqrt{[r(\theta)]^2+[r'(\theta)]^2}d\theta
+$$
+
+- 曲线$L:y=f(x)$，$a\le x\le b$，绕$x$轴旋转一周所得的曲面面积
+
+$$
+S=2\pi\int_a^b|y|\sqrt{1+(y')^2}dx
+$$
+
+- 曲线$L:\begin{cases}x=x(t)\\ y=y(t) \end{cases}\alpha\le t\le \beta$，$x'(t)\not = 0$，绕$x$轴旋转一周所得的曲面面积
+
+$$
+S=2\pi\int_\alpha^\beta|y(t)\sqrt{(x'_t)^2+(y'_t)^2}dt
+$$
+
+- 曲线$L:r=r(\theta)$，$\alpha\le \theta \le \beta$，绕$x$轴旋转一周所得的曲面面积
+
+$$
+S=2\pi\int_\alpha^\beta|r(\theta)|\sin \theta\sqrt{r^2(\theta)+[r'^(\theta)]^2}d\theta
 $$
 
