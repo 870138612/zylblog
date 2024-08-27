@@ -126,7 +126,7 @@ $$
     - 设函数$y=y(x)$由参数方程为$\begin{cases}x=\varphi(t)\\y=\psi(t) \end{cases}$确定，$t$是参数，$\varphi(t)$，$\psi(t)$均可导，$\varphi'(x)\not=0$则
 
 $$
-\frac{dy}{dx}=\frac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{\psi'(t)}{\varphi'(t)}
+\frac{dy}{dx}=\cfrac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{\psi'(t)}{\varphi'(t)}
 $$
 
 - 若$\varphi$，$\psi$二阶均可导，$\varphi'(x)\not=0$则
