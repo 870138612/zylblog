@@ -235,7 +235,7 @@ $$
 - 两个重要结论
 
 $$
-\int_{0}^{1}\frac{1}{x^p}dx\begin{cases}收敛，0<p<1 \\
+\int_{0}^{1}\frac{1}{x^p}dx\begin{cases} \text{收敛}，0<p<1 \\
 发散，p \ge1\end{cases}
 $$
 $$
