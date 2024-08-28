@@ -506,6 +506,7 @@ S=2\pi\int_\alpha^\beta|r(\theta)|\sin \theta\sqrt{r^2(\theta)+[r'^(\theta)]^2}d
 $$
 
 - 曲线$L:y=f(x)$，$a\le x\le b$，绕$Ax+By+C = 0$旋转一周所得的曲面面积，$d$是点到直线的距离，公式同样适用于绕$x,y$轴旋转体面积
+
 $$
 S=2\pi\int\int d dxdy,d=\frac{|Ax+By+C|}{\sqrt{A_2+B_2}}
 $$
