@@ -496,7 +496,7 @@ $$
 s=\int_\alpha^\beta\sqrt{[r(\theta)]^2+[r'(\theta)]^2}d\theta
 $$
 
-- 曲线$L:y=f(x)$，$a\le x\le b$，绕$x$轴旋转一周所得的曲面面积，即$2\p\int_a^b |y|sdx$.
+- 曲线$L:y=f(x)$，$a\le x\le b$，绕$x$轴旋转一周所得的曲面面积，即$2\pi \int_a^b |y|sdx$.
 
 $$
 S=2\pi\int_a^b|y|\sqrt{1+(y')^2}dx
