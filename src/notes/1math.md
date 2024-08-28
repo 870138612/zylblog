@@ -453,6 +453,12 @@ V_y=2\pi \int_a^bx|y(x)|dx\\
 
 $$
 
+- 曲线$L:y=f(x)$，$a\le x\le b$，绕$Ax+By+C = 0$旋转一周所得的旋转体体积，$d$是点到直线的距离，公式同样适用于绕$x,y$轴旋转体体积
+
+$$
+S=2\pi\int\int d dxdy,d=\frac{|Ax+By+C|}{\sqrt{A_2+B_2}}
+$$
+
 - 设$x\in[a,b]$，函数$f(x)$在$[a,b]$上的平均值为
 
 $$
@@ -487,7 +493,7 @@ $$
 s=\int_\alpha^\beta\sqrt{[r(\theta)]^2+[r'(\theta)]^2}d\theta
 $$
 
-- 曲线$L:y=f(x)$，$a\le x\le b$，绕$x$轴旋转一周所得的曲面面积
+- 曲线$L:y=f(x)$，$a\le x\le b$，绕$x$轴旋转一周所得的曲面面积，即$2\p\int_a^b |y|sdx$.
 
 $$
 S=2\pi\int_a^b|y|\sqrt{1+(y')^2}dx
@@ -503,10 +509,4 @@ $$
 
 $$
 S=2\pi\int_\alpha^\beta|r(\theta)|\sin \theta\sqrt{r^2(\theta)+[r'^(\theta)]^2}d\theta
-$$
-
-- 曲线$L:y=f(x)$，$a\le x\le b$，绕$Ax+By+C = 0$旋转一周所得的曲面面积，$d$是点到直线的距离，公式同样适用于绕$x,y$轴旋转体面积
-
-$$
-S=2\pi\int\int d dxdy,d=\frac{|Ax+By+C|}{\sqrt{A_2+B_2}}
 $$
