@@ -456,7 +456,10 @@ $$
 - 曲线$L:y=f(x)$，$a\le x\le b$，绕$Ax+By+C = 0$旋转一周所得的旋转体体积，$d$是点到直线的距离，公式同样适用于绕$x,y$轴旋转体体积
 
 $$
-S=2\pi\int\int d dxdy,d=\frac{|Ax+By+C|}{\sqrt{A_2+B_2}}
+S=2\pi\int\int d dxdy
+$$
+$$
+d=\frac{|Ax+By+C|}{\sqrt{A_2+B_2}}
 $$
 
 - 设$x\in[a,b]$，函数$f(x)$在$[a,b]$上的平均值为
