@@ -162,7 +162,7 @@ $$
 - 设多项式$f(x)=(x-a_1)^{n_1}(x-a_2)^{n_2}...(x-a_k)^{n_k}$，其中$n_i$是正整数，$a_i$是实数，且互不相等，记$k_1$为$n_i=1$的个数，$k_2$为$n_i>1$且$n_i$为偶数的个数，$k_3$为$n_i>1$且$n_i$为奇数个数，则极值点的个数为$k_1+2k_2+k_3-1$，拐点个数为$k_1+2k_2+3k_3-2$.
 - 渐近线
     - 若$\lim_{x\to x_0^+}f(x)=\infty(或\lim_{x\to x_0^-}f(x)=\infty)$，则称为$x=x_0$是一条铅直渐近线.
-    - 若$\lim_{x\to+\infty}f(x)= y_1$，则称为$y=y_1$是一条水平渐近线，若$\lim_{x\to-\infty}f(x)= y_2$，则称为$y=y_2$是一条水平渐近线，若$\lim_{x\to+\infty}f(x)=\lim_{x\to-\infty}f(x)= y_0$，则称为$y=y_0$是一条水平渐近线.
+    - 若$\lim_{x\to+\infty}f(x)= y_1$，则称为$y=y_1$是一条水平渐近线；若$\lim_{x\to-\infty}f(x)= y_2$，则称为$y=y_2$是一条水平渐近线；若$\lim_{x\to+\infty}f(x)=\lim_{x\to-\infty}f(x)= y_0$，则称为$y=y_0$是一条水平渐近线.
     - 若$\lim_{x\to +\infty}\frac{f(x)}{x}=a_1$，$\lim_{x\to +\infty}f(x)=b_1$，则$y=a_1x+b_1$是曲线的一条斜渐近线.
     - 若$\lim_{x\to -\infty}\frac{f(x)}{x}=a_2$，$\lim_{x\to +\infty}f(x)=b_2$，则$y=a_2x+b_2$是曲线的一条斜渐近线.
     - 若$\lim_{x\to +\infty}\frac{f(x)}{x}=\lim_{x\to -\infty}\frac{f(x)}{x}=a$，$\lim_{x\to +\infty}f(x)=\lim_{x\to +\infty}f(x)=b$，则$y=ax+b$是曲线的一条斜渐近线.
