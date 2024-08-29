@@ -510,7 +510,7 @@ $$
 - 曲线$L:\begin{cases}x=x(t)\\ y=y(t) \end{cases}\alpha\le t\le \beta$，$x'(t)\not = 0$，绕$x$轴旋转一周所得的曲面面积
 
 $$
-S=2\pi\int_\alpha^\beta|y(t)\sqrt{(x'_t)^2+(y'_t)^2}dt
+S=2\pi\int_\alpha^\beta|y(t)|\sqrt{(x'_t)^2+(y'_t)^2}dt
 $$
 
 - 曲线$L:r=r(\theta)$，$\alpha\le \theta \le \beta$，绕$x$轴旋转一周所得的曲面面积
