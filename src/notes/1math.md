@@ -580,10 +580,3 @@ $$
 $$
 \frac{\partial z}{\partial y}=\frac{\partial z}{\partial u}\frac{\partial u}{\partial y}+\frac{\partial z}{\partial v}\frac{\partial v}{\partial y}
 $$
-
-$$
-
-$$
-
-
-
