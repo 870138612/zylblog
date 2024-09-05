@@ -580,3 +580,23 @@ $$
 $$
 \frac{\partial z}{\partial y}=\frac{\partial z}{\partial u}\frac{\partial u}{\partial y}+\frac{\partial z}{\partial v}\frac{\partial v}{\partial y}
 $$
+
+- 全微分形式的不变性，设$z=f(u,v)$，$u=u(x,y)$，$v=v(x,y)$，如果$f(u,v)$，$u(x,y)$，$v(x,y)$，分别有连续偏导数，则复合函数$z=f(u,v)$在$(x,y)$处的全微分可以表示为
+
+$$
+dz=\frac{\partial z}{\partial u}du + \frac{\partial z}{\partial v}dv
+$$
+
+- 隐函数存在定理1，对于由方程$F(x,y)=0$确定的隐函数$y=f(x)$，当$F'_y(x,y)\not = 0$时，则有
+
+$$
+\frac{dy}{dx}=-\frac{F'_x(x,y)}{F'_y(x,y)}
+$$
+
+- 隐函数存在定理2，对于由方程$F(x,y,z)=0$确定的隐函数$z=f(x,y)$，当$F'(x,y,z)\not = 0$时，则有
+
+$$
+\frac{\partial z}{\partial x}=-\frac{F'_x(x,y,z)}{F'_z(x,y,z)},
+\ \frac{\partial z}{\partial y}=-\frac{F'_y(x,y,z)}{F'_z(x,y,z)}
+$$
+
