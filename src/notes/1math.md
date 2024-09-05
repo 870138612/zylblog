@@ -560,7 +560,30 @@ $$
 - 静水压力，垂直浸在水中的平板的一侧受到的压力，$a$是坐标轴低位，$b$是坐标轴高位，其中压力微元$dP=\rho gx[f(x)-h(x)]dx$，即侧面中的一个横矩形条受到的压力，$x$表示水深，$f(x)-h(x)$是矩形条的宽度，$dx$是矩形条的高度.
 
 $$
-P=\rho g\int_a^bx[f(x)-h(x)dx
+P=\rho g\int_a^bx[f(x)-h(x)]dx
 $$
 
 ### 多元函数微分学
+
+- 若下列极限等于0，则$z=f(x,y)$在点$(x_0,y_0)$处可微，否则不可微，其中$\Delta z$是全增量，$A$和$B$分别是$x$的偏微分、$y$的偏微分.
+
+$$
+\lim_{\Delta x_0\rightarrow0 ,\Delta y\rightarrow 0} \frac{\Delta z-(A\Delta x+B\Delta y)}{\sqrt{(\Delta x)^2+(\Delta y)^2}}
+$$
+
+- 链式求导规则，设$z=f(u,v)$，$u=\varphi(x,y)$，$v=\psi(x,y)$，则$z=f[\varphi(x,y),\psi(x,y)]$，且
+
+$$
+\frac{\partial z}{\partial x}=\frac{\partial z}{\partial u}\frac{\partial u}{\partial x}+\frac{\partial z}{\partial v}\frac{\partial v}{\partial x}
+$$
+
+$$
+\frac{\partial z}{\partial y}=\frac{\partial z}{\partial u}\frac{\partial u}{\partial y}+\frac{\partial z}{\partial v}\frac{\partial v}{\partial y}
+$$
+
+$$
+
+$$
+
+
+
