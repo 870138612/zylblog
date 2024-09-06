@@ -58,10 +58,10 @@ $$
 
 ### 数列极限
 
-- 等比数列前$n$项的和$S_n=\begin{cases} na_1 &r=1\\ \frac{a_1(1-r^n)}{1-r} & r\not=1\end{cases}$.
-- $\sqrt{ab} \le {\frac{a+b}{2}} \le\sqrt{\frac{a^2+b^2}{2}},(a,b\ge0)$.
-- 当$0<x<\frac{\pi}{4}$时，$x<\tan x<\frac{4}{\pi}x$.
-- 当$0<x<\frac{\pi}{2}$，$\sin x>\frac{2}{\pi}x$.
+- 等比数列前$n$项的和$S_n=\begin{cases} na_1 &r=1\\ \cfrac{a_1(1-r^n)}{1-r} & r\not=1\end{cases}$.
+- $\sqrt{ab} \le {\cfrac{a+b}{2}} \le\sqrt{\cfrac{a^2+b^2}{2}},(a,b\ge0)$.
+- 当$0<x<\cfrac{\pi}{4}$时，$x<\tan x<\cfrac{4}{\pi}x$.
+- 当$0<x<\cfrac{\pi}{2}$，$\sin x>\cfrac{2}{\pi}x$.
 
 ### 一元函数微分学
 
@@ -115,7 +115,7 @@ $$
 $$
 
 - 反函数的导数
-    - 设$y=f(x)$为单调，可导函数，且$f'(x)\not=0$，则存在反函数$x=\varphi(y)$，且$\frac{dx}{dy}=\frac{1}{\frac{dy}{dx}}$，即$\varphi'(y)=\frac{1}{f'(x)}$.
+    - 设$y=f(x)$为单调，可导函数，且$f'(x)\not=0$，则存在反函数$x=\varphi(y)$，且$\cfrac{dx}{dy}=\cfrac{1}{\cfrac{dy}{dx}}$，即$\varphi'(y)=\cfrac{1}{f'(x)}$.
     - 记$f'(x)=y'_x$，$\varphi'(y)=x'_y$，则
 
 $$
@@ -163,9 +163,9 @@ $$
 - 渐近线
     - 若$\lim_{x\to x_0^+}f(x)=\infty(或\lim_{x\to x_0^-}f(x)=\infty)$，则称为$x=x_0$是一条铅直渐近线.
     - 若$\lim_{x\to+\infty}f(x)= y_1$，则称为$y=y_1$是一条水平渐近线；若$\lim_{x\to-\infty}f(x)= y_2$，则称为$y=y_2$是一条水平渐近线；若$\lim_{x\to+\infty}f(x)=\lim_{x\to-\infty}f(x)= y_0$，则称为$y=y_0$是一条水平渐近线.
-    - 若$\lim_{x\to +\infty}\frac{f(x)}{x}=a_1$，$\lim_{x\to +\infty}f(x)=b_1$，则$y=a_1x+b_1$是曲线的一条斜渐近线.
-    - 若$\lim_{x\to -\infty}\frac{f(x)}{x}=a_2$，$\lim_{x\to -\infty}f(x)=b_2$，则$y=a_2x+b_2$是曲线的一条斜渐近线.
-    - 若$\lim_{x\to +\infty}\frac{f(x)}{x}=\lim_{x\to -\infty}\frac{f(x)}{x}=a$，$\lim_{x\to +\infty}f(x)=\lim_{x\to -\infty}f(x)=b$，则$y=ax+b$是曲线的一条斜渐近线.
+    - 若$\lim_{x\to +\infty}\cfrac{f(x)}{x}=a_1$，$\lim_{x\to +\infty}f(x)=b_1$，则$y=a_1x+b_1$是曲线的一条斜渐近线.
+    - 若$\lim_{x\to -\infty}\cfrac{f(x)}{x}=a_2$，$\lim_{x\to -\infty}f(x)=b_2$，则$y=a_2x+b_2$是曲线的一条斜渐近线.
+    - 若$\lim_{x\to +\infty}\cfrac{f(x)}{x}=\lim_{x\to -\infty}\cfrac{f(x)}{x}=a$，$\lim_{x\to +\infty}f(x)=\lim_{x\to -\infty}f(x)=b$，则$y=ax+b$是曲线的一条斜渐近线.
 
 ### 一元函数微分学应用-中值定理、微分等式和微分不等式
 
