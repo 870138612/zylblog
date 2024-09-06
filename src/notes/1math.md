@@ -314,6 +314,9 @@ $$
 $$
 \int \cot^2xdx = -\cot x-x+C
 $$
+$$
+\int \sec^2xdx = \tan x+C
+$$
 
 - 分部积分法，适用于对$\int vdu$积分较为容易的情景
 
