@@ -603,3 +603,24 @@ $$
 \ \frac{\partial z}{\partial y}=-\frac{F'_y(x,y,z)}{F'_z(x,y,z)}
 $$
 
+- 二元函数取极值的必要条件，设$z=f(x,y)$在点$(x_0.y_0)$处一阶偏导数存在，且取极值，则$f'(x_0,,y_0)=0$，$f'_y(x_0,y_0)=0$.
+- 二元函数取极值的充分条件.
+
+$$
+记\begin{cases} 
+f''_{xx}(x_0,y_0)=A,\\
+f''_{xy}(x_0,y_0)=B,\\
+f''_{yy}(x_0,y_0)=C,\\
+\end{cases}
+则\Delta=AC-B^2
+\begin{cases}
+>0\Rightarrow极值
+\begin{cases}
+A<0\Rightarrow极大值，\\
+A>0\Rightarrow极小值，
+\end{cases}\\
+<0\Rightarrow非极值，\\
+=0\Rightarrow 方法失效，寻找他法.
+\end{cases}
+$$
+
