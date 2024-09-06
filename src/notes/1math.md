@@ -528,12 +528,12 @@ $$
 S=2\pi\int_\alpha^\beta|r(\theta)|\sin \theta\sqrt{r^2(\theta)+[r'^(\theta)]^2}d\theta
 $$
 
-### 一元函数积分学-积分等式和积分不等式
+### 一元函数积分学-积分等式和积分不等式$
 
 - 积分等式中用中值定理
 
 $$
-\int_a^bf(x)g(x)dx=f(\xi)\int_a^bg(x)dx                 
+\int_a^bf(x)g(x)dx=f(\xi)\int_a^bg(x)dx
 $$
 
 - 设$f(x)$在$[0,1]$上连续，则
@@ -624,3 +624,8 @@ A>0\Rightarrow极小值，
 \end{cases}
 $$
 
+- 条件最值和拉格朗日乘数法，求目标函数$u=f(x,y,z)$在约束条件$\begin{cases}\varphi(x,y,z)=0\\\psi(x,y,z)=0 \end{cases}$的最值.
+    - 构造辅助函数$F(x,y,z,\lambda,\mu)=f(x,y,z)+\lambda\varphi(x,y,z)+\mu\psi(x,y,z)$；
+    - 令$\begin{cases}F'_x=f'_x+\lambda\varphi'_x+\mu\psi'_x=0,\\F'_y=f'_y+\lambda\varphi'_y+\mu\psi'_y=0,\\F'_z=f'_z+\lambda\psi'_z+\mu\psi'_z=0,\\F'_\lambda=\varphi(x,y,z)=0,\\F'_\mu=\psi(x,y,z)=0;\end{cases}$
+    - 解上述方程，得到备选点$P_i,i=1,2,3,...,n$，并求$f(P_i)$，求得最大值和最小值.
+- 
