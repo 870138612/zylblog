@@ -414,9 +414,9 @@ F'(x)=\frac{d}{dx}[\int_{\varphi_1(x)}^{\varphi_2(x)}f(t)dt]\\
 $$
 
 - 变限积分重要结论
-    - f(x)为可积的奇函数$\Rightarrow\begin{cases}\int_0^xf(t)dt、\int_0^xf(t)dt+C皆为偶函数\\ \int_a^xf(t)dt为偶函数(a \not = 0)\end{cases}$.
-    - f(x)为可积的偶函数$\Rightarrow\begin{cases}\int_0^xf(t)dt为奇函数\\ \int_a^xf(t)(a\not = 0)\begin{cases} 若 \int_a^xf(t)dt = \int_0^xf(t)dt，为奇函数 \\ 若\int_a^xf(t)dt \not = \int_0^xf(t)dt，为非奇非偶函数\end{cases}\end{cases}$.
-    - f(x)是可积且以T为周期的周期函数，则$\int_0^xf(t)dt$是以$T$为周期的周期函数$\Leftrightarrow \int_0^Tf(x)dx=0$.
+    - $f(x)$为可积的奇函数$\Rightarrow\begin{cases}\int_0^xf(t)dt、\int_0^xf(t)dt+C皆为偶函数\\ \int_a^xf(t)dt为偶函数(a \not = 0)\end{cases}$.
+    - $f(x)$为可积的偶函数$\Rightarrow\begin{cases}\int_0^xf(t)dt为奇函数\\ \int_a^xf(t)(a\not = 0)\begin{cases} 若 \int_a^xf(t)dt = \int_0^xf(t)dt，为奇函数 \\ 若\int_a^xf(t)dt \not = \int_0^xf(t)dt，为非奇非偶函数\end{cases}\end{cases}$.
+    - $f(x)$是可积且以T为周期的周期函数，则$\int_0^xf(t)dt$是以$T$为周期的周期函数$\Leftrightarrow \int_0^Tf(x)dx=0$.
     - 连续的奇函数的一切原函数都是偶函数,连续的偶函数的原函数中只有一个原函数为奇函数.
 
 
