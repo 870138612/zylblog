@@ -244,15 +244,15 @@ $$
 - 两个重要结论
 
 $$
-\int_{0}^{1}\frac{1}{x^p}dx\begin{cases} \text{收敛}，0<p<1 \\
-发散，p \ge1\end{cases}
+\int_{0}^{1}\frac{1}{x^p}dx\begin{cases} \text{收敛},\:0<p<1 \\
+发散,\:p \ge1\end{cases}
 $$
 $$
-\int_{1}^{+\infty}\frac{1}{x^p}dx\begin{cases} 收敛，p>1\\
-发散，p\le1\end{cases}
+\int_{1}^{+\infty}\frac{1}{x^p}dx\begin{cases} 收敛,\:p>1\\
+发散,\:p\le1\end{cases}
 $$
 $$
-当(ax+b)>k>0时，\int_{1}^{+\infty}\frac{1}{(ax+b)^p}dx依然满足\begin{cases}收敛，p>1\\
+当(ax+b)>k>0时,\:\int_{1}^{+\infty}\frac{1}{(ax+b)^p}dx依然满足\begin{cases}收敛，p>1\\
 发散，p\le1\end{cases}
 $$
 
@@ -390,10 +390,10 @@ $$
 - 点火公式
 
 $$
-\int_{0}^{\frac{\pi}{2}}\sin^8x dx=\frac{7}{8} \cdot \frac{5}{6} \cdot \frac{3}{4} \cdot \frac{1}{2} \cdot \frac{\pi}{2}，n为偶数\\
+\int_{0}^{\frac{\pi}{2}}\sin^8x dx=\frac{7}{8} \cdot \frac{5}{6} \cdot \frac{3}{4} \cdot \frac{1}{2} \cdot \frac{\pi}{2},\:n为偶数\\
 $$
 $$
-\int_{0}^{\frac{\pi}{2}}\sin^9x dx=\frac{8}{9} \cdot \frac{6}{7} \cdot \frac{4}{5} \cdot \frac{2}{3} \cdot 1，n为奇数
+\int_{0}^{\frac{\pi}{2}}\sin^9x dx=\frac{8}{9} \cdot \frac{6}{7} \cdot \frac{4}{5} \cdot \frac{2}{3} \cdot 1,\:n为奇数
 $$
 
 -  使用换元法，遇到根号，需要注意开根号之后的正负问题，最后求得原函数记得换回去，下例根号内的值一定为正值，在换元之后，上下限发生变化，$|\sin t|$是正值，则$|\sin t|=-\sin t$
@@ -602,7 +602,7 @@ $$
 - 隐函数存在定理2，对于由方程$F(x,y,z)=0$确定的隐函数$z=f(x,y)$，当$F'(x,y,z)\not = 0$时，则有
 
 $$
-\frac{\partial z}{\partial x}=-\frac{F'_x(x,y,z)}{F'_z(x,y,z)},
+\frac{\partial z}{\partial x}=-\frac{F'_x(x,y,z)}{F'_z(x,y,z)},\:
 \ \frac{\partial z}{\partial y}=-\frac{F'_y(x,y,z)}{F'_z(x,y,z)}
 $$
 
@@ -615,14 +615,14 @@ f''_{xx}(x_0,y_0)=A,\\
 f''_{xy}(x_0,y_0)=B,\\
 f''_{yy}(x_0,y_0)=C,\\
 \end{cases}
-则\Delta=AC-B^2
+\:则\Delta=AC-B^2
 \begin{cases}
 >0\Rightarrow极值
 \begin{cases}
-A<0\Rightarrow极大值，\\
-A>0\Rightarrow极小值，
+A<0\Rightarrow极大值,\:\\
+A>0\Rightarrow极小值,\:
 \end{cases}\\
-<0\Rightarrow非极值，\\
+<0\Rightarrow非极值,\:\\
 =0\Rightarrow 方法失效，寻找他法.
 \end{cases}
 $$
@@ -634,15 +634,30 @@ $$
 
 ## 二重积分
 
-- 二重积分中值定理，设函数$f(x,y)$在有界闭区域$D$上连续，$A$为$D$的面积，则在$D$上存在一点$(\xi,\eta)$，使得
+- 二重积分中值定理，设函数$f(x,y)$在有界闭区域$D$上连续，$A$为$D$的面积，则在$D$上存在一点$(\xi,\eta)$，使得（当原先的二重积分计算较为困难时使用中值定理）
 
 $$
 \iint \limits_{D}f(x,y)d \sigma=f(\xi,\eta)A
 $$
 
-- 若$D$包含了所有$f(x,y)>0$的区域，则以下二重积分可以取到最大值
+- 若$D$包含了所有$f(x,y)>0$的区域，则以下二重积分可以取到最大值.
 
 $$
 max =\iint \limits_{D}f(x,y)d \sigma
+$$
+
+- 椭圆公式，其中长轴为$a$，短轴为$b$，椭圆面积为$S=\pi ab$.
+
+$$
+\frac{x^2}{a^2}+\frac{y^2}{b^2}=1
+$$
+
+- 普通对称性，设$D$关于$y$轴对称，则
+
+$$
+\iint \limits_D f(x,y)d\sigma=\begin{cases}
+2\iint \limits_{D_1}f(x,y)\sigma,\:f(x,y)=f(-x,y) \\
+0, f(x,y)=-f(-x,y)
+\end{cases}
 $$
 
