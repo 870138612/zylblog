@@ -631,4 +631,18 @@ $$
     - 构造辅助函数$F(x,y,z,\lambda,\mu)=f(x,y,z)+\lambda\varphi(x,y,z)+\mu\psi(x,y,z)$；
     - 令$\begin{cases}F'_x=f'_x+\lambda\varphi'_x+\mu\psi'_x=0,\\F'_y=f'_y+\lambda\varphi'_y+\mu\psi'_y=0,\\F'_z=f'_z+\lambda\psi'_z+\mu\psi'_z=0,\\F'_\lambda=\varphi(x,y,z)=0,\\F'_\mu=\psi(x,y,z)=0;\end{cases}$
     - 解上述方程，得到备选点$P_i,i=1,2,3,...,n$，并求$f(P_i)$，求得最大值和最小值.
-- 
+
+## 二重积分
+
+- 二重积分中值定理，设函数$f(x,y)$在有界闭区域$D$上连续，$A$为$D$的面积，则在$D$上存在一点$(\xi,\eta)$，使得
+
+$$
+\iint \limits_{D}f(x,y)d \sigma=f(\xi,\eta)A
+$$
+
+- 若$D$包含了所有$f(x,y)>0$的区域，则以下二重积分可以取到最大值
+
+$$
+max =\iint \limits_{D}f(x,y)d \sigma
+$$
+
