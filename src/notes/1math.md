@@ -661,3 +661,9 @@ $$
 \end{cases}
 $$
 
+- 轮换对称性，积分值与用什么字母表示无关，若在对换$x$,$y$之后，区域$D$的面积不变（或区域$D$关于$y=x$对称），则
+
+$$
+\iint \limits_{D_l:\frac{x^2}{4}+\frac{y^2}{3}\le1}(2x^2+3y^2)d\sigma=\iint \limits_{D_l:\frac{y^2}{4}+\frac{x^2}{3}\le1}(2y^2+3x^2)d\sigma
+$$
+
