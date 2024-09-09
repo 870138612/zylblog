@@ -661,9 +661,24 @@ $$
 \end{cases}
 $$
 
-- 轮换对称性，积分值与用什么字母表示无关，若在对换$x$,$y$之后，区域$D$的面积不变（或区域$D$关于$y=x$对称），则
+- 轮换对称性，若在对换$x$,$y$之后，区域$D$的面积不变（或区域$D$关于$y=x$对称），则
 
 $$
-\iint \limits_{D_l:\frac{x^2}{4}+\frac{y^2}{3}\le1}(2x^2+3y^2)d\sigma=\iint \limits_{D_l:\frac{y^2}{4}+\frac{x^2}{3}\le1}(2y^2+3x^2)d\sigma
+\iint \limits_Df(x,y)d\sigma = \iint \limits_Df(y,x)d\sigma = 
+ \frac{1}{2}\iint \limits_Df(x,y)+f(y,x)d\sigma
+$$
+
+- 若$D_1$和$D_2$关于$y=x$轮换互对称，则
+
+$$
+\iint \limits_{D_1}f(x,y)d\sigma=\iint \limits_{D_2}f(y,x)d\sigma
+$$
+
+$$
+=\frac{1}{2}[\iint \limits_{D_1}f(x,y)d\sigma+\iint \limits_{D_2}f(y,x)d\sigma]
+$$
+
+$$
+=\frac{1}{2}\iint \limits_{D_1\cup D_2}f(x,y)d\sigma,\:当f(x,y)=f(y,x)时成立.
 $$
 
