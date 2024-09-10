@@ -438,7 +438,7 @@ $$
 \Gamma(\frac{5}{2})=\frac{3}{2}\cdot\frac{1}{2}\cdot \Gamma(\frac{1}{2})
 $$
 $$
-\Gamma(\frac{1}{2})=\frac{3}{4}\sqrt{\pi}
+\Gamma(\frac{1}{2})=\sqrt{\pi}
 $$
 
 ## 一元函数积分学的几何应用
