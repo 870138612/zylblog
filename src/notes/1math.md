@@ -682,3 +682,23 @@ $$
 =\frac{1}{2}\iint \limits_{D_1\cup D_2}f(x,y)d\sigma,\:当f(x,y)=f(y,x)时成立.
 $$
 
+- 在二重积分遇到$f(x,y)$不是初等函数时，一般需要交换积分次序，从先积$x$变成先积$y$或先积$y$变成先积$x$.
+
+- 极坐标系下的计算方法
+
+$$
+\iint \limits_{D}f(x,y)d\sigma=\int_{\alpha}^{\beta}d\theta
+\int_{r_1(\theta)}^{r_2(\theta)}f(r\cos \theta,r\sin \theta)rdr，\:极点O在区域D外部
+$$
+
+$$
+\iint \limits_{D}f(x,y)d\sigma=\int_{\alpha}^{\beta}d\theta
+\int_{0}^{r(\theta)}f(r\cos \theta,r\sin \theta)rdr，\:极点O在区域D边界
+$$
+
+$$
+\iint \limits_{D}f(x,y)d\sigma=\int_{0}^{2\pi}d\theta
+\int_{0}^{r(\theta)}f(r\cos \theta,r\sin \theta)rdr，\:极点O在区域D内部
+$$
+
+- 当被积函数为$f(x^2+y^2)$，$f(\cfrac{y}{x})$，$f(\cfrac{x}{y})$优先使用极坐标系二重积分，否则考虑直角坐标系.
