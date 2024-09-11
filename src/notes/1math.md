@@ -704,3 +704,23 @@ $$
 - 当被积函数为$f(x^2+y^2)$，$f(\cfrac{y}{x})$，$f(\cfrac{x}{y})$优先使用极坐标系二重积分，否则考虑直角坐标系.
 
 - 高斯积分$\int_0^{+\infty}e^{-x^2}dx=\cfrac{\sqrt{\pi}}{2}$.
+
+- 二重积分换元
+
+$$
+\iint \limits_{D_{xy}}f(x,y)dxdy\:\:令\underrightarrow{x=x(u,v),y=y(u,v)}\\
+$$
+
+$$
+\iint \limits_{D_{uv}}f[x(u,v),y(u,v)]\begin{vmatrix}\cfrac{\partial(x,y)}{\partial(u,v)}\end{vmatrix}dudv
+$$
+
+$$
+其中\begin{vmatrix}\cfrac{\partial(x,y)}{\partial(u,v)}\end{vmatrix}=
+\begin{vmatrix}
+\cfrac{\partial x}{\partial u}&\cfrac{\partial x}{\partial v}\\
+\cfrac{\partial y}{\partial u}&\cfrac{\partial y}{\partial v}
+\end{vmatrix}
+\not = 0
+$$
+
