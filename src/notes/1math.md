@@ -724,3 +724,21 @@ $$
 \not = 0
 $$
 
+## 微分方程
+
+- 可分离变量型微分方程-直接可分离型
+
+$$
+\frac{y}{x}=f(x)g(y)\Rightarrow\int\frac{dy}{g(y)}=\int f(x)dx
+$$
+
+- 可分离变量型微分方程-换元后可分离
+
+$$
+\frac{dy}{dx}=f(ax+by+c),\:令u=ax+by+c,:\ 则\\
+$$
+
+$$
+\frac{du}{dx}=a+b\frac{dy}{dx},\: 代入原方程得\frac{du}{dx}=a+bf(
+$$
+
