@@ -766,3 +766,7 @@ $$
 y=e^{-\int p(x)dx}[\int e^{\int p(x)dx} \cdot q(x)dx+C]
 $$
 
+$$
+若\int p(x)dx=\ln|\varphi(x)|,\: 此绝对值可以不加，其余出现\ln u,\: 不知u正负一律加绝对值.
+$$
+
