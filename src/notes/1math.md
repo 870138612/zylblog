@@ -756,3 +756,13 @@ $$
 于是原方程变为x\frac{du}{dx}+u=\varphi(u),\: 即\frac{du}{\varphi(u)-u}=\frac{dx}{x}
 $$
 
+- 一阶线性微分方程
+
+$$
+形如y'+p(x)y=q(x)的方程叫做一阶线性微分方程,\: 其中p(x),q(x)为已知的连续函数，其通解为
+$$
+
+$$
+y=e^{-\int p(x)dx}[\int e^{\int p(x)dx} \cdot q(x)dx+C]
+$$
+
