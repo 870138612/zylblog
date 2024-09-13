@@ -739,6 +739,20 @@ $$
 $$
 
 $$
-\frac{du}{dx}=a+b\frac{dy}{dx},\: 代入原方程得\frac{du}{dx}=a+bf(
+\frac{du}{dx}=a+b\frac{dy}{dx},\: 代入原方程得\frac{du}{dx}=a+bf(x)
+$$
+
+- 齐次型微分方程
+
+$$
+形如\frac{dy}{dx}=\varphi(\frac{y}{x})的方程叫做齐次型微分方程,\:解法为令u=\frac{y}{x},:\ 则
+$$
+
+$$
+y=ux\Rightarrow\frac{dy}{dx}=u+x\frac{du}{dx},
+$$
+
+$$
+于是原方程变为x\frac{du}{dx}+u=\varphi(u),\: 即\frac{du}{\varphi(u)-u}=\frac{dx}{x}
 $$
 
