@@ -819,7 +819,7 @@ $$
 - 二阶常系数齐次线性微分方程
 
 $$
-若y_1(x),\:y_2(x)是y''+py'+qy=0的两个解，且\frac{y_1(x)}{y_2(x)}\not =C（常数）
+若y_1(x),\:y_2(x)是y''+py'+qy=0的两个解，且\frac{y_1(x)}{y_2(x)}\not =C \ (常数)
 $$
 
 $$
@@ -848,6 +848,6 @@ $$
 
 $$
 若p^2-4q<0,\:设\alpha\pm\beta i是特征方程的一对共轭复根,\ 则通解为\\
-y=e^{\alpha x}(C_1\cos \beta x+C_2\sin \b)
+y=e^{\alpha x}(C_1\cos \beta x+C_2\sin \beta x)
 $$
 
