@@ -1,12 +1,12 @@
 ---
-title: 高等数学
-star: true
-icon: page
-order: 99
-cover: /home/sky.jpg
-category:
+title\  高等数学
+star\  true
+icon\  page
+order\  99
+cover\  /home/sky.jpg
+category\ 
     - 高等数学
-tag: 
+tag\  
     - 高等数学
 ---
 
@@ -72,14 +72,16 @@ $$
 - 若$f(x)$是可导的奇函数，则$f'(x)$是偶函数.
 - 若$f(x)$是可导的周期为$T$的周期函数，则$f'(x)$是以周期为$T$的周期函数.
 
-::: info 墙外抢救
+:::  info 墙外抢救
 
 - $f(x)=(x+1)(x-1)|(x+1)(x-1)(x-2)|$，判断不可导点.
 
     - 让绝对值内的值等于0，求出对应的点，再计算绝对值外值等于0的点，若有重合则不属于不可导点，此点被抢救.
 
     - 绝对值内$f(x)$为0的点：$x=-1$，$x=1$，$x=2$，在绝对值外$f(x)$为0的点$x=-1$，$x=1$，存在重合的$x=-1$，$x=1$，因此不可导点只有一个$x=2$.
-:::   
+
+
+::: 
 
 - 基本求导公式
 
@@ -244,15 +246,15 @@ $$
 - 两个重要结论
 
 $$
-\int_{0}^{1}\frac{1}{x^p}dx\begin{cases} \text{收敛},\:0<p<1 \\
-发散,\:p \ge1\end{cases}
+\int_{0}^{1}\frac{1}{x^p}dx\begin{cases} \text{收敛},\\ 0<p<1 \\
+发散,\\ p \ge1\end{cases}
 $$
 $$
-\int_{1}^{+\infty}\frac{1}{x^p}dx\begin{cases} 收敛,\:p>1\\
-发散,\:p\le1\end{cases}
+\int_{1}^{+\infty}\frac{1}{x^p}dx\begin{cases} 收敛,\\ p>1\\
+发散,\\ p\le1\end{cases}
 $$
 $$
-当(ax+b)>k>0时,\:\int_{1}^{+\infty}\frac{1}{(ax+b)^p}dx依然满足\begin{cases}收敛，p>1\\
+当(ax+b)>k>0时,\\ \int_{1}^{+\infty}\frac{1}{(ax+b)^p}dx依然满足\begin{cases}收敛，p>1\\
 发散，p\le1\end{cases}
 $$
 
@@ -330,14 +332,14 @@ $$
 u\leftarrow   \rightarrow v
 $$
 
-:::info 表格法求不定积分
+\ \ \ info 表格法求不定积分
 
 求$\int(x^2+x)e^xdx$
 
 作两行表格，第一行写$u$(易于求导的变量)，第二行写$v$(易于求原函数的变量)
 
 | - | - | - | - | - |
-| :-: | :--: | :-: | :-: | :-: |
+| \ -\  | \ --\  | \ -\  | \ -\  | \ -\  |
 | $x^2+x$ | $2x+1$ | 2 | 0 | 求导 |
 | $e^x$ | $e^x$ | $e^x$ | $e^x$ | 求原函数 |
 
@@ -346,12 +348,12 @@ $$
 \int(x^2+x)e^xdx\\
 =(x^2+x)e^x-(2x+1)e^x+2e^x+C
 $$
-:::
+\ \ \ 
 
 - 有理函数的积分
     - 将式子因式分解，拆成若干项最简有理分式之和
 
-:::info 有理函数积分的计算
+\ \ \ info 有理函数积分的计算
 
 $$
 \int\frac{4x^2-6x-1}{(x+1)(2x-1)^2}dx
@@ -379,7 +381,7 @@ $$
 \frac{1}{x+1}-\frac{2}{(2x-1)^2}
 $$
 - 最后求积分
-:::                              
+\ \ \                               
 
 - 定积分的区间再现公式，令$x=a+b-t$可证
 
@@ -390,10 +392,10 @@ $$
 - 点火公式
 
 $$
-\int_{0}^{\frac{\pi}{2}}\sin^8x dx=\frac{7}{8} \cdot \frac{5}{6} \cdot \frac{3}{4} \cdot \frac{1}{2} \cdot \frac{\pi}{2},\:n为偶数\\
+\int_{0}^{\frac{\pi}{2}}\sin^8x dx=\frac{7}{8} \cdot \frac{5}{6} \cdot \frac{3}{4} \cdot \frac{1}{2} \cdot \frac{\pi}{2},\\ n为偶数\\
 $$
 $$
-\int_{0}^{\frac{\pi}{2}}\sin^9x dx=\frac{8}{9} \cdot \frac{6}{7} \cdot \frac{4}{5} \cdot \frac{2}{3} \cdot 1,\:n为奇数
+\int_{0}^{\frac{\pi}{2}}\sin^9x dx=\frac{8}{9} \cdot \frac{6}{7} \cdot \frac{4}{5} \cdot \frac{2}{3} \cdot 1,\\ n为奇数
 $$
 
 -  使用换元法，遇到根号，需要注意开根号之后的正负问题，最后求得原函数记得换回去，下例根号内的值一定为正值，在换元之后，上下限发生变化，$|\sin t|$是正值，则$|\sin t|=-\sin t$
@@ -464,7 +466,7 @@ $$
 V_y=2\pi \int_a^bx|y(x)|dx\\
 $$
 
-- 曲线$L:y=f(x)$，$a\le x\le b$，绕$Ax+By+C = 0$旋转一周所得的旋转体体积，$d$是点到直线的距离，公式同样适用于绕$x,y$轴旋转体体积.
+- 曲线$L\ y=f(x)$，$a\le x\le b$，绕$Ax+By+C = 0$旋转一周所得的旋转体体积，$d$是点到直线的距离，公式同样适用于绕$x,y$轴旋转体体积.
 
 $$
 V=2\pi\int\int d dxdy
@@ -513,19 +515,19 @@ $$
 s=\int_\alpha^\beta\sqrt{[r(\theta)]^2+[r'(\theta)]^2}d\theta
 $$
 
-- 曲线$L:y=f(x)$，$a\le x\le b$，绕$x$轴旋转一周所得的曲面面积，即$2\pi \int_a^b |y|sdx$.
+- 曲线$L\ y=f(x)$，$a\le x\le b$，绕$x$轴旋转一周所得的曲面面积，即$2\pi \int_a^b |y|sdx$.
 
 $$
 S=2\pi\int_a^b|y|\sqrt{1+(y')^2}dx
 $$
 
-- 曲线$L:\begin{cases}x=x(t)\\ y=y(t) \end{cases}\alpha\le t\le \beta$，$x'(t)\not = 0$，绕$x$轴旋转一周所得的曲面面积
+- 曲线$L\ \begin{cases}x=x(t)\\ y=y(t) \end{cases}\alpha\le t\le \beta$，$x'(t)\not = 0$，绕$x$轴旋转一周所得的曲面面积
 
 $$
 S=2\pi\int_\alpha^\beta|y(t)|\sqrt{(x'_t)^2+(y'_t)^2}dt
 $$
 
-- 曲线$L:r=r(\theta)$，$\alpha\le \theta \le \beta$，绕$x$轴旋转一周所得的曲面面积
+- 曲线$L\ r=r(\theta)$，$\alpha\le \theta \le \beta$，绕$x$轴旋转一周所得的曲面面积
 
 $$
 S=2\pi\int_\alpha^\beta|r(\theta)|\sin \theta\sqrt{r^2(\theta)+[r'^(\theta)]^2}d\theta
@@ -602,7 +604,7 @@ $$
 - 隐函数存在定理2，对于由方程$F(x,y,z)=0$确定的隐函数$z=f(x,y)$，当$F'(x,y,z)\not = 0$时，则有
 
 $$
-\frac{\partial z}{\partial x}=-\frac{F'_x(x,y,z)}{F'_z(x,y,z)},\:
+\frac{\partial z}{\partial x}=-\frac{F'_x(x,y,z)}{F'_z(x,y,z)},\\ 
 \ \frac{\partial z}{\partial y}=-\frac{F'_y(x,y,z)}{F'_z(x,y,z)}
 $$
 
@@ -615,14 +617,14 @@ f''_{xx}(x_0,y_0)=A,\\
 f''_{xy}(x_0,y_0)=B,\\
 f''_{yy}(x_0,y_0)=C,\\
 \end{cases}
-\:则\Delta=AC-B^2
+\\ 则\Delta=AC-B^2
 \begin{cases}
 >0\Rightarrow极值
 \begin{cases}
-A<0\Rightarrow极大值,\:\\
-A>0\Rightarrow极小值,\:
+A<0\Rightarrow极大值,\\ \\
+A>0\Rightarrow极小值,\\ 
 \end{cases}\\
-<0\Rightarrow非极值,\:\\
+<0\Rightarrow非极值,\\ \\
 =0\Rightarrow 方法失效，寻找他法.
 \end{cases}
 $$
@@ -656,7 +658,7 @@ $$
 
 $$
 \iint \limits_D f(x,y)d\sigma=\begin{cases}
-2\iint \limits_{D_1}f(x,y)\sigma,\:f(x,y)=f(-x,y) \\
+2\iint \limits_{D_1}f(x,y)\sigma,\\ f(x,y)=f(-x,y) \\
 0, f(x,y)=-f(-x,y)
 \end{cases}
 $$
@@ -679,7 +681,7 @@ $$
 $$
 
 $$
-=\frac{1}{2}\iint \limits_{D_1\cup D_2}f(x,y)d\sigma,\:当f(x,y)=f(y,x)时成立
+=\frac{1}{2}\iint \limits_{D_1\cup D_2}f(x,y)d\sigma,\\ 当f(x,y)=f(y,x)时成立
 $$
 
 - 在二重积分遇到$f(x,y)$不是初等函数时，一般需要交换积分次序，从先积$x$变成先积$y$或先积$y$变成先积$x$.
@@ -688,17 +690,17 @@ $$
 
 $$
 \iint \limits_{D}f(x,y)d\sigma=\int_{\alpha}^{\beta}d\theta
-\int_{r_1(\theta)}^{r_2(\theta)}f(r\cos \theta,r\sin \theta)rdr，\:极点O在区域D外部
+\int_{r_1(\theta)}^{r_2(\theta)}f(r\cos \theta,r\sin \theta)rdr，\\ 极点O在区域D外部
 $$
 
 $$
 \iint \limits_{D}f(x,y)d\sigma=\int_{\alpha}^{\beta}d\theta
-\int_{0}^{r(\theta)}f(r\cos \theta,r\sin \theta)rdr，\:极点O在区域D边界
+\int_{0}^{r(\theta)}f(r\cos \theta,r\sin \theta)rdr，\\ 极点O在区域D边界
 $$
 
 $$
 \iint \limits_{D}f(x,y)d\sigma=\int_{0}^{2\pi}d\theta
-\int_{0}^{r(\theta)}f(r\cos \theta,r\sin \theta)rdr，\:极点O在区域D内部
+\int_{0}^{r(\theta)}f(r\cos \theta,r\sin \theta)rdr，\\ 极点O在区域D内部
 $$
 
 - 当被积函数为$f(x^2+y^2)$，$f(\cfrac{y}{x})$，$f(\cfrac{x}{y})$优先使用极坐标系二重积分，否则考虑直角坐标系.
@@ -708,7 +710,7 @@ $$
 - 二重积分换元
 
 $$
-\iint \limits_{D_{xy}}f(x,y)dxdy\:\:令\underrightarrow{x=x(u,v),y=y(u,v)}\\
+\iint \limits_{D_{xy}}f(x,y)dxdy\\ \\ 令\underrightarrow{x=x(u,v),y=y(u,v)}\\
 $$
 
 $$
@@ -735,17 +737,17 @@ $$
 - 可分离变量型微分方程-换元后可分离
 
 $$
-\frac{dy}{dx}=f(ax+by+c),\:令u=ax+by+c,:\ 则\\
+\frac{dy}{dx}=f(ax+by+c),\\ 令u=ax+by+c,\ 则\\
 $$
 
 $$
-\frac{du}{dx}=a+b\frac{dy}{dx},\: 代入原方程得\frac{du}{dx}=a+bf(x)
+\frac{du}{dx}=a+b\frac{dy}{dx},\\  代入原方程得\frac{du}{dx}=a+bf(x)
 $$
 
 - 齐次型微分方程
 
 $$
-形如\frac{dy}{dx}=\varphi(\frac{y}{x})的方程叫做齐次型微分方程,\:解法为令u=\frac{y}{x},:\ 则
+形如\frac{dy}{dx}=\varphi(\frac{y}{x})的方程叫做齐次型微分方程,\\ 解法为令u=\frac{y}{x},\ 则
 $$
 
 $$
@@ -753,13 +755,13 @@ y=ux\Rightarrow\frac{dy}{dx}=u+x\frac{du}{dx},
 $$
 
 $$
-于是原方程变为x\frac{du}{dx}+u=\varphi(u),\: 即\frac{du}{\varphi(u)-u}=\frac{dx}{x}
+于是原方程变为x\frac{du}{dx}+u=\varphi(u),\\  即\frac{du}{\varphi(u)-u}=\frac{dx}{x}
 $$
 
 - 一阶线性微分方程
 
 $$
-形如y'+p(x)y=q(x)的方程叫做一阶线性微分方程,\: 其中p(x),q(x)为已知的连续函数，其通解为
+形如y'+p(x)y=q(x)的方程叫做一阶线性微分方程,\\  其中p(x),q(x)为已知的连续函数，其通解为
 $$
 
 $$
@@ -767,38 +769,73 @@ y=e^{-\int p(x)dx}[\int e^{\int p(x)dx} \cdot q(x)dx+C]
 $$
 
 $$
-若\int p(x)dx=\ln|\varphi(x)|,\: 此绝对值可以不加，其余出现\ln u,\: 不知u正负一律加绝对值.
+若\int p(x)dx=\ln|\varphi(x)|,\\  此绝对值可以不加，其余出现\ln u,\\  不知u正负一律加绝对值.
 $$
 
-- 二阶可降微分方程 $y''=f(x,y')$型，方程中不显含未知函数$y$.
+- 二阶可降微分方程 $y''=f(x,y')$型，方程中不显含未知函数，$y$最大导数差值为2.
 
 $$
-令y'=p,\:y''=p',\:则原方程变为\frac{dp}{dx}=f(x,p)
+令y'=p,\\ y''=p',\\ 则原方程变为\frac{dp}{dx}=f(x,p)
 $$
 
 $$
-若求得通解为p=\varphi(x,C_1),\:即y'=\varphi(x,C_1)
+若求得通解为p=\varphi(x,C_1),\\ 即y'=\varphi(x,C_1)
 $$
 
 $$
 则原方程通解为y=\int\varphi(x,C_1)dx+C_2
 $$
 
-- 二阶可降微分方程 $y''=f(y,y')$型，方程中不显含自变量$x$.
+- 二阶可降微分方程 $y''=f(y,y')$型，方程中不显含自变量$x$，$y$最大导数差值为2.
 
 $$
-令y'=p,\: y''=\frac{dp}{dx}=\frac{dp}{dy}\cdot\frac{dy}{dx}
+令y'=p,\\  y''=\frac{dp}{dx}=\frac{dp}{dy}\cdot\frac{dy}{dx}
 =\frac{dp}{dy}\cdot p
-,\:原方程变为一阶方程p\frac{dp}{dy}=f(y,p)
+,\\ 原方程变为一阶方程p\frac{dp}{dy}=f(y,p)
 $$
 
 $$
-若求得通解为p=\varphi(y,C_1),\:则由p=\frac{dy}{dx}可得\frac{dy}{dx}=\varphi(y,C_1)
+若求得通解为p=\varphi(y,C_1),\\ 则由p=\frac{dy}{dx}可得\frac{dy}{dx}=\varphi(y,C_1)
 $$
 
 $$
-分离变量得\frac{dy}{\varphi(y,C_1)}=dx,\:两边进行积分得\int \frac{dy}{\varphi(y,C_1)}=x+C_2,\:求得通解
+分离变量得\frac{dy}{\varphi(y,C_1)}=dx,\\ 两边进行积分得\int \frac{dy}{\varphi(y,C_1)}=x+C_2,\\ 求得通解
 $$
 
 - 二阶可降微分方程 $y''=f(y')$型，既不显含$y$，又不显含$x$，按照不显含$y$处理.
+
+- 二阶常系数齐次线性微分方程
+
+$$
+若y_1(x),\\ y_2(x)是y''+py'+qy=0的两个解，且\frac{y_1(x)}{y_2(x)}\not =C（常数）
+$$
+
+$$
+则称y_1(x),\\ y_2(x)是该方程的两个线性无关解
+$$
+
+$$
+且y(x)=C_1y_1(x)+C_2y_2(x)是方程y''+py'+qy=0的通解
+$$
+
+- 二阶常系数齐次线性微分方程的通解
+
+$$
+对于y''+py'+qy=0,\\ 其对应的特征方程为r^2+pr+q=0
+$$
+
+$$
+若p^2-4q>0,\\ 设r_1,\\ r_2是特征方程的两个不等实根,\ 即r_1\not = r_2,\ 则通解为\\
+y=C_1e^{r_1x}+C_2e^{r_2x}
+$$
+
+$$
+若p^2-4q=0,\\ 设r_1,\\ r_2是特征方程的两个相等实根,\ 即二重根,\ 则通解为\\
+y=(C_1+C_2x)e^{rx}
+$$
+
+$$
+若p^2-4q<0,\\ 设\alpha\pm\beta i是特征方程的一对共轭复根,\ 则通解为\\
+y=C_1e^{r_1x}+C_2e^{r_2x}
+$$
 
