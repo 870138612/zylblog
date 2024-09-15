@@ -679,7 +679,7 @@ $$
 $$
 
 $$
-=\frac{1}{2}\iint \limits_{D_1\cup D_2}f(x,y)d\sigma,\:当f(x,y)=f(y,x)时成立.
+=\frac{1}{2}\iint \limits_{D_1\cup D_2}f(x,y)d\sigma,\:当f(x,y)=f(y,x)时成立
 $$
 
 - 在二重积分遇到$f(x,y)$不是初等函数时，一般需要交换积分次序，从先积$x$变成先积$y$或先积$y$变成先积$x$.
@@ -769,4 +769,36 @@ $$
 $$
 若\int p(x)dx=\ln|\varphi(x)|,\: 此绝对值可以不加，其余出现\ln u,\: 不知u正负一律加绝对值.
 $$
+
+- 二阶可降微分方程 $y''=f(x,y')$型，方程中不显含未知函数$y$.
+
+$$
+令y'=p,\:y''=p',\:则原方程变为\frac{dp}{dx}=f(x,p)
+$$
+
+$$
+若求得通解为p=\varphi(x,C_1),\:即y'=\varphi(x,C_1)
+$$
+
+$$
+则原方程通解为y=\int\varphi(x,C_1)dx+C_2
+$$
+
+- 二阶可降微分方程 $y''=f(y,y')$型，方程中不显含自变量$x$.
+
+$$
+令y'=p,\: y''=\frac{dp}{dx}=\frac{dp}{dy}\cdot\frac{dy}{dx}
+=\frac{dp}{dy}\cdot p
+,\:原方程变为一阶方程p\frac{dp}{dy}=f(y,p)
+$$
+
+$$
+若求得通解为p=\varphi(y,C_1),\:则由p=\frac{dy}{dx}可得\frac{dy}{dx}=\varphi(y,C_1)
+$$
+
+$$
+分离变量得\frac{dy}{\varphi(y,C_1)}=dx,\:两边进行积分得\int \frac{dy}{\varphi(y,C_1)}=x+C_2,\:求得通解
+$$
+
+- 二阶可降微分方程 $y''=f(y')$型，既不显含$y$，又不显含$x$，按照不显含$y$处理.
 
