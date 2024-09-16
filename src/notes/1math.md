@@ -849,7 +849,58 @@ y=(C_1+C_2x)e^{rx}
 $$
 
 $$
-若p^2-4q<0,\:设\alpha\pm\beta i是特征方程的一对共轭复根,\ 则通解为\\
+若p^2-4q<0,\:设\alpha\pm\beta \text i是特征方程的一对共轭复根,\ 则通解为\\
 y=e^{\alpha x}(C_1\cos \beta x+C_2\sin \beta x)
 $$
 
+- 二阶常系数非齐次线性微分方程
+
+$$
+方程y''+py'+qy=f(x)(f(x)\not = 0)称为二阶常系数非齐次线性微分方程,\ \\
+其中p,\ q为常数,\ f(x)为已知的连续函数，叫做自由项
+$$
+
+$$
+若y^*_1(x)是y''+py'+qy=f_1(x)的解，y^*_2(x)是y''+py'+qy=f_2(x)的解,\ \\
+则y^*_1(x)+y^*_2(x)是y''+py'+qy=f_1(x)+f_2(x)的解
+$$
+
+$$
+设y^*_1,\ y^*_2都是y''+py'+qy=f(x)的特解，则y^*_1-y^*_2是对应齐次方程的解
+$$
+
+- 对于$$y''+py'+qy=f(x)$$，设$P_n(x)$，$P_m(x)$分别是$x$的$n$次、$m$次多项式.
+
+$$
+当自由项f(x)=P_n(x)e^{\alpha x}时,\ \\
+特解要设为y^*=e^{\alpha x}Q_n(x)x^k,\ \\
+其中
+\begin{cases}
+e^{ax}照抄,\\
+Q_n(x)为x的n次多项式,\\
+k=\begin{cases} 
+0,\ \alpha 不是特征根,\\
+1,\ \alpha是单特征根,\\
+2,\ \alpha是二重特征根.
+\end{cases}
+\end{cases}
+$$
+
+$$
+当自由项f(x)=e^{\alpha x}[P_m(x)\cos \beta x+P_n(x)\sin \beta x]时,\ \\
+特解要设为y^*=e^{\alpha x}[Q_l^{(1)}(x)\cos \beta x+Q_l^{(2)}\sin \beta x]x^k,\ \\
+其中
+\begin{cases}
+e^{ax}照抄,\\
+Q_n(x)为x的n次多项式,\\
+k=\begin{cases} 
+0,\ \alpha\pm \beta \text i不是特征根,\\
+1,\ \alpha\pm \beta \text i是特征根.
+\end{cases}
+\end{cases}
+$$
+
+
+$$
+
+$$
