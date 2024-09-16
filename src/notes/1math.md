@@ -751,23 +751,14 @@ $$
 
 $$
 \frac{dy}{dx}=f(ax+by+c),\:令u=ax+by+c,:\ 则\\
-$$
-
-$$
 \frac{du}{dx}=a+b\frac{dy}{dx},\: 代入原方程得\frac{du}{dx}=a+bf(x)
 $$
 
 - 齐次型微分方程
 
 $$
-形如\frac{dy}{dx}=\varphi(\frac{y}{x})的方程叫做齐次型微分方程,\:解法为令u=\frac{y}{x},:\ 则
-$$
-
-$$
-y=ux\Rightarrow\frac{dy}{dx}=u+x\frac{du}{dx},
-$$
-
-$$
+形如\frac{dy}{dx}=\varphi(\frac{y}{x})的方程叫做齐次型微分方程,\:解法为令u=\frac{y}{x},:\ 则\\
+y=ux\Rightarrow\frac{dy}{dx}=u+x\frac{du}{dx},\\
 于是原方程变为x\frac{du}{dx}+u=\varphi(u),\: 即\frac{du}{\varphi(u)-u}=\frac{dx}{x}
 $$
 
@@ -775,10 +766,7 @@ $$
 
 $$
 形如y'+p(x)y=q(x)的方程叫做一阶线性微分方程,\\
-其中p(x),q(x)为已知的连续函数，其通解为
-$$
-
-$$
+其中p(x),q(x)为已知的连续函数，其通解为\\
 y=e^{-\int p(x)dx}[\int e^{\int p(x)dx} \cdot q(x)dx+C]
 $$
 
@@ -789,14 +777,8 @@ $$
 - 二阶可降微分方程 $y''=f(x,y')$型，方程中不显含未知函数，$y$最大导数差值为2.
 
 $$
-令y'=p,\:y''=p',\:则原方程变为\frac{dp}{dx}=f(x,p)
-$$
-
-$$
-若求得通解为p=\varphi(x,C_1),\:即y'=\varphi(x,C_1)
-$$
-
-$$
+令y'=p,\:y''=p',\:则原方程变为\frac{dp}{dx}=f(x,p),\\
+若求得通解为p=\varphi(x,C_1),\:即y'=\varphi(x,C_1),\\
 则原方程通解为y=\int\varphi(x,C_1)dx+C_2
 $$
 
@@ -805,14 +787,8 @@ $$
 $$
 令y'=p,\: y''=\frac{dp}{dx}=\frac{dp}{dy}\cdot\frac{dy}{dx}
 =\frac{dp}{dy}\cdot p
-,\:原方程变为一阶方程p\frac{dp}{dy}=f(y,p)
-$$
-
-$$
-若求得通解为p=\varphi(y,C_1),\:则由p=\frac{dy}{dx}可得\frac{dy}{dx}=\varphi(y,C_1)
-$$
-
-$$
+,\:原方程变为一阶方程p\frac{dp}{dy}=f(y,p),\\
+若求得通解为p=\varphi(y,C_1),\:则由p=\frac{dy}{dx}可得\frac{dy}{dx}=\varphi(y,C_1),\\
 分离变量得\frac{dy}{\varphi(y,C_1)}=dx,\:两边进行积分得\int \frac{dy}{\varphi(y,C_1)}=x+C_2,\:求得通解
 $$
 
@@ -821,14 +797,8 @@ $$
 - 二阶常系数齐次线性微分方程
 
 $$
-若y_1(x),\:y_2(x)是y''+py'+qy=0的两个解，且\frac{y_1(x)}{y_2(x)}\not =C \ (常数)
-$$
-
-$$
-则称y_1(x),\:y_2(x)是该方程的两个线性无关解
-$$
-
-$$
+若y_1(x),\:y_2(x)是y''+py'+qy=0的两个解，且\frac{y_1(x)}{y_2(x)}\not =C \ (常数),\\
+则称y_1(x),\:y_2(x)是该方程的两个线性无关解,\\
 且y(x)=C_1y_1(x)+C_2y_2(x)是方程y''+py'+qy=0的通解
 $$
 
@@ -869,7 +839,8 @@ $$
 设y^*_1,\ y^*_2都是y''+py'+qy=f(x)的特解，则y^*_1-y^*_2是对应齐次方程的解
 $$
 
-- 对于$$y''+py'+qy=f(x)$$，设$P_n(x)$，$P_m(x)$分别是$x$的$n$次、$m$次多项式.
+- 二阶常系数非齐次线性微分方程 - 特解设定
+    - 对于$$y''+py'+qy=f(x)$$，设$P_n(x)$，$P_m(x)$分别是$x$的$n$次、$m$次多项式.
 
 $$
 当自由项f(x)=P_n(x)e^{\alpha x}时,\ \\
@@ -900,7 +871,12 @@ k=\begin{cases}
 \end{cases}
 $$
 
+- 二阶常系数非齐次线性微分方程 - 通解
 
 $$
-
+若y(x)=C_1y_1(x)+C_2y_2(x)是y''+py'+qy=0的通解,\ \\
+y^*(x)是y''+py'+qy=f(x)的一个特解,\ \\
+则y(x)+y^*(x)是y''+py'+qy=f(x)的通解
 $$
+
+
