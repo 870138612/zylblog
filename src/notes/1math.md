@@ -694,7 +694,7 @@ $$
 $$
 
 $$
-=\frac{1}{2}\iint \limits_{D_1\cup D_2}f(x,y)d\sigma,\:当f(x,y)=f(y,x)时成立
+=\frac{1}{2}\iint \limits_{D_1\cup D_2}f(x,y)d\sigma,\:当f(x,y)=f(y,x)时成立.
 $$
 
 - 在二重积分遇到$f(x,y)$不是初等函数时，一般需要交换积分次序，从先积$x$变成先积$y$或先积$y$变成先积$x$.
@@ -703,17 +703,17 @@ $$
 
 $$
 \iint \limits_{D}f(x,y)d\sigma=\int_{\alpha}^{\beta}d\theta
-\int_{r_1(\theta)}^{r_2(\theta)}f(r\cos \theta,r\sin \theta)rdr，\:极点O在区域D外部
+\int_{r_1(\theta)}^{r_2(\theta)}f(r\cos \theta,r\sin \theta)rdr，\:极点O在区域D外部.
 $$
 
 $$
 \iint \limits_{D}f(x,y)d\sigma=\int_{\alpha}^{\beta}d\theta
-\int_{0}^{r(\theta)}f(r\cos \theta,r\sin \theta)rdr，\:极点O在区域D边界
+\int_{0}^{r(\theta)}f(r\cos \theta,r\sin \theta)rdr，\:极点O在区域D边界.
 $$
 
 $$
 \iint \limits_{D}f(x,y)d\sigma=\int_{0}^{2\pi}d\theta
-\int_{0}^{r(\theta)}f(r\cos \theta,r\sin \theta)rdr，\:极点O在区域D内部
+\int_{0}^{r(\theta)}f(r\cos \theta,r\sin \theta)rdr，\:极点O在区域D内部.
 $$
 
 - 当被积函数为$f(x^2+y^2)$，$f(\cfrac{y}{x})$，$f(\cfrac{x}{y})$优先使用极坐标系二重积分，否则考虑直角坐标系.
@@ -789,7 +789,7 @@ $$
 =\frac{dp}{dy}\cdot p
 ,\:原方程变为一阶方程p\frac{dp}{dy}=f(y,p),\\
 若求得通解为p=\varphi(y,C_1),\:则由p=\frac{dy}{dx}可得\frac{dy}{dx}=\varphi(y,C_1),\\
-分离变量得\frac{dy}{\varphi(y,C_1)}=dx,\:两边进行积分得\int \frac{dy}{\varphi(y,C_1)}=x+C_2,\:求得通解
+分离变量得\frac{dy}{\varphi(y,C_1)}=dx,\:两边进行积分得\int \frac{dy}{\varphi(y,C_1)}=x+C_2,\:求得通解.
 $$
 
 - 二阶可降微分方程 $y''=f(y')$型，既不显含$y$，又不显含$x$，按照不显含$y$处理.
@@ -799,7 +799,7 @@ $$
 $$
 若y_1(x),\:y_2(x)是y''+py'+qy=0的两个解，且\frac{y_1(x)}{y_2(x)}\not =C \ (常数),\\
 则称y_1(x),\:y_2(x)是该方程的两个线性无关解,\\
-且y(x)=C_1y_1(x)+C_2y_2(x)是方程y''+py'+qy=0的通解
+且y(x)=C_1y_1(x)+C_2y_2(x)是方程y''+py'+qy=0的通解.
 $$
 
 - 二阶常系数齐次线性微分方程的通解
@@ -827,16 +827,16 @@ $$
 
 $$
 方程y''+py'+qy=f(x)(f(x)\not = 0)称为二阶常系数非齐次线性微分方程,\ \\
-其中p,\ q为常数,\ f(x)为已知的连续函数，叫做自由项
+其中p,\ q为常数,\ f(x)为已知的连续函数，叫做自由项.
 $$
 
 $$
 若y^*_1(x)是y''+py'+qy=f_1(x)的解，y^*_2(x)是y''+py'+qy=f_2(x)的解,\ \\
-则y^*_1(x)+y^*_2(x)是y''+py'+qy=f_1(x)+f_2(x)的解
+则y^*_1(x)+y^*_2(x)是y''+py'+qy=f_1(x)+f_2(x)的解.
 $$
 
 $$
-设y^*_1,\ y^*_2都是y''+py'+qy=f(x)的特解，则y^*_1-y^*_2是对应齐次方程的解
+设y^*_1,\ y^*_2都是y''+py'+qy=f(x)的特解，则y^*_1-y^*_2是对应齐次方程的解.
 $$
 
 - 二阶常系数非齐次线性微分方程 - 特解设定
@@ -876,7 +876,32 @@ $$
 $$
 若y(x)=C_1y_1(x)+C_2y_2(x)是y''+py'+qy=0的通解,\ \\
 y^*(x)是y''+py'+qy=f(x)的一个特解,\ \\
-则y(x)+y^*(x)是y''+py'+qy=f(x)的通解
+则y(x)+y^*(x)是y''+py'+qy=f(x)的通解.
+$$
+
+- $n$阶常系数齐次线性微分方程
+
+$$
+若r为单实根,\ 写\\
+Ce^{rx};
+$$
+
+$$
+若r为k重实根,\ 写\\
+(C_1+C_2x+C_3x^2+...+C_kx^{k-1})e^{rx};
+$$
+
+$$
+若r为单复根\alpha\pm\beta \text{i},\ 写\\
+e^{ax}(C_1\cos\beta x+ C_2 \sin\beta x);
+$$
+
+$$
+若r为二重复根\alpha\pm\beta \text{i},\ 写\\
+e^{ax}(C_1\cos\beta x+ C_2 \sin\beta x +C_3x\cos\beta x+C_4x\sin \beta x);
 $$
 
 
+$$
+
+$$
