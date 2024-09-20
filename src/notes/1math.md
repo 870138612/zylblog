@@ -444,15 +444,9 @@ $$
 - $\Gamma$函数
 
 $$
-\Gamma(a)=\int_0^{+\infty}x^{a-1}e^{-x}dx \xrightarrow{x=t^2}2\int_0^{+\infty}t^{2a-1}e^{-t^2}dt
-$$
-$$
-\Gamma(n+1)=n!
-$$
-$$
-\Gamma(\frac{5}{2})=\frac{3}{2}\cdot\frac{1}{2}\cdot \Gamma(\frac{1}{2})
-$$
-$$
+\Gamma(a)=\int_0^{+\infty}x^{a-1}e^{-x}dx \xrightarrow{x=t^2}2\int_0^{+\infty}t^{2a-1}e^{-t^2}dt\\
+\Gamma(n+1)=n!\\
+\Gamma(\frac{5}{2})=\frac{3}{2}\cdot\frac{1}{2}\cdot \Gamma(\frac{1}{2})\\
 \Gamma(\frac{1}{2})=\sqrt{\pi}
 $$
 
@@ -461,9 +455,7 @@ $$
 - 曲线$r=r_1(\theta)$与$r=r_2(\theta)$与两射线$\theta=\alpha$与$\theta=\beta(0<\beta-\alpha\le2\pi)$围成的扇形面积
 
 $$
-S=\frac{1}{2}\int_{\alpha}^{\beta}|r_1^2(\theta)-r_2^2(\theta)|d\theta 
-$$
-$$
+S=\frac{1}{2}\int_{\alpha}^{\beta}|r_1^2(\theta)-r_2^2(\theta)|d\theta \\
 S=\frac{1}{2}\int_{开始角度}^{结束角度}|外圈^2-内圈^2|d\theta 
 $$
 
@@ -503,10 +495,7 @@ $$
 - 设平面$D=\{(x,y)|0\le y\le f(x),a\le x\le b \}$，则形心坐标
 
 $$
-\overline{x}=\frac{\int_a^bxf(x)dx}{\int_a^bf(x)dx}
-$$
-
-$$
+\overline{x}=\frac{\int_a^bxf(x)dx}{\int_a^bf(x)dx}\\
 \overline y=\frac{\frac{1}{2}\int_a^bf^2(x)dx}{\int_a^bf(x)dx}
 $$
 
@@ -686,14 +675,8 @@ $$
 - 若$D_1$和$D_2$关于$y=x$轮换互对称，则
 
 $$
-\iint \limits_{D_1}f(x,y)d\sigma=\iint \limits_{D_2}f(y,x)d\sigma
-$$
-
-$$
-=\frac{1}{2}[\iint \limits_{D_1}f(x,y)d\sigma+\iint \limits_{D_2}f(y,x)d\sigma]
-$$
-
-$$
+\iint \limits_{D_1}f(x,y)d\sigma=\iint \limits_{D_2}f(y,x)d\sigma\\
+=\frac{1}{2}[\iint \limits_{D_1}f(x,y)d\sigma+\iint \limits_{D_2}f(y,x)d\sigma]\\
 =\frac{1}{2}\iint \limits_{D_1\cup D_2}f(x,y)d\sigma，当f(x,y)=f(y,x)时成立.
 $$
 
