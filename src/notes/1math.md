@@ -168,20 +168,20 @@ $$
 若\lim_{x\to x_0^+}f(x)=\infty(或\lim_{x\to x_0^-}f(x)=\infty),\\ 则称为x=x_0是一条铅直渐近线.
 $$
 $$
-若\lim_{x\to+\infty}f(x)= y_1,\ 则称为y=y_1是一条水平渐近线;\\
-若\lim_{x\to-\infty}f(x)= y_2,\ 则称为y=y_2是一条水平渐近线.
+若\lim_{x\to+\infty}f(x)= y_1，则称为y=y_1是一条水平渐近线;\\
+若\lim_{x\to-\infty}f(x)= y_2，则称为y=y_2是一条水平渐近线.
 $$
 $$
 若\lim_{x\to+\infty}f(x)=\lim_{x\to-\infty}f(x)= y_0,\\ 则称为y=y_0是一条水平渐近线.
 $$
 $$
-若\lim_{x\to +\infty}\cfrac{f(x)}{x}=a_1,\ \lim_{x\to +\infty}f(x)-a_1x=b_1,\\ 则y=a_1x+b_1是曲线的一条斜渐近线.
+若\lim_{x\to +\infty}\cfrac{f(x)}{x}=a_1，\lim_{x\to +\infty}f(x)-a_1x=b_1,\\ 则y=a_1x+b_1是曲线的一条斜渐近线.
 $$
 $$
-若\lim_{x\to -\infty}\cfrac{f(x)}{x}=a_2,\ \lim_{x\to -\infty}f(x)-a_2x=b_2,\\ 则y=a_2x+b_2是曲线的一条斜渐近线.
+若\lim_{x\to -\infty}\cfrac{f(x)}{x}=a_2，\lim_{x\to -\infty}f(x)-a_2x=b_2,\\ 则y=a_2x+b_2是曲线的一条斜渐近线.
 $$
 $$
-若\lim_{x\to +\infty}\cfrac{f(x)}{x}=\lim_{x\to -\infty}\cfrac{f(x)}{x}=a,\ \lim_{x\to +\infty}f(x)-ax=\lim_{x\to -\infty}f(x)-ax=b,\\ 则y=ax+b是曲线的一条斜渐近线.
+若\lim_{x\to +\infty}\cfrac{f(x)}{x}=\lim_{x\to -\infty}\cfrac{f(x)}{x}=a，\lim_{x\to +\infty}f(x)-ax=\lim_{x\to -\infty}f(x)-ax=b,\\ 则y=ax+b是曲线的一条斜渐近线.
 $$
 
 ## 一元函数微分学应用-中值定理、微分等式和微分不等式
@@ -259,15 +259,15 @@ $$
 - 两个重要结论
 
 $$
-\int_{0}^{1}\frac{1}{x^p}dx\begin{cases} \text{收敛},\:0<p<1 \\
-发散,\:p \ge1\end{cases}
+\int_{0}^{1}\frac{1}{x^p}dx\begin{cases} \text{收敛}，0<p<1 \\
+发散，p \ge1\end{cases}
 $$
 $$
-\int_{1}^{+\infty}\frac{1}{x^p}dx\begin{cases} 收敛,\:p>1\\
-发散,\:p\le1\end{cases}
+\int_{1}^{+\infty}\frac{1}{x^p}dx\begin{cases} 收敛，p>1\\
+发散，p\le1\end{cases}
 $$
 $$
-当(ax+b)>k>0时,\:\int_{1}^{+\infty}\frac{1}{(ax+b)^p}dx依然满足\begin{cases}收敛，p>1\\
+当(ax+b)>k>0时，\int_{1}^{+\infty}\frac{1}{(ax+b)^p}dx依然满足\begin{cases}收敛，p>1\\
 发散，p\le1\end{cases}
 $$
 
@@ -405,10 +405,10 @@ $$
 - 点火公式
 
 $$
-\int_{0}^{\frac{\pi}{2}}\sin^8x dx=\frac{7}{8} \cdot \frac{5}{6} \cdot \frac{3}{4} \cdot \frac{1}{2} \cdot \frac{\pi}{2},\:n为偶数\\
+\int_{0}^{\frac{\pi}{2}}\sin^8x dx=\frac{7}{8} \cdot \frac{5}{6} \cdot \frac{3}{4} \cdot \frac{1}{2} \cdot \frac{\pi}{2}，n为偶数\\
 $$
 $$
-\int_{0}^{\frac{\pi}{2}}\sin^9x dx=\frac{8}{9} \cdot \frac{6}{7} \cdot \frac{4}{5} \cdot \frac{2}{3} \cdot 1,\:n为奇数
+\int_{0}^{\frac{\pi}{2}}\sin^9x dx=\frac{8}{9} \cdot \frac{6}{7} \cdot \frac{4}{5} \cdot \frac{2}{3} \cdot 1，n为奇数
 $$
 
 -  使用换元法，遇到根号，需要注意开根号之后的正负问题，最后求得原函数记得换回去，下例根号内的值一定为正值，在换元之后，上下限发生变化，$|\sin t|$是正值，则$|\sin t|=-\sin t$
@@ -479,7 +479,7 @@ $$
 V_y=2\pi \int_a^bx|y(x)|dx\\
 $$
 
-- 曲线$L:y=f(x)$，$a\le x\le b$，绕$Ax+By+C = 0$旋转一周所得的旋转体体积，$d$是点到直线的距离，公式同样适用于绕$x,y$轴旋转体体积.
+- 曲线$L：y=f(x)$，$a\le x\le b$，绕$Ax+By+C = 0$旋转一周所得的旋转体体积，$d$是点到直线的距离，公式同样适用于绕$x,y$轴旋转体体积.
 
 $$
 V=2\pi\int\int d dxdy
@@ -528,19 +528,19 @@ $$
 s=\int_\alpha^\beta\sqrt{[r(\theta)]^2+[r'(\theta)]^2}d\theta
 $$
 
-- 曲线$L:y=f(x)$，$a\le x\le b$，绕$x$轴旋转一周所得的曲面面积，即$2\pi \int_a^b |y|sdx$.
+- 曲线$L：y=f(x)$，$a\le x\le b$，绕$x$轴旋转一周所得的曲面面积，即$2\pi \int_a^b |y|sdx$.
 
 $$
 S=2\pi\int_a^b|y|\sqrt{1+(y')^2}dx
 $$
 
-- 曲线$L:\begin{cases}x=x(t)\\ y=y(t) \end{cases}\alpha\le t\le \beta$，$x'(t)\not = 0$，绕$x$轴旋转一周所得的曲面面积
+- 曲线$L：\begin{cases}x=x(t)\\ y=y(t) \end{cases}\alpha\le t\le \beta$，$x'(t)\not = 0$，绕$x$轴旋转一周所得的曲面面积
 
 $$
 S=2\pi\int_\alpha^\beta|y(t)|\sqrt{(x'_t)^2+(y'_t)^2}dt
 $$
 
-- 曲线$L:r=r(\theta)$，$\alpha\le \theta \le \beta$，绕$x$轴旋转一周所得的曲面面积
+- 曲线$L：r=r(\theta)$，$\alpha\le \theta \le \beta$，绕$x$轴旋转一周所得的曲面面积
 
 $$
 S=2\pi\int_\alpha^\beta|r(\theta)|\sin \theta\sqrt{r^2(\theta)+[r'^(\theta)]^2}d\theta
@@ -617,7 +617,7 @@ $$
 - 隐函数存在定理2，对于由方程$F(x,y,z)=0$确定的隐函数$z=f(x,y)$，当$F'(x,y,z)\not = 0$时，则有
 
 $$
-\frac{\partial z}{\partial x}=-\frac{F'_x(x,y,z)}{F'_z(x,y,z)},\:
+\frac{\partial z}{\partial x}=-\frac{F'_x(x,y,z)}{F'_z(x,y,z)}，
 \ \frac{\partial z}{\partial y}=-\frac{F'_y(x,y,z)}{F'_z(x,y,z)}
 $$
 
@@ -634,10 +634,10 @@ f''_{yy}(x_0,y_0)=C,\\
 \begin{cases}
 >0\Rightarrow极值
 \begin{cases}
-A<0\Rightarrow极大值,\:\\
-A>0\Rightarrow极小值,\:
+A<0\Rightarrow极大值，\\
+A>0\Rightarrow极小值，
 \end{cases}\\
-<0\Rightarrow非极值,\:\\
+<0\Rightarrow非极值，\\
 =0\Rightarrow 方法失效，寻找他法.
 \end{cases}
 $$
@@ -671,7 +671,7 @@ $$
 
 $$
 \iint \limits_D f(x,y)d\sigma=\begin{cases}
-2\iint \limits_{D_1}f(x,y)\sigma,\:f(x,y)=f(-x,y) \\
+2\iint \limits_{D_1}f(x,y)\sigma，f(x,y)=f(-x,y) \\
 0, f(x,y)=-f(-x,y)
 \end{cases}
 $$
@@ -694,7 +694,7 @@ $$
 $$
 
 $$
-=\frac{1}{2}\iint \limits_{D_1\cup D_2}f(x,y)d\sigma,\:当f(x,y)=f(y,x)时成立.
+=\frac{1}{2}\iint \limits_{D_1\cup D_2}f(x,y)d\sigma，当f(x,y)=f(y,x)时成立.
 $$
 
 - 在二重积分遇到$f(x,y)$不是初等函数时，一般需要交换积分次序，从先积$x$变成先积$y$或先积$y$变成先积$x$.
@@ -703,17 +703,17 @@ $$
 
 $$
 \iint \limits_{D}f(x,y)d\sigma=\int_{\alpha}^{\beta}d\theta
-\int_{r_1(\theta)}^{r_2(\theta)}f(r\cos \theta,r\sin \theta)rdr，\:极点O在区域D外部.
+\int_{r_1(\theta)}^{r_2(\theta)}f(r\cos \theta,r\sin \theta)rdr，极点O在区域D外部.
 $$
 
 $$
 \iint \limits_{D}f(x,y)d\sigma=\int_{\alpha}^{\beta}d\theta
-\int_{0}^{r(\theta)}f(r\cos \theta,r\sin \theta)rdr，\:极点O在区域D边界.
+\int_{0}^{r(\theta)}f(r\cos \theta,r\sin \theta)rdr，极点O在区域D边界.
 $$
 
 $$
 \iint \limits_{D}f(x,y)d\sigma=\int_{0}^{2\pi}d\theta
-\int_{0}^{r(\theta)}f(r\cos \theta,r\sin \theta)rdr，\:极点O在区域D内部.
+\int_{0}^{r(\theta)}f(r\cos \theta,r\sin \theta)rdr，极点O在区域D内部.
 $$
 
 - 当被积函数为$f(x^2+y^2)$，$f(\cfrac{y}{x})$，$f(\cfrac{x}{y})$优先使用极坐标系二重积分，否则考虑直角坐标系.
@@ -723,14 +723,8 @@ $$
 - 二重积分换元
 
 $$
-\iint \limits_{D_{xy}}f(x,y)dxdy\:\:令\underrightarrow{x=x(u,v),y=y(u,v)}\\
-$$
-
-$$
-\iint \limits_{D_{uv}}f[x(u,v),y(u,v)]\begin{vmatrix}\cfrac{\partial(x,y)}{\partial(u,v)}\end{vmatrix}dudv
-$$
-
-$$
+\iint \limits_{D_{xy}}f(x,y)dxdy，令\underrightarrow{x=x(u,v),y=y(u,v)}\\
+\iint \limits_{D_{uv}}f[x(u,v),y(u,v)]\begin{vmatrix}\cfrac{\partial(x,y)}{\partial(u,v)}\end{vmatrix}dudv\\
 其中\begin{vmatrix}\cfrac{\partial(x,y)}{\partial(u,v)}\end{vmatrix}=
 \begin{vmatrix}
 \cfrac{\partial x}{\partial u}&\cfrac{\partial x}{\partial v}\\
@@ -750,16 +744,16 @@ $$
 - 可分离变量型微分方程-换元后可分离
 
 $$
-\frac{dy}{dx}=f(ax+by+c),\:令u=ax+by+c,:\ 则\\
-\frac{du}{dx}=a+b\frac{dy}{dx},\: 代入原方程得\frac{du}{dx}=a+bf(x)
+\frac{dy}{dx}=f(ax+by+c)，令u=ax+by+c，则\\
+\frac{du}{dx}=a+b\frac{dy}{dx}， 代入原方程得\frac{du}{dx}=a+bf(x)
 $$
 
 - 齐次型微分方程
 
 $$
-形如\frac{dy}{dx}=\varphi(\frac{y}{x})的方程叫做齐次型微分方程,\:解法为令u=\frac{y}{x},:\ 则\\
+形如\frac{dy}{dx}=\varphi(\frac{y}{x})的方程叫做齐次型微分方程，解法为令u=\frac{y}{x}，则\\
 y=ux\Rightarrow\frac{dy}{dx}=u+x\frac{du}{dx},\\
-于是原方程变为x\frac{du}{dx}+u=\varphi(u),\: 即\frac{du}{\varphi(u)-u}=\frac{dx}{x}
+于是原方程变为x\frac{du}{dx}+u=\varphi(u)， 即\frac{du}{\varphi(u)-u}=\frac{dx}{x}
 $$
 
 - 一阶线性微分方程
@@ -771,25 +765,25 @@ y=e^{-\int p(x)dx}[\int e^{\int p(x)dx} \cdot q(x)dx+C]
 $$
 
 $$
-若\int p(x)dx=\ln|\varphi(x)|,\: 此绝对值可以不加，其余出现\ln u,\: 不知u正负一律加绝对值.
+若\int p(x)dx=\ln|\varphi(x)|， 此绝对值可以不加，其余出现\ln u， 不知u正负一律加绝对值.
 $$
 
 - 二阶可降微分方程 $y''=f(x,y')$型，方程中不显含未知函数，有一阶导数和二阶导数.
 
 $$
-令y'=p,\:y''=p',\:则原方程变为\frac{dp}{dx}=f(x,p),\\
-若求得通解为p=\varphi(x,C_1),\:即y'=\varphi(x,C_1),\\
+令y'=p，y''=p'，则原方程变为\frac{dp}{dx}=f(x,p),\\
+若求得通解为p=\varphi(x,C_1)，即y'=\varphi(x,C_1),\\
 则原方程通解为y=\int\varphi(x,C_1)dx+C_2
 $$
 
 - 二阶可降微分方程 $y''=f(y,y')$型，方程中不显含自变量$x$，有一阶导数和二阶导数.
 
 $$
-令y'=p,\: y''=\frac{dp}{dx}=\frac{dp}{dy}\cdot\frac{dy}{dx}
+令y'=p， y''=\frac{dp}{dx}=\frac{dp}{dy}\cdot\frac{dy}{dx}
 =\frac{dp}{dy}\cdot p
-,\:原方程变为一阶方程p\frac{dp}{dy}=f(y,p),\\
-若求得通解为p=\varphi(y,C_1),\:则由p=\frac{dy}{dx}可得\frac{dy}{dx}=\varphi(y,C_1),\\
-分离变量得\frac{dy}{\varphi(y,C_1)}=dx,\:两边进行积分得\int \frac{dy}{\varphi(y,C_1)}=x+C_2,\:求得通解.
+，原方程变为一阶方程p\frac{dp}{dy}=f(y,p),\\
+若求得通解为p=\varphi(y,C_1)，则由p=\frac{dy}{dx}可得\frac{dy}{dx}=\varphi(y,C_1),\\
+分离变量得\frac{dy}{\varphi(y,C_1)}=dx，两边进行积分得\int \frac{dy}{\varphi(y,C_1)}=x+C_2，求得通解.
 $$
 
 - 二阶可降微分方程 $y''=f(y')$型，既不显含$y$，又不显含$x$，按照不显含$y$处理.
@@ -797,76 +791,76 @@ $$
 - 二阶常系数齐次线性微分方程
 
 $$
-若y_1(x),\:y_2(x)是y''+py'+qy=0的两个解，且\frac{y_1(x)}{y_2(x)}\not =C \ (常数),\\
-则称y_1(x),\:y_2(x)是该方程的两个线性无关解,\\
+若y_1(x)，y_2(x)是y''+py'+qy=0的两个解，且\frac{y_1(x)}{y_2(x)}\not =C \ (常数),\\
+则称y_1(x)，y_2(x)是该方程的两个线性无关解,\\
 且y(x)=C_1y_1(x)+C_2y_2(x)是方程y''+py'+qy=0的通解.
 $$
 
 - 二阶常系数齐次线性微分方程的通解
 
 $$
-对于y''+py'+qy=0,\:其对应的特征方程为r^2+pr+q=0
+对于y''+py'+qy=0，其对应的特征方程为r^2+pr+q=0
 $$
 
 $$
-若p^2-4q>0,\:设r_1,\:r_2是特征方程的两个不等实根，即r_1\not = r_2，则通解为\\
+若p^2-4q>0，设r_1，r_2是特征方程的两个不等实根，即r_1\not = r_2，则通解为\\
 y=C_1e^{r_1x}+C_2e^{r_2x}
 $$
 
 $$
-若p^2-4q=0,\ 设r_1,\ r_2是特征方程的两个相等实根,\ 即二重根,\ 则通解为\\
+若p^2-4q=0，设r_1，r_2是特征方程的两个相等实根，即二重根，则通解为\\
 y=(C_1+C_2x)e^{rx}
 $$
 
 $$
-若p^2-4q<0,\:设\alpha\pm\beta \text i是特征方程的一对共轭复根,\ 则通解为\\
+若p^2-4q<0，设\alpha\pm\beta \text i是特征方程的一对共轭复根，则通解为\\
 y=e^{\alpha x}(C_1\cos \beta x+C_2\sin \beta x)
 $$
 
 - 二阶常系数非齐次线性微分方程
 
 $$
-方程y''+py'+qy=f(x)(f(x)\not = 0)称为二阶常系数非齐次线性微分方程,\ \\
-其中p,\ q为常数,\ f(x)为已知的连续函数，叫做自由项.
+方程y''+py'+qy=f(x)(f(x)\not = 0)称为二阶常系数非齐次线性微分方程，\\
+其中p，q为常数，f(x)为已知的连续函数，叫做自由项.
 $$
 
 $$
-若y^*_1(x)是y''+py'+qy=f_1(x)的解，y^*_2(x)是y''+py'+qy=f_2(x)的解,\ \\
+若y^*_1(x)是y''+py'+qy=f_1(x)的解，y^*_2(x)是y''+py'+qy=f_2(x)的解，\\
 则y^*_1(x)+y^*_2(x)是y''+py'+qy=f_1(x)+f_2(x)的解.
 $$
 
 $$
-设y^*_1,\ y^*_2都是y''+py'+qy=f(x)的特解，则y^*_1-y^*_2是对应齐次方程的解.
+设y^*_1，y^*_2都是y''+py'+qy=f(x)的特解，则y^*_1-y^*_2是对应齐次方程的解.
 $$
 
 - 二阶常系数非齐次线性微分方程 - 特解设定
     - 对于$$y''+py'+qy=f(x)$$，设$P_n(x)$，$P_m(x)$分别是$x$的$n$次、$m$次多项式.
 
 $$
-当自由项f(x)=P_n(x)e^{\alpha x}时,\ \\
-特解要设为y^*=e^{\alpha x}Q_n(x)x^k,\ \\
+当自由项f(x)=P_n(x)e^{\alpha x}时，\\
+特解要设为y^*=e^{\alpha x}Q_n(x)x^k，\\
 其中
 \begin{cases}
 e^{ax}照抄,\\
 Q_n(x)为x的n次多项式,\\
 k=\begin{cases} 
-0,\ \alpha 不是特征根,\\
-1,\ \alpha是单特征根,\\
-2,\ \alpha是二重特征根.
+0，\alpha 不是特征根,\\
+1，\alpha是单特征根,\\
+2，\alpha是二重特征根.
 \end{cases}
 \end{cases}
 $$
 
 $$
-当自由项f(x)=e^{\alpha x}[P_m(x)\cos \beta x+P_n(x)\sin \beta x]时,\ \\
-特解要设为y^*=e^{\alpha x}[Q_l^{(1)}(x)\cos \beta x+Q_l^{(2)}\sin \beta x]x^k,\ \\
+当自由项f(x)=e^{\alpha x}[P_m(x)\cos \beta x+P_n(x)\sin \beta x]时，\\
+特解要设为y^*=e^{\alpha x}[Q_l^{(1)}(x)\cos \beta x+Q_l^{(2)}\sin \beta x]x^k，\\
 其中
 \begin{cases}
 e^{ax}照抄,\\
 Q_n(x)为x的n次多项式,\\
 k=\begin{cases} 
-0,\ \alpha\pm \beta \text i不是特征根,\\
-1,\ \alpha\pm \beta \text i是特征根.
+0，\alpha\pm \beta \text i不是特征根,\\
+1，\alpha\pm \beta \text i是特征根.
 \end{cases}
 \end{cases}
 $$
@@ -874,34 +868,31 @@ $$
 - 二阶常系数非齐次线性微分方程 - 通解
 
 $$
-若y(x)=C_1y_1(x)+C_2y_2(x)是y''+py'+qy=0的通解,\ \\
-y^*(x)是y''+py'+qy=f(x)的一个特解,\ \\
+若y(x)=C_1y_1(x)+C_2y_2(x)是y''+py'+qy=0的通解，\\
+y^*(x)是y''+py'+qy=f(x)的一个特解，\\
 则y(x)+y^*(x)是y''+py'+qy=f(x)的通解.
 $$
 
 - $n\ (n>2)$阶常系数齐次线性微分方程
 
 $$
-若r为单实根,\ 写\\
+若r为单实根，写\\
 Ce^{rx};
 $$
 
 $$
-若r为k重实根,\ 写\\
+若r为k重实根，写\\
 (C_1+C_2x+C_3x^2+...+C_kx^{k-1})e^{rx};
 $$
 
 $$
-若r为单复根\alpha\pm\beta \text{i},\ 写\\
+若r为单复根\alpha\pm\beta \text{i}，写\\
 e^{ax}(C_1\cos\beta x+ C_2 \sin\beta x);
 $$
 
 $$
-若r为二重复根\alpha\pm\beta \text{i},\ 写\\
+若r为二重复根\alpha\pm\beta \text{i}，写\\
 e^{ax}(C_1\cos\beta x+ C_2 \sin\beta x +C_3x\cos\beta x+C_4x\sin \beta x);
 $$
 
 
-$$
-
-$$
