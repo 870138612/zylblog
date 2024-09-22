@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="添加数学笔记">
+    <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="更新数学笔记">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024_8_19_23_45____.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2024_8_19_23_45_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,24 +35,25 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Administrator/Desktop/docs/src/discovery/2computerorganization&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.web.browsers&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\WebStorm 2023.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Administrator/Desktop/docs/src/discovery/2computerorganization",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.web.browsers",
+    "ts.external.directory.path": "D:\\WebStorm 2023.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\Desktop\docs\src\discovery\2computerorganization" />
@@ -122,111 +125,26 @@
       <workItem from="1724000038525" duration="11000" />
       <workItem from="1724082303979" duration="47000" />
       <workItem from="1724082365082" duration="53000" />
-    </task>
-    <task id="LOCAL-00001" summary="对项目进行重构，删除笔记，添加高等数学笔记">
-      <created>1723127884273</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1723127884273</updated>
-    </task>
-    <task id="LOCAL-00002" summary="对项目进行重构，删除笔记，添加高等数学笔记">
-      <created>1723128031859</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1723128031859</updated>
-    </task>
-    <task id="LOCAL-00003" summary="对项目进行重构，删除笔记，添加高等数学笔记">
-      <created>1723128105830</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1723128105830</updated>
-    </task>
-    <task id="LOCAL-00004" summary="对项目进行重构，删除笔记，添加高等数学笔记">
-      <created>1723128384832</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1723128384832</updated>
-    </task>
-    <task id="LOCAL-00005" summary="添加调色板">
-      <created>1723130580617</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1723130580617</updated>
-    </task>
-    <task id="LOCAL-00006" summary="添加调色板">
-      <created>1723199315749</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1723199315750</updated>
-    </task>
-    <task id="LOCAL-00007" summary="更新math1.md">
-      <created>1723223915034</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1723223915034</updated>
-    </task>
-    <task id="LOCAL-00008" summary="修改背景图片">
-      <created>1723226131516</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1723226131516</updated>
-    </task>
-    <task id="LOCAL-00009" summary="修改背景图片">
-      <created>1723231008241</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1723231008241</updated>
-    </task>
-    <task id="LOCAL-00010" summary="添加数学笔记">
-      <created>1723312590069</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1723312590069</updated>
-    </task>
-    <task id="LOCAL-00011" summary="添加数学笔记">
-      <created>1723385725486</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1723385725486</updated>
-    </task>
-    <task id="LOCAL-00012" summary="添加数学笔记">
-      <created>1723478013680</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1723478013680</updated>
-    </task>
-    <task id="LOCAL-00013" summary="添加数学笔记">
-      <created>1723480237854</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1723480237854</updated>
-    </task>
-    <task id="LOCAL-00014" summary="添加数学笔记">
-      <created>1723558823057</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1723558823057</updated>
-    </task>
-    <task id="LOCAL-00015" summary="添加数学笔记">
-      <created>1723558911041</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1723558911041</updated>
+      <workItem from="1724082434285" duration="10000" />
+      <workItem from="1724259008558" duration="555000" />
+      <workItem from="1724260381494" duration="10000" />
+      <workItem from="1724689236368" duration="1335000" />
+      <workItem from="1724777468285" duration="16000" />
+      <workItem from="1724855161727" duration="1497000" />
+      <workItem from="1724866704242" duration="14000" />
+      <workItem from="1724950107220" duration="608000" />
+      <workItem from="1725289065177" duration="1253000" />
+      <workItem from="1725544699039" duration="2263000" />
+      <workItem from="1725626865580" duration="3586000" />
+      <workItem from="1725713201299" duration="10000" />
+      <workItem from="1725895210088" duration="2605000" />
+      <workItem from="1725980774520" duration="1712000" />
+      <workItem from="1726069623030" duration="1203000" />
+      <workItem from="1726416539987" duration="1312000" />
+      <workItem from="1726421804639" duration="129000" />
+      <workItem from="1726476826550" duration="11000" />
+      <workItem from="1726500677100" duration="1186000" />
+      <workItem from="1727012072992" duration="2595000" />
     </task>
     <task id="LOCAL-00016" summary="添加数学笔记">
       <created>1723564018233</created>
@@ -319,7 +237,259 @@
       <option name="project" value="LOCAL" />
       <updated>1724082326171</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="添加数学笔记">
+      <created>1724082439409</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1724082439409</updated>
+    </task>
+    <task id="LOCAL-00030" summary="添加数学笔记">
+      <created>1724259015485</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1724259015485</updated>
+    </task>
+    <task id="LOCAL-00031" summary="添加数学笔记">
+      <created>1724259560632</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1724259560632</updated>
+    </task>
+    <task id="LOCAL-00032" summary="添加数学笔记">
+      <created>1724260386101</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1724260386101</updated>
+    </task>
+    <task id="LOCAL-00033" summary="添加数学笔记">
+      <created>1724689379819</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1724689379819</updated>
+    </task>
+    <task id="LOCAL-00034" summary="添加数学笔记">
+      <created>1724691458704</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1724691458704</updated>
+    </task>
+    <task id="LOCAL-00035" summary="添加数学笔记">
+      <created>1724863931722</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1724863931722</updated>
+    </task>
+    <task id="LOCAL-00036" summary="添加数学笔记">
+      <created>1724866711447</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1724866711447</updated>
+    </task>
+    <task id="LOCAL-00037" summary="添加数学笔记">
+      <created>1724950712733</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1724950712733</updated>
+    </task>
+    <task id="LOCAL-00038" summary="更新数学笔记">
+      <created>1725290393008</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1725290393008</updated>
+    </task>
+    <task id="LOCAL-00039" summary="更新数学笔记">
+      <created>1725295002573</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1725295002573</updated>
+    </task>
+    <task id="LOCAL-00040" summary="更新数学笔记">
+      <created>1725548379239</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1725548379239</updated>
+    </task>
+    <task id="LOCAL-00041" summary="更新数学笔记">
+      <created>1725548722465</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1725548722465</updated>
+    </task>
+    <task id="LOCAL-00042" summary="更新数学笔记">
+      <created>1725548745180</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1725548745180</updated>
+    </task>
+    <task id="LOCAL-00043" summary="更新数学笔记">
+      <created>1725552006848</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1725552006848</updated>
+    </task>
+    <task id="LOCAL-00044" summary="更新数学笔记">
+      <created>1725633396931</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1725633396931</updated>
+    </task>
+    <task id="LOCAL-00045" summary="更新数学笔记">
+      <created>1725635055107</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1725635055107</updated>
+    </task>
+    <task id="LOCAL-00046" summary="更新数学笔记">
+      <created>1725639286356</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1725639286356</updated>
+    </task>
+    <task id="LOCAL-00047" summary="更新数学笔记">
+      <created>1725895254071</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1725895254071</updated>
+    </task>
+    <task id="LOCAL-00048" summary="更新数学笔记">
+      <created>1725897102711</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1725897102711</updated>
+    </task>
+    <task id="LOCAL-00049" summary="更新数学笔记">
+      <created>1725899466541</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1725899466541</updated>
+    </task>
+    <task id="LOCAL-00050" summary="更新数学笔记">
+      <created>1725900152424</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1725900152425</updated>
+    </task>
+    <task id="LOCAL-00051" summary="更新数学笔记">
+      <created>1725983260976</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1725983260976</updated>
+    </task>
+    <task id="LOCAL-00052" summary="更新数学笔记">
+      <created>1725985801773</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1725985801773</updated>
+    </task>
+    <task id="LOCAL-00053" summary="更新数学笔记">
+      <created>1725985994513</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1725985994514</updated>
+    </task>
+    <task id="LOCAL-00054" summary="更新数学笔记">
+      <created>1726070574833</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1726070574834</updated>
+    </task>
+    <task id="LOCAL-00055" summary="更新数学笔记">
+      <created>1726416544468</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1726416544468</updated>
+    </task>
+    <task id="LOCAL-00056" summary="更新数学笔记">
+      <created>1726420391132</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1726420391132</updated>
+    </task>
+    <task id="LOCAL-00057" summary="更新数学笔记">
+      <created>1726421473154</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1726421473154</updated>
+    </task>
+    <task id="LOCAL-00058" summary="更新数学笔记">
+      <created>1726421809096</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1726421809096</updated>
+    </task>
+    <task id="LOCAL-00059" summary="更新数学笔记">
+      <created>1726421929504</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1726421929504</updated>
+    </task>
+    <task id="LOCAL-00060" summary="更新数学笔记">
+      <created>1726500681566</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1726500681566</updated>
+    </task>
+    <task id="LOCAL-00061" summary="更新数学笔记">
+      <created>1726501376441</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1726501376441</updated>
+    </task>
+    <task id="LOCAL-00062" summary="更新数学笔记">
+      <created>1727016722472</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1727016722472</updated>
+    </task>
+    <task id="LOCAL-00063" summary="更新数学笔记">
+      <created>1727019911708</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1727019911708</updated>
+    </task>
+    <task id="LOCAL-00064" summary="更新数学笔记">
+      <created>1727022254907</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1727022254907</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,11 +532,13 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="对项目进行重构，删除笔记，添加高等数学笔记" />
     <MESSAGE value="添加调色板" />
     <MESSAGE value="更新math1.md" />
     <MESSAGE value="修改背景图片" />
     <MESSAGE value="添加数学笔记" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加数学笔记" />
+    <MESSAGE value="更新数学笔记" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新数学笔记" />
   </component>
 </project>

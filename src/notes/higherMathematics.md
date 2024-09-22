@@ -122,7 +122,7 @@ $$
     - 记$f'(x)=y'_x$，$\varphi'(y)=x'_y$，则
 
 $$
-y''_{xx}=-\frac{x''_{yy}}{(x'_y)^3}
+y''_{xx}=-\frac{x''_{yy}}{(x'_y)^3}.
 $$
 
 
@@ -130,7 +130,7 @@ $$
     - 设函数$y=y(x)$由参数方程为$\begin{cases}x=\varphi(t)\\y=\psi(t) \end{cases}$确定，$t$是参数，$\varphi(t)$，$\psi(t)$均可导，$\varphi'(x)\not=0$则
 
 $$
-\frac{dy}{dx}=\cfrac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{\psi'(t)}{\varphi'(t)}
+\frac{dy}{dx}=\cfrac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{\psi'(t)}{\varphi'(t)}.
 $$
 
 - 若$\varphi$，$\psi$二阶均可导，$\varphi'(x)\not=0$则
@@ -138,19 +138,19 @@ $$
 $$
 \frac{d^2y}{dx^2}=
 \frac{d(\cfrac{dy}{dx})/dt}{dx/dt}=
-\frac{\psi''(t)\varphi'(t)-\psi'(t)\varphi''(t)}{[\varphi'(t)]^3}
+\frac{\psi''(t)\varphi'(t)-\psi'(t)\varphi''(t)}{[\varphi'(t)]^3}.
 $$
 
 - 莱布尼茨公式
     - 设$u=u(x)$，$v=v(x)$均$n$阶导，则
 
 $$
-(uv)^{(n)}=u^{(n)}v+C_n^1u^{(n-1)}v'+C_n^2u^{(n-2)}v''+...+C_n^{n-1}u'v^{(n-1)}+uv^{(n)}
+(uv)^{(n)}=u^{(n)}v+C_n^1u^{(n-1)}v'+C_n^2u^{(n-2)}v''+...+C_n^{n-1}u'v^{(n-1)}+uv^{(n)}.
 $$
 
 - 曲率公式
 $$
-K=\frac{|y''|}{(1+y'^2)^\frac{3}{2}}
+K=\frac{|y''|}{(1+y'^2)^\frac{3}{2}}.
 $$
 
 ## 一元函数微分学应用-几何应用
@@ -197,23 +197,23 @@ $$
     - $(uv)''=u''v+2u'v'+uv''$.
     - 见到$f(x)f'(x)$，令$F(x)=f^2(x)$.
     - 见到 $[f'(x)]^2+f(x)f''(x)$，令$F(x)=f(x)f'(x)$.
-- 拉格朗日中值定理，函数在$(a,b)$上可导，在$[a,b]$上连续
+- 拉格朗日中值定理，函数在$(a,b)$上可导，在$[a,b]$上连续，则
 
 $$
-f(b)-f(a)=f'(\xi)(b-a),\xi\in(a,b)
+f(b)-f(a)=f'(\xi)(b-a),\xi\in(a,b).
 $$
 
-- 带拉格朗日余项的$n$阶泰勒公式
+- 带拉格朗日余项的$n$阶泰勒公式，
 
 $$
 f(x)=f(x_0)+f'(x_0)(x-x_0)+...+\frac{1}{n!}f^{(n)}(x-x_0)^n \\
-+\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}
++\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}.
 $$
 
-- 柯西中值定理，条件同上
+- 柯西中值定理，条件同上，
 
 $$
-\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\eta)}
+\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\eta)}.
 $$
 
 - 若$f(x)$在区间$I$上$n$阶可导，且$f^{(n)}(x)\not= 0$，即$f^{(n)}(x) = 0$无实根，于是$f(x)=0$至多有$n$个实根.
@@ -229,19 +229,19 @@ $$
 - 无论$a,b,c$大小如何，总有
 
 $$
-\int_{a}^{b}f(x)dx=\int_{a}^{c}f(x)dx+\int_{c}^{b}f(x)dx
+\int_{a}^{b}f(x)dx=\int_{a}^{c}f(x)dx+\int_{c}^{b}f(x)dx.
 $$
 
 - 设$k_1$，$k_2$为常数，则
 
 $$
-\int_{a}^{b}k_1f(x)\pm k_2g(x)dx=k_1\int_{a}^{b}f(x)dx\pm k_2\int_{a}^{b}g(x)dx
+\int_{a}^{b}k_1f(x)\pm k_2g(x)dx=k_1\int_{a}^{b}f(x)dx\pm k_2\int_{a}^{b}g(x)dx.
 $$
 
 - 设$f(x)$在$[a,b]$上连续，则在$[a,b]$上至少存在一点$\xi$，使得
 
 $$
-\int_{a}^{b}f(x)dx=f(\xi)(b-a)
+\int_{a}^{b}f(x)dx=f(\xi)(b-a).
 $$
 
 - 变限积分的性质
@@ -260,27 +260,27 @@ $$
 
 $$
 \int_{0}^{1}\frac{1}{x^p}dx\begin{cases} \text{收敛}，0<p<1 \\
-发散，p \ge1\end{cases}
+发散，p \ge1\end{cases}.
 $$
 $$
 \int_{1}^{+\infty}\frac{1}{x^p}dx\begin{cases} 收敛，p>1\\
-发散，p\le1\end{cases}
+发散，p\le1\end{cases}.
 $$
 $$
 当(ax+b)>k>0时，\int_{1}^{+\infty}\frac{1}{(ax+b)^p}dx依然满足\begin{cases}收敛，p>1\\
-发散，p\le1\end{cases}
+发散，p\le1\end{cases}.
 $$
 
-- 当$f(x)$为奇函数，且$\int_{-\infty}^{+\infty}f(x)dx$收敛时
+- 当$f(x)$为奇函数，且$\int_{-\infty}^{+\infty}f(x)dx$收敛时，则
 
 $$
-\int_{-\infty}^{+\infty}f(x)dx=2\int_{0}^{+\infty}f(x)dx
+\int_{-\infty}^{+\infty}f(x)dx=2\int_{0}^{+\infty}f(x)dx.
 $$
 
-- 当$f(x)$为偶函数，且$\int_{-\infty}^{+\infty}f(x)dx$收敛时
+- 当$f(x)$为偶函数，且$\int_{-\infty}^{+\infty}f(x)dx$收敛时，则
 
 $$
-\int_{-\infty}^{+\infty}f(x)dx=0
+\int_{-\infty}^{+\infty}f(x)dx=0.
 $$
 
 ## 一元函数积分学的计算
@@ -336,7 +336,7 @@ $$
 \int \sec^2xdx = \tan x+C
 $$
 
-- 分部积分法，适用于对$\int vdu$积分较为容易的情景
+- 分部积分法，适用于对$\int vdu$积分较为容易的情景.
 
 $$
 \int udv= uv - \int vdu\\
@@ -356,7 +356,7 @@ $$
 | $x^2+x$ | $2x+1$ | 2 | 0 | 求导 |
 | $e^x$ | $e^x$ | $e^x$ | $e^x$ | 求原函数 |
 
-从第一列开始，与右下角项进行相乘，采用加减交替的形式算总和。
+从第一列开始，与右下角项进行相乘，采用加减交替的形式算总和：
 $$
 \int(x^2+x)e^xdx\\
 =(x^2+x)e^x-(2x+1)e^x+2e^x+C
@@ -369,29 +369,29 @@ $$
 :::info 有理函数积分的计算
 
 $$
-\int\frac{4x^2-6x-1}{(x+1)(2x-1)^2}dx
+\int\frac{4x^2-6x-1}{(x+1)(2x-1)^2}dx.
 $$
 - 先将被积函数分解为最简有理分式之和
 $$
 \frac{4x^2-6x-1}{(x+1)(2x-1)^2}
 $$
 $$
-=\frac{A}{x+1}+\frac{B}{2x-1}+\frac{C}{(2x-1)^2}
+=\frac{A}{x+1}+\frac{B}{2x-1}+\frac{C}{(2x-1)^2}.
 $$
 
 - 将右边进行合并
 $$
-4x^2-6x-1\equiv(4A+2B)x^2 + (-4A+B+C)x + (A-B+C)
+4x^2-6x-1\equiv(4A+2B)x^2 + (-4A+B+C)x + (A-B+C).
 $$
 - 由于系数相同，因此
 $$
-A=1，B=0，C=-2
+A=1，B=0，C=-2.
 $$
 $$
 \int\frac{4x^2-6x-1}{(x+1)(2x-1)^2}dx=
 $$
 $$
-\frac{1}{x+1}-\frac{2}{(2x-1)^2}
+\frac{1}{x+1}-\frac{2}{(2x-1)^2}.
 $$
 - 最后求积分
 :::                              
@@ -399,36 +399,36 @@ $$
 - 定积分的区间再现公式，令$x=a+b-t$可证
 
 $$
-\int_{a}^{b}f(x)dx =\int_{a}^{b}f(a+b-x)dx
+\int_{a}^{b}f(x)dx =\int_{a}^{b}f(a+b-x)dx.
 $$
 
 - 点火公式
 
 $$
-\int_{0}^{\frac{\pi}{2}}\sin^8x dx=\frac{7}{8} \cdot \frac{5}{6} \cdot \frac{3}{4} \cdot \frac{1}{2} \cdot \frac{\pi}{2}，n为偶数\\
+\int_{0}^{\frac{\pi}{2}}\sin^8x dx=\frac{7}{8} \cdot \frac{5}{6} \cdot \frac{3}{4} \cdot \frac{1}{2} \cdot \frac{\pi}{2}，n为偶数\\.
 $$
 $$
-\int_{0}^{\frac{\pi}{2}}\sin^9x dx=\frac{8}{9} \cdot \frac{6}{7} \cdot \frac{4}{5} \cdot \frac{2}{3} \cdot 1，n为奇数
+\int_{0}^{\frac{\pi}{2}}\sin^9x dx=\frac{8}{9} \cdot \frac{6}{7} \cdot \frac{4}{5} \cdot \frac{2}{3} \cdot 1，n为奇数.
 $$
 
 -  使用换元法，遇到根号，需要注意开根号之后的正负问题，最后求得原函数记得换回去，下例根号内的值一定为正值，在换元之后，上下限发生变化，$|\sin t|$是正值，则$|\sin t|=-\sin t$
 
 $$
 \int_{0}^{1}\arcsin\sqrt{1-x^2}dx \xrightarrow{x=\cos t} 
-\int_{-\frac{\pi}{2}}^{0}\arcsin(-\sin t)\cdot (-\sin t)dt=1\\
+\int_{-\frac{\pi}{2}}^{0}\arcsin(-\sin t)\cdot (-\sin t)dt=1.
 $$
 
 - 设$f(x)$在$[0,1]$上连续，则
 
 $$
-\int_0^\pi xf(\sin x)dx = \frac{\pi}{2}\int_0^\pi f(\sin x)dx
+\int_0^\pi xf(\sin x)dx = \frac{\pi}{2}\int_0^\pi f(\sin x)dx.
 $$
 
 - 变限积分的求导
 
 $$
 F'(x)=\frac{d}{dx}[\int_{\varphi_1(x)}^{\varphi_2(x)}f(t)dt]\\
-=f[\varphi_2(x)]\varphi_2'(x)-f[\varphi_1(x)]\varphi_1'(x)
+=f[\varphi_2(x)]\varphi_2'(x)-f[\varphi_1(x)]\varphi_1'(x).
 $$
 
 - 变限积分重要结论
@@ -444,10 +444,10 @@ $$
 - $\Gamma$函数
 
 $$
-\Gamma(a)=\int_0^{+\infty}x^{a-1}e^{-x}dx \xrightarrow{x=t^2}2\int_0^{+\infty}t^{2a-1}e^{-t^2}dt\\
-\Gamma(n+1)=n!\\
-\Gamma(\frac{5}{2})=\frac{3}{2}\cdot\frac{1}{2}\cdot \Gamma(\frac{1}{2})\\
-\Gamma(\frac{1}{2})=\sqrt{\pi}
+\Gamma(a)=\int_0^{+\infty}x^{a-1}e^{-x}dx \xrightarrow{x=t^2}2\int_0^{+\infty}t^{2a-1}e^{-t^2}dt，\\
+\Gamma(n+1)=n!，\\
+\Gamma(\frac{5}{2})=\frac{3}{2}\cdot\frac{1}{2}\cdot \Gamma(\frac{1}{2})，\\
+\Gamma(\frac{1}{2})=\sqrt{\pi}.
 $$
 
 ## 一元函数积分学的几何应用
@@ -455,84 +455,84 @@ $$
 - 曲线$r=r_1(\theta)$与$r=r_2(\theta)$与两射线$\theta=\alpha$与$\theta=\beta(0<\beta-\alpha\le2\pi)$围成的扇形面积
 
 $$
-S=\frac{1}{2}\int_{\alpha}^{\beta}|r_1^2(\theta)-r_2^2(\theta)|d\theta \\
-S=\frac{1}{2}\int_{开始角度}^{结束角度}|外圈^2-内圈^2|d\theta 
+S=\frac{1}{2}\int_{\alpha}^{\beta}|r_1^2(\theta)-r_2^2(\theta)|d\theta ，\\
+S=\frac{1}{2}\int_{开始角度}^{结束角度}|外圈^2-内圈^2|d\theta.
 $$
 
 - 曲线$y=y(x)$与$x=a$，$x=b(a < b)$及$x$轴围成的曲边梯形绕$x$轴旋转一周所得到的旋转体体积，其中$dx$为柱形的高，$\pi y^2(x)$为柱形的截面积.
 
 $$
-V_x=\int_a^b\pi y^2(x)dx
+V_x=\int_a^b\pi y^2(x)dx.
 $$
 
 - 曲线$y=y(x)$与$x=a$，$x=b(0\le a < b)$及$x$轴围成的曲边梯形绕$y$轴旋转一周所得到的旋转体体积，其中$2\pi x$近似为圆柱壳的截面周长，$|y(x)|dx$为圆柱壳的竖截面长方形面积.
 
 $$
-V_y=2\pi \int_a^bx|y(x)|dx\\
+V_y=2\pi \int_a^bx|y(x)|dx.
 $$
 
 - 曲线$L：y=f(x)$，$a\le x\le b$，绕$Ax+By+C = 0$旋转一周所得的旋转体体积，$d$是点到直线的距离，公式同样适用于绕$x,y$轴旋转体体积.
 
 $$
-V=2\pi\int\int d dxdy
+V=2\pi\int\int d dxdy.
 $$
 $$
-d=\frac{|Ax+By+C|}{\sqrt{A_2+B_2}}
+d=\frac{|Ax+By+C|}{\sqrt{A_2+B_2}}.
 $$
 
 - 古尔金定理：旋转体的体积等于截面积乘以截面积的形心绕直线旋转得到的周长，$d$是形心到直线的距离，$s$是截面积.
 
 $$
-V=2\pi d s
+V=2\pi d s.
 $$
 
 - 设$x\in[a,b]$，函数$f(x)$在$[a,b]$上的平均值为
 
 $$
-\overline{y}=\frac{1}{b-a}\int_{a}^{b}y(x)dx
+\overline{y}=\frac{1}{b-a}\int_{a}^{b}y(x)dx.
 $$
 
 - 设平面$D=\{(x,y)|0\le y\le f(x),a\le x\le b \}$，则形心坐标
 
 $$
-\overline{x}=\frac{\int_a^bxf(x)dx}{\int_a^bf(x)dx}\\
-\overline y=\frac{\frac{1}{2}\int_a^bf^2(x)dx}{\int_a^bf(x)dx}
+\overline{x}=\frac{\int_a^bxf(x)dx}{\int_a^bf(x)dx}，\\
+\overline y=\frac{\frac{1}{2}\int_a^bf^2(x)dx}{\int_a^bf(x)dx}.
 $$
 
 - 若平面光滑曲线由直接坐标方程$y=y(x)$给出，则弧长
 
 $$
-s=\int_a^b\sqrt{1+[y'(x)]^2}dx
+s=\int_a^b\sqrt{1+[y'(x)]^2}dx.
 $$
 
 - 若平面光滑曲线由参数方程$\begin{cases}x=x(t)\\ y=y(t) \end{cases}$给出，则弧长
 
 $$
-s=\int_\alpha^\beta \sqrt{[x'(t)]^2+[y'(t)]^2}dt
+s=\int_\alpha^\beta \sqrt{[x'(t)]^2+[y'(t)]^2}dt.
 $$
 
 - 若平面光滑曲线由极值坐标方程$r=r(\theta)(\alpha\le\theta\le\beta)$给出，则弧长
 
 $$
-s=\int_\alpha^\beta\sqrt{[r(\theta)]^2+[r'(\theta)]^2}d\theta
+s=\int_\alpha^\beta\sqrt{[r(\theta)]^2+[r'(\theta)]^2}d\theta.
 $$
 
 - 曲线$L：y=f(x)$，$a\le x\le b$，绕$x$轴旋转一周所得的曲面面积，即$2\pi \int_a^b |y|sdx$.
 
 $$
-S=2\pi\int_a^b|y|\sqrt{1+(y')^2}dx
+S=2\pi\int_a^b|y|\sqrt{1+(y')^2}dx.
 $$
 
 - 曲线$L：\begin{cases}x=x(t)\\ y=y(t) \end{cases}\alpha\le t\le \beta$，$x'(t)\not = 0$，绕$x$轴旋转一周所得的曲面面积
 
 $$
-S=2\pi\int_\alpha^\beta|y(t)|\sqrt{(x'_t)^2+(y'_t)^2}dt
+S=2\pi\int_\alpha^\beta|y(t)|\sqrt{(x'_t)^2+(y'_t)^2}dt.
 $$
 
 - 曲线$L：r=r(\theta)$，$\alpha\le \theta \le \beta$，绕$x$轴旋转一周所得的曲面面积
 
 $$
-S=2\pi\int_\alpha^\beta|r(\theta)|\sin \theta\sqrt{r^2(\theta)+[r'^(\theta)]^2}d\theta
+S=2\pi\int_\alpha^\beta|r(\theta)|\sin \theta\sqrt{r^2(\theta)+[r'^(\theta)]^2}d\theta.
 $$
 
 ## 一元函数积分学-积分等式和积分不等式$
@@ -540,13 +540,13 @@ $$
 - 积分等式中用中值定理
 
 $$
-\int_a^bf(x)g(x)dx=f(\xi)\int_a^bg(x)dx
+\int_a^bf(x)g(x)dx=f(\xi)\int_a^bg(x)dx.
 $$
 
 - 设$f(x)$在$[0,1]$上连续，则
 
 $$
-\lim_{n\rightarrow \infty}\int_0^1x^nf(x)dx=0
+\lim_{n\rightarrow \infty}\int_0^1x^nf(x)dx=0.
 $$
 
 - 不等式证明中遇到条件$f(x)$在$[a,b]$上连续的条件，一般使用单调性证明.
@@ -558,19 +558,19 @@ $$
 - 变力沿直线做功，设力为$F(x)$，则沿着$a$到$b$做功为
 
 $$
-W=\int_a^bF(x)dx
+W=\int_a^bF(x)dx.
 $$
 
 - 抽水做功，设$\rho$为水的密度，$g$为重力加速度，则将容器中的水全部抽出做功，$a$是坐标轴低位，$b$是坐标轴高位，其中微元$dW=\rho g xA(x)dx$为位于$x$处的厚度$dx$，水平截面积 $A(x)$的水被抽出（路程为$x$）的做功.
 
 $$
-W=\rho g\int_a^bxA(x)dx
+W=\rho g\int_a^bxA(x)dx.
 $$
 
 - 静水压力，垂直浸在水中的平板的一侧受到的压力，$a$是坐标轴低位，$b$是坐标轴高位，其中压力微元$dP=\rho gx[f(x)-h(x)]dx$，即侧面中的一个横矩形条受到的压力，$x$表示水深，$f(x)-h(x)$是矩形条的宽度，$dx$是矩形条的高度.
 
 $$
-P=\rho g\int_a^bx[f(x)-h(x)]dx
+P=\rho g\int_a^bx[f(x)-h(x)]dx.
 $$
 
 ## 多元函数微分学
@@ -578,36 +578,36 @@ $$
 - 若下列极限等于0，则$z=f(x,y)$在点$(x_0,y_0)$处可微，否则不可微，其中$\Delta z$是全增量，$A$和$B$分别是$x$的偏微分、$y$的偏微分.
 
 $$
-\lim_{\Delta x_0\rightarrow0 ,\Delta y\rightarrow 0} \frac{\Delta z-(A\Delta x+B\Delta y)}{\sqrt{(\Delta x)^2+(\Delta y)^2}}
+\lim_{\Delta x_0\rightarrow0 ,\Delta y\rightarrow 0} \frac{\Delta z-(A\Delta x+B\Delta y)}{\sqrt{(\Delta x)^2+(\Delta y)^2}}.
 $$
 
 - 链式求导规则，设$z=f(u,v)$，$u=\varphi(x,y)$，$v=\psi(x,y)$，则$z=f[\varphi(x,y),\psi(x,y)]$，且
 
 $$
-\frac{\partial z}{\partial x}=\frac{\partial z}{\partial u}\frac{\partial u}{\partial x}+\frac{\partial z}{\partial v}\frac{\partial v}{\partial x}
+\frac{\partial z}{\partial x}=\frac{\partial z}{\partial u}\frac{\partial u}{\partial x}+\frac{\partial z}{\partial v}\frac{\partial v}{\partial x}，
 $$
 
 $$
-\frac{\partial z}{\partial y}=\frac{\partial z}{\partial u}\frac{\partial u}{\partial y}+\frac{\partial z}{\partial v}\frac{\partial v}{\partial y}
+\frac{\partial z}{\partial y}=\frac{\partial z}{\partial u}\frac{\partial u}{\partial y}+\frac{\partial z}{\partial v}\frac{\partial v}{\partial y}.
 $$
 
 - 全微分形式的不变性，设$z=f(u,v)$，$u=u(x,y)$，$v=v(x,y)$，如果$f(u,v)$，$u(x,y)$，$v(x,y)$，分别有连续偏导数，则复合函数$z=f(u,v)$在$(x,y)$处的全微分可以表示为
 
 $$
-dz=\frac{\partial z}{\partial u}du + \frac{\partial z}{\partial v}dv
+dz=\frac{\partial z}{\partial u}du + \frac{\partial z}{\partial v}dv.
 $$
 
 - 隐函数存在定理1，对于由方程$F(x,y)=0$确定的隐函数$y=f(x)$，当$F'_y(x,y)\not = 0$时，则有
 
 $$
-\frac{dy}{dx}=-\frac{F'_x(x,y)}{F'_y(x,y)}
+\frac{dy}{dx}=-\frac{F'_x(x,y)}{F'_y(x,y)}.
 $$
 
 - 隐函数存在定理2，对于由方程$F(x,y,z)=0$确定的隐函数$z=f(x,y)$，当$F'(x,y,z)\not = 0$时，则有
 
 $$
 \frac{\partial z}{\partial x}=-\frac{F'_x(x,y,z)}{F'_z(x,y,z)}，
-\ \frac{\partial z}{\partial y}=-\frac{F'_y(x,y,z)}{F'_z(x,y,z)}
+\ \frac{\partial z}{\partial y}=-\frac{F'_y(x,y,z)}{F'_z(x,y,z)}.
 $$
 
 - 二元函数取极值的必要条件，设$z=f(x,y)$在点$(x_0.y_0)$处一阶偏导数存在，且取极值，则$f'_x(x_0,y_0)=0$，$f'_y(x_0,y_0)=0$.
@@ -628,7 +628,7 @@ A>0\Rightarrow极小值，
 \end{cases}\\
 <0\Rightarrow非极值，\\
 =0\Rightarrow 方法失效，寻找他法.
-\end{cases}
+\end{cases}.
 $$
 
 - 条件最值和拉格朗日乘数法，求目标函数$u=f(x,y,z)$在约束条件$\begin{cases}\varphi(x,y,z)=0\\\psi(x,y,z)=0 \end{cases}$的最值.
@@ -641,19 +641,19 @@ $$
 - 二重积分中值定理，设函数$f(x,y)$在有界闭区域$D$上连续，$A$为$D$的面积，则在$D$上存在一点$(\xi,\eta)$，使得（当原先的二重积分计算较为困难时使用中值定理）
 
 $$
-\iint \limits_{D}f(x,y)d \sigma=f(\xi,\eta)A
+\iint \limits_{D}f(x,y)d \sigma=f(\xi,\eta)A.
 $$
 
 - 若$D$包含了所有$f(x,y)>0$的区域，则以下二重积分可以取到最大值.
 
 $$
-max =\iint \limits_{D}f(x,y)d \sigma
+max =\iint \limits_{D}f(x,y)d \sigma.
 $$
 
 - 椭圆公式，其中长轴为$a$，短轴为$b$，椭圆面积为$S=\pi ab$.
 
 $$
-\frac{x^2}{a^2}+\frac{y^2}{b^2}=1
+\frac{x^2}{a^2}+\frac{y^2}{b^2}=1.
 $$
 
 - 普通对称性，设$D$关于$y$轴对称，则
@@ -662,14 +662,14 @@ $$
 \iint \limits_D f(x,y)d\sigma=\begin{cases}
 2\iint \limits_{D_1}f(x,y)\sigma，f(x,y)=f(-x,y) \\
 0, f(x,y)=-f(-x,y)
-\end{cases}
+\end{cases}.
 $$
 
 - 轮换对称性，若在对换$x$,$y$之后，区域$D$的面积不变（或区域$D$关于$y=x$对称），则
 
 $$
 \iint \limits_Df(x,y)d\sigma = \iint \limits_Df(y,x)d\sigma = 
- \frac{1}{2}\iint \limits_Df(x,y)+f(y,x)d\sigma
+ \frac{1}{2}\iint \limits_Df(x,y)+f(y,x)d\sigma.
 $$
 
 - 若$D_1$和$D_2$关于$y=x$轮换互对称，则
@@ -707,13 +707,13 @@ $$
 
 $$
 \iint \limits_{D_{xy}}f(x,y)dxdy，令\underrightarrow{x=x(u,v),y=y(u,v)}\\
-\iint \limits_{D_{uv}}f[x(u,v),y(u,v)]\begin{vmatrix}\cfrac{\partial(x,y)}{\partial(u,v)}\end{vmatrix}dudv\\
+\iint \limits_{D_{uv}}f[x(u,v),y(u,v)]\begin{vmatrix}\cfrac{\partial(x,y)}{\partial(u,v)}\end{vmatrix}dudv，\\
 其中\begin{vmatrix}\cfrac{\partial(x,y)}{\partial(u,v)}\end{vmatrix}=
 \begin{vmatrix}
 \cfrac{\partial x}{\partial u}&\cfrac{\partial x}{\partial v}\\
 \cfrac{\partial y}{\partial u}&\cfrac{\partial y}{\partial v}
 \end{vmatrix}
-\not = 0
+\not = 0.
 $$
 
 ## 微分方程
@@ -721,14 +721,14 @@ $$
 - 可分离变量型微分方程-直接可分离型
 
 $$
-\frac{y}{x}=f(x)g(y)\Rightarrow\int\frac{dy}{g(y)}=\int f(x)dx
+\frac{y}{x}=f(x)g(y)\Rightarrow\int\frac{dy}{g(y)}=\int f(x)dx.
 $$
 
 - 可分离变量型微分方程-换元后可分离
 
 $$
 \frac{dy}{dx}=f(ax+by+c)，令u=ax+by+c，则\\
-\frac{du}{dx}=a+b\frac{dy}{dx}， 代入原方程得\frac{du}{dx}=a+bf(x)
+\frac{du}{dx}=a+b\frac{dy}{dx}， 代入原方程得\frac{du}{dx}=a+bf(x).
 $$
 
 - 齐次型微分方程
@@ -736,15 +736,15 @@ $$
 $$
 形如\frac{dy}{dx}=\varphi(\frac{y}{x})的方程叫做齐次型微分方程，解法为令u=\frac{y}{x}，则\\
 y=ux\Rightarrow\frac{dy}{dx}=u+x\frac{du}{dx},\\
-于是原方程变为x\frac{du}{dx}+u=\varphi(u)， 即\frac{du}{\varphi(u)-u}=\frac{dx}{x}
+于是原方程变为x\frac{du}{dx}+u=\varphi(u)， 即\frac{du}{\varphi(u)-u}=\frac{dx}{x}.
 $$
 
 - 一阶线性微分方程
 
 $$
-形如y'+p(x)y=q(x)的方程叫做一阶线性微分方程,\\
+形如y'+p(x)y=q(x)的方程叫做一阶线性微分方程，\\
 其中p(x),q(x)为已知的连续函数，其通解为\\
-y=e^{-\int p(x)dx}[\int e^{\int p(x)dx} \cdot q(x)dx+C]
+y=e^{-\int p(x)dx}[\int e^{\int p(x)dx} \cdot q(x)dx+C].
 $$
 
 $$
@@ -756,7 +756,7 @@ $$
 $$
 令y'=p，y''=p'，则原方程变为\frac{dp}{dx}=f(x,p),\\
 若求得通解为p=\varphi(x,C_1)，即y'=\varphi(x,C_1),\\
-则原方程通解为y=\int\varphi(x,C_1)dx+C_2
+则原方程通解为y=\int\varphi(x,C_1)dx+C_2.
 $$
 
 - 二阶可降微分方程 $y''=f(y,y')$型，方程中不显含自变量$x$，有一阶导数和二阶导数.
@@ -782,22 +782,22 @@ $$
 - 二阶常系数齐次线性微分方程的通解
 
 $$
-对于y''+py'+qy=0，其对应的特征方程为r^2+pr+q=0
+对于y''+py'+qy=0，其对应的特征方程为r^2+pr+q=0.
 $$
 
 $$
 若p^2-4q>0，设r_1，r_2是特征方程的两个不等实根，即r_1\not = r_2，则通解为\\
-y=C_1e^{r_1x}+C_2e^{r_2x}
+y=C_1e^{r_1x}+C_2e^{r_2x}.
 $$
 
 $$
 若p^2-4q=0，设r_1，r_2是特征方程的两个相等实根，即二重根，则通解为\\
-y=(C_1+C_2x)e^{rx}
+y=(C_1+C_2x)e^{rx}.
 $$
 
 $$
 若p^2-4q<0，设\alpha\pm\beta \text i是特征方程的一对共轭复根，则通解为\\
-y=e^{\alpha x}(C_1\cos \beta x+C_2\sin \beta x)
+y=e^{\alpha x}(C_1\cos \beta x+C_2\sin \beta x).
 $$
 
 - 二阶常系数非齐次线性微分方程
@@ -831,7 +831,7 @@ k=\begin{cases}
 1，\alpha是单特征根,\\
 2，\alpha是二重特征根.
 \end{cases}
-\end{cases}
+\end{cases}.
 $$
 
 $$
@@ -845,7 +845,7 @@ k=\begin{cases}
 0，\alpha\pm \beta \text i不是特征根,\\
 1，\alpha\pm \beta \text i是特征根.
 \end{cases}
-\end{cases}
+\end{cases}.
 $$
 
 - 二阶常系数非齐次线性微分方程 - 通解
@@ -875,6 +875,6 @@ $$
 
 $$
 若r为二重复根\alpha\pm\beta \text{i}，写\\
-e^{ax}(C_1\cos\beta x+ C_2 \sin\beta x +C_3x\cos\beta x+C_4x\sin \beta x);
+e^{ax}(C_1\cos\beta x+ C_2 \sin\beta x +C_3x\cos\beta x+C_4x\sin \beta x).
 $$
 
