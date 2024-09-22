@@ -62,7 +62,7 @@ $$
 ## 数列极限
 
 - 等比数列前$n$项的和$S_n=\begin{cases} na_1 &r=1\\ \cfrac{a_1(1-r^n)}{1-r} & r\not=1\end{cases}$.
-- $\sqrt{ab} \le {\cfrac{a+b}{2}} \le\sqrt{\cfrac{a^2+b^2}{2}},(a,b\ge0)$.
+- $\sqrt{ab} \le {\cfrac{a+b}{2}} \le\sqrt{\cfrac{a^2+b^2}{2}}，(a,b\ge0)$.
 - 当$0<x<\cfrac{\pi}{4}$时，$x<\tan x<\cfrac{4}{\pi}x$.
 - 当$0<x<\cfrac{\pi}{2}$，$\sin x>\cfrac{2}{\pi}x$.
 
@@ -165,7 +165,7 @@ $$
 - 设多项式$f(x)=(x-a_1)^{n_1}(x-a_2)^{n_2}...(x-a_k)^{n_k}$，其中$n_i$是正整数，$a_i$是实数，且互不相等，记$k_1$为$n_i=1$的个数，$k_2$为$n_i>1$且$n_i$为偶数的个数，$k_3$为$n_i>1$且$n_i$为奇数个数，则极值点的个数为$k_1+2k_2+k_3-1$，拐点个数为$k_1+2k_2+3k_3-2$.
 - 渐近线
 $$
-若\lim_{x\to x_0^+}f(x)=\infty(或\lim_{x\to x_0^-}f(x)=\infty),\\ 则称为x=x_0是一条铅直渐近线.
+若\lim_{x\to x_0^+}f(x)=\infty(或\lim_{x\to x_0^-}f(x)=\infty)，\\ 则称为x=x_0是一条铅直渐近线.
 $$
 $$
 若\lim_{x\to+\infty}f(x)= y_1，则称为y=y_1是一条水平渐近线;\\
@@ -435,7 +435,7 @@ $$
     - $f(x)$为可积的奇函数$\Rightarrow\begin{cases}\int_0^xf(t)dt、\int_0^xf(t)dt+C皆为偶函数\\ \int_a^xf(t)dt为偶函数(a \not = 0)\end{cases}$.
     - $f(x)$为可积的偶函数$\Rightarrow\begin{cases}\int_0^xf(t)dt为奇函数\\ \int_a^xf(t)(a\not = 0)\begin{cases} 若 \int_a^xf(t)dt = \int_0^xf(t)dt，为奇函数 \\ 若\int_a^xf(t)dt \not = \int_0^xf(t)dt，为非奇非偶函数\end{cases}\end{cases}$.
     - $f(x)$是可积且以T为周期的周期函数，则$\int_0^xf(t)dt$是以$T$为周期的周期函数$\Leftrightarrow \int_0^Tf(x)dx=0$.
-    - 连续的奇函数的一切原函数都是偶函数,连续的偶函数的原函数中只有一个原函数为奇函数.
+    - 连续的奇函数的一切原函数都是偶函数，连续的偶函数的原函数中只有一个原函数为奇函数.
 
 
 - 反常积分计算时，注意识别奇点（端点，内部）
@@ -633,7 +633,7 @@ $$
 
 - 条件最值和拉格朗日乘数法，求目标函数$u=f(x,y,z)$在约束条件$\begin{cases}\varphi(x,y,z)=0\\\psi(x,y,z)=0 \end{cases}$的最值.
     - 构造辅助函数$F(x,y,z,\lambda,\mu)=f(x,y,z)+\lambda\varphi(x,y,z)+\mu\psi(x,y,z)$；
-    - 令$\begin{cases}F'_x=f'_x+\lambda\varphi'_x+\mu\psi'_x=0,\\F'_y=f'_y+\lambda\varphi'_y+\mu\psi'_y=0,\\F'_z=f'_z+\lambda\psi'_z+\mu\psi'_z=0,\\F'_\lambda=\varphi(x,y,z)=0,\\F'_\mu=\psi(x,y,z)=0;\end{cases}$
+    - 令$\begin{cases}F'_x=f'_x+\lambda\varphi'_x+\mu\psi'_x=0，\\F'_y=f'_y+\lambda\varphi'_y+\mu\psi'_y=0，\\F'_z=f'_z+\lambda\psi'_z+\mu\psi'_z=0，\\F'_\lambda=\varphi(x,y,z)=0，\\F'_\mu=\psi(x,y,z)=0；\end{cases}$
     - 解上述方程，得到备选点$P_i,i=1,2,3,...,n$，并求$f(P_i)$，求得最大值和最小值.
 
 ## 二重积分
@@ -877,5 +877,4 @@ $$
 若r为二重复根\alpha\pm\beta \text{i}，写\\
 e^{ax}(C_1\cos\beta x+ C_2 \sin\beta x +C_3x\cos\beta x+C_4x\sin \beta x);
 $$
-
 
