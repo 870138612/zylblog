@@ -76,9 +76,9 @@ $$
 
 - $f(x)=(x+1)(x-1)|(x+1)(x-1)(x-2)|$，判断不可导点.
 
-    让绝对值内的值等于0，求出对应的点，再计算绝对值外值等于0的点，若有重合则不属于不可导点，此点被抢救.
+    - 让绝对值内的值等于0，求出对应的点，再计算绝对值外值等于0的点，若有重合则不属于不可导点，此点被抢救.
 
-    绝对值内$f(x)$为0的点：$x=-1$，$x=1$，$x=2$，在绝对值外$f(x)$为0的点$x=-1$，$x=1$，存在重合的$x=-1$，$x=1$，因此不可导点只有一个$x=2$.
+    - 绝对值内$f(x)$为0的点：$x=-1$，$x=1$，$x=2$，在绝对值外$f(x)$为0的点$x=-1$，$x=1$，存在重合的$x=-1$，$x=1$，因此不可导点只有一个$x=2$.
 :::   
 
 - 基本求导公式
@@ -118,10 +118,8 @@ $$
 $$
 
 - 反函数的导数
-    
-    设$y=f(x)$为单调，可导函数，且$f'(x)\not=0$，则存在反函数$x=\varphi(y)$，且$\cfrac{dx}{dy}=\cfrac{1}{\cfrac{dy}{dx}}$，即$\varphi'(y)=\cfrac{1}{f'(x)}$.
-    
-    记$f'(x)=y'_x$，$\varphi'(y)=x'_y$，则
+    - 设$y=f(x)$为单调，可导函数，且$f'(x)\not=0$，则存在反函数$x=\varphi(y)$，且$\cfrac{dx}{dy}=\cfrac{1}{\cfrac{dy}{dx}}$，即$\varphi'(y)=\cfrac{1}{f'(x)}$.
+    - 记$f'(x)=y'_x$，$\varphi'(y)=x'_y$，则
 
 $$
 y''_{xx}=-\frac{x''_{yy}}{(x'_y)^3}.
@@ -129,8 +127,7 @@ $$
 
 
 - 参数方程确定的函数的导数
-    
-    设函数$y=y(x)$由参数方程为$\begin{cases}x=\varphi(t)\\y=\psi(t) \end{cases}$确定，$t$是参数，$\varphi(t)$，$\psi(t)$均可导，$\varphi'(x)\not=0$则
+    - 设函数$y=y(x)$由参数方程为$\begin{cases}x=\varphi(t)\\y=\psi(t) \end{cases}$确定，$t$是参数，$\varphi(t)$，$\psi(t)$均可导，$\varphi'(x)\not=0$则
 
 $$
 \frac{dy}{dx}=\cfrac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{\psi'(t)}{\varphi'(t)}.
@@ -145,8 +142,7 @@ $$
 $$
 
 - 莱布尼茨公式
-    
-    设$u=u(x)$，$v=v(x)$均$n$阶导，则
+    - 设$u=u(x)$，$v=v(x)$均$n$阶导，则
 
 $$
 (uv)^{(n)}=u^{(n)}v+C_n^1u^{(n-1)}v'+C_n^2u^{(n-2)}v''+...+C_n^{n-1}u'v^{(n-1)}+uv^{(n)}.
@@ -162,12 +158,9 @@ $$
 - 设函数$f(x)$二阶可导，在$x=x_0$处取得最大值，则有$f''(x_0)\le0$.
 - 二阶可导点是拐点的必要条件：设$f''(x_0)$存在，且点$(x_0,f(x_0))$为曲线的拐点，则$f''(x_0)=0$.
 - 二阶可导点是拐点的充分条件
-    
-    在某点去心领域内二阶导数存在，在该点的左右两边$f''(x_0)$变号，则为拐点.
-    
-    $f(x)$在$x=x_0$的某邻域内三阶可导，$f''(x_0)=0$，$f'''(x_0)\not = 0$，则为拐点.
-    
-    设$f(x)$在$x_0$处$n$阶可导，且$f^{(m)}(x_0)=0(m=2,...,n-1)$，$f^{(n)}(x_0) \not = 0(n\ge3)$，则当$n$为奇数时，点$(x_0,f(x_0))$为曲线的拐点.
+    - 在某点去心领域内二阶导数存在，在该点的左右两边$f''(x_0)$变号，则为拐点.
+    - $f(x)$在$x=x_0$的某邻域内三阶可导，$f''(x_0)=0$，$f'''(x_0)\not = 0$，则为拐点.
+    - 设$f(x)$在$x_0$处$n$阶可导，且$f^{(m)}(x_0)=0(m=2,...,n-1)$，$f^{(n)}(x_0) \not = 0(n\ge3)$，则当$n$为奇数时，点$(x_0,f(x_0))$为曲线的拐点.
 - 设多项式$f(x)=(x-a)^ng(x)(n>1)$，且$g(a) \not = 0$，则当$n$为偶数时，$x=a$是$f(x)$的极值点，则当$n$为奇数时，$x=a$是$f(x)$的拐点.
 - 设多项式$f(x)=(x-a_1)^{n_1}(x-a_2)^{n_2}...(x-a_k)^{n_k}$，其中$n_i$是正整数，$a_i$是实数，且互不相等，记$k_1$为$n_i=1$的个数，$k_2$为$n_i>1$且$n_i$为偶数的个数，$k_3$为$n_i>1$且$n_i$为奇数个数，则极值点的个数为$k_1+2k_2+k_3-1$，拐点个数为$k_1+2k_2+3k_3-2$.
 - 渐近线
@@ -194,27 +187,16 @@ $$
 ## 一元函数微分学应用-中值定理、微分等式和微分不等式
 
 - 费马定理：设$f(x)$在点$x_0$处满足$\begin{cases}可导\\ 取极值 \end{cases}$，则$f'(x)=0$.
-
 - 罗尔定理：设$f(x)$满足$\begin{cases}在[a,b] 上连续 \\ 在(a,b)上可导 \\f(a)=f(b) \end{cases}$，则存在$\xi \in(a,b)$，使得$f'(\xi)=0$.
-
 - 设$f(x)$在$(a,b)$内可导，$\lim_{x\rightarrow a^+} {f(x)}=\lim_{x \to b^-}{f(x)}=A$，则在$(a,b)$内至少存在一点$\xi$，使$f'(\xi)=0$.
-
 - 使用罗尔定理需要构造辅助函数$F(x)$.
-    
-    见到$f'(x)+f(x)\varphi' (x)$，令$F(x)=f(x)e^{\varphi(x)}$.
-    
-    见到 $f'(x)+f(x)$，令$F(x)=f(x)e^x$.
-    
-    见到$f'(x)-f(x)$，令$F(x)=f(x)e^{-x}$.
-    
-    见到$f'(x)+kf(x)$，令$F(x)=f(x)e^{kx}$.
-    
-    $(uv)''=u''v+2u'v'+uv''$.
-    
-    见到$f(x)f'(x)$，令$F(x)=f^2(x)$.
-    
-    见到 $[f'(x)]^2+f(x)f''(x)$，令$F(x)=f(x)f'(x)$.
-    
+    - 见到$f'(x)+f(x)\varphi' (x)$，令$F(x)=f(x)e^{\varphi(x)}$.
+    - 见到 $f'(x)+f(x)$，令$F(x)=f(x)e^x$.
+    - 见到$f'(x)-f(x)$，令$F(x)=f(x)e^{-x}$.
+    - 见到$f'(x)+kf(x)$，令$F(x)=f(x)e^{kx}$.
+    - $(uv)''=u''v+2u'v'+uv''$.
+    - 见到$f(x)f'(x)$，令$F(x)=f^2(x)$.
+    - 见到 $[f'(x)]^2+f(x)f''(x)$，令$F(x)=f(x)f'(x)$.
 - 拉格朗日中值定理，函数在$(a,b)$上可导，在$[a,b]$上连续，则
 
 $$
@@ -263,14 +245,10 @@ $$
 $$
 
 - 变限积分的性质
-    
-    函数$f(x)$在$I$上可积，则函数$F(x)=\int_{a}^{x}f(t)dt$在$I$上连续.
-    
-    函数$f(x)$在$I$上连续，则函数$F(x)=\int_{a}^{x}f(t)dt$在$I$上可导，且$F'(x)=f(x)$.
-    
-    若$x=x_0\in I$是$f(x)$唯一的可去间断点，则$F(x)=\int_{a}^{x}f(t)dt$在$x_{0}$处可导，且$F'(x_0)=\lim_{x\rightarrow x_{0}}f(x)$.
-    
-    若$x=x_{0}\in I$是$f(x)$唯一的跳跃间断点，则$F(x)=\int_{a}^{x}f(t)dt$在$x_{0}$处不可导，且
+    - 函数$f(x)$在$I$上可积，则函数$F(x)=\int_{a}^{x}f(t)dt$在$I$上连续.
+    - 函数$f(x)$在$I$上连续，则函数$F(x)=\int_{a}^{x}f(t)dt$在$I$上可导，且$F'(x)=f(x)$.
+    - 若$x=x_0\in I$是$f(x)$唯一的可去间断点，则$F(x)=\int_{a}^{x}f(t)dt$在$x_{0}$处可导，且$F'(x_0)=\lim_{x\rightarrow x_{0}}f(x)$.
+    - 若$x=x_{0}\in I$是$f(x)$唯一的跳跃间断点，则$F(x)=\int_{a}^{x}f(t)dt$在$x_{0}$处不可导，且
 
 $$
 \begin{cases}F'_-(x_0)=\lim_{x\rightarrow x_0^-}f(x), 
@@ -369,17 +347,16 @@ $$
 
 :::info 表格法求不定积分
 
-- 求$\int(x^2+x)e^xdx$
+求$\int(x^2+x)e^xdx$
 
-    作两行表格，第一行写$u$(易于求导的变量)，第二行写$v$(易于求原函数的变量)
-    | - | - | - | - | - |
-    | :-: | :--: | :-: | :-: | :-: |
-    | $x^2+x$ | $2x+1$ | 2 | 0 | 求导 |
-    | $e^x$ | $e^x$ | $e^x$ | $e^x$ | 求原函数 |
-    
-    从第一列开始，与右下角项进行相乘，采用加减交替的形式算总和：
+作两行表格，第一行写$u$(易于求导的变量)，第二行写$v$(易于求原函数的变量)
 
+| - | - | - | - | - |
+| :-: | :--: | :-: | :-: | :-: |
+| $x^2+x$ | $2x+1$ | 2 | 0 | 求导 |
+| $e^x$ | $e^x$ | $e^x$ | $e^x$ | 求原函数 |
 
+从第一列开始，与右下角项进行相乘，采用加减交替的形式算总和：
 $$
 \int(x^2+x)e^xdx\\
 =(x^2+x)e^x-(2x+1)e^x+2e^x+C
@@ -387,8 +364,7 @@ $$
 :::
 
 - 有理函数的积分
-    
-    将式子因式分解，拆成若干项最简有理分式之和.
+    - 将式子因式分解，拆成若干项最简有理分式之和
 
 :::info 有理函数积分的计算
 
@@ -456,21 +432,15 @@ F'(x)=\frac{d}{dx}[\int_{\varphi_1(x)}^{\varphi_2(x)}f(t)dt]\\
 $$
 
 - 变限积分重要结论
-  
-    $f(x)$为可积的奇函数$\Rightarrow\begin{cases}\int_0^xf(t)dt、\int_0^xf(t)dt+C皆为偶函数\\ \int_a^xf(t)dt为偶函数(a \not = 0)\end{cases}$.
-    
-    $f(x)$为可积的偶函数$\Rightarrow\begin{cases}\int_0^xf(t)dt为奇函数\\ \int_a^xf(t)(a\not = 0)\begin{cases} 若 \int_a^xf(t)dt = \int_0^xf(t)dt，为奇函数 \\ 若\int_a^xf(t)dt \not = \int_0^xf(t)dt，为非奇非偶函数\end{cases}\end{cases}$.
-    
-    $f(x)$是可积且以T为周期的周期函数，则$\int_0^xf(t)dt$是以$T$为周期的周期函数$\Leftrightarrow \int_0^Tf(x)dx=0$.
-    
-    连续的奇函数的一切原函数都是偶函数，连续的偶函数的原函数中只有一个原函数为奇函数.
+    - $f(x)$为可积的奇函数$\Rightarrow\begin{cases}\int_0^xf(t)dt、\int_0^xf(t)dt+C皆为偶函数\\ \int_a^xf(t)dt为偶函数(a \not = 0)\end{cases}$.
+    - $f(x)$为可积的偶函数$\Rightarrow\begin{cases}\int_0^xf(t)dt为奇函数\\ \int_a^xf(t)(a\not = 0)\begin{cases} 若 \int_a^xf(t)dt = \int_0^xf(t)dt，为奇函数 \\ 若\int_a^xf(t)dt \not = \int_0^xf(t)dt，为非奇非偶函数\end{cases}\end{cases}$.
+    - $f(x)$是可积且以T为周期的周期函数，则$\int_0^xf(t)dt$是以$T$为周期的周期函数$\Leftrightarrow \int_0^Tf(x)dx=0$.
+    - 连续的奇函数的一切原函数都是偶函数，连续的偶函数的原函数中只有一个原函数为奇函数.
 
 
 - 反常积分计算时，注意识别奇点（端点，内部）
-  
-    例如$\int_0^2f(x)dx$的奇点为x=1，则应该拆分为$\int_0^1f(x)dx+\int_1^2f(x)dx$.
-    
-    奇点处的值一般使用极限求得，分别对应奇点处的左极限和右极限.
+    - 例如$\int_0^2f(x)dx$的奇点为x=1，则应该拆分为$\int_0^1f(x)dx+\int_1^2f(x)dx$.
+    - 奇点处的值一般使用极限求得，分别对应奇点处的左极限和右极限.
 - $\Gamma$函数
 
 $$
@@ -662,12 +632,9 @@ A>0\Rightarrow极小值，
 $$
 
 - 条件最值和拉格朗日乘数法，求目标函数$u=f(x,y,z)$在约束条件$\begin{cases}\varphi(x,y,z)=0\\\psi(x,y,z)=0 \end{cases}$的最值.
-  
-    构造辅助函数$F(x,y,z,\lambda,\mu)=f(x,y,z)+\lambda\varphi(x,y,z)+\mu\psi(x,y,z)$；
-    
-    令$\begin{cases}F'_x=f'_x+\lambda\varphi'_x+\mu\psi'_x=0，\\F'_y=f'_y+\lambda\varphi'_y+\mu\psi'_y=0，\\F'_z=f'_z+\lambda\psi'_z+\mu\psi'_z=0，\\F'_\lambda=\varphi(x,y,z)=0，\\F'_\mu=\psi(x,y,z)=0；\end{cases}$
-    
-    解上述方程，得到备选点$P_i,i=1,2,3,...,n$，并求$f(P_i)$，求得最大值和最小值.
+    - 构造辅助函数$F(x,y,z,\lambda,\mu)=f(x,y,z)+\lambda\varphi(x,y,z)+\mu\psi(x,y,z)$；
+    - 令$\begin{cases}F'_x=f'_x+\lambda\varphi'_x+\mu\psi'_x=0，\\F'_y=f'_y+\lambda\varphi'_y+\mu\psi'_y=0，\\F'_z=f'_z+\lambda\psi'_z+\mu\psi'_z=0，\\F'_\lambda=\varphi(x,y,z)=0，\\F'_\mu=\psi(x,y,z)=0；\end{cases}$
+    - 解上述方程，得到备选点$P_i,i=1,2,3,...,n$，并求$f(P_i)$，求得最大值和最小值.
 
 ## 二重积分
 
@@ -797,8 +764,8 @@ $$
 $$
 令y'=p， y''=\frac{dp}{dx}=\frac{dp}{dy}\cdot\frac{dy}{dx}
 =\frac{dp}{dy}\cdot p
-，原方程变为一阶方程p\frac{dp}{dy}=f(y,p)，\\
-若求得通解为p=\varphi(y,C_1)，则由p=\frac{dy}{dx}可得\frac{dy}{dx}=\varphi(y,C_1)，\\
+，原方程变为一阶方程p\frac{dp}{dy}=f(y,p),\\
+若求得通解为p=\varphi(y,C_1)，则由p=\frac{dy}{dx}可得\frac{dy}{dx}=\varphi(y,C_1),\\
 分离变量得\frac{dy}{\varphi(y,C_1)}=dx，两边进行积分得\int \frac{dy}{\varphi(y,C_1)}=x+C_2，求得通解.
 $$
 
