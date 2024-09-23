@@ -280,10 +280,29 @@ $$
 
     - 相等：若两个矩阵为同型矩阵且元素相等则为相等矩阵.
 
-    - 加法：两个矩阵是同型矩阵才能做加法，即
+    - 加法：两个矩阵是同型矩阵才能做加法，其中$c_{ij}=a_{ij}+b_{ij}$.
+        $$
+        C=A+B=(a_{ij})_{m\times n}+(b_{ij})_{m\times n}=(c_{ij})_{m\times n}
+        $$
 
-    $$
-    C=A+B=(a_{ij})_{m\times n}+(b_{ij})_{m\times n}=(c_{ij})_{m\times n}
-    $$
+    - 数乘：一个数$k$乘以一个矩阵$A$的结果称为数乘矩阵，即
+        $$
+        kA=Ak=
+        \begin{bmatrix}
+        a_{11} & a_{12} & \cdots& a_{1n} \\
+        a_{21} & a_{22} & \cdots& a_{2n} \\
+        \vdots&\vdots&&\vdots\\
+        a_{n1} & a_{n2} & \cdots& a_{nn} \\
+        \end{bmatrix}
+        =
+        (ka_{ij})_{m\times n}
+        $$
+        即每一个元素都乘$k$.
 
-    
+    - 乘法：即矩阵$A$的行乘矩阵$B$的列，得到的值之和
+        $$
+        c_{ij}=\sum_{k=1}^{s}a_{ik}b_{kj}.
+        $$
+        
+
+- 矩阵的乘法一般不满足交换律，即$AB\not = BA$.
