@@ -303,6 +303,13 @@ $$
         $$
         c_{ij}=\sum_{k=1}^{s}a_{ik}b_{kj}.
         $$
-        
+        矩阵的乘法一般不满足交换律，即$AB\not = BA$.
 
-- 矩阵的乘法一般不满足交换律，即$AB\not = BA$.
+    - 转置矩阵，将矩阵$A$行列互换得到的矩阵称为转置矩阵，记$A^T$.
+
+        转置矩阵满足：
+        $$
+        \spadesuit(A^T)^T=A；\spadesuit(kA)^T=kA^T；
+        \\\spadesuit(A+B)^T=A^T+B^T；\spadesuit (AB)^T=B^TA^T（穿脱原则）；
+        $$
+        
