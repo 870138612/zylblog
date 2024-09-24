@@ -4,7 +4,7 @@ export const zhSidebar = sidebar({
   "/": [
     {
       collapsible: true,
-      text: "探索408",
+      text: "408",
       icon: "discovery",
       prefix: "discovery/",
       children: "structure",
