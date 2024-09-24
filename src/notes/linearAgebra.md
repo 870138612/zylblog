@@ -307,28 +307,37 @@ $$
       
         矩阵乘法不满足交换律.
       
-          $$
+        $$
           (A+B)^2=(A+B)(A+B)=A^2+AB+BA+B^2 \not = A^2+2AB+B^2，\\
           (A-B)^2=(A-B)(A-B)=A^2-AB-BA+B^2 \not = A^2-2AB+B^2，\\
           (A+B)(A-B)=A^2+BA-AB-B^2\not = A^2-B^2，\\
           (AB)^m=(AB)(AB)\cdots (AB)\not = A^mA^N.
-          $$
+        $$
       
         若$f(x)=a_0+a_1x+\cdots+a_mx^m$，则
       
-          $$
+        $$
           f(A)=a_0E+a_1A+\cdots +a_mA^m.
-          $$
+        $$
 
     - 转置矩阵，将矩阵$A$行列互换得到的矩阵称为转置矩阵，记$A^T$.
 
-        $\spadesuit$转置矩阵满足：
+        转置矩阵满足：
         $$
         (A^T)^T=A；(kA)^T=kA^T；
         \\(A+B)^T=A^T+B^T；(AB)^T=B^TA^T（穿脱原则）；
         $$
+    
+    - 方阵的行列式
+    
+        当使用$n$阶方阵$A$计算行列式时，记$|A|$.
+        $$
+        |A+B|\not = |A|+|B|；\\
+        A\not = O \not \Rightarrow |A|\not = 0；\\
+        A\not = B \not \Rightarrow |A|\not = |B|；
+        |A^T|=|A|；
+        $$
+        设$A$，$B$是同阶方阵，则$|AB|=|A||B|$.
 
 
-
-      
-        
+​        
