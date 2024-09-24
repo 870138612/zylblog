@@ -300,17 +300,22 @@ $$
         即每一个元素都乘$k$.
 
     - 乘法：即矩阵$A$的行乘矩阵$B$的列，得到的值之和
+      
         $$
         c_{ij}=\sum_{k=1}^{s}a_{ik}b_{kj}.
         $$
+      
         矩阵乘法不满足交换律.
+      
           $$
           (A+B)^2=(A+B)(A+B)=A^2+AB+BA+B^2 \not = A^2+2AB+B^2，\\
           (A-B)^2=(A-B)(A-B)=A^2-AB-BA+B^2 \not = A^2-2AB+B^2，\\
           (A+B)(A-B)=A^2+BA-AB-B^2\not = A^2-B^2，\\
           (AB)^m=(AB)(AB)\cdots (AB)\not = A^mA^N.
           $$
+      
         若$f(x)=a_0+a_1x+\cdots+a_mx^m$，则
+      
           $$
           f(A)=a_0E+a_1A+\cdots +a_mA^m.
           $$
