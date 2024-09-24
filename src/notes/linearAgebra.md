@@ -338,6 +338,71 @@ $$
         |A^T|=|A|；
         $$
         设$A$，$B$是同阶方阵，则$|AB|=|A||B|$.
-
-
-​        
+    
+    - 几种重要矩阵
+    
+        单位矩阵：主对角线元素均为$1$，其余全为$0$的方阵称为单位矩阵，记$E$.
+    
+        对称矩阵：$A^T=A$.
+    
+        反对称矩阵：$A^T=-A\Leftrightarrow\begin{cases}a_{ij}=-a_{ij}，i\not= j\\a_{ii}=0. \end{cases}$
+    
+    - 分块矩阵的运算
+        $$
+        \begin{bmatrix}
+        A_1&A_2\\
+        A_3&A_4\\
+        \end{bmatrix}
+        +
+        \begin{bmatrix}
+        B_1&B_2\\
+        B_3&B_4\\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+        A_1+B_1&A_2+B_2\\
+        A_3+B_3&A_4+B_4\\
+        \end{bmatrix}
+        $$
+    
+        $$
+        k\begin{bmatrix}
+        A&B\\
+        C&D\\
+        \end{bmatrix}
+        =
+        k\begin{bmatrix}
+        kA&kB\\
+        kC&kD\\
+        \end{bmatrix}
+        $$
+    
+        $$
+        \begin{bmatrix}
+        A&B\\
+        C&D\\
+        \end{bmatrix}
+        \begin{bmatrix}
+        X&Y\\
+        Z&W\\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+        AX+BZ&AY+BW\\
+        CX+DZ&CY+DW\\
+        \end{bmatrix}
+        $$
+    
+        $$
+        \begin{bmatrix}
+        A&O\\
+        O&B\\
+        \end{bmatrix}^n
+        =
+        \begin{bmatrix}
+        A^n&O\\
+        O&B^n\\
+        \end{bmatrix}
+        $$
+    
+        
