@@ -8,8 +8,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.vuepress/navbar/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/navbar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.vuepress/sidebar/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/siderbar.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/.vuepress/styles/config.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/styles/config.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.vuepress/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/styles/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.vuepress/styles/palette.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/styles/palette.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/.vuepress/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/theme.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,11 +70,22 @@
       <recent name="C:\Users\Administrator\Desktop\docs\src\discovery\1datastrcture" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\docs\src\.vuepress" />
       <recent name="C:\Users\Administrator\Desktop\docs\src\.vuepress\public\home" />
       <recent name="C:\Users\Administrator\Desktop\docs\src\discovery" />
     </key>
   </component>
   <component name="RunManager" selected="npm.docs:dev">
+    <configuration name="docs:build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="docs:build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="docs:clean-dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -95,6 +109,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.docs:dev" />
+        <item itemvalue="npm.docs:build" />
         <item itemvalue="npm.docs:clean-dev" />
       </list>
     </recent_temporary>
@@ -154,14 +169,7 @@
       <workItem from="1727110141883" duration="403000" />
       <workItem from="1727110925760" duration="1113000" />
       <workItem from="1727187207923" duration="3968000" />
-      <workItem from="1727266860653" duration="1800000" />
-    </task>
-    <task id="LOCAL-00032" summary="添加数学笔记">
-      <created>1724260386101</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1724260386101</updated>
+      <workItem from="1727266860653" duration="2750000" />
     </task>
     <task id="LOCAL-00033" summary="添加数学笔记">
       <created>1724689379819</created>
@@ -499,7 +507,14 @@
       <option name="project" value="LOCAL" />
       <updated>1727267233866</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="更新数学笔记">
+      <created>1727268775268</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1727268775268</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
