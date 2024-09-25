@@ -329,15 +329,17 @@ $$
     - 转置矩阵，将矩阵$A$行列互换得到的矩阵称为转置矩阵，记$A^T$.
 
         转置矩阵满足：
-      
+    
         $$
         (A^T)^T=A；
         $$
         (kA)^T=kA^T；
         $$
+        
         $$
         (A+B)^T=A^T+B^T；
         $$
+        
         $$
         (AB)^T=B^TA^T（穿脱原则）；
         $$
@@ -449,6 +451,83 @@ $$
     - 求一个矩阵$B$，使得$AB=E$，则$A$可逆，且$A^{-1}=B$.
 
     - 求两个可逆矩阵$B$，$C$，使得$A=BC$，则$A$也可逆.
+    
+    - 分块矩阵的逆，主对角矩阵中，主对角元素不交换位置，副对角元素交换位置；副对角矩阵中，所有元素都交换位置.
+        $$
+        \begin{bmatrix}
+        A&\\
+        &B
+        \end{bmatrix}^{-1}
+        =
+        \begin{bmatrix}
+        A^{-1}&\\
+        &B^{-1}
+        \end{bmatrix}，主对角直接逆；
+        $$
+    
+        $$
+        \begin{bmatrix}
+        &A\\
+        B&
+        \end{bmatrix}^{-1}
+        =
+        \begin{bmatrix}
+        &&B^{-1}\\
+        A^{-1}&
+        \end{bmatrix}，副对角交换之后再逆；
+        $$
+    
+        $$
+        \begin{bmatrix}
+        A&C\\
+        &B
+        \end{bmatrix}^{-1}
+        =
+        \begin{bmatrix}
+        A^{-1}&-A^{-1}CB^{-1}\\
+        &B^{-1}
+        \end{bmatrix}
+        ，左乘同行，右乘同列，添负号；
+        $$
+        
+        $$
+        \begin{bmatrix}
+        A&\\
+        C&B
+        \end{bmatrix}^{-1}
+        =
+        \begin{bmatrix}
+        A^{-1}&\\
+        -B^{-1}CA^{-1}&B^{-1}
+        \end{bmatrix}，左乘同行，右乘同列，添负号；
+        $$
+    
+        $$
+        \begin{bmatrix}
+        &A\\
+        C&B
+        \end{bmatrix}^{-1}
+        =
+        \begin{bmatrix}
+        -C^{-1}B^{-1}A^{-1}&C^{-1} \\
+        A ^{-1}&
+        \end{bmatrix}，左乘同行，右乘同列，添负号；
+        $$
+        
+        $$
+        \begin{bmatrix}
+        B&A\\
+        C&
+        \end{bmatrix}^{-1}
+        =
+        \begin{bmatrix}
+        &C^{-1} \\
+        A ^{-1}&-A^{-1}BC^{-1}
+        \end{bmatrix}，左乘同行，右乘同列，添负号.
+        $$
+    
+    
+    ​    
 
 ### 伴随矩阵
 
