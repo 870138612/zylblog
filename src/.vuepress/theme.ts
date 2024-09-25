@@ -4,29 +4,20 @@ import {zhNavbar} from "./navbar/index.js";
 import {zhSidebar} from "./sidebar/index.js";
 
 
-export default hopeTheme(
-    {
-
-
+export default hopeTheme({
   hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
-
   logo: "/logo.png",
-
   author: {
     name: "Zzz",
     url: "https://ylzhong.top",
   },
-  //
-
   contributors: false,
   iconAssets: "//at.alicdn.com/t/c/font_4062992_y928sk4fsqe.css",
   docsDir: "src",
   repo: "https://github.com/870138612/870138612.github.io",
   //根据文件的名称进行排序
   sidebarSorter: ["readme", "order", "filename"],
-
       navbar: zhNavbar,
-      // sidebar
       sidebar: zhSidebar,
       footer: "终将美好，我们的春夏秋冬。",
       copyright: "Copyright © 2023-present Liang",
@@ -40,38 +31,11 @@ export default hopeTheme(
         "Word",
         "ReadingTime",
       ],
-
-    /**
-     * Chinese locale config
-     */
     blog: {
       sidebarDisplay:"mobile",
       intro: "/intro.html",
-      // medias: {
-      //   Gitee: "https://gitee.com/SnailClimb",
-      // },
     },
-
   plugins: {
-
-
     blog: true,
-    mdEnhance: {
-      katex: true,
-      // 使用 mathjax 启用 TeX 支持
-      mathjax: true,
-
-      align: true,
-      hint: true,
-    },
-    // comment: {
-    //   provider: "Giscus",
-    //   lazyLoading: false,
-    //   repo: "870138612/zyl",
-    //   repoId: "R_kgDOJw1i1g",
-    //   category:"Announcements",
-    //   categoryId:"DIC_kwDOJw1i1s4CXSr9"
-    // },
-
   },
 });

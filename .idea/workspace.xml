@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="更新数学笔记">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.vuepress/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.vuepress/styles/config.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/styles/config.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.vuepress/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/theme.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,14 +154,7 @@
       <workItem from="1727110141883" duration="403000" />
       <workItem from="1727110925760" duration="1113000" />
       <workItem from="1727187207923" duration="3968000" />
-      <workItem from="1727266860653" duration="309000" />
-    </task>
-    <task id="LOCAL-00031" summary="添加数学笔记">
-      <created>1724259560632</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1724259560632</updated>
+      <workItem from="1727266860653" duration="1800000" />
     </task>
     <task id="LOCAL-00032" summary="添加数学笔记">
       <created>1724260386101</created>
@@ -494,7 +492,14 @@
       <option name="project" value="LOCAL" />
       <updated>1727266926932</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="更新数学笔记">
+      <created>1727267233866</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1727267233866</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

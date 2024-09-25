@@ -25,7 +25,8 @@ export default defineUserConfig({
   plugins: [
     markdownMathPlugin({
       // 选项
-    })   
+
+    })
    ]
 
   // Enable it with pwa
