@@ -1,7 +1,5 @@
 import { defineUserConfig } from "vuepress";
 import theme from "./theme.js";
-import {catalogPlugin} from "@vuepress/plugin-catalog";
-import { defineCatalogInfoGetter } from '@vuepress/plugin-catalog/client'
 export default defineUserConfig({
 
   base: "/",
