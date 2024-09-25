@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="更新数学笔记">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/navbar/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/navbar.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/sidebar/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/siderbar.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/styles/config.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/styles/config.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/styles/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/styles/palette.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/styles/palette.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.vuepress/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/theme.ts" afterDir="false" />
-    </list>
+    <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="更新数学笔记" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,21 +159,7 @@
       <workItem from="1727110141883" duration="403000" />
       <workItem from="1727110925760" duration="1113000" />
       <workItem from="1727187207923" duration="3968000" />
-      <workItem from="1727266860653" duration="2750000" />
-    </task>
-    <task id="LOCAL-00033" summary="添加数学笔记">
-      <created>1724689379819</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1724689379819</updated>
-    </task>
-    <task id="LOCAL-00034" summary="添加数学笔记">
-      <created>1724691458704</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1724691458704</updated>
+      <workItem from="1727266860653" duration="3012000" />
     </task>
     <task id="LOCAL-00035" summary="添加数学笔记">
       <created>1724863931722</created>
@@ -514,7 +490,21 @@
       <option name="project" value="LOCAL" />
       <updated>1727268775268</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="更新数学笔记">
+      <created>1727269716807</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1727269716807</updated>
+    </task>
+    <task id="LOCAL-00083" summary="更新数学笔记">
+      <created>1727269896663</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1727269896663</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
