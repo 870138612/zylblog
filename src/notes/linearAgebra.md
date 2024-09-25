@@ -602,3 +602,26 @@ $$
 
     - 对矩阵进行初等行变换，等于对矩阵左乘相应的初等矩阵；同样对矩阵进行列初等变换，等于对矩阵进行右乘相应的初等矩阵.
 
+- 用初等变换求逆矩阵
+    $$
+    \begin{bmatrix}
+    A&\vdots&E
+    \end{bmatrix}{初等列变换}\xrightarrow{初等行变换}
+    \begin{bmatrix}
+    E&\vdots&A
+    \end{bmatrix}
+    $$
+
+    $$
+    \begin{bmatrix}
+    A\\
+    E
+    \end{bmatrix}{初等列变换}
+    \begin{bmatrix}
+    E\\
+    A^{-1}
+    \end{bmatrix}
+    $$
+
+    
+
