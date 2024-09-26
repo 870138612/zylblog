@@ -3,7 +3,6 @@ title: 线性代数
 star: true
 icon: page
 order: 99
-cover: /home/sky.jpg
 category:
     - 线性代数
 tag: 
