@@ -294,7 +294,7 @@ $$
         ka_{n1} & ka_{n2} & \cdots& ka_{nn} \\
         \end{bmatrix}
         =
-        (ka_{ij})_{m\times n}
+        (ka_{ij})_{m\times n}.
         $$
         即每一个元素都乘$k$.
 
