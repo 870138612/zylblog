@@ -361,7 +361,7 @@ $$
 - 有理函数的积分
     - 将式子因式分解，拆成若干项最简有理分式之和.
 
-- $\spadesuit$有理函数积分的计算
+- 有理函数积分的计算
     $$
     \int\frac{4x^2-6x-1}{(x+1)(2x-1)^2}dx.
     $$
@@ -443,7 +443,9 @@ $$
 - 曲线$r=r_1(\theta)$与$r=r_2(\theta)$与两射线$\theta=\alpha$与$\theta=\beta(0<\beta-\alpha\le2\pi)$围成的扇形面积
 
 $$
-S=\frac{1}{2}\int_{\alpha}^{\beta}|r_1^2(\theta)-r_2^2(\theta)|d\theta ，\\
+S=\frac{1}{2}\int_{\alpha}^{\beta}|r_1^2(\theta)-r_2^2(\theta)|d\theta ，
+$$
+$$
 S=\frac{1}{2}\int_{开始角度}^{结束角度}|外圈^2-内圈^2|d\theta.
 $$
 
@@ -483,7 +485,9 @@ $$
 - 设平面$D=\{(x,y)|0\le y\le f(x),a\le x\le b \}$，则形心坐标
 
 $$
-\overline{x}=\frac{\int_a^bxf(x)dx}{\int_a^bf(x)dx}，\\
+\overline{x}=\frac{\int_a^bxf(x)dx}{\int_a^bf(x)dx}，
+$$
+$$
 \overline y=\frac{\frac{1}{2}\int_a^bf^2(x)dx}{\int_a^bf(x)dx}.
 $$
 
@@ -585,13 +589,13 @@ $$
 dz=\frac{\partial z}{\partial u}du + \frac{\partial z}{\partial v}dv.
 $$
 
-- 隐函数存在定理1，对于由方程$F(x,y)=0$确定的隐函数$y=f(x)$，当$F'_y(x,y)\not = 0$时，则有
+- 隐函数存在定理$1$，对于由方程$F(x,y)=0$确定的隐函数$y=f(x)$，当$F'_y(x,y)\not = 0$时，则有
 
 $$
 \frac{dy}{dx}=-\frac{F'_x(x,y)}{F'_y(x,y)}.
 $$
 
-- 隐函数存在定理2，对于由方程$F(x,y,z)=0$确定的隐函数$z=f(x,y)$，当$F'(x,y,z)\not = 0$时，则有
+- 隐函数存在定理$2$，对于由方程$F(x,y,z)=0$确定的隐函数$z=f(x,y)$，当$F'(x,y,z)\not = 0$时，则有
 
 $$
 \frac{\partial z}{\partial x}=-\frac{F'_x(x,y,z)}{F'_z(x,y,z)}，
