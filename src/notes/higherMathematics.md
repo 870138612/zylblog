@@ -286,52 +286,52 @@ $$
 - 基本积分公式，计算原函数记得加$C$
 
 $$
-\int a^xdx= \frac{a^x}{\ln a}+C
+\int a^xdx= \frac{a^x}{\ln a}+C；
 $$
 $$
-\int \tan x dx= -\ln |\cos x|+C
+\int \tan x dx= -\ln |\cos x|+C；
 $$
 $$
-\int \cot x dx= \ln|\sin x| + C
+\int \cot x dx= \ln|\sin x| + C；
 $$
 $$
-\int \frac{1}{a^2+x^2}dx = \frac{1}{a}\arctan \frac{x}{a}+C(a>0)
+\int \frac{1}{a^2+x^2}dx = \frac{1}{a}\arctan \frac{x}{a}+C(a>0)；
 $$
 $$
-\int \frac{1}{\sqrt{a^2-x^2}}dx = \arcsin\frac{x}{a}+C(a>0)
+\int \frac{1}{\sqrt{a^2-x^2}}dx = \arcsin\frac{x}{a}+C(a>0)；
 $$
 $$
-\int \sec xdx= \ln|\sec x +\tan x|+C
+\int \sec xdx= \ln|\sec x +\tan x|+C；
 $$
 $$
-\int \csc dx= \ln|\csc x -\cot x|+C
+\int \csc dx= \ln|\csc x -\cot x|+C；
 $$
 $$
-\int \sec x \tan xdx= \sec x+C
+\int \sec x \tan xdx= \sec x+C；
 $$
 $$
-\int \csc x \cot x dx = -\csc x+C
+\int \csc x \cot x dx = -\csc x+C；
 $$
 $$
-\int{\frac{1}{\sqrt{x^2+a^2}}}dx = \ln(x+\sqrt{x^2+a^2})+C
+\int{\frac{1}{\sqrt{x^2+a^2}}}dx = \ln(x+\sqrt{x^2+a^2})+C；
 $$
 $$
-\int{\frac{1}{\sqrt{x^2-a^2}}}dx = \ln|x+\sqrt{x^2-a^2}|+C(|x|>|a|)
+\int{\frac{1}{\sqrt{x^2-a^2}}}dx = \ln|x+\sqrt{x^2-a^2}|+C(|x|>|a|)；
 $$
 $$
-\int \frac{1}{x^2-a^2}dx = \frac{1}{2a}\ln{|\frac{x-a}{x+a}|}+C
+\int \frac{1}{x^2-a^2}dx = \frac{1}{2a}\ln{|\frac{x-a}{x+a}|}+C；
 $$
 $$
-\int \sqrt{a^2-x^2}dx = \frac{a^2}{2}\arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}+C
+\int \sqrt{a^2-x^2}dx = \frac{a^2}{2}\arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}+C；
 $$
 $$
-\int \tan^2xdx =\tan x -x +C
+\int \tan^2xdx =\tan x -x +C；
 $$
 $$
-\int \cot^2xdx = -\cot x-x+C
+\int \cot^2xdx = -\cot x-x+C；
 $$
 $$
-\int \sec^2xdx = \tan x+C
+\int \sec^2xdx = \tan x+C.
 $$
 
 - 分部积分法，适用于对$\int vdu$积分较为容易的情景.
