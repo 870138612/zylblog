@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="更新数学笔记">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notes/linearAgebra.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/notes/linearAgebra.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,27 +164,6 @@
       <workItem from="1727187207923" duration="3968000" />
       <workItem from="1727266860653" duration="3012000" />
       <workItem from="1727270056346" duration="1070000" />
-    </task>
-    <task id="LOCAL-00041" summary="更新数学笔记">
-      <created>1725548722465</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1725548722465</updated>
-    </task>
-    <task id="LOCAL-00042" summary="更新数学笔记">
-      <created>1725548745180</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1725548745180</updated>
-    </task>
-    <task id="LOCAL-00043" summary="更新数学笔记">
-      <created>1725552006848</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1725552006848</updated>
     </task>
     <task id="LOCAL-00044" summary="更新数学笔记">
       <created>1725633396931</created>
@@ -509,7 +487,28 @@
       <option name="project" value="LOCAL" />
       <updated>1727277487508</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="更新数学笔记">
+      <created>1727279180154</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1727279180154</updated>
+    </task>
+    <task id="LOCAL-00091" summary="更新数学笔记">
+      <created>1727284397505</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1727284397505</updated>
+    </task>
+    <task id="LOCAL-00092" summary="更新数学笔记">
+      <created>1727284822654</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1727284822654</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
