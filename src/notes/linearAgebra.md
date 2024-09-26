@@ -633,5 +633,44 @@ $$
     $$
     PAQ=\begin{bmatrix}E_r&O\\O&O \end{bmatrix}.
     $$
+
+### 矩阵的秩
+
+- 设$A$是$m\times n $矩阵，若存在$k$阶子式不为$0$，而任意$k+1$阶子式全为$0$，则$r(A)=k$，且若$A$为$m\times n $矩阵，则
+    $$
+    r(A_{n\times n})=n \Leftrightarrow |A|\not = 0 \Leftrightarrow A可逆，即满秩则可逆.
+    $$
+
+- 使用初等变换将$A$变为行阶梯形矩阵，其非零行数即为秩.
+
+- 设$A$是$m\times n $矩阵，$B$是满足有关矩阵运算要求的矩阵，则
+    $$
+    0\le r(A)\le\min \{m,n\}；\\
+    r(kA)=r(A)(k\not = 0)；\\
+    r(AB)\le \min\{r(A),r(B)\}；\\
+    r(A+B)\le r(A)+r(B)；\\
+    $$
+
+    $$
+    r(A^*)=\begin{cases}
+    n，r(A)=n；\\
+    1，r(A)=n-1，其中A为n(n\ge2)阶方阵；\\
+    0，r(A)\le n-1.
+    \end{cases}\\
+    $$
+
+    $$
+    设A是m\times n矩阵，P，Q分别是m阶、n阶矩阵，则\\
+    r(A)=r(PA)=r(AQ)=r(PAQ)；
+    $$
+
+    $$
+    若A_{m\times n}N_{n\times s}=O，则r(A)+r(B)\le n；
+    $$
+
+    $$
+    r(A)=r(A^T)=r(A^TA)=r(AA^T).
+    $$
+
     
 
