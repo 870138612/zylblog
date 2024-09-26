@@ -20,25 +20,25 @@ tag:
 - 泰勒展开式中，当$x\rightarrow 0$时，可进行等价无穷小替换，消去高阶无穷小.
 
 $$
-\sin x = x -\frac{x^3}{6} + ...,-\infty<x<+\infty
+\sin x = x -\frac{x^3}{6} + ...,-\infty<x<+\infty；
 $$
 $$
-\arcsin x = x+\frac{x^3}{6}+...
+\arcsin x = x+\frac{x^3}{6}+...；
 $$
 $$
-\cos x =1-\frac{x^2}{2}+\frac{x^4}{24}+...,-\infty<x<+\infty
+\cos x =1-\frac{x^2}{2}+\frac{x^4}{24}+...,-\infty<x<+\infty；
 $$
 $$
-\tan x=x+\frac{x^3}{3}+...
+\tan x=x+\frac{x^3}{3}+...；
 $$
 $$
-\arctan x=x-\frac{x^3}{3}+...
+\arctan x=x-\frac{x^3}{3}+...；
 $$
 $$
-\ln(1+x) =x-\frac{x^2}{2}+\frac{x^3}{3}+...,-1<x\le1
+\ln(1+x) =x-\frac{x^2}{2}+\frac{x^3}{3}+...,-1<x\le1；
 $$
 $$
-e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+...,-\infty<x<+\infty
+e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+...,-\infty<x<+\infty；
 $$
 $$
 (1+x)^a=1+ax+\frac{a(a-1)}{2!}x^2+...,
@@ -46,13 +46,13 @@ $$
 x \in (1,1],-1<a<0\\
 x \in [-1,1],a>0,a\notin \rm{N}_+\\
 x \in \rm{R},a\in \rm{N}_+
-\end{cases}
+\end{cases}；
 $$
 $$
-\frac{1}{1-x}=1+x+x^2+x^3...,-1<x<1
+\frac{1}{1-x}=1+x+x^2+x^3...,-1<x<1；
 $$
 $$
-\frac{1}{1+x}=1-x+x^2-x^3...,-1<x<1
+\frac{1}{1+x}=1-x+x^2-x^3...,-1<x<1.
 $$
 
 - 可去间断点和跳跃间断点统称为第一类间断点（左右极限都存在）.
@@ -82,41 +82,41 @@ $$
 - 基本求导公式
 
 $$
-\sin'x=\cos x
+\sin'x=\cos x；
 $$
 $$
-\cos'x=-\sin x
+\cos'x=-\sin x；
 $$
 $$
-\tan'x=\sec^2x
+\tan'x=\sec^2x；
 $$
 $$
-\cot'x=-\csc^2x
+\cot'x=-\csc^2x；
 $$
 $$
-\arcsin'x=\frac{1}{\sqrt{1-x^2}}
+\arcsin'x=\frac{1}{\sqrt{1-x^2}}；
 $$
 $$
-\arccos'x=-\frac{1}{\sqrt{1-x^2}}
+\arccos'x=-\frac{1}{\sqrt{1-x^2}}；
 $$
 $$
-\arctan'x=\frac{1}{1+x^2}
+\arctan'x=\frac{1}{1+x^2}；
 $$
 $$
-\sec'x=\sec x\cdot{\tan x}
+\sec'x=\sec x\cdot{\tan x}；
 $$
 $$
-\csc'x=-\csc x\cdot{\cot x}
+\csc'x=-\csc x\cdot{\cot x}；
 $$
 $$
-\ln'(x+\sqrt{x^2+1})=\frac{1}{\sqrt{x^2+1}}
+\ln'(x+\sqrt{x^2+1})=\frac{1}{\sqrt{x^2+1}}；
 $$
 $$
-\ln'(x+\sqrt{x^2-1})=\frac{1}{\sqrt{x^2-1}}
+\ln'(x+\sqrt{x^2-1})=\frac{1}{\sqrt{x^2-1}}.
 $$
 
 - 反函数的导数
-    - 设$y=f(x)$为单调，可导函数，且$f'(x)\not=0$，则存在反函数$x=\varphi(y)$，且$\cfrac{dx}{dy}=\cfrac{1}{\cfrac{dy}{dx}}$，即$\varphi'(y)=\cfrac{1}{f'(x)}$.
+    - 设$y=f(x)$为单调，可导函数，且$f'(x)\not=0$，则存在反函数$x=\varphi(y)$，且$\cfrac{dx}{dy}=\cfrac{1}{\frac{dy}{dx}}$，即$\varphi'(y)=\cfrac{1}{f'(x)}$.
     - 记$f'(x)=y'_x$，$\varphi'(y)=x'_y$，则
 
 $$
