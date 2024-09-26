@@ -11,6 +11,7 @@ export default hopeTheme({
     name: "Zzz",
     url: "https://ylzhong.top",
   },
+  fullscreen: true,
   contributors: false,
   iconAssets: "//at.alicdn.com/t/c/font_4062992_y928sk4fsqe.css",
   docsDir: "src",
