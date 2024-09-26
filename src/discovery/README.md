@@ -1,5 +1,5 @@
 ---
-title: 探索408
+title: 408
 icon: discovery 
 index: false
 cover: /home/links.jpg
