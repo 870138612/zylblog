@@ -215,9 +215,9 @@ $$
 \alpha_1,\alpha_2,\alpha_3
 \end{bmatrix}
 \begin{bmatrix}
-1\\
+-1\\
 2\\
-3\\
+-2\\
 \end{bmatrix}
 $$
 
