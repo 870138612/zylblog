@@ -288,10 +288,10 @@ $$
         $$
         kA=Ak=
         \begin{bmatrix}
-        a_{11} & a_{12} & \cdots& a_{1n} \\
-        a_{21} & a_{22} & \cdots& a_{2n} \\
+        ka_{11} & ka_{12} & \cdots& ka_{1n} \\
+        ka_{21} & ka_{22} & \cdots& ka_{2n} \\
         \vdots&\vdots&&\vdots\\
-        a_{n1} & a_{n2} & \cdots& a_{nn} \\
+        ka_{n1} & ka_{n2} & \cdots& ka_{nn} \\
         \end{bmatrix}
         =
         (ka_{ij})_{m\times n}
