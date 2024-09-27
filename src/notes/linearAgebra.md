@@ -636,7 +636,7 @@ $$
 
 ### 矩阵的秩
 
-- 设$A$是$m\times n $矩阵，若存在$k$阶子式不为$0$，而任意$k+1$阶子式全为$0$，则$r(A)=k$，且若$A$为$m\times n $矩阵，则
+- 设$A$是$m\times n$矩阵，若存在$k$阶子式不为$0$，而任意$k+1$阶子式全为$0$，则$r(A)=k$，且若$A$为$m\times n$矩阵，则
     $$
     r(A_{n\times n})=n \Leftrightarrow |A|\not = 0 \Leftrightarrow A可逆，即满秩则可逆.
     $$
