@@ -660,12 +660,12 @@ $$
     $$
 
     $$
-    设A是m\times n矩阵，P，Q分别是m阶、n阶矩阵，则\\
+    设A是 m \times n 矩阵，P，Q分别是m阶、n阶矩阵，则\\
     r(A)=r(PA)=r(AQ)=r(PAQ)；
     $$
 
     $$
-    若A_{m\times n}N_{n\times s}=O，则r(A)+r(B)\le n；
+    若A_{m\times n}B_{n\times s}=O，则r(A)+r(B)\le n；
     $$
 
     $$
