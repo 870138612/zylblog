@@ -716,13 +716,71 @@ $$
 
         $A$是正交矩阵$\Leftrightarrow$$A^TA=E$$\Leftrightarrow$$A^T=A^{-1}$$\Leftrightarrow$$A$的行（列）向量组是规范正交基.
 
-    
-    $$
-    
-    $$
+#### 线性相关
 
+- 线性相关
+
+    对于$m$个$n$为维向量$a_1,a_2,\cdots,a_m$，若存在一组不全为零的数$k_1,k_2,\cdots,k_m$使得
     $$
-    
+    k_1a_1+k_2a_2+\cdots+k_ma_m=0，
     $$
+    则称向量组$a_1,a_2,\cdots,a_m$线性相关.
+
+    含有零向量或有成比例的向量的向量组必线性相关.
+
+- 线性无关
+
+    若不存在不全为零的数$k_1,k_2,\cdots,k_m$使得
+    $$
+    k_1a_1+k_2a_2+\cdots+k_ma_m=0，
+    $$
+    则称向量组$a_1,a_2,\cdots,a_m$线性无关，
+
+    亦即只有当$k_1=k_2=\cdots=k_m=0$时，才有
+    $$
+    k_1a_1+k_2a_2+\cdots+k_ma_m=0，
+    $$
+    则称向量组$a_1,a_2,\cdots,a_m$线性无关.
+
+    单个非零向量，两个不成比例的向量均线性无关.
+
+- 向量组或线性相关或线性无关，两者必为其中一种状态.
+
+- 判断线性相关性的七大定理
+
+    - 向量组$a_1,a_2,\cdots,a_n(n\ge2)$线性相关的充要条件是向量组中至少有一个向量可以由其余的$n-1$个向量线性表示.
+
+        其逆否命题：向量组$a_1,a_2,\cdots,a_n(n\ge2)$线性无关的充要条件是向量组$a_1,a_2,\cdots,a_n$中任一向量都不能由其余$n-1$个线性向量表示.
+
+    - 若向量组$a_1,a_2,\cdots,a_n$线性无关，而$\beta,a_1,a_2,\cdots,a_n$线性相关，则$\beta$可由$a_1,a_2,\cdots,a_n$线性表示，且表示法唯一.
+
+    - 如果向量组$\beta_1,\beta_2,\cdots,\beta_t$可由向量组$a_1,a_2,\cdots,a_s$线性表示，且$t\ge s$，则$\beta_1,\beta_2,\cdots,\beta_t$线性相关（以小表多，多的相关）.
+
+        其等价命题：如果向量组$\beta_1,\beta_2,\cdots,\beta_t$可由向量组$a_1,a_2,\cdots,a_s$线性表示，且$\beta_1,\beta_2,\cdots,\beta_t$线性无关，则$t\le s$.
+
+    - 设$m$个$b$维向量$a_1,a_2,\cdots,a_m$，其中
+        $$
+        \alpha_1=[a_{11},a_{21},\cdots,a_{n1}]^T，\\
+        \alpha_2=[a_{12},a_{22},\cdots,a_{n2}]^T，\\
+        \cdots \cdots \\
+        \alpha_m=[a_{1m},a_{2m},\cdots,a_{nm}]^T，
+        $$
+        向量组$a_1,a_2,\cdots,a_m$线性相关$\Leftrightarrow$齐次线性方程组
+        $$
+        [a1,a2,⋯,am]
+        \begin{bmatrix}
+        x_1\\
+        x_2\\
+        \vdots \\
+        x_m
+        \end{bmatrix}
+        =x_1\alpha_1+x_2\alpha_2+\cdots+x_m\alpha_m=0
+        $$
+        有非零解$\Leftrightarrow$$r(\alpha_1,a_2,\cdots,a_m)<m$.
+
+        其等价命题：$a_1,a_2,\cdots,a_m$线性无关的充分必要条件是齐次线性方程组只有零解.
 
     
+
+
+
