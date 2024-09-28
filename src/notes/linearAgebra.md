@@ -532,7 +532,7 @@ $$
         $$
 
 
-        
+​        
 
 ### 伴随矩阵
 
@@ -672,5 +672,57 @@ $$
     r(A)=r(A^T)=r(A^TA)=r(AA^T).
     $$
 
-    
 
+## 向量组
+
+### 向量组与向量组的线性相关性
+
+- 向量的内积和正交
+
+    - 内积
+
+        设$$\alpha =[a_1,a_2,\cdots,a_n]^T，\beta=[b_1,b_2,\cdots,b_n]^T$$，则称
+        $$
+        \alpha ^T\beta =\sum_{i=1}^{n}a_ib_i
+        $$
+        为向量$\alpha，\beta$的内积，记作$(\alpha,\beta)$，即$\alpha ^T\beta$.
+
+    - 正交
+        $$
+        \alpha^T\beta=0时，称向量\alpha，\beta是正交向量.
+        $$
+
+    - 模
+        $$
+        \begin{Vmatrix}
+        a 
+        \end{Vmatrix}
+        =\sqrt{\sum_{i=1}^{n}a_i^2}
+        $$
+        称为$\alpha$的模（长度），当模为$1$，则称向量为单位向量.
+
+    - 标准正交向量组
+        $$
+        \alpha_i^T\alpha_j=\begin{cases}
+        0，i\not = j，\\
+        1，i=j，
+        \end{cases}\\
+        $$
+        则称$\alpha_1,\alpha_2,\cdots,\alpha_s$为标准或单位正交向量组，也叫规范正交基.
+
+    - 正交矩阵
+
+        设$A$是$n$阶方阵，满足$A^TA=E$，则称$A$是正交矩阵.
+
+        $A$是正交矩阵$\Leftrightarrow$$A^TA=E$$\Leftrightarrow$$A^T=A^{-1}$$\Leftrightarrow$$A$的行（列）向量组是规范正交基.
+
+    
+    $$
+    
+    $$
+
+    $$
+    
+    $$
+
+    
