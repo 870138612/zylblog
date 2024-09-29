@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="更新线性代数">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notes/linearAgebra.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/notes/linearAgebra.md" afterDir="false" />
-    </list>
+    <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="更新线性代数" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,13 +165,7 @@
       <workItem from="1727367610210" duration="1580000" />
       <workItem from="1727449462164" duration="701000" />
       <workItem from="1727535189744" duration="1207000" />
-    </task>
-    <task id="LOCAL-00050" summary="更新数学笔记">
-      <created>1725900152424</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1725900152425</updated>
+      <workItem from="1727623720118" duration="619000" />
     </task>
     <task id="LOCAL-00051" summary="更新数学笔记">
       <created>1725983260976</created>
@@ -512,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1727539259758</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="更新线性代数">
+      <created>1727624733868</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1727624733868</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
