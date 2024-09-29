@@ -681,7 +681,7 @@ $$
 
     - 内积
 
-        设$$\alpha =[a_1,a_2,\cdots,a_n]^T，\beta=[b_1,b_2,\cdots,b_n]^T$$，则称
+        设$\alpha =[a_1,a_2,\cdots,a_n]^T，\beta=[b_1,b_2,\cdots,b_n]^T$，则称
         $$
         \alpha ^T\beta =\sum_{i=1}^{n}a_ib_i
         $$
@@ -706,7 +706,8 @@ $$
         \alpha_i^T\alpha_j=\begin{cases}
         0，i\not = j，\\
         1，i=j，
-        \end{cases}\\
+        \end{cases}\\
+
         $$
         则称$\alpha_1,\alpha_2,\cdots,\alpha_s$为标准或单位正交向量组，也叫规范正交基.
 
