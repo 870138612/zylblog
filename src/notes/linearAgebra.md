@@ -707,17 +707,16 @@ $$
         0，i\not = j，\\
         1，i=j，
         \end{cases}\\
-
-        $$
+    $$
         则称$\alpha_1,\alpha_2,\cdots,\alpha_s$为标准或单位正交向量组，也叫规范正交基.
+        
+- 正交矩阵
+    
+    设$A$是$n$阶方阵，满足$A^TA=E$，则称$A$是正交矩阵.
+    
+    $A$是正交矩阵$\Leftrightarrow$$A^TA=E$$\Leftrightarrow$$A^T=A^{-1}$$\Leftrightarrow$$A$的行（列）向量组是规范正交基.
 
-    - 正交矩阵
-
-        设$A$是$n$阶方阵，满足$A^TA=E$，则称$A$是正交矩阵.
-
-        $A$是正交矩阵$\Leftrightarrow$$A^TA=E$$\Leftrightarrow$$A^T=A^{-1}$$\Leftrightarrow$$A$的行（列）向量组是规范正交基.
-
-#### 线性相关
+### 线性相关
 
 - 线性相关
 
@@ -768,7 +767,7 @@ $$
         $$
         向量组$a_1,a_2,\cdots,a_m$线性相关$\Leftrightarrow$齐次线性方程组
         $$
-        [a1,a2,⋯,am]
+        [a_1,a_2,⋯,a_m]
         \begin{bmatrix}
         x_1\\
         x_2\\
@@ -781,6 +780,32 @@ $$
 
         其等价命题：$a_1,a_2,\cdots,a_m$线性无关的充分必要条件是齐次线性方程组只有零解.
 
+    - 向量$\beta$可以由向量组$a_1,a_2,\cdots,a_m$线性表示，
+    
+        等价于非齐次线性方程组
+        $$
+        [a_1,a_2,⋯,a_s]
+        \begin{bmatrix}
+        x_1\\
+        x_2\\
+        \vdots \\
+        x_s
+        \end{bmatrix}
+        =x_1\alpha_1+x_2\alpha_2+\cdots+x_m\alpha_s=\beta 有解.
+        $$
+        等价于$r([\alpha_1,\alpha_2,\cdots,\alpha_s])=r([\alpha_1,\alpha_2,\cdots,\alpha_s,\beta])$.
+    
+        反之向量$\beta$不能由向量组$a_1,a_2,\cdots,a_m$线性表示，则对应的非齐次线性方程无解，$r([\alpha_1,\alpha_2,\cdots,\alpha_s])\not=r([\alpha_1,\alpha_2,\cdots,\alpha_s,\beta])$.
+    
+    - 如果向量组$a_1,a_2,\cdots,a_m$中有一部分线性相关，则整体也线性相关.
+    
+        逆否命题：如果向量组$a_1,a_2,\cdots,a_m$线性无关，则其中的一部分向量也线性无关.
+    
+    - 如果一组$n$维向量$a_1,a_2,\cdots,a_s$线性无关，则把这些向量各任意添加$m$个分量所得到的新向量（$n$+$m$维）组也是线性无关的.
+    
+        逆否命题：如果一组$n$维向量$a_1,a_2,\cdots,a_s$线性相关，把这些向量各任意添加$m$个分量所得到的新向量（$n$+$m$维）组也是线性相关的.
+    
+        
     
 
 
