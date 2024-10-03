@@ -655,7 +655,7 @@ $$
     r(A^*)=\begin{cases}
     n，r(A)=n；\\
     1，r(A)=n-1，其中A为n(n\ge2)阶方阵；\\
-    0，r(A)\le n-1.
+    0，r(A)<n-1.
     \end{cases}\\
     $$
 
@@ -707,11 +707,11 @@ $$
         0，i\not = j，\\
         1，i=j，
         \end{cases}\\
-    $$
+        $$
         则称$\alpha_1,\alpha_2,\cdots,\alpha_s$为标准或单位正交向量组，也叫规范正交基.
-        
-- 正交矩阵
     
+- 正交矩阵
+  
     设$A$是$n$阶方阵，满足$A^TA=E$，则称$A$是正交矩阵.
     
     $A$是正交矩阵$\Leftrightarrow$$A^TA=E$$\Leftrightarrow$$A^T=A^{-1}$$\Leftrightarrow$$A$的行（列）向量组是规范正交基.
@@ -854,3 +854,11 @@ $$
         $$
         
 
+- 一个向量组通过行初等变换得到新的向量组，则
+    $$
+    [\alpha_{k_1},\alpha_{k_2},\cdots,\alpha_{k_r}]\xrightarrow{初等行变换}[\beta{k_1},\beta{k_2},\cdots,\beta{k_r}]\\
+    [\alpha_{k_1},\alpha_{k_2},\cdots,\alpha_{k_r}]x=0和[\beta{k_1},\beta{k_2},\cdots,\beta{k_r}]=0是同解方程组.
+    $$
+    且两个向量组具有相同的线性相关性.
+
+    
