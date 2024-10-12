@@ -627,7 +627,7 @@ $$
 
 ### 等价矩阵和矩阵的等价标准型
 
-- 设$A$，$B$是$m\times n$矩阵，若存在可逆矩阵$P_{m\times m}$，$Q_{m\times m}$，使得$PAQ=B$，则称$A$，$B$是等价矩阵，记作$A\cong B$.
+- 设$A$，$B$是$m\times n$矩阵，若存在可逆矩阵$P_{n\times n}$，$Q_{m\times m}$，使得$PAQ=B$，则称$A$，$B$是等价矩阵，记作$A\cong B$.
 
 - $A$是$m\times n$矩阵，则$A$等价于形如$\begin{bmatrix}E_r& O\\O&O \end{bmatrix}$的矩阵（$E_r$中的$r$恰是$r(A)$），后者称为$A$的等价标准型，等价标准型是唯一的，即若$r(A)=r$，则存在可逆矩阵$P$，$Q$使得
     $$
