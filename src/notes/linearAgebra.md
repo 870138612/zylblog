@@ -865,17 +865,18 @@ $$
 
 - 矩阵等价需要同型，行数和列数都要相等，而向量组等价要同维，但是向量的个数可以不等.
 
-- $$
-  A，B同型，A \cong B\Leftrightarrow r(A)=r(B)\Leftrightarrow PAQ=B(P，Q是可逆矩阵).
+- $A$，$B$同型，则
+  $$
+  A \cong B\Leftrightarrow r(A)=r(B)\Leftrightarrow PAQ=B(P，Q是可逆矩阵).
   $$
 
-- $$
-    \alpha_i，\beta_j(i=,1,2,\cdots,s;j=1,2,\cdots,t)同维，则\\
-    \{\alpha_1,\alpha_2,\cdots,\alpha_s\}\cong\{\beta_1,\beta_2,\cdots,\beta_s\}\\\
-    \Leftrightarrow \{\alpha_1,\alpha_2,\cdots,\alpha_s\}和\{\beta_1,\beta_2,\cdots,\beta_s\}可以相互表示\\
-    \Leftrightarrow r(\alpha_1,\alpha_2,\cdots,\alpha_s)=r(\beta_1,\beta_2,\cdots,\beta_s)
-    且可单方向表示\\
-    \Leftrightarrow r(\alpha_1,\alpha_2,\cdots,\alpha_s)=r(\beta_1,\beta_2,\cdots,\beta_s)\\=r(\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_s)\\
-    $$
+- $\alpha_i$，$\beta_j(i=,1,2,\cdots,s;j=1,2,\cdots,t)$同维，则
+  $$
+  \{\alpha_1,\alpha_2,\cdots,\alpha_s\}\cong\{\beta_1,\beta_2,\cdots,\beta_s\}\\\
+  \Leftrightarrow \{\alpha_1,\alpha_2,\cdots,\alpha_s\}和\{\beta_1,\beta_2,\cdots,\beta_s\}可以相互表示\\
+  \Leftrightarrow r(\alpha_1,\alpha_2,\cdots,\alpha_s)=r(\beta_1,\beta_2,\cdots,\beta_s)
+  且可单方向表示\\
+  \Leftrightarrow r(\alpha_1,\alpha_2,\cdots,\alpha_s)=r(\beta_1,\beta_2,\cdots,\beta_s)\\=r(\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_s)\\
+  $$
 
 - 
