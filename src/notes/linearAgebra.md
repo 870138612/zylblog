@@ -865,7 +865,9 @@ $$
 
 - 矩阵等价需要同型，行数和列数都要相等，而向量组等价要同维，但是向量的个数可以不等.
 
-- $A$，$B$同型，$A \cong B\Leftrightarrow r(A)=r(B)\Leftrightarrow PAQ=B(P，Q是可逆矩阵)$.
+- $$
+  A，B同型，A \cong B\Leftrightarrow r(A)=r(B)\Leftrightarrow PAQ=B(P，Q是可逆矩阵).
+  $$
 
 - $$
     \alpha_i，\beta_j(i=,1,2,\cdots,s;j=1,2,\cdots,t)同维，则\\
