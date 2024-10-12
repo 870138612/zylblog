@@ -316,7 +316,7 @@ $$
           (A+B)(A-B)=A^2+BA-AB-B^2\not = A^2-B^2，
         $$
         $$
-          (AB)^m=(AB)(AB)\cdots (AB)\not = A^mA^N.
+          (AB)^m=(AB)(AB)\cdots (AB)\not = A^mB^m.
         $$
       
         若$f(x)=a_0+a_1x+\cdots+a_mx^m$，则
