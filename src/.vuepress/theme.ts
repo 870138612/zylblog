@@ -36,7 +36,8 @@ export default hopeTheme({
       sidebarDisplay:"mobile",
       intro: "/intro.html",
     },
-  plugins: {
+  plugins: 
+    git: true,
     blog: true,
   },
 });
