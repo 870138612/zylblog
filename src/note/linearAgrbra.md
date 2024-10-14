@@ -2,8 +2,6 @@
 title: 线性代数
 star: true
 icon: page
-order: 99
-date: 2024-8-1
 category:
     - 线性代数
 tag: 
