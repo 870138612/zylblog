@@ -878,4 +878,148 @@ $$
   \Leftrightarrow r(\alpha_1,\alpha_2,\cdots,\alpha_s)=r(\beta_1,\beta_2,\cdots,\beta_s)\\=r(\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_s)\\
   $$
 
-- 
+
+## 线性方程组
+
+### 齐次线性方程组
+
+- 有解的条件
+    - 当$r(A)=n(\alpha_1,\alpha_2,\cdots,\alpha_n线性无关)$时，方程组有唯一解.
+    - 当$r(A)<n(\alpha_1,\alpha_2,\cdots,\alpha_n线性相关)$时，方程组有非零解，且有$n-r$个线性无关解.
+- 解的性质
+    - 若$A\xi_1=0$，$A\xi_2=0$，则$A(k_1\xi+k_2\xi_2)=0$，其中$k_1$，$k_2$是任意常数.
+- 基础解系和解的结构
+    - 若$\xi_1,\xi_2,\cdots,\xi_{n-r}$是方程的线性无关解，则称为基础解系.
+    - 则$k_1\xi_1+k_2+\xi_2+\cdots+k_{n-r}\xi_{n-r}$是方程组$Ax=0$的通解.
+- 求解的步骤
+    - 将系数矩阵$A$通过初等行变换乘行阶梯形矩阵$B$，求解$B$的解，基础解系的个数为$n-r(A)$.
+
+### 非齐次线性方程组
+
+- 有解的条件
+    - 若$r(A)\not=r([A,b])(b不能由A线性表示)$，方程组无解.
+    - 若$r(A)=r([A,b])=n(b能由A线性表示)$，方程组有唯一解.
+    - 若$r(A)=r([A,b])<n(b能由A线性表示)$，方程组有无穷解.
+- 解的性质
+    - 设$\eta_1,\eta_2,\eta$是非齐次线性方程组$Ax=b$的解，$\xi$是对应齐次线性方程组$Ax=0$的解，（1）则$\eta_1-\eta_2$是$Ax=0$的解，（2）$k\xi+\eta$是$Ax=b$的解.
+- 求解的步骤
+    - 首先通过齐次方程组的解法求出齐次方程的通解$k_1\xi_1+k_2\xi_2+\cdots+k_{n-r}\xi_{n-r}$.
+    - 求出非齐次方程$Ax=b$的一个特解$\eta$.
+    - $Ax=b$的通解是$k_1\xi_1+k_2\xi_2+\cdots+k_{n-r}\xi_{n-r}+\eta$，其中$k_1,k_2+\cdots+k_{n-r}$是任意常数.（齐次通解+非齐次特解）
+
+###  两个方程组的公共解
+
+- 齐次线性方程组$A_{m\times n}x=0$和$B_{m\times n}x=0$的公共解是方程组$\begin{bmatrix}A\\B\end{bmatrix}x=0$的解，联立求解.
+
+### 同解方程组
+
+- 若两个齐次线性方程组具有完全相同的解，则称为同解方程组.
+
+- $$
+    Ax=0，Bx=0是同解方程组
+    \\\Leftrightarrow Ax=0的解满足Bx=0，且Bx=0的解满足Ax=0
+    \\\Leftrightarrow r(A)=r(B)，且Ax=0的解满足Bx=0
+    \\\Leftrightarrow r(A)=r(B)=r(
+    \begin{bmatrix}
+    A\\B
+    \end{bmatrix}
+    )(三秩相同)
+    $$
+
+## 特征值和特征向量
+
+### 矩阵的特征值和特征向量求法
+
+- 满足$A\xi=\lambda\xi$，则称$\lambda$是$A$的特征值，$\xi$是特征值对应的特征向量.
+- 通过$(\lambda E-A)\xi=0$有非零解，因此求特征多项式$|\lambda E-A|=0$的解即是特征值.
+- 求出的解是基础解系，例如有基础解系$\xi_1,\xi_2$，则$k_1\xi_1+k_2\xi_2$是全部特征向量，且$k_1,k_2$不全为$0$.
+
+### 特征值、特征向量的性质与重要结论
+
+- 特征值的性质与重要结论
+
+    - 若$\lambda_1,\lambda_2,\cdots,\lambda_n$是$A$的$n$个特征值，则
+        $$
+        \begin{cases}
+        |A|=\lambda_1\lambda_2\cdots\lambda_n\\
+        tr(A)=\lambda_1+\lambda_2+\cdots+\lambda_n(对角线元素之和)
+        \end{cases}
+        $$
+
+- 特征向量的性质和重要结论
+    - $\xi(\not=0)$是$A$的属于$\lambda_0$的特征向量$\Leftrightarrow$$\xi$是$(\lambda_0E-A)x=0$的非零解.
+
+- 重要结论
+
+    - $k$重特征值$\lambda$至多有$k$个线性无关特征向量.
+    - 属于不同特征值的特征向量线性无关.
+    - 若$\xi_1,\xi_2$是$A$的属于同一个特征值$\lambda$的特征向量，则非零向量$k_1\xi_1+k_2\xi_2$仍然是$A$属于特征值$\lambda$的特征向量.（$k_1,k_2$中有一个为$0$也成立）
+    - 若$\xi_1,\xi_2$是$A$的属于不同特征值特征向量，则非零向量$k_1\xi_1+k_2\xi_2$不是任何特征值对应的特征向量.
+    - 一个特征向量不能属于两个不同的特征值.
+
+- 常用矩阵的特征值与特征向量
+
+    |   矩阵   |    $A$    | $kA$       | $A^k$       | $f(A)$       | $A^{-1}$            | $A^*$                 | $P^{-1}AP$  |
+    | :------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :---------: |
+    |  特征值  | $\lambda$ | $k\lambda$ | $\lambda^k$ | $f(\lambda)$ | $\cfrac{1}{\lambda}$ | $\cfrac{|A|}{\lambda}$ |  $\lambda$  |
+    | 特征向量 |   $\xi$   | $\xi$      | $\xi$       | $\xi$        | $\xi$               | $\xi$                 | $p^{-1}\xi$ |
+
+### 矩阵的相似
+
+- 设$A$，$B$是两个$n$阶方阵，若存在$n$阶可逆矩阵$P$，使得$p^{-1}AP=B$，则$A$相似于$B$，记作$A\sim B$.
+- 若$A\sim B$则（均是必要条件）
+    - $|A|=|B|$.
+    - $r(A)=r(B)$.
+    - $tr(A)=tr(B)$.
+    - $\lambda_A=\lambda_B(或|\lambda E-A|=|\lambda E-B|)$.
+    - $r(\lambda E-A)=r(\lambda E-B)$.
+    - $A$，$B$各阶主子式之和分别相等.
+
+- 重要结论
+    - 若$A\sim B$则$A^k\sim B^k$，$f(A)\sim f(B)$.
+    - 若$A\sim B$，且$A$可逆，则$A^{-1}\sim B^{-1}$，$f(A^{-1})\sim f(B^{-1})$.
+    - 若$A\sim B$则$A^*\sim B^*$.
+    - 若$A\sim B$则$A^T\sim B^T$.
+- 两个矩阵相似的判别方法
+    - 定义法，存在可逆矩阵$P$，使得$P^{-1}AP=B$.
+    - 传递性，若$A\sim \Lambda$，$\Lambda\sim B $，则$A\sim B$.
+    - 性质，$A\sim B$，则$r(A)=r(B)$，$|A|=|B|$，$tr(A)=tr(B)$，$\lambda_A=\lambda_B(或|\lambda E-A|=|\lambda E-B|)$，$A$，$B$各阶主子式之和分别相等.
+
+### 矩阵的相似对角化
+
+- 设$A$为$n$阶矩阵，若存在$n$阶可逆矩阵，使得$P^{-1}AP=\Lambda$，$\Lambda$是$A$的相似标准型.
+- 重要结论
+    - 若$A$可相似对角化矩阵$\Leftrightarrow A$对应于每个$k_i$重特征值都有$k_i$个线性无关特征向量.
+    - $n$阶矩阵$A$有$n$个不同的特征值$\Rightarrow$$A$可相似对角化.
+    - $n$阶矩阵$A$为实对称矩阵$\Rightarrow$$A$可相似对角化.
+- 求可逆矩阵$P$，使得$P^{-1}AP=\Lambda$
+    - 求$A$的特征值$\lambda_1,\lambda_2,\cdots,\lambda_n$.
+    - 求特征值对应的特征向量$\xi_1,\xi_2,\cdots,\xi_n$.
+    - 令$P=[\xi_1,\xi_2,\cdots,\xi_n]$，则$P^{-1}AP=\Lambda=\begin{bmatrix}\lambda_1&&&\\&\lambda_2&&\\&&\ddots \\&&&\lambda_n\end{bmatrix}$，注意特征值和特征矩阵的对应顺序.
+
+### 实对称矩阵相似对角化
+
+- 若$A^T=A$则称为$A$是对称矩阵，若所有元素都是实数，则是实对称矩阵，其对应的特征值也是实数，特征向量是实向量.
+
+- 实对称矩阵相似对角化的基本步骤
+
+    - 若$A$为$n$实对称矩阵，则其用正交矩阵$Q$相似对角化的基本步骤如下.
+
+    - 求$A$的特征值$\lambda_1,\lambda_2,\cdots,\lambda_n$.
+
+    - 求特征值对应的特征向量$\xi_1,\xi_2,\cdots,\xi_n$.
+
+    - 将$\xi_1,\xi_2,\cdots,\xi_n$正交化，单位化得到$\eta_1,\eta_2,\cdots,\eta_n$.
+
+    - 令$Q=[\eta_1,\eta_2,\cdots,\eta_n]$，则$Q$为正交矩阵，且$Q^{-1}AQ=Q^TAQ=\Lambda$.（正交矩阵有$Q^{-1}=Q^T$）
+
+    - 施密特正交化
+        $$
+        设\alpha_1,\alpha_2,\alpha_3线性无关但不正交，令\\
+        \beta_1=\alpha_1,\\
+        \beta_2=\alpha_2-\cfrac{(\beta_1,\alpha_2)}{(\beta_1,\beta_1)}\beta_1,\\
+        \beta_3=\alpha_3-\cfrac{(\beta_1,\alpha_3)}{(\beta_1,\beta_1)}\beta_1-\cfrac{(\beta_2,\alpha_3)}{(\beta_2,\beta_2)}\beta_2.
+        $$
+
+## 二次型
+
