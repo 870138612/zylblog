@@ -304,25 +304,6 @@ $$
         $$
       
         矩阵乘法不满足交换律.
-      
-        $$
-          (A+B)^2=(A+B)(A+B)=A^2+AB+BA+B^2 \not = A^2+2AB+B^2，
-        $$
-        $$
-          (A-B)^2=(A-B)(A-B)=A^2-AB-BA+B^2 \not = A^2-2AB+B^2，
-        $$
-        $$
-          (A+B)(A-B)=A^2+BA-AB-B^2\not = A^2-B^2，
-        $$
-        $$
-          (AB)^m=(AB)(AB)\cdots (AB)\not = A^mB^m.
-        $$
-      
-        若$f(x)=a_0+a_1x+\cdots+a_mx^m$，则
-      
-        $$
-          f(A)=a_0E+a_1A+\cdots +a_mA^m.
-        $$
 
     - 转置矩阵，将矩阵$A$行列互换得到的矩阵称为转置矩阵，记$A^T$.
 
@@ -357,11 +338,11 @@ $$
     
     - 几种重要矩阵
     
-        - 单位矩阵：主对角线元素均为$1$，其余全为$0$的方阵称为单位矩阵，记$E$，单位矩阵能与任何同阶矩阵进行交换.
+        单位矩阵：主对角线元素均为$1$，其余全为$0$的方阵称为单位矩阵，记$E$，单位矩阵能与任何同阶矩阵进行交换.
     
-        - 对称矩阵：$A^T=A$.
+        对称矩阵：$A^T=A$.
     
-        - 反对称矩阵：$A^T=-A\Leftrightarrow\begin{cases}a_{ij}=-a_{ji}，i\not= j\\a_{ii}=0. \end{cases}$
+        反对称矩阵：$A^T=-A\Leftrightarrow\begin{cases}a_{ij}=-a_{ji}，i\not= j\\a_{ii}=0. \end{cases}$
     
     - 分块矩阵的运算
         $$
