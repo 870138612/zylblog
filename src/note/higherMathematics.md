@@ -739,7 +739,7 @@ y=e^{-\int p(x)dx}[\int e^{\int p(x)dx} \cdot q(x)dx+C].
 $$
 
 $$
-若\int p(x)dx=\ln|\varphi(x)|， 此绝对值可以不加，其余出现\ln u， 不知u正负一律加绝对值.
+若\int p(x)dx=\ln|\varphi(x)|， 绝对值可以不加，其余不知$u$正负一律加绝对值.
 $$
 
 - 二阶可降微分方程 $y''=f(x,y')$型，方程中不显含未知函数，有一阶导数和二阶导数.
