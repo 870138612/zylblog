@@ -28,9 +28,6 @@ export default defineUserConfig({
       // 选项
 
     }),
-    catalogPlugin({
-
-    }),
    ]
 
   // Enable it with pwa
