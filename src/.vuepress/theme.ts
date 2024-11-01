@@ -2,7 +2,7 @@ import { hopeTheme } from "vuepress-theme-hope";
 
 import {zhNavbar} from "./navbar.js";
 import {zhSidebar} from "./siderbar.js";
-import { catalogPlugin } from '@vuepress/plugin-catalog'
+
 
 export default hopeTheme({
   hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
