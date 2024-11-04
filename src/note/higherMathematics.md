@@ -264,7 +264,7 @@ $$
 发散，p\le1\end{cases}.
 $$
 $$
-当(ax+b)>k>0时，\int_{1}^{+\infty}\frac{1}{(ax+b)^p}dx依然满足\begin{cases}收敛，p>1\\
+当(ax+b)\le k>0时，\int_{1}^{+\infty}\frac{1}{(ax+b)^p}dx依然满足\begin{cases}收敛，p>1\\
 发散，p\le1\end{cases}.
 $$
 
