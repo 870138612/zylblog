@@ -35,7 +35,7 @@ tag:
 
 #### 插入和删除
 
-- 插入操作先连接尾部再连接头部，插入元素需要得到前一个元素的位置，`s.next = pre.next;pre.next = s. `
+- 插入操作先连接尾部再连接头部，插入元素需要得到前一个元素的位置，`s.next = pre.next;pre.next = s`.
 
 ```java
 void listNodeInsert(ListNode list, int data, int index) {
