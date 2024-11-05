@@ -651,7 +651,7 @@ $$
 
 $$
 \iint \limits_D f(x,y)d\sigma=\begin{cases}
-2\iint \limits_{D_1}f(x,y)\sigma，f(x,y)=f(-x,y) \\
+2\iint \limits_{D_1}f(x,y)d\sigma，f(x,y)=f(-x,y) \\
 0, f(x,y)=-f(-x,y)
 \end{cases}.
 $$
