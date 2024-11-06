@@ -830,10 +830,10 @@ $$
 特解要设为y^*=e^{\alpha x}[Q_l^{(1)}(x)\cos \beta x+Q_l^{(2)}\sin \beta x]x^k，\\
 其中
 \begin{cases}
-e^{ax}照抄,\\
-Q_n(x)为x的n次多项式,\\
+e^{ax}照抄，\\
+Q_l(x)为x的l次多项式，l=\max\{m,n \}\\
 k=\begin{cases} 
-0，\alpha\pm \beta \text i不是特征根,\\
+0，\alpha\pm \beta \text i不是特征根，\\
 1，\alpha\pm \beta \text i是特征根.
 \end{cases}
 \end{cases}.
