@@ -812,11 +812,11 @@ $$
 
 $$
 当自由项f(x)=P_n(x)e^{\alpha x}时，\\
-特解要设为y^*=e^{\alpha x}Q_l(x)x^k，\\
+特解要设为y^*=e^{\alpha x}Q_n(x)x^k，\\
 其中
 \begin{cases}
 e^{ax}照抄，\\
-Q_l(x)为x的l次多项式，l=\max\{m,n \}，\\
+Q_n(x)为x的n次多项式，\\
 k=\begin{cases} 
 0，\alpha 不是特征根，\\
 1，\alpha是单特征根，\\
