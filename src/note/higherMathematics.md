@@ -812,7 +812,7 @@ $$
 
 $$
 当自由项f(x)=P_n(x)e^{\alpha x}时，\\
-特解要设为y^*=e^{\alpha x}Q_n(x)x^k，\\
+特解要设为y^*=e^{\alpha x}Q_l(x)x^k，\\
 其中
 \begin{cases}
 e^{ax}照抄，\\
