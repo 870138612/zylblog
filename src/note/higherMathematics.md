@@ -831,7 +831,7 @@ $$
 其中
 \begin{cases}
 e^{ax}照抄,\\
-Q_n(x)为x的n次多项式,\\
+Q_l(x)为x的l次多项式,l=\max\{m,n\}\\
 k=\begin{cases} 
 0，\alpha\pm \beta \text i不是特征根,\\
 1，\alpha\pm \beta \text i是特征根.
