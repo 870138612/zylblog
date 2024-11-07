@@ -942,7 +942,7 @@ $$
 
     |  矩阵  |    $A$    | $kA$       | $A^k$       | $f(A)$       | $A^{-1}$            |           $A^*$           | $P^{-1}AP$  |
     |:----:| :-------: | :-------: | :-------: | :-------: | :-------: |:-------------------------:| :---------: |
-    | 特征值  | $\lambda$ | $k\lambda$ | $\lambda^k$ | $f(\lambda)$ | $\cfrac{1}{\lambda}$ | $\frac{\abs{A}}{\lambda}$ |  $\lambda$  |
+    | 特征值  | $\lambda$ | $k\lambda$ | $\lambda^k$ | $f(\lambda)$ | $\cfrac{1}{\lambda}$ | $\cfrac{\lvert A\rvert}{\lambda}$ |  $\lambda$  |
     | 特征向量 |   $\xi$   | $\xi$      | $\xi$       | $\xi$        | $\xi$               |           $\xi$           | $p^{-1}\xi$ |
 
 ### 矩阵的相似
