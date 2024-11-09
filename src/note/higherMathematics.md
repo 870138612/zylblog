@@ -566,7 +566,7 @@ $$
 
 ## 多元函数微分学
 
-- 若下列极限等于0，则$z=f(x,y)$在点$(x_0,y_0)$处可微，否则不可微，其中$\Delta z$是全增量，$A$和$B$分别是$x$的偏微分、$y$的偏微分.
+- 若下列极限等于$0$，则$z=f(x,y)$在点$(x_0,y_0)$处可微，否则不可微，其中$\Delta z$是全增量，$A$和$B$分别是$x$的偏微分、$y$的偏微分.
 
 $$
 \lim_{\Delta x_0\rightarrow0 ,\Delta y\rightarrow 0} \frac{\Delta z-(A\Delta x+B\Delta y)}{\sqrt{(\Delta x)^2+(\Delta y)^2}}.
