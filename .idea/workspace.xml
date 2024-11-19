@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="更新线性代数">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="更新线性代数" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -180,13 +178,7 @@
       <workItem from="1730867905043" duration="185000" />
       <workItem from="1730911053839" duration="1006000" />
       <workItem from="1731144048408" duration="656000" />
-    </task>
-    <task id="LOCAL-00078" summary="更新数学笔记">
-      <created>1727195211453</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1727195211453</updated>
+      <workItem from="1731942877420" duration="829000" />
     </task>
     <task id="LOCAL-00079" summary="更新数学笔记">
       <created>1727266926932</created>
@@ -524,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1731144067662</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="更新线性代数">
+      <created>1731944428852</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1731944428852</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
