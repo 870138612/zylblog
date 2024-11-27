@@ -661,7 +661,7 @@ $$
 
     - 内积
 
-        设$\alpha =[a_1,a_2,\cdots,a_n]^T，\beta=[b_1,b_2,\cdots,b_n]^T$，则称
+        设$\alpha =[a_1,a_2,\cdots,a_n]^T$，$\beta=[b_1,b_2,\cdots,b_n]^T$，则称
         $$
         \alpha ^T\beta =\sum_{i=1}^{n}a_ib_i
         $$
