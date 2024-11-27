@@ -526,7 +526,7 @@ $$
 S=2\pi\int_\alpha^\beta|r(\theta)|\sin \theta\sqrt{r^2(\theta)+[r'^(\theta)]^2}d\theta.
 $$
 
-## 一元函数积分学-积分等式和积分不等式$
+## 一元函数积分学-积分等式和积分不等式
 
 - 积分等式中用中值定理
 
@@ -739,7 +739,7 @@ y=e^{-\int p(x)dx}[\int e^{\int p(x)dx} \cdot q(x)dx+C].
 $$
 
 $$
-若\int p(x)dx=\ln|\varphi(x)|， 绝对值可以不加，其余不知u正负一律加绝对值.
+若\int p(x)dx=\ln|\varphi(x)|， 绝对值可以不加，其余不知正负一律加绝对值.
 $$
 
 - 二阶可降微分方程 $y''=f(x,y')$型，方程中不显含未知函数，有一阶导数和二阶导数.
