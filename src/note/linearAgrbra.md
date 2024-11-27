@@ -963,7 +963,7 @@ $$
     - 若$A\sim B$则$A^T\sim B^T$.
 - 两个矩阵相似的判别方法
     - 定义法，存在可逆矩阵$P$，使得$P^{-1}AP=B$.
-    - 传递性，若$A\sim \Lambda$，$\Lambda\sim B $，则$A\sim B$.
+    - 传递性，若$A\sim \Lambda$，$\Lambda \sim B $，则$A \sim B$.
     - 性质，$A\sim B$，则$r(A)=r(B)$，$|A|=|B|$，$tr(A)=tr(B)$，$\lambda_A=\lambda_B(或|\lambda E-A|=|\lambda E-B|)$，$A$，$B$各阶主子式之和分别相等.
 
 ### 矩阵的相似对角化
