@@ -1043,7 +1043,7 @@ $$
       
     - 令$Q=[\eta_1,\eta_2,\cdots,\eta_n]$，则$Q$为正交矩阵，且$Q^{-1}AQ=Q^TAQ=\Lambda$.（正交矩阵有$Q^{-1}=Q^T$）
       
-    - 施密特正交化
+- 施密特正交化
         $$
         设\alpha_1,\alpha_2,\alpha_3线性无关但不正交，令\\
         \beta_1=\alpha_1,\\
