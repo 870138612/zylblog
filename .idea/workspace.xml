@@ -186,27 +186,7 @@
       <workItem from="1733580841042" duration="610000" />
       <workItem from="1733582720190" duration="311000" />
       <workItem from="1733583287532" duration="987000" />
-    </task>
-    <task id="LOCAL-00093" summary="更新线性代数">
-      <created>1727368002153</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1727368002153</updated>
-    </task>
-    <task id="LOCAL-00094" summary="更新线性代数">
-      <created>1727369591991</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1727369591991</updated>
-    </task>
-    <task id="LOCAL-00095" summary="更新线性代数">
-      <created>1727449536766</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1727449536766</updated>
+      <workItem from="1733584642434" duration="302000" />
     </task>
     <task id="LOCAL-00096" summary="更新线性代数">
       <created>1727449567792</created>
@@ -530,7 +510,28 @@
       <option name="project" value="LOCAL" />
       <updated>1733584289828</updated>
     </task>
-    <option name="localTasksCounter" value="142" />
+    <task id="LOCAL-00142" summary="更新线性代数">
+      <created>1733584683785</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1733584683785</updated>
+    </task>
+    <task id="LOCAL-00143" summary="更新线性代数">
+      <created>1733584778527</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1733584778527</updated>
+    </task>
+    <task id="LOCAL-00144" summary="更新线性代数">
+      <created>1733584835937</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1733584835937</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
