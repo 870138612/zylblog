@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="更新线性代数">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/politics.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/note/politics.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,20 +183,8 @@
       <workItem from="1731942877420" duration="829000" />
       <workItem from="1732028645502" duration="625000" />
       <workItem from="1732117868864" duration="648000" />
-    </task>
-    <task id="LOCAL-00082" summary="更新数学笔记">
-      <created>1727269716807</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1727269716807</updated>
-    </task>
-    <task id="LOCAL-00083" summary="更新数学笔记">
-      <created>1727269896663</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1727269896663</updated>
+      <workItem from="1733579173978" duration="266000" />
+      <workItem from="1733579623776" duration="47000" />
     </task>
     <task id="LOCAL-00084" summary="更新数学笔记">
       <created>1727270109535</created>
@@ -528,7 +515,21 @@
       <option name="project" value="LOCAL" />
       <updated>1732119862058</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="更新线性代数">
+      <created>1733579180654</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1733579180654</updated>
+    </task>
+    <task id="LOCAL-00132" summary="更新线性代数">
+      <created>1733579431459</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1733579431459</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
