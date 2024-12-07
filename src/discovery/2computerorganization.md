@@ -261,7 +261,7 @@ int getSum(int a[]){
     - 直接映射方式$\text{cache}$块号$=$主存块号 $\mod \text{cache}$总行数.
 
         - 问题：可能存在其他$\text{cache}$没有使用的情况，部分$\text{cache}$行一直被替换，利用率比较低，实现简单.
-        - 主存地址结构`主存标记，cache块号，块内地址`，块内地址的位数等于$\logN$，$\text{N}$是一个块的大小；$\text{cache}$块号的位数等于$\log(\text{cache}块数)$，适合大容量$\text{cache}$.
+        - 主存地址结构`主存标记，cache块号，块内地址`，块内地址的位数等于$\log N$，$\text{N}$是一个块的大小；$\text{cache}$块号的位数等于$\log(\text{cache}块数)$，适合大容量$\text{cache}$.
     - 全相联映射，允许主存块放入$\text{cache}$中的任意一行，提高了$\text{cache}$的利用率，但是会导致标记项的位数增加，不适合大容量$\text{cache}$，按照内容寻址的存储器是相联存储器.
 
         - 主存结构`主存标记，块内地址`.
@@ -353,7 +353,7 @@ int getSum(int a[]){
 
     - 中断周期响应中断去执行其他的指令.
 
-- 指令的数据流，$\text{A+B->A}$，$\text{A}$通过地址码直接寻址获得，$\text{B}$隐含寻址.
+- 指令的数据流，$\text{A+B \rightarrow A}$，$\text{A}$通过地址码直接寻址获得，$\text{B}$隐含寻址.
 
 ```java
 取指
