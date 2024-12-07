@@ -321,7 +321,7 @@ int getSum(int a[]){
 
     - 偏移寻址
 
-        - 相对寻址，寄存器里的值加上一个偏移量得到真实地址，$\text{(PC)+A \rightarrow PC}$.
+        - 相对寻址，寄存器里的值加上一个偏移量得到真实地址，$(\text{PC})+A \rightarrow \text{PC}$.
 
         - 基址寻址，$\text{EA=(BR)+A}$，$\text{BR}$里的值不变，$\text{A}$可变，利于编制浮动程序和多道程序设计.
 
