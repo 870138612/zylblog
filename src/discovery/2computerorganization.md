@@ -242,7 +242,7 @@ tag:
 
 - $\text{SCAN}$调度，来回扫描，$\text{C-SCAN}$单向扫描，$\text{LOOK}$当前移动方向没有请求则直接反方向扫描，$\text{C-LOOK}$前移动方向没有请求则返回起点继续按当前方向扫描.
 
-#### Cache
+#### cache
 
 - 局部性原理，时间局部性：一个数据在被访问之后的不就会被再次访问，空间局部性：一个数据被访问，则周围的数据在将来也会被访问.
 
@@ -258,7 +258,7 @@ int getSum(int a[]){
 
 - $\text{cache}$和主存的映射
 
-    - 直接映射方式$\text{cache}$块号$ = $主存块号$\ mod \text{ cache}$总行数.
+    - 直接映射方式$\text{cache}$块号$=$主存块号 $\mod \text{cache}$总行数.
 
         - 问题：可能存在其他$\text{cache}$没有使用的情况，部分$\text{cache}$行一直被替换，利用率比较低，实现简单.
         - 主存地址结构`主存标记，cache块号，块内地址`，块内地址的位数等于$\logN$，$\text{N}$是一个块的大小；$\text{cache}$块号的位数等于$\log(\text{cache}块数)$，适合大容量$\text{cache}$.
