@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="更新线性代数">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/note/politics.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/note/politics.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,14 +190,7 @@
       <workItem from="1733583287532" duration="987000" />
       <workItem from="1733584642434" duration="808000" />
       <workItem from="1733661056670" duration="611000" />
-      <workItem from="1733749779562" duration="2101000" />
-    </task>
-    <task id="LOCAL-00099" summary="更新线性代数">
-      <created>1727624733868</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1727624733868</updated>
+      <workItem from="1733749779562" duration="2304000" />
     </task>
     <task id="LOCAL-00100" summary="更新线性代数">
       <created>1727626441066</created>
@@ -536,7 +528,14 @@
       <option name="project" value="LOCAL" />
       <updated>1733661662587</updated>
     </task>
-    <option name="localTasksCounter" value="148" />
+    <task id="LOCAL-00148" summary="更新线性代数">
+      <created>1733752341265</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1733752341265</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

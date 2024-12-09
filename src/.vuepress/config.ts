@@ -1,6 +1,6 @@
 import { defineUserConfig } from "vuepress";
 import theme from "./theme.js";
-import { markdownMathPlugin } from '@vuepress/plugin-markdown-math';
+// import { markdownMathPlugin } from '@vuepress/plugin-markdown-math';
 import { catalogPlugin } from "@vuepress/plugin-catalog";
 export default defineUserConfig({
 
@@ -24,10 +24,10 @@ export default defineUserConfig({
   },
   theme,
   plugins: [
-    markdownMathPlugin({
-      // 选项
-
-    }),
+    // markdownMathPlugin({
+    //   // 选项
+    //
+    // }),
    ]
 
   // Enable it with pwa
