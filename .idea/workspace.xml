@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="更新线性代数">
+    <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="更新政治">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/politics.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/note/politics.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/note/english.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/note/english.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +44,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Administrator/Desktop/docs/src/discovery/2computerorganization&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Administrator/Desktop/docs/src/note&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -57,11 +57,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\docs\src\note" />
       <recent name="C:\Users\Administrator\Desktop\docs\src\discovery\2computerorganization" />
       <recent name="C:\Users\Administrator\Desktop\docs\src\.vuepress\public\home" />
       <recent name="C:\Users\Administrator\Desktop\docs\src\.vuepress\public\discoverybackground" />
       <recent name="C:\Users\Administrator\Desktop\docs\src\.vuepress\public" />
-      <recent name="C:\Users\Administrator\Desktop\docs\src\discovery\1datastrcture" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\Desktop\docs\src\.vuepress" />
@@ -193,27 +193,8 @@
       <workItem from="1733661056670" duration="611000" />
       <workItem from="1733749779562" duration="2304000" />
       <workItem from="1733920866425" duration="1258000" />
-    </task>
-    <task id="LOCAL-00105" summary="更新线性代数">
-      <created>1730302033579</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1730302033579</updated>
-    </task>
-    <task id="LOCAL-00106" summary="更新线性代数">
-      <created>1730381584668</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1730381584669</updated>
-    </task>
-    <task id="LOCAL-00107" summary="更新线性代数">
-      <created>1730382156421</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1730382156421</updated>
+      <workItem from="1733929214977" duration="2209000" />
+      <workItem from="1734010250358" duration="3000000" />
     </task>
     <task id="LOCAL-00108" summary="更新线性代数">
       <created>1730382424223</created>
@@ -537,7 +518,28 @@
       <option name="project" value="LOCAL" />
       <updated>1733920898673</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="更新政治">
+      <created>1733931335954</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1733931335954</updated>
+    </task>
+    <task id="LOCAL-00155" summary="更新政治">
+      <created>1733931380819</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1733931380819</updated>
+    </task>
+    <task id="LOCAL-00156" summary="更新政治">
+      <created>1734012499843</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1734012499843</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -618,6 +620,7 @@
     <MESSAGE value="添加数学笔记" />
     <MESSAGE value="更新数学笔记" />
     <MESSAGE value="更新线性代数" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新线性代数" />
+    <MESSAGE value="更新政治" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新政治" />
   </component>
 </project>
