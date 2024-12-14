@@ -27,7 +27,7 @@ I hope you will find my suggestions conductive.
    Given is a pie chart, clearly illustrating the remarkable contrasts in the **主体** in **地点** during **时间**. Based upon the data, ____ ranks the first, accounting for ____%. Then, the second is ____, with ____ %. Finally come ____ and ____.
    Such statistics, apparently, can be associated with the ____. There exist a train of reasons that contribute to this phenomenon, but some deserve special emphasis. To begin with, ____ was 
    characterized by ____, which enabled ____ to ____. In addition, compared with ____, _____. Thus, ____.
-   Taking all these factors into consideration, we many predict that there is a growing/decreasing tendency for **sb** to do **sth**, which I believe will not change in a short time. Accoringly, ____ are supposed to ____. Besides, it is advisable for authorities to work out comprehensive strategies to ____.
+   Taking all these factors into consideration, we may predict that there is a growing/decreasing tendency for **sb** to do **sth**, which I believe will not change in a short time. Accoringly, ____ are supposed to ____. Besides, it is advisable for authorities to work out comprehensive strategies to ____.
 
 
 #### 图表类型-动态图
