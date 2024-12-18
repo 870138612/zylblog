@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9e49a949-e620-4948-8f6f-bec1c25b03d4" name="更改" comment="更新政治">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/note/english.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/note/english.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/discovery/4network.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/discovery/4network.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,20 +195,10 @@
       <workItem from="1733920866425" duration="1258000" />
       <workItem from="1733929214977" duration="2209000" />
       <workItem from="1734010250358" duration="3000000" />
-    </task>
-    <task id="LOCAL-00108" summary="更新线性代数">
-      <created>1730382424223</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1730382424223</updated>
-    </task>
-    <task id="LOCAL-00109" summary="更新线性代数">
-      <created>1730382433457</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1730382433457</updated>
+      <workItem from="1734163812710" duration="1247000" />
+      <workItem from="1734443149930" duration="198000" />
+      <workItem from="1734530792069" duration="60000" />
+      <workItem from="1734531536030" duration="458000" />
     </task>
     <task id="LOCAL-00110" summary="更新线性代数">
       <created>1730391841444</created>
@@ -539,7 +529,21 @@
       <option name="project" value="LOCAL" />
       <updated>1734012499843</updated>
     </task>
-    <option name="localTasksCounter" value="157" />
+    <task id="LOCAL-00157" summary="更新政治">
+      <created>1734163843108</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1734163843108</updated>
+    </task>
+    <task id="LOCAL-00158" summary="更新政治">
+      <created>1734170647260</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1734170647260</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
