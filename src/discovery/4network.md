@@ -92,7 +92,7 @@ tag:
 - 以太网$\text{MAC}$帧，最短帧长$64\text B$
     目的MAC地址|源MAC地址|类型|数据部分（IP数据报|FCS
    :--:|:-:|:-:|:-:|:-:
-   $6\text B$|$6\text B$|$2\text B$|$46\sim 1500\text B$|4B
+   $6\text B$|$6\text B$|$2\text B$|$46\sim 1500\text B$|$4\text B$
    
 - 无线局域网的$802$帧有两种，其中地址部分有两种
  去往AP |来自AP|地址1|地址2|地址3
