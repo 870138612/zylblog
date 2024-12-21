@@ -1044,13 +1044,11 @@ $$
     - 令$Q=[\eta_1,\eta_2,\cdots,\eta_n]$，则$Q$为正交矩阵，且$Q^{-1}AQ=Q^TAQ=\Lambda$.（正交矩阵有$Q^{-1}=Q^T$）
       
 - 施密特正交化
-        $$
-
-  设\alpha_1,\alpha_2,\alpha_3线性无关但不正交，令\\
+  $$
+  \alpha_1,\alpha_2,\alpha_3线性无关但不正交，令\\
         \beta_1=\alpha_1,\\
         \beta_2=\alpha_2-\cfrac{(\beta_1,\alpha_2)}{(\beta_1,\beta_1)}\beta_1,\\
         \beta_3=\alpha_3-\cfrac{(\beta_1,\alpha_3)}{(\beta_1,\beta_1)}\beta_1-\cfrac{(\beta_2,\alpha_3)}{(\beta_2,\beta_2)}\beta_2.
-
   $$
 
 ## 二次型
@@ -1122,14 +1120,12 @@ $$
     - 令正交矩阵$Q=[\eta_1,\eta_2,\eta_3]$；
       
     - 则$x=Qy$是所求的正交变换，有
-        $$
-
+      $$
       f=x^TAx\xrightarrow{x=Qy}y^T\begin{bmatrix}
         \lambda_1&&\\
         &\lambda_2&\\
         &&\lambda_3
         \end{bmatrix}y=\lambda_1y_1^2+\lambda_2y_2^2+\lambda_3y_3^2.
-
       $$
 
 ### 正定二次型
