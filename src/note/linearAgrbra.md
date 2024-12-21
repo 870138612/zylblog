@@ -1121,7 +1121,7 @@ $$
       
     - 则$x=Qy$是所求的正交变换，有
         $$
-        f=x^TAx\xrightarrow{x=Qy}y^T\begin{bmatrix}
+f=x^TAx\xrightarrow{x=Qy}y^T\begin{bmatrix}
         \lambda_1&&\\
         &\lambda_2&\\
         &&\lambda_3
